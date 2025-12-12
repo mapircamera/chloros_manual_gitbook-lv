@@ -1,6 +1,6 @@
 # Apstrādes pabeigšana
 
-Kad Chloros ir pabeidzis apstrādi, ir pienācis laiks pārskatīt rezultātus, pārbaudīt izvades kvalitāti un sagatavot apstrādātos attēlus izmantošanai darba plūsmā. Šī lapa palīdzēs jums veikt pēdējos soļus un nākamās darbības.
+Kad Chloros ir pabeidzis apstrādi, ir pienācis laiks pārskatīt rezultātus, pārbaudīt izvades kvalitāti un sagatavot apstrādātos attēlus izmantošanai darba procesā. Šī lapa palīdzēs jums veikt pēdējos soļus un nākamās darbības.
 
 ## Apstrādes pabeigšanas indikators
 
@@ -35,12 +35,12 @@ Kad apstrāde ir veiksmīgi pabeigta, redzēsiet vairākus indikatorus:
 3. Priekšskatīšana parādās Windows Explorer priekšskatīšanas logā
 4. Izmantojiet bultu taustiņus, lai pārlūkotu attēlus
 
-### Pārskatīšana ārējās attēlu skatītājprogrammās
+### Pārskatīšana ārējos attēlu skatītājos
 
-**Ieteicamās skatītājprogrammas:**
+**Ieteicamie skatītāji:**
 
 * **QGIS** - bezmaksas GIS programmatūra (vislabāk piemērota ģeogrāfiski atsauktu multispektrālo analīžu veikšanai)
-* **IrfanView** - ātra, vieglā attēlu skatītājprogramma (atbalsta TIFF)
+* **IrfanView** - ātrs, viegls attēlu skatītājs (atbalsta TIFF)
 * **Adobe Photoshop** — profesionāla rediģēšana (atbalsta TIFF)
 * **GIMP** — bezmaksas alternatīva Photoshop
 * **Windows Photos** — pamata apskate (var neatbalstīt 16 bitu TIFF)
@@ -62,7 +62,7 @@ Sīkākas instrukcijas skatiet [Image Viewer](../image-viewer-gui/opening-an-ima
 
 ### Pārbaudiet brīdinājumus vai kļūdas
 
-1. Atveriet cilni **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> cilni
+1. Atveriet **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> cilni
 2. Pārskatiet ziņojumus
 3. Meklējiet dzeltenos brīdinājumus vai sarkanās kļūdas
 4. Pārskatiet visas atzīmētās problēmas
@@ -83,7 +83,7 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 
 ### Problēma: trūkstoši izvades faili
 
-**Iespējamie cēloņi:**
+**Iespējamie iemesli:**
 
 * Faili neatbilst apstrādes kritērijiem
 * Tikai mērķa attēli (izslēgti no eksporta)
@@ -92,18 +92,18 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 
 **Risinājumi:**
 
-1. Pārbaudiet debug log failu, vai tajā nav izlaides/kļūdu ziņojumi
-2. Pārbaudiet, vai diska vieta bija pietiekama
+1. Pārbaudiet Debug Log, vai nav izlaides/kļūdu ziņojumu
+2. Pārbaudiet, vai diska vietas ir pietiekami
 3. Saskaitiet failus: tiem jāatbilst (sākotnējais skaits - mērķa skaits) × (indeksi + 1)
-4. Atkārtoti importējiet un apstrādājiet visus trūkstošos failus
+4. Atkārtoti importējiet un apstrādājiet trūkstošos failus
 
-### Problēma: tumšas vai gaišas malas (joprojām redzama vinjetēšana)
+### Problēma: tumšas vai gaišas malas (vignetting joprojām redzams)
 
 **Iespējamie cēloņi:**
 
-* Vinjetēšanas korekcija ir atspējota
+* Vignette korekcija ir atspējota
 * Kamera/objektīvs nav Chloros profilu datu bāzē
-* Ekstrēma vinjetēšana, kas pārsniedz korekcijas iespējas
+* Ekstrēms vignetting, kas pārsniedz korekcijas iespējas
 
 **Risinājumi:**
 
@@ -111,7 +111,7 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 2. Pārbaudiet, vai kameras modelis ir pareizi atpazīts
 3. Ja vinjetēšana joprojām ir redzama, sazinieties ar MAPIR atbalsta dienestu
 
-### Problēma: nepareizas krāsas vai vērtības
+### Problēma: Nepareizas krāsas vai vērtības
 
 **Iespējamie cēloņi:**
 
@@ -131,17 +131,17 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 
 **Paredzamie NDVI diapazoni:**
 
-* **Ūdens, akmeņi, augsne**: -0,1 līdz 0,2
-* **Retā/neveselīga veģetācija**: 0,2 līdz 0,4
-* **Vidēja veģetācija**: 0,4 līdz 0,6
-* **Veselīga, blīva veģetācija**: 0,6 līdz 0,9
+* **Ūdens, akmeņi, augsne**: no -0,1 līdz 0,2
+* **Retā/neveselīga veģetācija**: no 0,2 līdz 0,4
+* **Vidēja veģetācija**: no 0,4 līdz 0,6
+* **Veselīga, blīva veģetācija**: no 0,6 līdz 0,9
 
 **Ja vērtības ir ārpus šiem diapazoniem:**
 
 1. Pārbaudiet, vai ir veikta atstarojuma kalibrēšana.
 2. Pārbaudiet, vai ir iekļauts gaismas sensora žurnāls.
 3. Pārbaudiet, vai ir atklāti kalibrēšanas mērķi.
-4. Pārbaudiet, vai ir atklāts pareizais kameras modelis.
+4. Pārliecinieties, ka ir atklāts pareizais kameras modelis.
 5. Pārbaudiet mērķa attēla uzņemšanas laiku un apstākļus.
 
 ***
@@ -159,7 +159,7 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
    * WebODM
 2. **Saglabājiet EXIF metadatus**: pārliecinieties, ka GPS dati ir saglabāti ģeogrāfiskai marķēšanai
 3. **Kalibrētas darba plūsmas**: izmantojiet atstarojuma attēlus zinātniskai precizitātei
-4. **Apstrādājiet indeksa mozaīkas**: izveidojiet NDVI ortomozaīkas no atsevišķiem indeksa attēliem
+4. **Apstrādājiet indeksa mozaīkas**: Izveidojiet NDVI ortomosaikas no atsevišķiem indeksa attēliem
 5. **Eksportējiet ģeoreferencētos GeoTIFF**: izmantošanai GIS lietojumprogrammās
 
 ### GIS analīzei
@@ -172,7 +172,7 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 4. **Rastra kalkulators**: apvienojiet joslas pielāgotai analīzei
 5. **Eksportējiet**: izveidojiet klasifikācijas kartes, izmaiņu noteikšanu, veģetācijas veselības kartes
 
-### Tiešai analīzei/ziņojumu sagatavošanai
+### Tiešai analīzei/ziņošanai
 
 **Ieteicamais darba process:**
 
@@ -183,9 +183,9 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 
 ***
 
-## Arhivēšana un dublēšana
+## Arhivēšana un dublējums
 
-### Ieteicamā dublēšanas stratēģija
+### Ieteicamā dublējuma stratēģija
 
 **Ko saglabāt:**
 
@@ -203,16 +203,16 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 
 ***
 
-## Nākamās apstrādes kārtas
+## Nākamās apstrādes cikli
 
 ### Projekta iestatījumu atkārtota izmantošana
 
 Ja nākotnē apstrādāsiet līdzīgus datu kopumus:
 
-1. **Saglabājiet projekta veidni** (ja vēl neesat to izdarījuši)
+1. **Saglabājiet projekta veidni** (ja tas vēl nav izdarīts)
 2. **Izveidojiet jaunu projektu**, izmantojot saglabāto veidni
 3. **Importējiet jaunus attēlus**
-4. **Apstrādājiet** ar identiskām iestatījumiem, lai nodrošinātu konsekvenci
+4. **Apstrādājiet** ar identiskiem iestatījumiem, lai nodrošinātu konsekvenci
 
 ### Vairāku sesiju partijas apstrāde
 
@@ -226,7 +226,7 @@ Vairākām sesijām/datu kopām:
 
 **2. variants: Chloros CLI (tikai Chloros+)**
 
-* Automatizējiet partiju apstrādi
+* Automatizējiet partijas apstrādi
 * Apstrādājiet vairākas mapes ar skriptiem
 * Skatīt [CLI dokumentāciju](../CLI.md)
 
@@ -238,9 +238,9 @@ Vairākām sesijām/datu kopām:
 
 ***
 
-## Problēmu novēršana pēc apstrādes
+## Pēc apstrādes problēmu novēršana
 
-### Atkārtota apstrāde ar atšķirīgiem iestatījumiem
+### Atkārtota apstrāde ar citām iestatījumiem
 
 Ja rezultāti nav apmierinoši:
 
@@ -277,8 +277,8 @@ Tagad esat pabeidzis pilnu Chloros apstrādes darba plūsmu:
 2. ✅ **Pievienoti faili** - Skatīt [Failu pievienošana](adding-files-to-a-project.md)
 3. ✅ **Pielāgotas iestatījumi** - Skatīt [Projekta iestatījumu pielāgošana](adjusting-project-settings.md)
 4. ✅ **Atzīmēti mērķi** - Skatīt [Mērķa attēlu izvēle](choosing-target-images.md)
-5. ✅ **Sākt apstrādi** - Skatīt [Apstrādes sākšana](starting-the-processing.md)
-6. ✅ **Uzraudzīts progress** - Skatīt [Apstrādes uzraudzība](monitoring-the-processing.md)
+5. ✅ **Sākta apstrāde** - Skatīt [Apstrādes sākšana](starting-the-processing.md)
+6. ✅ **Uzraudzīts process** - Skatīt [Apstrādes uzraudzība](monitoring-the-processing.md)
 7. ✅ **Pārskatīti rezultāti** - Šī lapa
 
 **Jūsu kalibrētie, atstarojuma koriģētie multispektrālie attēli ir gatavi analīzei!**
@@ -290,12 +290,12 @@ Tagad esat pabeidzis pilnu Chloros apstrādes darba plūsmu:
 ### Papildu funkcijas
 
 * [**Attēlu skatītājs**](../image-viewer-gui/opening-an-image-full-screen.md) - Interaktīva vizualizācija un analīze
-* [**Indeksa/LUT smilšu kaste**](../image-viewer-gui/index-lut-sandbox.md) - Pielāgota indeksa testēšana
-* [**Daudzspektrālo indeksu formulas**](../project-settings/multispectral-index-formulas.md) - Pilnīga indeksa atsauce
+* [**Indekss/LUT smilšu kaste**](../image-viewer-gui/index-lut-sandbox.md) - Pielāgota indeksa testēšana
+* [**Daudzspektrālo indeksu formulas**](../project-settings/multispectral-index-formulas.md) - Pilnīga indeksu atsauce
 
 ### Automatizācija un integrācija
 
-* [**CLI dokumentācija**](../CLI.md) – komandrindas partiju apstrāde
+* [**CLI dokumentācija**](../CLI.md) - Komandrindas partiju apstrāde
 * [**Python SDK**](../api-python-sdk.md) – Programmatiska automatizācija
 * [**Chloros+ funkcijas**](../#chloros) – Uzlabotas apstrādes iespējas
 

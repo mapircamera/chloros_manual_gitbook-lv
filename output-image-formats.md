@@ -20,5 +20,5 @@ metaLinks:
 
 ### **PNG (8 bitu)**
 
-8 bitu (pikseļu ciparu skaitlis 0 - 255) PNG (.png) formāta izvade. Zaudējumu nesaturoša kompresija, kas piemērota tīmekļa skatīšanai un vizualizācijai.
+8 bitu (pikseļu ciparu skaitlis 0–255) PNG (.png) formāta izvade. Zaudējumu nesaturoša kompresija, kas piemērota tīmekļa skatīšanai un vizualizācijai.
 

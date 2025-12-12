@@ -8,7 +8,7 @@ No kreisās puses uz labo pusi augšējā galvenajā izvēlnē ir:
 
 ### <img src=".gitbook/assets/image (1) (1).png" alt="" data-size="line"> Galvenā izvēlne
 
-No galvenās izvēlnes varat sākt jaunu projektu, atvērt esošu projektu vai atvērt projekta mapes.
+No galvenās izvēlnes varat sākt jaunu projektu, atvērt esošu projektu vai atvērt projekta mapi.
 
 ### <img src=".gitbook/assets/image (2).png" alt="" data-size="line"> Atskaņot/Sākt pogu
 
@@ -18,7 +18,7 @@ Kad tā ir ieslēgta, sākt apstrādes poga sāk attēla apstrādes procesu.
 
 Bezmaksas Chloros režīmā, kas apstrādā visus failus secīgi, progresa josla parāda 2 posmus: mērķa noteikšana un apstrāde.
 
-Maksas Chloros+ licencētajā režīmā, kas apstrādā visus failus vienlaikus, progresa josla parāda 4 posmus: noteikšana, analīze, kalibrēšana, eksportēšana. Ja uzvedat peles kursoru uz Chloros+ progresa joslas, atvērsies paplašināta 4 progresa joslas paneļa, lai jūs varētu sekot līdzi. Noklikšķinot uz augšējās progresa joslas, atvērsies nolaižamais panelis, noklikšķinot atkārtoti, tas atkal tiks atvērts.
+Maksas Chloros+ licencētajā režīmā, kas apstrādā visus failus vienlaicīgi, progresa josla parāda 4 posmus: noteikšana, analīze, kalibrēšana, eksportēšana. Ja uzvedat peles kursoru uz Chloros+ progresa joslas, atvērsies paplašināta 4 progresa joslas paneļa, lai jūs varētu sekot līdzi. Noklikšķinot uz augšējās progresa joslas, atvērsies nolaižamais panelis, noklikšķinot atkārtoti, tas atkal tiks atvērts.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 
@@ -32,7 +32,7 @@ Sadaļā „Projekta iestatījumi” varat pielāgot projekta vispārējos un ap
 
 #### <img src=".gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> Failu pārlūks
 
-Pievienojiet failus/mapes un noņemiet failus no projekta. Dublikāti tiek ignorēti. Atzīmējiet mērķa attēla izvēles rūtiņu, un apstrāde skatīsies tikai atzīmētos attēlus, kas ievērojami paātrinās apstrādes laiku.
+Pievienojiet failus/mapes un noņemiet failus no projekta. Dublikāti tiek ignorēti. Atzīmējiet mērķa attēla kolonnas lodziņu, un apstrāde skatīsies tikai atzīmētos attēlus, kas ievērojami paātrinās apstrādes laiku.
 
 #### <img src=".gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> [Attēlu skatītājs](image-viewer-gui/opening-an-image-full-screen.md)
 

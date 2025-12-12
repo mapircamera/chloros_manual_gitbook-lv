@@ -16,7 +16,7 @@ Lejupielādējiet jaunāko Chloros versiju Windows, lai sāktu darbu ar multispe
 | **Procesors**        | Intel Core i5 vai līdzvērtīgs     | Intel Core i7 vai labāks         |
 | **Atmiņa (RAM)**     | 8 GB                             | 16 GB vai vairāk                    |
 | **Grafikas karte**    | DirectX 11 saderīga           | NVIDIA GPU ar 4 GB+ VRAM       |
-| **Uzglabāšana**          | 2 GB brīvas vietas                  | SSD ar 10 GB+ brīvas vietas       |
+| **Atmiņas vieta**          | 2 GB brīvas vietas                  | SSD ar 10 GB+ brīvas vietas       |
 | **Ekrāns**          | 1920x1080                       | 2560x1440 vai augstāka izšķirtspēja             |
 | **Internets**         | Nepieciešams licences aktivizēšanai | Nepieciešams licences aktivizēšanai |
 
@@ -82,7 +82,7 @@ Chloros instalācijā ir iekļauts:
 
 ***
 
-## Pāreja uz Chloros+
+## Pāriet uz Chloros+
 
 Atbloķējiet papildu funkcijas ar Chloros+ abonementu:
 
@@ -90,7 +90,7 @@ Atbloķējiet papildu funkcijas ar Chloros+ abonementu:
 * ⚡ **GPU (CUDA) paātrinājums** - izmantojiet NVIDIA GPU jaudu
 * 💻 **CLI piekļuve** - automatizējiet ar komandrindas rīkiem
 * 🐍 **Python SDK** - Programmatiska API piekļuve
-* 📱 **Vairākas ierīces** - Lietošana 2-10+ ierīcēs (atkarībā no plāna)
+* 📱 **Vairākas ierīces** - Lietojiet 2-10+ ierīcēs (atkarībā no plāna)
 * 🧮 **Pielāgotas formulas** - Izveidojiet pielāgotus multispektrālos indeksus
 
 <p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Skatīt Chloros+ plānus un cenas</a></p>***
@@ -99,10 +99,10 @@ Atbloķējiet papildu funkcijas ar Chloros+ abonementu:
 
 ### Problēmu novēršana
 
-**Instalēšana neizdodas ar kļūdas ziņojumu:**
+**Instalēšana neizdodas, parādoties kļūdas ziņojumam:**
 
 * Pārliecinieties, ka jums ir administratora tiesības
-* Pagaidām atspējojiet antivīrusu programmatūru
+* Uz laiku atspējojiet antivīrusu programmatūru
 * Pārbaudiet, vai atbilstat minimālajām sistēmas prasībām
 
 **Lietojumprogramma nepalaižas:**
@@ -116,7 +116,7 @@ Atbloķējiet papildu funkcijas ar Chloros+ abonementu:
 **Licences aktivizēšanas problēmas:**
 
 * Pārbaudiet, vai interneta savienojums ir aktīvs
-* Pārbaudiet autentifikācijas datus [https://cloud.mapir.camera](https://cloud.mapir.camera)
+* Pārbaudiet savas paroles [https://cloud.mapir.camera](https://cloud.mapir.camera)
 * Pārbaudiet, vai ugunsmūris neblokē Chloros
 * Sīkākas instrukcijas skatiet [Chloros+ Pieslēgšanās](chloros+-login.md)
 

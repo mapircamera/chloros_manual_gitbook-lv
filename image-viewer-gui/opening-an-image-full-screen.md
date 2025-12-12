@@ -18,12 +18,12 @@ Visbiežāk izmantotais veids, kā atvērt attēlu attēlu skatītājā:
 Kad attēls ir ielādēts priekšskatīšanas zonā:
 
 1. Noklikšķiniet uz **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> ikonu kreisajā sānjoslā
-2. Atvērsies attēlu skatītāja cilne, kurā izvēlētais attēls tiks parādīts pilna ekrāna režīmā
+2. Atvērsies attēlu skatītāja cilne, kurā izvēlētais attēls tiks parādīts pilnā ekrānā
 3. Kreisajā sānjoslā kļūs pieejami papildu skatīšanas un analīzes rīki
 
 ***
 
-## Attēlu skatītāja interfeisa pārskats
+## Attēlu skatītāja saskarnes pārskats
 
 ### Galvenā attēla skatīšanas zona
 
@@ -87,13 +87,13 @@ Kad ir palielināts vairāk nekā ekrāna izmērs:
 
 ### Pikseļu vērtību skatīšana kursora vietā
 
-Kad pārvietojat peles kursoru pār attēlu, pikseļu vērtības tiek parādītas reāllaikā:
+Kad pārvietojat peles kursoru uz attēla, pikseļu vērtības tiek parādītas reāllaikā:
 
 **Vērtību parādīšanas vieta:**
 
 * **Peldošs skaitlis un sarkana līnija labās puses indeksa LUT gradienta leģendā**
-* **Kad tiek palielināts attēls, peldoša vērtība pie kursora un izceltā pikseļa**
-* Parāda vērtības pikselim **zem kursora vai izceltam**
+* **Kad tiek palielināts attēls, peldoša vērtība pie kursora un izcelta pikseļa**
+* Parāda vērtības pikselim **zem kursora vai izcelta**
 * Atjaunina, kad pārvietojat peli
 
 ***
@@ -112,7 +112,7 @@ Kad pārvietojat peles kursoru pār attēlu, pikseļu vērtības tiek parādīta
 
 **Pēc apstrādes:**
 
-* Korekcija ar vinjeti
+* Korekcija vinjetēšanai
 * Kalibrēta atstarojamība
 * Daudzjoslu TIFF (Red, Green, NIR utt.)
 * Zinātniskie dati gatavi analīzei
@@ -132,7 +132,7 @@ Kad pārvietojat peles kursoru pār attēlu, pikseļu vērtības tiek parādīta
 
 Piemērojiet multispektrālos indeksus un krāsu meklēšanas tabulas:
 
-1. Atrodiet **Index/LUT Sandbox** **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sānu joslā
+1. Atrodiet **Indeksa/LUT smilšu kasti** **attēlu skatītājā** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sānu joslā
 2. Izvēlieties veģetācijas indeksu (NDVI, NDRE utt.)
 3. Izvēlieties multispektrālo formulu vai izveidojiet savu pielāgotu formulu (tikai Chloros+)
 4. Lai vizualizētu, piemērojiet krāsu LUT gradientu
@@ -178,7 +178,7 @@ Pārbaudiet, vai indeksi ir aprēķināti pareizi:
 1. Atveriet NDVI vai citu indeksa attēlu.
 2. Pārbaudiet veģetācijas platības:
    * **NDVI**: Veseliem augiem jābūt 0,4–0,9.
-   * **NDRE**: augstākas vērtības enerģiskai augšanai
+   * **NDRE**: augstākas vērtības spēcīgai augšanai
    * **GNDVI**: līdzīgs NDVI, bet jutīgs pret hlorofilu
 3. Pārbaudiet neaugu zonu:
    * **Augsne**: tuvu 0 vai nedaudz negatīva
@@ -186,7 +186,7 @@ Pārbaudiet, vai indeksi ir aprēķināti pareizi:
 
 ***
 
-## Problēmu novēršana Attēlu skatīšanas problēmas
+## Problēmu novēršana attēlu skatīšanā
 
 ### Attēls nevar atvērties
 

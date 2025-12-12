@@ -6,7 +6,7 @@
 
 * 🚀 **Automatizācija** - vairāku datu kopu skriptu partiju apstrāde
 * 🔗 **Integrācija** - iekļaušana esošajos darba plūsmās un cauruļvados
-* 💻 **Darbība bez galvas** - darbināms bez GUI
+* 💻 **Darbība bez galvas** - darbināma bez GUI
 * 🌍 **Daudzvalodība** - atbalsts 38 valodām
 * ⚡ **Paralēla apstrāde** — dinamiski pielāgojas jūsu CPU (līdz 16 paralēliem darbiniekiem)
 
@@ -55,7 +55,7 @@ chloros-cli process "C:\Images\Dataset001"
 
 ### Pamata lietošana
 
-Apstrādājiet mapi ar noklusējuma iestatījumiem:
+Apstrādājiet mapes ar noklusējuma iestatījumiem:
 
 ```powershell
 chloros-cli process "C:\Images\Dataset001"
@@ -95,11 +95,11 @@ chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
 
 | Opcija                | Tips    | Noklusējums        | Apraksts                                                                            |
 | --------------------- | ------- | -------------- | -------------------------------------------------------------------------------------- |
-| `<input-folder>`      | Celiņš    | _Nepieciešams_     | Mapīte, kas satur RAW/JPG multispektrālos attēlus                                         |
+| `<input-folder>`      | Celiņš    | _Obligāts_     | Mapīte, kas satur RAW/JPG multispektrālos attēlus                                         |
 | `-o, --output`        | Celiņš    | Tāds pats kā ievade  | Izvades mapīte apstrādātajiem attēliem                                                     |
 | `-n, --project-name`  | String  | Automātiski ģenerēts | Pielāgots projekta nosaukums                                                                    |
 | `--vignette`          | Karodziņš    | Iespējots        | Iespējot vinjetes korekciju                                                             |
-| `--no-vignette`       | Karodziņš    | -              | Atspējot vinjetes korekciju                                                            |
+| `--no-vignette`       | Karodziņš    | -              | Atcelt vinjetes korekciju                                                            |
 | `--reflectance`       | Karodziņš    | Iespējots        | Iespējot atstarojuma kalibrēšanu                                                         |
 | `--no-reflectance`    | Karodziņš    | -              | Atspējot atstarojuma kalibrēšanu                                                        |
 | `--ppk`               | Karodziņš    | Atvienots       | Piemērot PPK korekcijas no .daq gaismas sensora datiem                                      |
@@ -295,7 +295,7 @@ chloros-cli language ja
 
 ***
 
-### `set-project-folder` - Iestatīt noklusējuma projekta mapes atrašanās vietu
+### `set-project-folder` - Iestatīt noklusējuma projekta mapi
 
 Mainīt noklusējuma projekta mapes atrašanās vietu (kopīga ar GUI).
 
@@ -315,7 +315,7 @@ chloros-cli set-project-folder "C:\Projects\2025"
 
 ### `get-project-folder` - Rādīt projekta mapes atrašanās vietu
 
-Parāda pašreizējo noklusējuma projekta mapes atrašanās vietu.
+Rāda pašreizējo noklusējuma projekta mapes atrašanās vietu.
 
 **Sintakse:**
 
@@ -357,7 +357,7 @@ chloros-cli reset-project-folder
 | --------------- | ------- | ------------- | ------------------------------------------------ |
 | `--backend-exe` | Celiņš    | Automātiski noteikts | Celiņš uz backend izpildāmo failu                       |
 | `--port`        | Vesels skaitlis | 5000          | Backend API porta numurs                          |
-| `--restart`     | Karodziņš    | -             | Piespiedu atkārtota backend palaišana (izbeidz esošos procesus) |
+| `--restart`     | Karodziņš    | -             | Piespiedu atkārtota aizmugures programmas palaišana (izbeidz esošos procesus) |
 | `--version`     | Karodziņš    | -             | Parāda versijas informāciju un iziet                |
 | `--help`        | Karodziņš    | -             | Parāda palīdzības informāciju un iziet                   |
 
@@ -412,16 +412,16 @@ CLI izmanto **Augsta kvalitāte (ātrāka)** kā noklusējuma un ieteicamo debay
 **Ieteikums**: vienmēr ieslēdziet vinjetes korekciju, lai nodrošinātu vienādu spilgtumu visā kadrā.
 {% endhint %}
 
-### Reflektances kalibrēšana
+### Atstarošanas kalibrēšana
 
-Pārvērš neapstrādātas sensora vērtības standartizētās reflektances procentos, izmantojot kalibrēšanas paneļus.
+Pārvērš neapstrādātos sensora vērtības standartizētos atstarošanas procentos, izmantojot kalibrēšanas paneļus.
 
 * **Iespējots pēc noklusējuma** — nepieciešams veģetācijas analīzei.
 * Nepieciešami kalibrēšanas mērķa paneļi attēlos.
 * Lai atspējotu, izmantojiet `--no-reflectance`.
 
 {% hint style=&quot;info&quot; %}
-**Prasības**: Lai nodrošinātu precīzu atstarojuma pārveidošanu, pārliecinieties, ka kalibrēšanas paneļi attēlos ir pareizi eksponēti un redzami.
+**Prasības**: Lai nodrošinātu precīzu atstarojuma pārveidošanu, pārliecinieties, ka kalibrēšanas paneļi ir pareizi eksponēti un redzami attēlos.
 {% endhint %}
 
 ### PPK korekcijas
@@ -905,7 +905,7 @@ chloros-cli process "C:\Datasets\Field_A" ^
 
 ***
 
-### 5. piemērs: Pielāgota izvades atrašanās vieta
+### 5. piemērs: Pielāgota rezultātu atrašanās vieta
 
 Apstrādā uz citu disku ar konkrētu formātu:
 

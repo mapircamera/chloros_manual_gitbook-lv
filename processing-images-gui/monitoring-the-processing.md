@@ -35,7 +35,7 @@ Lietotājiem ar Chloros+ licenci:
 **Interaktīvās funkcijas:**
 
 * **Pielieciet peles kursoru** uz progresa joslas, lai redzētu paplašinātu 4 posmu paneli
-* **Noklikšķiniet** uz progresa joslas, lai fiksētu/piespraustu paplašināto paneli
+* **Noklikšķiniet** uz progresa joslas, lai iesaldētu/fiksētu paplašināto paneli
 * **Noklikšķiniet atkārtoti**, lai atbloķētu un automātiski paslēptu, novirzot peli
 * Katrs posms parāda individuālo progresu (0–100 %)
 
@@ -98,7 +98,7 @@ Lietotājiem ar Chloros+ licenci:
 * **Vignette korekcija**: objektīva malu tumšuma noņemšana
 * **Atstarošanas kalibrēšana**: normalizēšana ar mērķa vērtībām
 * **Indeksa aprēķināšana**: daudzspektrālo indeksu aprēķināšana
-* Katra attēla apstrāde, izmantojot pilnu procesa ķēdi
+* Katra attēla apstrāde visā procesā
 
 **Ilgums:** lielākā daļa no kopējā apstrādes laika (60–80 %)
 
@@ -120,14 +120,14 @@ Lietotājiem ar Chloros+ licenci:
 * Pārbaudiet Debug Log, lai redzētu ziņojumus par katra attēla apstrādes pabeigšanu
 * Brīdinājumi par attēla kvalitāti vai kalibrēšanas problēmām
 
-### 4. posms: eksportēšana
+### 4. posms: Eksportēšana
 
 **Kas notiek:**
 
 * Kalibrētu attēlu ierakstīšana diskā izvēlētajā formātā
 * Daudzspektrālo indeksu attēlu eksportēšana ar LUT krāsām
 * Kameras modeļu apakšmapju izveide
-* Orijinālo failu nosaukumu saglabāšana ar atbilstošiem paplašinājumiem
+* Orijinālo failu nosaukumu saglabāšana ar atbilstošiem papildu nosaukumiem
 
 **Ilgums:** 10–20 % no kopējā apstrādes laika
 
@@ -197,9 +197,9 @@ Kritiskas problēmas, kas var izraisīt apstrādes kļūdu:
 
 | Ziņojums                          | Nozīme                                | Nepieciešamā darbība                                         |
 | -------------------------------- | -------------------------------------- | ----------------------------------------------------- |
-| &quot;Mērķis atrasts \[faila nosaukums]&quot; | Kalibrēšanas mērķis veiksmīgi atrasts  | Nav nepieciešama rīcība — normāli                                         |
-| &quot;Apstrādā attēlu X no Y&quot;        | Pašreizējā progresa atjauninājums                | Nav nepieciešama rīcība — normāli                                         |
-| &quot;Mērķi nav atrasti&quot;               | Kalibrēšanas mērķi nav atrasti        | Atzīmējiet mērķa attēlus vai atspējojiet atstarošanas kalibrēšanu |
+| &quot;Mērķis atrasts \[faila nosaukums]&quot; | Kalibrēšanas mērķis veiksmīgi atrasts  | Nav - normāli                                         |
+| &quot;Apstrādā attēlu X no Y&quot;        | Pašreizējā progresa atjauninājums                | Nav - normāli                                         |
+| &quot;Mērķi nav atrasti&quot;               | Kalibrēšanas mērķi nav atrasti        | Atzīmējiet mērķa attēlus vai atspējojiet atstarojuma kalibrēšanu |
 | &quot;Nepietiekama diska vieta&quot;        | Nepietiekama atmiņa izvadei          | Atbrīvojiet diska vietu                                    |
 | &quot;Izlaiž bojātu failu&quot;        | Attēla fails ir bojāts                  | No jauna kopējiet failu no SD kartes                             |
 | &quot;PPK dati piemēroti&quot;               | GPS korekcijas no .daq faila piemērotas | Nav - normāli                                         |
@@ -221,13 +221,13 @@ Lai kopētu žurnālu problēmu novēršanai vai atbalstam:
 
 **Brīvais režīms:**
 
-* 1 CPU kodols pie \~100%
+* 1 CPU kodols ~100%
 * Pārējie kodoli ir neaktīvi vai pieejami
 * Sistēma paliek atsaucīga
 
 **Chloros+ Paralēlais režīms:**
 
-* Vairāki kodoli pie 80-100% (līdz 16 kodoliem)
+* Vairāki kodoli 80-100% (līdz 16 kodoliem)
 * Augsta kopējā CPU izmantošana
 * Sistēma var šķist mazāk reaģējoša
 
@@ -270,15 +270,15 @@ Kad ir ieslēgta GPU paātrināšana:
 
 **Ko gaidīt:**
 
-* Augsta diska lasīšana analizēšanas posmā
-* Augsta diska rakstīšana eksportēšanas posmā
+* Augsta diska lasīšanas ātruma fāze analīzes posmā
+* Augsta diska rakstīšanas ātruma fāze eksportēšanas posmā
 * SSD ir ievērojami ātrāks nekā HDD
 
 **Veiktspējas padoms:**
 
-* Ja iespējams, izmantojiet SSD projekta mapē
-* Izvairieties no tīkla diskiem lieliem datu kopumiem
-* Pārliecinieties, ka disks nav tuvu kapacitātes robežai (ietekmē rakstīšanas ātrumu)
+* Ja iespējams, izmantojiet SSD projekta mapes glabāšanai
+* Izvairieties no tīkla diskiem lielu datu kopu glabāšanai
+* Pārliecinieties, ka disks nav gandrīz pilns (tas ietekmē rakstīšanas ātrumu)
 
 ***
 
@@ -295,7 +295,7 @@ Kad ir ieslēgta GPU paātrināšana:
 **Bieži parādās kļūdu ziņojumi:**
 
 * Pārtrauciet apstrādi un pārbaudiet kļūdas
-* Bieži sastopami iemesli: diska vieta, bojāti faili, atmiņas problēmas
+* Bieži sastopamie iemesli: diska vieta, bojāti faili, atmiņas problēmas
 * Skatīt sadaļu „Problēmu novēršana” zemāk
 
 **Sistēma nereagē:**
@@ -317,7 +317,7 @@ Pārtrauciet apstrādi, ja redzat:
 **Kā pārtraukt:**
 
 1. Noklikšķiniet uz **poga &quot;Pārtraukt/Atcelt&quot;** (aizstāj pogu &quot;Sākt&quot;)
-2. Apstrāde tiek apturēta, progress tiek zaudēts
+2. Apstrāde tiek pārtraukta, progress tiek zaudēts
 3. Novēršiet problēmas un sāciet no sākuma
 
 ***
@@ -362,7 +362,7 @@ Pārtrauciet apstrādi, ja redzat:
 
 **Risinājumi:**
 
-1. Nodrošiniet pietiekamu ventilāciju.
+1. Nodrošiniet atbilstošu ventilāciju.
 2. Notīriet putekļus no datora ventilācijas atverēm.
 3. Samaziniet apstrādes slodzi (izmantojiet bezmaksas režīmu, nevis Chloros+).
 4. Veiciet apstrādi vēsākā dienas laikā.
@@ -375,7 +375,7 @@ Kad apstrāde ir pabeigta:
 
 * Progresa josla sasniedz 100 %
 * Debug Log parādās ziņojums **&quot;Processing Complete&quot;** (Apstrāde pabeigta)
-* Sākuma pogas atkal kļūst pieejamas
+* Sākšanas poga atkal kļūst pieejama
 * Visi izvades faili atrodas kameras modeļa apakšmapē
 
 ***

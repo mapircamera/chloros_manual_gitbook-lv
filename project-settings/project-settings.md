@@ -14,7 +14,7 @@ Lai piekļūtu projekta iestatījumiem:
 
 ## Mērķa noteikšana
 
-Šie iestatījumi kontrolē, kā Chloros nosaka un apstrādā kalibrēšanas mērķus jūsu attēlos.
+Šie iestatījumi kontrolē, kā Chloros atklāj un apstrādā kalibrēšanas mērķus jūsu attēlos.
 
 ### Minimālā kalibrēšanas parauga platība (px)
 
@@ -23,18 +23,18 @@ Lai piekļūtu projekta iestatījumiem:
 * **Noklusējums**: 25 pikseļi
 * **Apraksts**: nosaka minimālo platību (pikseļos), kas nepieciešama, lai atklātais reģions tiktu uzskatīts par derīgu kalibrēšanas mērķa paraugu. Mazākas vērtības atklās mazākus mērķus, bet var palielināt kļūdainu pozitīvo rezultātu skaitu. Lielākas vērtības prasa lielākus, skaidrākus mērķa reģionus atklāšanai.
 * **Kad pielāgot**:
-  * Palieliniet, ja saņemat kļūdainus atklājumus uz maziem attēla artefaktiem.
+  * Palieliniet, ja saņemat kļūdainus atklājumus uz maziem attēlu artefaktiem.
   * Samaziniet, ja jūsu kalibrēšanas mērķi attēlos izskatās mazi un netiek atklāti.
 
-### Minimālā mērķa klasterizācija (0–100)
+### Minimālā mērķu grupēšana (0–100)
 
 * **Tips**: skaitlis
 * **Diapazons**: no 0 līdz 100
 * **Noklusējums**: 60
-* **Apraksts**: Kontrolē klasterizācijas slieksni, lai grupētu līdzīgas krāsas reģionus, atklājot kalibrēšanas mērķus. Augstākas vērtības prasa, lai līdzīgākas krāsas tiktu grupētas kopā, rezultātā iegūstot konservatīvāku mērķa atklāšanu. Zemākas vērtības ļauj lielāku krāsu variāciju mērķa grupā.
+* **Apraksts**: kontrolē klasterizācijas slieksni, lai grupētu līdzīgas krāsas reģionus, atklājot kalibrēšanas mērķus. Augstākas vērtības prasa, lai tiktu grupētas vairāk līdzīgas krāsas, kas rezultātā rada konservatīvāku mērķu atklāšanu. Zemākas vērtības ļauj lielāku krāsu variāciju mērķa grupā.
 * **Kad pielāgot**:
-  * Palieliniet, ja kalibrēšanas mērķi tiek sadalīti vairākās atklāšanās.
-  * Samaziniet, ja kalibrēšanas mērķi ar krāsu variāciju netiek pilnībā atklāti.
+  * Palieliniet, ja kalibrēšanas mērķi tiek sadalīti vairākās atklāšanās
+  * Samaziniet, ja kalibrēšanas mērķi ar krāsu variāciju netiek pilnībā atklāti
 
 ***
 
@@ -46,23 +46,23 @@ Lai piekļūtu projekta iestatījumiem:
 
 * **Tips**: Izvēles rūtiņa
 * **Noklusējums**: Iespējots (atzīmēts)
-* **Apraksts**: Piemēro vignette korekciju, lai kompensētu objektīva tumšāko zonu attēlu malās. Vignette ir izplatīts optisks fenomens, kad attēla stūri un malas izskatās tumšākas nekā centrs objektīva īpašību dēļ.
-* **Kad atspējot**: Atspējot tikai tad, ja jūsu kameras/objektīva kombinācija jau ir piemērojusi vignette korekciju vai ja vēlaties manuāli koriģēt vignette pēcapstrādē.
+* **Apraksts**: Piemēro vinjetes korekciju, lai kompensētu objektīva tumšāko zonu attēlu malās. Vinjetēšana ir izplatīta optiska parādība, kad attēla stūri un malas izskatās tumšākas nekā centrs objektīva īpašību dēļ.
+* **Kad atspējot**: Atspējot tikai tad, ja jūsu kameras/objektīva kombinācija jau ir piemērojusi vinjetes korekciju vai ja vēlaties manuāli koriģēt vinjetēšanu pēcapstrādē.
 
-### Reflektances kalibrēšana / balansa balts
+### Atstarošanas kalibrēšana / balansa iestatīšana
 
 * **Tips**: Izvēles rūtiņa
-* **Noklusējums**: Iespējots (atzīmēts)
-* **Apraksts**: Iespējo automātisko atstarojuma kalibrēšanu, izmantojot attēlos atklātos kalibrēšanas mērķus. Tas normalizē atstarojuma vērtības visā datu kopā un nodrošina konsekventus mērījumus neatkarīgi no apgaismojuma apstākļiem.
+* **Noklusējums**: Ieslēgts (atzīmēts)
+* **Apraksts**: Iespējo automātisku atstarošanas kalibrēšanu, izmantojot attēlos atklātos kalibrēšanas mērķus. Tas normalizē atstarošanas vērtības visā datu kopā un nodrošina konsekventus mērījumus neatkarīgi no apgaismojuma apstākļiem.
 * **Kad atspējot**: Atspējot tikai tad, ja vēlaties apstrādāt neapstrādātus, nekalibrētus attēlus vai ja izmantojat citu kalibrēšanas darba plūsmu.
 
 ### Debayer metode
 
 * **Tips**: Izvēles saraksts
 * **Opcijas**:
-  * Augsta kvalitāte (ātrāka) – pašlaik vienīgā pieejamā opcija
+  * Augsta kvalitāte (ātrāka) - Pašlaik vienīgā pieejamā opcija
 * **Noklusējums**: Augsta kvalitāte (ātrāka)
-* **Apraksts**: Izvēlas demosaicing algoritmu, ko izmanto, lai neapstrādātus Bayer modeļa sensora datus pārvērstu pilnkrāsu attēlos. Metode „Augsta kvalitāte (ātrāka)” nodrošina optimālu līdzsvaru starp apstrādes ātrumu un attēla kvalitāti.
+* **Apraksts**: Izvēlas demosaicing algoritmu, ko izmanto, lai pārvērstu neapstrādātus Bayer modeļa sensora datus pilnkrāsu attēlos. Metode „Augsta kvalitāte (ātrāka)” nodrošina optimālu līdzsvaru starp apstrādes ātrumu un attēla kvalitāti.
 * **Piezīme**: Papildu debayer metodes var tikt pievienotas nākotnes Chloros versijās.
 
 ### Minimālais pārkalibrēšanas intervāls
@@ -70,10 +70,10 @@ Lai piekļūtu projekta iestatījumiem:
 * **Tips**: skaitlis
 * **Diapazons**: no 0 līdz 3600 sekundēm
 * **Noklusējums**: 0 sekundes
-* **Apraksts**: nosaka minimālo laika intervālu (sekundēs) starp kalibrēšanas mērķu izmantošanu. Ja iestatīts uz 0, Chloros izmantos katru atklāto kalibrēšanas mērķi. Ja iestatīts uz augstāku vērtību, Chloros izmantos tikai kalibrēšanas mērķus, kas atdalīti vismaz ar šādu sekunžu skaitu, samazinot apstrādes laiku datu kopām ar biežām kalibrēšanas mērķu uzņemšanām.
+* **Apraksts**: Nosaka minimālo laika intervālu (sekundēs) starp kalibrēšanas mērķu izmantošanu. Ja iestatīts uz 0, Chloros izmantos katru atklāto kalibrēšanas mērķi. Ja iestatīts uz augstāku vērtību, Chloros izmantos tikai kalibrēšanas mērķus, kas atdalīti vismaz par šo sekunžu skaitu, samazinot apstrādes laiku datu kopām ar biežām kalibrēšanas mērķu uzņemšanām.
 * **Kad pielāgot**:
-  * Iestatiet uz 0, lai iegūtu maksimālu kalibrēšanas precizitāti, ja apgaismojuma apstākļi mainās.
-  * Palieliniet (piemēram, līdz 60–300 sekundēm), lai paātrinātu apstrādi, ja apgaismojums ir nemainīgs un jums ir bieži kalibrēšanas mērķu attēli.
+  * Iestatiet uz 0, lai nodrošinātu maksimālu kalibrēšanas precizitāti, ja apgaismojuma apstākļi mainās.
+  * Palieliniet (piemēram, līdz 60–300 sekundēm), lai nodrošinātu ātrāku apstrādi, ja apgaismojums ir nemainīgs un jums ir bieži kalibrēšanas mērķu attēli.
 
 ### Gaismas sensora laika zonas nobīde
 
@@ -81,7 +81,7 @@ Lai piekļūtu projekta iestatījumiem:
 * **Diapazons**: no -12 līdz +12 stundām
 * **Noklusējums**: 0 stundas
 * **Apraksts**: Norāda laika zonas nobīdi (stundās no UTC) gaismas sensora datu laika zīmogiem. To izmanto, apstrādājot PPK (pēc apstrādes kinemātiskos) datu failus, lai nodrošinātu pareizu laika sinhronizāciju starp attēlu uzņemšanu un GPS datiem.
-* **Kad pielāgot**: Iestatiet to uz savu vietējo laika zonas nobīdi, ja jūsu PPK dati izmanto vietējo laiku, nevis UTC. Piemēram:
+* **Kad pielāgot**: Iestatiet to atbilstoši savam vietējam laika zonu nobīdei, ja jūsu PPK dati izmanto vietējo laiku, nevis UTC. Piemēram:
   * Klusā okeāna laiks: -8 vai -7 (atkarībā no vasaras laika)
   * Austrumu laiks: -5 vai -4 (atkarībā no vasaras laika)
   * Centrāleiropas laiks: +1 vai +2 (atkarībā no vasaras laika)
@@ -90,21 +90,21 @@ Lai piekļūtu projekta iestatījumiem:
 
 * **Tips**: Izvēles rūtiņa
 * **Noklusējums**: Atvienots (neatzīmēts)
-* **Apraksts**: Ļauj izmantot pēcapstrādātas kinemātiskās (PPK) korekcijas no MAPIR DAQ ierakstītājiem, kas satur GPS (GNSS). Ja šī funkcija ir ieslēgta, Chloros izmantos visus .daq žurnāla failus, kas satur ekspozīcijas pinu datus jūsu projekta direktorijā, un piemēros precīzas ģeolokācijas korekcijas jūsu attēliem.
+* **Apraksts**: Ļauj izmantot pēcapstrādes kinemātiskās (PPK) korekcijas no MAPIR DAQ reģistratoriem, kas satur GPS (GNSS). Ja šī funkcija ir ieslēgta, Chloros izmantos jebkādus .daq žurnāla failus, kas satur ekspozīcijas pinu datus jūsu projekta direktorijā, un piemēros precīzas ģeolokācijas korekcijas jūsu attēliem.
 * **Prasība**: .daq žurnāla failam ar ekspozīcijas pinu ierakstiem jābūt jūsu projekta direktorijā
 * **Kad ieslēgt**: Ieteicams vienmēr ieslēgt PPK korekciju, ja jūsu .daq žurnāla failā ir ekspozīcijas atgriezeniskās saites ieraksti.
 
 ### Ekspozīcijas pīns 1
 
 * **Tips**: Izvēles saraksts
-* **Redzamība**: Redzams tikai tad, ja ir ieslēgta funkcija „Piemērot PPK korekcijas” UN ekspozīcijas dati ir pieejami pīnam 1
+* **Redzamība**: Redzams tikai tad, ja ir ieslēgta funkcija &quot;Piemērot PPK korekcijas&quot; UN ekspozīcijas dati ir pieejami pīnam 1
 * **Opcijas**:
   * Projektā atklātie kameru modeļu nosaukumi
-  * „Nelietot” – ignorēt šo ekspozīcijas pīnu
+  * &quot;Nelietot&quot; — ignorēt šo ekspozīcijas pīnu
 * **Noklusējums**: Automātiski izvēlēts atbilstoši projekta konfigurācijai
-* **Apraksts**: Piešķir konkrētu kameru ekspozīcijas kontaktdaktai 1 PPK laika sinhronizācijai. Ekspozīcijas kontaktdakts reģistrē precīzu laiku, kad tiek iedarbināts kameras aizslēgs, kas ir ļoti svarīgi precīzai PPK ģeolokācijai.
+* **Apraksts**: piešķir konkrētu kameru ekspozīcijas kontaktdakšai 1 PPK laika sinhronizācijai. Ekspozīcijas kontaktdakša reģistrē precīzu laiku, kad tiek iedarbināts kameras aizslēgs, kas ir ļoti svarīgi precīzai PPK ģeolokācijai.
 * **Automātiskās izvēles darbība**:
-  * Viena kamera + viena kontaktdakts: Automātiski izvēlas kameru
+  * Viena kamera + viena kontaktdakša: automātiski izvēlas kameru
   * Viena kamera + divi kontakti: 1. kontakts automātiski piešķirts kamerai
   * Vairākas kameras: nepieciešama manuāla izvēle
 
@@ -113,15 +113,15 @@ Lai piekļūtu projekta iestatījumiem:
 * **Tips**: izvēles saraksts
 * **Redzamība**: redzams tikai tad, ja ir ieslēgta opcija „Piemērot PPK korekcijas” UN ekspozīcijas dati ir pieejami 2. kontaktam
 * **Opcijas**:
-  * Projektā atklātie kameru modeļu nosaukumi
-  * &quot;Nelietot&quot; — ignorēt šo ekspozīcijas pinu
+  * Projektā atrastie kameru modeļu nosaukumi
+  * &quot;Nelietot&quot; — ignorē šo ekspozīcijas kontaktu
 * **Noklusējums**: automātiski izvēlēts, pamatojoties uz projekta konfigurāciju
-* **Apraksts**: piešķir konkrētu kameru ekspozīcijas pinam 2 PPK laika sinhronizācijai, izmantojot divu kameru konfigurāciju.
+* **Apraksts**: piešķir konkrētu kameru ekspozīcijas kontaktam 2 PPK laika sinhronizācijai, izmantojot divu kameru konfigurāciju.
 * **Automātiskās izvēles darbība**:
-  * Viena kamera + viens pins: pins 2 automātiski iestatīts uz &quot;Nelietot&quot;
+  * Viena kamera + viens kontakts: kontakts 2 automātiski iestatīts uz &quot;Nelietot&quot;
   * Viena kamera + divi kontakti: 2. kontakts automātiski iestatīts uz &quot;Nelietot&quot;
   * Vairākas kameras: nepieciešama manuāla izvēle
-* **Piezīme**: Vienu un to pašu kameru nevar vienlaikus piešķirt gan 1., gan 2. kontaktam.
+* **Piezīme**: Vienu un to pašu kameru nevar vienlaikus piešķirt gan 1. kontaktam, gan 2. kontaktam.
 
 ***
 
@@ -132,11 +132,11 @@ Lai piekļūtu projekta iestatījumiem:
 ### Pievienot indeksu
 
 * **Tips**: Speciāls indeksa konfigurācijas panelis
-* **Apraksts**: Atver interaktīvu paneli, kurā varat izvēlēties un konfigurēt multispektrālos veģetācijas indeksus (NDVI, NDRE, EVI utt.), kas jāaprēķina attēla apstrādes laikā. Var pievienot vairākus indeksus, katram ar saviem vizualizācijas iestatījumiem.
+* **Apraksts**: Atver interaktīvu paneli, kurā varat izvēlēties un konfigurēt multispektrālos veģetācijas indeksus (NDVI, NDRE, EVI utt.), kas jāaprēķina attēla apstrādes laikā. Jūs varat pievienot vairākus indeksus, katram ar saviem vizualizācijas iestatījumiem.
 * **Pieejamie indeksi**: Sistēma ietver vairāk nekā 30 iepriekš definētus multispektrālos indeksus, tostarp:
   * NDVI (normalizētais veģetācijas indekss)
-  * NDRE (normalizētais RedEdge)
-  * EVI (uzlabotais veģetācijas indekss)
+  * NDRE (Normalizēta atšķirība RedEdge)
+  * EVI (Uzlabots veģetācijas indekss)
   * GNDVI, SAVI, OSAVI, MSAVI2
   * Un daudzi citi (pilnu sarakstu skatiet [Daudzspektrālo indeksu formulas](multispectral-index-formulas.md))
 * **Funkcijas**:
@@ -148,14 +148,14 @@ Lai piekļūtu projekta iestatījumiem:
 ### Pielāgotas formulas (Chloros+ funkcija)
 
 * **Tips**: Pielāgotu formulu definīciju masīvs
-* **Apraksts**: Ļauj izveidot un saglabāt pielāgotas multispektrālo indeksu formulas, izmantojot joslu matemātiku. Pielāgotās formulas tiek saglabātas kopā ar projekta iestatījumiem un var tikt izmantotas tāpat kā iebūvēti indeksi.
+* **Apraksts**: Ļauj izveidot un saglabāt pielāgotas multispektrālo indeksu formulas, izmantojot joslu matemātiku. Pielāgotas formulas tiek saglabātas kopā ar projekta iestatījumiem un var tikt izmantotas tāpat kā iebūvēti indeksi.
 * **Kā izveidot**:
-  1. Indeksa konfigurācijas panelī meklējiet pielāgotās formulas opciju
-  2. Definējiet savu formulu, izmantojot joslu identifikatorus (piemēram, NIR, Red, Green, Blue)
-  3. Saglabājiet formulu ar aprakstošu nosaukumu
+  1. Indeksa konfigurācijas panelī meklējiet pielāgotās formulas opciju.
+  2. Definējiet formulu, izmantojot joslu identifikatorus (piemēram, NIR, Red, Green, Blue).
+  3. Saglabājiet formulu ar aprakstošu nosaukumu.
 * **Formulas sintakse**: Tiek atbalstītas standarta matemātiskās darbības, tostarp:
   * Aritmētika: `+`, `-`, `*`, `/`
-  * Aizkavējošās zīmes darbību secībai
+  * Aizkavēšanas zīmes darbību secībai
   * Band references: NIR, Red, Green, Blue, RedEdge, Cyan, Orange, NIR1, NIR2
 
 ***
@@ -166,12 +166,12 @@ Lai piekļūtu projekta iestatījumiem:
 
 ### Kalibrēts attēla formāts
 
-* **Tips**: izvēles saraksts
+* **Tips**: Izvēles saraksts
 * **Opcijas**:
-  * **TIFF (16 bitu)** — nesaspiests 16 bitu TIFF formāts
-  * **TIFF (32 bitu, procentos)** — 32 bitu peldošā punkta TIFF ar atstarojuma vērtībām procentos
-  * **PNG (8 bitu)** — saspiests 8 bitu PNG formāts
-  * **JPG (8 bitu)** — saspiests 8 bitu JPEG formāts
+  * **TIFF (16 bitu)** - Nesaspiests 16 bitu TIFF formāts
+  * **TIFF (32 bitu, procentos)** - 32 bitu peldošā punkta TIFF ar atstarojuma vērtībām procentos
+  * **PNG (8 bitu)** - saspiests 8 bitu PNG formāts
+  * **JPG (8 bitu)** - saspiests 8 bitu JPEG formāts
 * **Noklusējums**: TIFF (16 bitu)
 * **Apraksts**: Izvēlas faila formātu apstrādātu un kalibrētu attēlu saglabāšanai.
 * **Formāta ieteikumi**:
@@ -206,18 +206,18 @@ Lai piekļūtu projekta iestatījumiem:
 
 * **Tips**: Direktoriāta ceļa parādīšana + Rediģēt pogu
 * **Noklusējums**: `C:\Users\[Username]\Chloros Projects`
-* **Apraksts**: Parāda pašreizējo noklusējuma direktoriātu, kur tiek izveidoti jauni Chloros projekti. Noklikšķiniet uz rediģēšanas ikonas, lai izvēlētos citu direktoriātu.
+* **Apraksts**: Parāda pašreizējo noklusējuma direktoriātu, kurā tiek izveidoti jauni Chloros projekti. Noklikšķiniet uz rediģēt ikonas, lai izvēlētos citu direktoriātu.
 * **Kad mainīt**:
   * Iestatiet tīkla disku komandas sadarbībai
   * Mainiet uz disku ar lielāku uzglabāšanas vietu lieliem datu kopumiem
   * Organizējiet projektus pēc gada, klienta vai projekta veida dažādās mapēs
-* **Piezīme**: Šī iestatījuma maiņa ietekmē tikai JAUNUS projektus. Esošie projekti paliek savās sākotnējās vietās.
+* **Piezīme**: Šī iestatījuma maiņa ietekmē tikai JAUNUS projektus. Esošie projekti paliek sākotnējās vietās.
 
 ***
 
 ## Iestatījumu saglabāšana
 
-Visi projekta iestatījumi tiek automātiski saglabāti kopā ar projekta failu (`.mapir` projekta formāts). Kad atkal atverat projektu, visi iestatījumi tiek atjaunoti tieši tā, kā tos atstājāt.
+Visi projekta iestatījumi tiek automātiski saglabāti kopā ar projekta failu (`.mapir` projekta formāts). Kad atverat projektu atkārtoti, visi iestatījumi tiek atjaunoti tieši tā, kā tos atstājāt.
 
 ### Iestatījumu hierarhija
 
@@ -234,7 +234,7 @@ Lielākā daļa iestatījumu izmaiņu (īpaši kategorijās „Apstrāde” un �
 
 * Saglabāt projekta veidni
 * Darba katalogs
-* Kalibrēts attēlu formāts (piemēro eksportēšanai)
+* Kalibrēts attēlu formāts (attiecas uz eksportēšanu)
 
 ***
 

@@ -27,13 +27,13 @@ Izmantojiet šo opciju, lai importētu atsevišķus attēlu failus vai nelielu f
 3. Izvēlieties vienu vai vairākus attēlu failus (lai izvēlētos vairākus failus, turiet nospiestu **Ctrl**).
 4. Noklikšķiniet uz **&quot;Atvērt&quot;**, lai importētu izvēlētos failus.
 
-### 2. metode: pievienot mapi
+### 2. metode: pievienot mapes
 
 Izmantojiet šo opciju, lai vienlaikus importētu visus attēlus no mapes.
 
 1. Noklikšķiniet uz pogas **&quot;Pievienot mapi&quot;** failu pārlūka paneļa augšdaļā.
-2. Atrodiet un atlasiet mapi, kurā atrodas jūsu uzņemtie attēli.
-3. Noklikšķiniet uz **&quot;Atlasīt mapi&quot;**, lai importētu visus atbalstītos attēlus no šīs mapes.
+2. Atrodiet un izvēlieties mapi, kurā atrodas jūsu uzņemtie attēli.
+3. Noklikšķiniet uz **&quot;Izvēlēties mapi&quot;**, lai importētu visus atbalstītos attēlus no šīs mapes.
 
 ***
 
@@ -41,7 +41,7 @@ Izmantojiet šo opciju, lai vienlaikus importētu visus attēlus no mapes.
 
 Pēc attēlu importēšanas tie parādās tabulā ar šādām kolonnām:
 
-### Sīktēls
+### Sīkattēls
 
 * Katra attēla mazs priekšskatījums.
 * Noklikšķiniet uz sīkattēla, lai galvenajā priekšskatījuma zonā apskatītu pilnu attēlu.
@@ -59,13 +59,13 @@ Pēc attēlu importēšanas tie parādās tabulā ar šādām kolonnām:
 
 ### Kameras modelis
 
-* Automātiski noteikta kameras un filtra konfigurācija
+* Automātiski noteikta kamera un filtra konfigurācija
 * Piemēri: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
 * Izmanto, lai piemērotu pareizos apstrādes profilus
 
 ### Mērķa kolonna (izvēles rūtiņa)
 
-* Atzīmējiet šo rūtiņu attēliem, kas satur kalibrēšanas mērķus
+* Atzīmējiet šo rūtiņu attēliem, kuros ir kalibrēšanas mērķi
 * Ievērojami paātrina mērķa noteikšanu apstrādes laikā
 * Sīkāku informāciju skatiet sadaļā [Mērķa attēlu izvēle](choosing-target-images.md)
 
@@ -93,7 +93,7 @@ Lai dzēstu nevajadzīgos attēlus no projekta:
 
 ### Pilna attēla skatīšana
 
-Noklikšķiniet uz jebkuras attēla sīktēla failu pārlūkā, lai to parādītu galvenajā priekšskatīšanas zonā:
+Noklikšķiniet uz jebkuras attēla sīktēla failu pārlūkā, lai to parādītu galvenajā priekšskatīšanas laukā:
 
 1. Attēls parādās centrālajā priekšskatīšanas panelī
 2. Izmantojiet tālummaiņas vadības elementus, lai apskatītu attēla detaļas
@@ -103,7 +103,7 @@ Noklikšķiniet uz jebkuras attēla sīktēla failu pārlūkā, lai to parādīt
 
 * **Iepriekšējais attēls**: noklikšķiniet uz kreisās bultiņas vai nospiediet taustiņu ←
 * **Nākamais attēls**: noklikšķiniet uz labās bultiņas vai nospiediet taustiņu →
-* **Tuvināt/attālināt**: izmantojiet peles ratu vai tālummaiņas pogas
+* **Tuvināt/attālināt**: izmantojiet peles ratu vai tuvināšanas pogas
 * **Pārvietot**: noklikšķiniet un velciet attēlu, kad tas ir tuvināts
 
 ***
@@ -113,7 +113,7 @@ Noklikšķiniet uz jebkuras attēla sīktēla failu pārlūkā, lai to parādīt
 Chloros automātiski atpazīst un ignorē dublikātus failus:
 
 * Faili ar identiskiem failu nosaukumiem tiek izlaisti
-* Novērš nejaušu dubultu apstrādi
+* Novērš nejaušu divkāršu apstrādi
 * Brīdinājuma ziņojums tiek parādīts, ja tiek atrasti dublikāti
 
 {% hint style=&quot;warning&quot; %}
@@ -131,7 +131,7 @@ Ja jūsu projektā ir attēli no vairākām MAPIR kamerām:
 3. Failu pārlūkprogramma parāda kameras modeli kolonnā „Kameras modelis”.
 4. Apstrāde piemēro pareizos iestatījumus katram kameras tipam.
 
-**Piemērs**: Survey3W RGN + Survey3N OCN divu kameru konfigurācija.
+**Piemērs**: Survey3W RGN + Survey3N OCN divu kameru konfigurācija
 
 ***
 
@@ -146,7 +146,7 @@ Ja jūsu projektā ir attēli no vairākām MAPIR kamerām:
 ### Failu nosaukumi
 
 * Saglabājiet kameras sākotnējos failu nosaukumus (IMG\_0001.RAW utt.).
-* Pirms importēšanas failus nepārnosauciet.
+* Pirms importēšanas failus nepārnosaukiet.
 * Sākotnējie nosaukumi satur svarīgus metadatus.
 
 ### Kalibrēšanas mērķa attēli
@@ -168,7 +168,7 @@ Ja jūsu projektā ir attēli no vairākām MAPIR kamerām:
 * Attēli ir no kamerām, kas nav MAPIR (skatiet [Atbalstītās kameras](../supported-cameras.md))
 * Failu bojājums vai nepilnīga pārsūtīšana no SD kartes
 
-**Risinājums**: Pārbaudiet failu formātu un kameras modeļa saderību.
+**Risinājums**: Pārbaudiet failu formāta un kameras modeļa saderību.
 
 ### Kameras modelis netiek atpazīts
 
@@ -198,7 +198,7 @@ Kad faili ir importēti:
 1. **Pārskatiet failu sarakstu** - Pārliecinieties, ka visi attēli ir pareizi ielādēti
 2. **Pārbaudiet kameras modeļus** - Pārbaudiet, vai kamera ir pareizi atpazīta
 3. **Atzīmējiet mērķa attēlus** — skatiet [Mērķa attēlu izvēle](choosing-target-images.md)
-4. **Pielāgojiet iestatījumus** — konfigurējiet apstrādes opcijas [Projekta iestatījumos](adjusting-project-settings.md)
+4. **Pielāgojiet iestatījumus** — konfigurējiet apstrādes opcijas [Projekta iestatījumi](adjusting-project-settings.md)
 5. **Sāciet apstrādi** – skatiet [Apstrādes sākšana](starting-the-processing.md)
 
 Sīkāku informāciju par projekta konfigurāciju skatiet [Projekta iestatījumu pielāgošana](adjusting-project-settings.md).

@@ -16,9 +16,9 @@ Pirms attēlu apstrādes ir svarīgi konfigurēt projekta iestatījumus atbilsto
 
 ## Ātra konfigurācija tipiskiem darba procesiem
 
-### Noklusējuma iestatījumi (ieteicams lielākajai daļai lietotāju)
+### Noklusējuma iestatījumi (ieteicami lielākajai daļai lietotāju)
 
-Tipiskām MAPIR Survey3 kameru darba plūsmām labi der noklusējuma iestatījumi:
+Tipiskām MAPIR Survey3 kameru darbplūsmām labi der noklusējuma iestatījumi:
 
 * ✅ **Vignette korekcija**: ieslēgta
 * ✅ **Atstarošanas kalibrēšana**: ieslēgta (nepieciešami MAPIR mērķu attēli)
@@ -56,8 +56,8 @@ Galvenās attēlu apstrādes un kalibrēšanas opcijas.
 
 * **Vignette korekcija**: kompensē objektīva tumšākošanu malās ✅ Ieteicams
 * **Atstarošanas kalibrēšana**: normalizē vērtības, izmantojot kalibrēšanas mērķus ✅ Ieteicams
-* **Debayer metode**: algoritms RAW konvertēšanai 3 kanālu multispektrā
-* **Minimālais pārkalibrēšanas intervāls**: laiks starp kalibrēšanas mērķu izmantošanu (0 = izmantot visus)
+* **Debayer metode**: algoritms RAW konvertēšanai uz 3 kanālu multispektrālo
+* **Minimālais kalibrēšanas intervāls**: laiks starp kalibrēšanas mērķu izmantošanu (0 = izmantot visus)
 
 **Papildu iestatījumi:**
 
@@ -99,7 +99,7 @@ Kontrolē izvades faila formātu un kvalitāti.
 **Pieejamie formāti:**
 
 * **TIFF (16 bitu)**: ieteicams GIS un zinātniskai analīzei (diapazons 0–65 535)
-* **TIFF (32 bitu, procentos)**: peldošā punkta atstarojuma vērtības (diapazons 0,0–1,0)
+* **TIFF (32 bitu, procentos)**: mainīgas precizitātes atstarojuma vērtības (diapazons 0,0–1,0)
 * **PNG (8 bitu)**: bezzaudējumu kompresija vizualizācijai (diapazons 0–255)
 * **JPG (8 bitu)**: mazākie faili, zaudējumu kompresija (diapazons 0–255)
 
@@ -109,18 +109,18 @@ Kontrolē izvades faila formātu un kvalitāti.
 
 ### Projekta veidnes saglabāšana
 
-Izveidojiet atkārtoti izmantojamus veidnes vienotai darba plūsmai:
+Izveidojiet atkārtoti izmantojamus veidnes, lai nodrošinātu vienotu darba plūsmu:
 
-1. Konfigurējiet visus vēlamos iestatījumus paneļā Projekta iestatījumi.
-2. Pārvietojieties uz sadaļu **&quot;Saglabāt projekta veidni&quot;** apakšā.
-3. Ievadiet aprakstošu veidnes nosaukumu (piemēram, &quot;Survey3N\_RGN\_Agriculture&quot;).
-4. Noklikšķiniet uz saglabāšanas ikonas.
+1. Konfigurējiet visus vēlamos iestatījumus paneļa Projektu iestatījumi
+2. Pārvietojieties uz sadaļu **&quot;Saglabāt projekta veidni&quot;** apakšā
+3. Ievadiet aprakstošu veidnes nosaukumu (piemēram, &quot;Survey3N\_RGN\_Agriculture&quot;)
+4. Noklikšķiniet uz saglabāšanas ikonas
 
 **Priekšrocības:**
 
 * Vienādi iestatījumi vairākiem projektiem
 * Konfigurāciju koplietošana ar komandas locekļiem
-* Atkārtotu aptauju konsekvence
+* Atkārtotu aptauju konsekvences saglabāšana
 
 ### Veidnes ielāde jaunā projektā
 
@@ -133,7 +133,7 @@ Jaunā projekta izveide:
 
 ### Darba katalogs
 
-Iestatījums **&quot;Saglabāt projekta mapes&quot;** nosaka, kur pēc noklusējuma tiek izveidoti jauni projekti:
+Iestatījums **&quot;Saglabāt projekta mapi&quot;** nosaka, kur pēc noklusējuma tiek izveidoti jauni projekti:
 
 * **Noklusējuma atrašanās vieta**: `C:\Users\[Username]\Chloros Projects`
 * **Mainīt atrašanās vietu**: noklikšķiniet uz ikonas &quot;Rediģēt&quot; un izvēlieties jaunu mapi
@@ -198,7 +198,7 @@ Atkārtotiem apsekojumiem vienā un tajā pašā teritorijā laika gaitā:
 4. Lai iegūtu salīdzināmus rezultātus, izmantojiet identiskus iestatījumus
 5. Eksportējiet vienā formātā laika analīzei
 
-### Lieli datu kopumi
+### Liela apjoma datu kopas
 
 Projektiem ar daudziem attēliem (500+):
 
@@ -211,7 +211,7 @@ Projektiem ar daudziem attēliem (500+):
 
 ## Jūsu iestatījumu pārbaude
 
-Pirms sākat apstrādi, pārskatiet šos galvenos iestatījumus:
+Pirms sākt apstrādi, pārskatiet šos galvenos iestatījumus:
 
 * [ ] Kameras modelis pareizi noteikts failu pārlūkprogrammā
 * [ ] Vignette korekcija ieslēgta
@@ -231,4 +231,4 @@ Kad iestatījumi ir konfigurēti:
 2. **Sāciet apstrādi** - skatiet [Apstrādes sākšana](starting-the-processing.md)
 3. **Uzraugiet progresu** — skatiet [Apstrādes uzraudzība](monitoring-the-processing.md)
 
-Pilnīga informācija par visiem pieejamajiem iestatījumiem ir atrodama [Projekta iestatījumu](../project-settings/project-settings.md) atsauces dokumentācijā.
+Pilnīga informācija par visiem pieejamajiem iestatījumiem ir atrodama [Projekta iestatījumi](../project-settings/project-settings.md) atsauces dokumentācijā.

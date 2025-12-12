@@ -18,7 +18,7 @@
 * [Projekta iestatījumu pielāgošana](processing-images-gui/adjusting-project-settings.md)
 * [Failu pievienošana projektam](processing-images-gui/adding-files-to-a-project.md)
 * [Mērķa attēlu izvēle](processing-images-gui/choosing-target-images.md)
-* [Apstrādes sākšana](processing-images-gui/starting-the-processing.md)
+* [Apstrādes uzsākšana](processing-images-gui/starting-the-processing.md)
 * [Apstrādes uzraudzība](processing-images-gui/monitoring-the-processing.md)
 * [Apstrādes pabeigšana](processing-images-gui/finishing-the-processing.md)
 

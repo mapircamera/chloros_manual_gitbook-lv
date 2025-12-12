@@ -5,7 +5,7 @@ metaLinks:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/faq
 ---
 
-# FAQ
+# Bieži uzdotie jautājumi
 
 <details>
 
@@ -35,7 +35,7 @@ Nē. Chloros pieņem, ka ievadītie dati nav mainīti. Nemainiet failu nosaukumu
 
 <summary>Vai varu iestatīt savas MAPIR Survey3 kameras uz automātisko ekspozīciju un apstrādāt attēlus Chloros?</summary>
 
-Nē. Survey3 attēlu datu kopām jābūt fiksētai/bloķētai ekspozīcijai, tātad bez automātiskā slēdža ātruma vai automātiskā ISO. Visiem attēliem no viena un tā paša kameras modeļa jābūt identiskam slēdža ātrumam un ISO (ekspozīcijai).
+Nē. Survey3 attēlu datu kopām jābūt ar fiksētu/bloķētu ekspozīciju, tātad bez automātiskā slēdža ātruma vai automātiskā ISO. Visiem attēliem no viena un tā paša kameras modeļa jābūt ar identisku slēdža ātrumu un ISO (ekspozīciju).
 
 </details>
 
@@ -43,7 +43,7 @@ Nē. Survey3 attēlu datu kopām jābūt fiksētai/bloķētai ekspozīcijai, tā
 
 <summary>Vai Chloros var apstrādāt vai analizēt ortomosaikas attēlus?</summary>
 
-Nē. Tiek atbalstīti tikai atsevišķi MAPIR kameras attēli, nevis savienoti attēli, piemēram, ortomosaikas karte.
+Nē. Tiek atbalstīti tikai atsevišķi MAPIR kameras attēli, nevis savienoti attēli, piemēram, ortomozaīkas karte.
 
 </details>
 
@@ -67,6 +67,6 @@ Ja plānojat augšupielādēt mūsu tiešsaistes apstrādes platformā [MAPIR Cl
 
 <summary>Vai MAPIR kādreiz atbalstīs X funkciju? Es ļoti vēlētos, lai MAPIR piedāvātu X.</summary>
 
-Mēs vienmēr esam ieinteresēti saņemt atsauksmes par mūsu produktiem. Ja atrodat kādu problēmu ar mūsu produktiem vai esat ieinteresēts ieteikt, kā mēs varam uzlabot savus produktus, lūdzu, [Sazinieties ar mums](https://www.mapir.camera/community/contact), lai dalītos ar savām domām. Lielākā daļa mūsu pētniecības un attīstības darbības ir vērsta uz mūsu klientu galveno vajadzību apzināšanu.
+Mēs vienmēr esam ieinteresēti saņemt atsauksmes par mūsu produktiem. Ja atrodat kādu problēmu ar mūsu produktiem vai esat ieinteresēts ieteikt, kā mēs varam uzlabot savus produktus, lūdzu, [Sazinieties ar mums](https://www.mapir.camera/community/contact), lai dalītos ar savām domām. Lielākā daļa mūsu pētniecības un attīstības darbības ir vērsta uz mūsu klientu galveno vajadzību apmierināšanu.
 
 </details>

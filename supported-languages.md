@@ -1,6 +1,6 @@
 # Atbalstītās valodas
 
-Chloros nodrošina pilnīgu saskarnes atbalstu **38 valodās visā pasaulē**, padarot to pieejamu lietotājiem visā pasaulē. Jūs varat uzreiz mainīt valodu visās saskarnēs: darbvirsma, pārlūks, CLI un Python SDK.
+Chloros nodrošina pilnīgu saskarnes atbalstu **38 valodās visā pasaulē**, padarot to pieejamu lietotājiem visā pasaulē. Jūs varat uzreiz pārslēgties starp valodām visās saskarnēs: darbvirsma, pārlūks, CLI un Python SDK.
 
 Chloros atbalsta šādas valodas:
 
@@ -20,8 +20,8 @@ Chloros atbalsta šādas valodas:
 | 12 | 🇳🇱 Holandiešu | Nederlands | `nl` |
 | 13 | 🇸🇦 Arābu | العربية | `ar` |
 | 14 | 🇵🇱 Poļu | Polski | `pl` |
-| 15 | 🇹🇷 Turku valoda | Türkçe | `tr` |
-| 16 | 🇮🇳 Hindi valoda | हिंदी | `hi` |
+| 15 | 🇹🇷 Turku | Türkçe | `tr` |
+| 16 | 🇮🇳 Hindi | हिंदी | `hi` |
 | 17 | 🇮🇩 Indonēziešu | Bahasa Indonesia | `id` |
 | 18 | 🇻🇳 Vjetnamiešu | Tiếng Việt | `vi` |
 | 19 | 🇹🇭 Taizemes valoda | ไทย | `th` |
@@ -86,8 +86,8 @@ Iestatiet valodas parametru, inicializējot SDK, lai saņemtu ziņojumus un izva
 Visas 38 valodas ir pilnībā atbalstītas:
 
 * **Chloros Desktop** - pilnīga GUI tulkojums
-* **Chloros Browser** - tīmekļa saskarne visās valodās
-* **Chloros CLI** - komandrindas saskarne un izvades ziņojumi
+* **Chloros Browser** - tīmekļa interfeiss visās valodās
+* **Chloros CLI** - komandrindas interfeiss un izvades ziņojumi
 * **Chloros Python SDK** - API ziņojumi un dokumentācija
 
 Valodu atbalsts nodrošina, ka lietotāji visā pasaulē var efektīvi strādāt savā dzimtajā valodā bez šķēršļiem.
