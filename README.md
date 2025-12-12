@@ -4,7 +4,9 @@ metaLinks: {}
 
 # Sākums
 
-<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>Chloros ir programmatūra no [MAPIR](https://www.mapir.camera), kas paredzēta attēlu un citu sensoru datu apstrādei.
+<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>
+
+Chloros ir programmatūra no [MAPIR](https://www.mapir.camera), kas paredzēta attēlu un citu sensoru datu apstrādei.
 
 ***
 
