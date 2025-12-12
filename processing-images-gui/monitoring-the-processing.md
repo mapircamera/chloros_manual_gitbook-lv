@@ -1,165 +1,165 @@
-# Monitoring the Processing
+# Apstrādes uzraudzība
 
-Once processing has started, Chloros provides several ways to monitor progress, check for issues, and understand what's happening with your dataset. This page explains how to track your processing and interpret the information Chloros provides.
+Kad apstrāde ir sākta, Chloros piedāvā vairākus veidus, kā uzraudzīt progresu, pārbaudīt problēmas un saprast, kas notiek ar jūsu datu kopu. Šajā lapā ir izskaidrots, kā izsekot apstrādei un interpretēt informāciju, ko sniedz Chloros.
 
-## Progress Bar Overview
+## Progresa joslas pārskats
 
-The progress bar in the top header shows real-time processing status and completion percentage.
+Progresa josla augšējā galvenajā joslā parāda apstrādes statusu un pabeigšanas procentu reālajā laikā.
 
-### Free Mode Progress Bar
+### Brīvā režīma progresa josla
 
-For users without Chloros+ license:
+Lietotājiem bez Chloros+ licences:
 
-**2-Stage Progress Display:**
+**2 posmu progresa parādīšana:**
 
-1. **Target Detect** - Finding calibration targets in images
-2. **Processing** - Applying corrections and exporting
+1. **Mērķa noteikšana** — kalibrēšanas mērķu meklēšana attēlos
+2. **Apstrāde** — korekciju piemērošana un eksportēšana
 
-**Progress bar shows:**
+**Progresa josla parāda:**
 
-* Overall completion percentage (0-100%)
-* Current stage name
-* Simple horizontal bar visualization
+* Kopējo pabeigšanas procentu (0–100 %)
+* Pašreizējā posma nosaukumu
+* Vienkāršu horizontālu joslu vizualizāciju
 
-### Chloros+ Progress Bar
+### Chloros+ progresa josla
 
-For users with Chloros+ license:
+Lietotājiem ar Chloros+ licenci:
 
-**4-Stage Progress Display:**
+**4 posmu progresa attēlojums:**
 
-1. **Detecting** - Finding calibration targets
-2. **Analyzing** - Examining images and preparing pipeline
-3. **Calibrating** - Applying vignette and reflectance corrections
-4. **Exporting** - Saving processed files
+1. **Atklāšana** — kalibrēšanas mērķu meklēšana
+2. **Analīze** — attēlu pārbaude un cauruļvada sagatavošana
+3. **Kalibrēšana** — vinjetes un atstarojuma korekciju piemērošana
+4. **Eksportēšana** — apstrādāto failu saglabāšana
 
-**Interactive Features:**
+**Interaktīvās funkcijas:**
 
-* **Hover over** progress bar to see expanded 4-stage panel
-* **Click** progress bar to freeze/pin the expanded panel
-* **Click again** to unfreeze and auto-hide on mouse leave
-* Each stage shows individual progress (0-100%)
-
-***
-
-## Understanding Each Processing Stage
-
-### Stage 1: Detecting (Target Detection)
-
-**What's happening:**
-
-* Chloros scans images marked with Target checkbox
-* Computer vision algorithms identify the 4 calibration panels
-* Reflectance values extracted from each panel
-* Target timestamps recorded for proper calibration scheduling
-
-**Duration:**
-
-* With marked targets: 10-60 seconds
-* Without marked targets: 5-30+ minutes (scans all images)
-
-**Progress indicator:**
-
-* Detecting: 0% → 100%
-* Number of images scanned
-* Targets found count
-
-**What to watch for:**
-
-* Should complete quickly if targets properly marked
-* If taking too long, targets may not be marked
-* Check Debug Log for "Target found" messages
-
-### Stage 2: Analyzing
-
-**What's happening:**
-
-* Reading image EXIF metadata (timestamps, exposure settings)
-* Determining calibration strategy based on target timestamps
-* Organizing image processing queue
-* Preparing parallel processing workers (Chloros+ only)
-
-**Duration:** 5-30 seconds
-
-**Progress indicator:**
-
-* Analyzing: 0% → 100%
-* Fast stage, usually completes quickly
-
-**What to watch for:**
-
-* Should progress steadily without pauses
-* Warnings about missing metadata will appear in Debug Log
-
-### Stage 3: Calibrating
-
-**What's happening:**
-
-* **Debayering**: Converting RAW Bayer pattern to 3 channels
-* **Vignette correction**: Removing lens edge darkening
-* **Reflectance calibration**: Normalizing with target values
-* **Index calculation**: Computing multispectral indices
-* Processing each image through the full pipeline
-
-**Duration:** Majority of total processing time (60-80%)
-
-**Progress indicator:**
-
-* Calibrating: 0% → 100%
-* Current image being processed
-* Images completed / Total images
-
-**Processing behavior:**
-
-* **Free mode**: Processes one image at a time sequentially
-* **Chloros+ mode**: Processes up to 16 images simultaneously
-* **GPU acceleration**: Significantly speeds up this stage
-
-**What to watch for:**
-
-* Steady progress through image count
-* Check Debug Log for per-image completion messages
-* Warnings about image quality or calibration issues
-
-### Stage 4: Exporting
-
-**What's happening:**
-
-* Writing calibrated images to disk in selected format
-* Exporting multispectral index images with LUT colors
-* Creating camera model subfolders
-* Preserving original filenames with appropriate suffixes
-
-**Duration:** 10-20% of total processing time
-
-**Progress indicator:**
-
-* Exporting: 0% → 100%
-* Files being written
-* Export format and destination
-
-**What to watch for:**
-
-* Disk space warnings
-* File write errors
-* Completion of all configured outputs
+* **Pielieciet peles kursoru** uz progresa joslas, lai redzētu paplašinātu 4 posmu paneli
+* **Noklikšķiniet** uz progresa joslas, lai fiksētu/piespraustu paplašināto paneli
+* **Noklikšķiniet atkārtoti**, lai atbloķētu un automātiski paslēptu, novirzot peli
+* Katrs posms parāda individuālo progresu (0–100 %)
 
 ***
 
-## Debug Log Tab
+## Katra apstrādes posma izpratne
 
-The Debug Log provides detailed information about processing progress and any issues encountered.
+### 1. posms: Atklāšana (mērķa atklāšana)
 
-### Accessing the Debug Log
+**Kas notiek:**
 
-1. Click the **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> icon in the left sidebar
-2. Log panel opens showing real-time processing messages
-3. Auto-scrolls to show latest messages
+* Chloros skenē attēlus, kas atzīmēti ar izvēles rūtiņu Mērķis
+* Datorredzes algoritmi identificē 4 kalibrēšanas paneļus
+* No katra paneļa tiek iegūtas atstarojuma vērtības
+* Mērķu laika zīmogi tiek reģistrēti, lai nodrošinātu pareizu kalibrēšanas plānošanu
 
-### Understanding Log Messages
+**Ilgums:**
 
-#### Information Messages (White/Gray)
+* Ar atzīmētiem mērķiem: 10–60 sekundes
+* Bez atzīmētiem mērķiem: 5–30+ minūtes (skenē visus attēlus)
 
-Normal processing updates:
+**Progresa indikators:**
+
+* Atklāšana: 0% → 100%
+* Skenēto attēlu skaits
+* Atrasto mērķu skaits
+
+**Kas jāievēro:**
+
+* Ja mērķi ir pareizi atzīmēti, process jāpabeidz ātri.
+* Ja process ilgst pārāk ilgi, mērķi var būt neatzīmēti.
+* Pārbaudiet Debug Log, vai nav ziņojumu &quot;Target found&quot; (Mērķis atrasts).
+
+### 2. posms: Analīze
+
+**Kas notiek:**
+
+* Attēlu EXIF metadatu lasīšana (laika zīmogi, ekspozīcijas iestatījumi)
+* Kalibrēšanas stratēģijas noteikšana, pamatojoties uz mērķu laika zīmogiem
+* Attēlu apstrādes rindas organizēšana
+* Paralēlās apstrādes darbinieku sagatavošana (tikai Chloros+)
+
+**Ilgums:** 5–30 sekundes
+
+**Progresa indikators:**
+
+* Analīze: 0 % → 100 %
+* Ātrs posms, parasti tiek pabeigts ātri
+
+**Kas jāievēro:**
+
+* Progresam jābūt stabilam bez pārtraukumiem
+* Brīdinājumi par trūkstošiem metadatiem parādīsies Debug Log
+
+### 3. posms: Kalibrēšana
+
+**Kas notiek:**
+
+* **Debayering**: RAW Bayer modeļa konvertēšana uz 3 kanāliem
+* **Vignette korekcija**: objektīva malu tumšuma noņemšana
+* **Atstarošanas kalibrēšana**: normalizēšana ar mērķa vērtībām
+* **Indeksa aprēķināšana**: daudzspektrālo indeksu aprēķināšana
+* Katra attēla apstrāde, izmantojot pilnu procesa ķēdi
+
+**Ilgums:** lielākā daļa no kopējā apstrādes laika (60–80 %)
+
+**Progresa indikators:**
+
+* Kalibrēšana: 0 % → 100 %
+* Pašreizējais attēls tiek apstrādāts
+* Pabeigti attēli / Kopējais attēlu skaits
+
+**Apstrādes darbība:**
+
+* **Brīvais režīms**: secīgi apstrādā vienu attēlu pēc otra
+* **Chloros+ režīms**: vienlaikus apstrādā līdz 16 attēliem
+* **GPU paātrinājums**: ievērojami paātrina šo posmu
+
+**Kas jāievēro:**
+
+* Stabils progress attēlu skaita ziņā
+* Pārbaudiet Debug Log, lai redzētu ziņojumus par katra attēla apstrādes pabeigšanu
+* Brīdinājumi par attēla kvalitāti vai kalibrēšanas problēmām
+
+### 4. posms: eksportēšana
+
+**Kas notiek:**
+
+* Kalibrētu attēlu ierakstīšana diskā izvēlētajā formātā
+* Daudzspektrālo indeksu attēlu eksportēšana ar LUT krāsām
+* Kameras modeļu apakšmapju izveide
+* Orijinālo failu nosaukumu saglabāšana ar atbilstošiem paplašinājumiem
+
+**Ilgums:** 10–20 % no kopējā apstrādes laika
+
+**Progresa indikators:**
+
+* Eksportēšana: 0 % → 100 %
+* Failu rakstīšana
+* Eksporta formāts un galamērķis
+
+**Kas jāievēro:**
+
+* Brīdinājumi par diska vietu
+* Failu rakstīšanas kļūdas
+* Visu konfigurēto izvades pabeigšana
+
+***
+
+## Debug Log cilne
+
+Debug Log sniedz detalizētu informāciju par apstrādes gaitu un visām radušajām problēmām.
+
+### Piekļuve Debug Log
+
+1. Noklikšķiniet uz **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> ikonu kreisajā sānjoslā.
+2. Atveras žurnāla panelis, kurā tiek parādīti reāllaika apstrādes ziņojumi.
+3. Automātiski tiek parādīti jaunākie ziņojumi.
+
+### Žurnāla ziņojumu izpratne
+
+#### Informatīvie ziņojumi (balti/pelēki)
+
+Normālas apstrādes atjauninājumi:
 
 ```
 [INFO] Processing started
@@ -169,9 +169,9 @@ Normal processing updates:
 [INFO] Processing complete
 ```
 
-#### Warning Messages (Yellow)
+#### Brīdinājuma ziņojumi (dzelteni)
 
-Non-critical issues that don't stop processing:
+Nekritiskas problēmas, kas neaptur apstrādi:
 
 ```
 [WARN] No GPS data found in IMG_0145.RAW
@@ -179,11 +179,11 @@ Non-critical issues that don't stop processing:
 [WARN] Low contrast in calibration panel - results may vary
 ```
 
-**Action:** Review warnings after processing, but don't interrupt
+**Darbība:** Pārskatiet brīdinājumus pēc apstrādes, bet neapturiet to.
 
-#### Error Messages (Red)
+#### Kļūdu ziņojumi (Red)
 
-Critical issues that may cause processing to fail:
+Kritiskas problēmas, kas var izraisīt apstrādes kļūdu:
 
 ```
 [ERROR] Cannot write file - disk full
@@ -191,202 +191,202 @@ Critical issues that may cause processing to fail:
 [ERROR] No targets detected - enable reflectance calibration or mark target images
 ```
 
-**Action:** Stop processing, resolve error, restart
+**Darbība:** Pārtrauciet apstrādi, novēršiet kļūdu, restartējiet.
 
-### Common Log Messages
+### Bieži sastopami žurnāla ziņojumi
 
-| Message                          | Meaning                                | Action Needed                                         |
+| Ziņojums                          | Nozīme                                | Nepieciešamā darbība                                         |
 | -------------------------------- | -------------------------------------- | ----------------------------------------------------- |
-| "Target detected in \[filename]" | Calibration target found successfully  | None - normal                                         |
-| "Processing image X of Y"        | Current progress update                | None - normal                                         |
-| "No targets found"               | No calibration targets detected        | Mark target images or disable reflectance calibration |
-| "Insufficient disk space"        | Not enough storage for output          | Free up disk space                                    |
-| "Skipping corrupted file"        | Image file is damaged                  | Re-copy file from SD card                             |
-| "PPK data applied"               | GPS corrections from .daq file applied | None - normal                                         |
+| &quot;Mērķis atrasts \[faila nosaukums]&quot; | Kalibrēšanas mērķis veiksmīgi atrasts  | Nav nepieciešama rīcība — normāli                                         |
+| &quot;Apstrādā attēlu X no Y&quot;        | Pašreizējā progresa atjauninājums                | Nav nepieciešama rīcība — normāli                                         |
+| &quot;Mērķi nav atrasti&quot;               | Kalibrēšanas mērķi nav atrasti        | Atzīmējiet mērķa attēlus vai atspējojiet atstarošanas kalibrēšanu |
+| &quot;Nepietiekama diska vieta&quot;        | Nepietiekama atmiņa izvadei          | Atbrīvojiet diska vietu                                    |
+| &quot;Izlaiž bojātu failu&quot;        | Attēla fails ir bojāts                  | No jauna kopējiet failu no SD kartes                             |
+| &quot;PPK dati piemēroti&quot;               | GPS korekcijas no .daq faila piemērotas | Nav - normāli                                         |
 
-### Copying Log Data
+### Žurnāla datu kopēšana
 
-To copy log for troubleshooting or support:
+Lai kopētu žurnālu problēmu novēršanai vai atbalstam:
 
-1. Open Debug Log panel
-2. Click **"Copy Log"** button (or right-click → Select All)
-3. Paste into text file or email
-4. Send to MAPIR support if needed
-
-***
-
-## System Resource Monitoring
-
-### CPU Usage
-
-**Free Mode:**
-
-* 1 CPU core at \~100%
-* Other cores idle or available
-* System remains responsive
-
-**Chloros+ Parallel Mode:**
-
-* Multiple cores at 80-100% (up to 16 cores)
-* High overall CPU utilization
-* System may feel less responsive
-
-**To monitor:**
-
-* Windows Task Manager (Ctrl+Shift+Esc)
-* Performance tab → CPU section
-* Look for "Chloros" or "chloros-backend" processes
-
-### Memory (RAM) Usage
-
-**Typical usage:**
-
-* Small projects (< 100 images): 2-4 GB
-* Medium projects (100-500 images): 4-8 GB
-* Large projects (500+ images): 8-16 GB
-* Chloros+ parallel mode uses more RAM
-
-**If memory is low:**
-
-* Process smaller batches
-* Close other applications
-* Upgrade RAM if regularly processing large datasets
-
-### GPU Usage (Chloros+ with CUDA)
-
-When GPU acceleration is enabled:
-
-* NVIDIA GPU shows high utilization (60-90%)
-* VRAM usage increases (requires 4GB+ VRAM)
-* Calibrating stage is significantly faster
-
-**To monitor:**
-
-* NVIDIA System Tray icon
-* Task Manager → Performance → GPU
-* GPU-Z or similar monitoring tool
-
-### Disk I/O
-
-**What to expect:**
-
-* High disk read during Analyzing stage
-* High disk write during Exporting stage
-* SSD significantly faster than HDD
-
-**Performance tip:**
-
-* Use SSD for project folder when possible
-* Avoid network drives for large datasets
-* Ensure disk isn't near capacity (affects write speed)
+1. Atveriet paneļa Debug Log (Debug žurnāls)
+2. Noklikšķiniet uz pogas **&quot;Copy Log&quot;** (Kopēt žurnālu) (vai noklikšķiniet ar peles labo pogu → Select All (Atlasīt visu))
+3. Ielīmējiet tekstfailā vai e-pastā
+4. Vajadzības gadījumā nosūtiet uz MAPIR atbalsta dienestu
 
 ***
 
-## Detecting Problems During Processing
+## Sistēmas resursu uzraudzība
 
-### Warning Signs
+### CPU izmantošana
 
-**Progress stalls (no change for 5+ minutes):**
+**Brīvais režīms:**
 
-* Check Debug Log for errors
-* Verify disk space available
-* Check Task Manager to ensure Chloros is running
+* 1 CPU kodols pie \~100%
+* Pārējie kodoli ir neaktīvi vai pieejami
+* Sistēma paliek atsaucīga
 
-**Error messages appear frequently:**
+**Chloros+ Paralēlais režīms:**
 
-* Stop processing and review errors
-* Common causes: disk space, corrupted files, memory issues
-* See Troubleshooting section below
+* Vairāki kodoli pie 80-100% (līdz 16 kodoliem)
+* Augsta kopējā CPU izmantošana
+* Sistēma var šķist mazāk reaģējoša
 
-**System becomes unresponsive:**
+**Lai uzraudzītu:**
 
-* Chloros+ parallel mode using too many resources
-* Consider reducing concurrent tasks or upgrading hardware
-* Free mode is less resource-intensive
+* Windows Uzdevumu pārvaldnieks (Ctrl+Shift+Esc)
+* Sniegums cilne → CPU sadaļa
+* Meklējiet procesus &quot;Chloros&quot; vai &quot;chloros-backend&quot;
 
-### When to Stop Processing
+### Atmiņas (RAM) izmantošana
 
-Stop processing if you see:
+**Tipiska izmantošana:**
 
-* ❌ "Disk full" or "Cannot write file" errors
-* ❌ Repeated image file corruption errors
-* ❌ System completely frozen (not responding)
-* ❌ Realized wrong settings were configured
-* ❌ Wrong images imported
+* Mazi projekti (&lt; 100 attēli): 2–4 GB
+* Vidēji projekti (100–500 attēli): 4–8 GB
+* Lieli projekti (500+ attēli): 8–16 GB
+* Chloros+ paralēlais režīms izmanto vairāk RAM
 
-**How to stop:**
+**Ja atmiņa ir nepietiekama:**
 
-1. Click **Stop/Cancel button** (replaces Start button)
-2. Processing halts, progress is lost
-3. Fix issues and restart from beginning
+* Apstrādājiet mazākas partijas
+* Aizveriet citas lietojumprogrammas
+* Ja regulāri apstrādājat lielus datu kopumus, uzlabojiet RAM
 
-***
+### GPU izmantošana (Chloros+ ar CUDA)
 
-## Troubleshooting During Processing
+Kad ir ieslēgta GPU paātrināšana:
 
-### Processing is Very Slow
+* NVIDIA GPU rāda augstu izmantošanu (60–90 %)
+* VRAM izmantošana palielinās (nepieciešams 4 GB+ VRAM)
+* Kalibrēšanas posms ir ievērojami ātrāks
 
-**Possible causes:**
+**Lai uzraudzītu:**
 
-* Unmarked target images (scanning all images)
-* HDD instead of SSD storage
-* Insufficient system resources
-* Many indices configured
-* Network drive access
+* NVIDIA sistēmas paplātes ikona
+* Uzdevumu pārvaldnieks → Veiktspēja → GPU
+* GPU-Z vai līdzīgs uzraudzības rīks
 
-**Solutions:**
+### Diska I/O
 
-1. If just started and in Detecting stage: Cancel, mark targets, restart
-2. For future: Use SSD, reduce indices, upgrade hardware
-3. Consider CLI for batch processing large datasets
+**Ko gaidīt:**
 
-### "Disk Space" Warnings
+* Augsta diska lasīšana analizēšanas posmā
+* Augsta diska rakstīšana eksportēšanas posmā
+* SSD ir ievērojami ātrāks nekā HDD
 
-**Solutions:**
+**Veiktspējas padoms:**
 
-1. Free up disk space immediately
-2. Move project to drive with more space
-3. Reduce number of indices to export
-4. Use JPG format instead of TIFF (smaller files)
-
-### Frequent "Corrupted File" Messages
-
-**Solutions:**
-
-1. Re-copy images from SD card to ensure integrity
-2. Test SD card for errors
-3. Remove corrupted files from project
-4. Continue processing remaining images
-
-### System Overheating / Throttling
-
-**Solutions:**
-
-1. Ensure adequate ventilation
-2. Clean dust from computer vents
-3. Reduce processing load (use Free mode instead of Chloros+)
-4. Process during cooler times of day
+* Ja iespējams, izmantojiet SSD projekta mapē
+* Izvairieties no tīkla diskiem lieliem datu kopumiem
+* Pārliecinieties, ka disks nav tuvu kapacitātes robežai (ietekmē rakstīšanas ātrumu)
 
 ***
 
-## Processing Complete Notification
+## Problēmu atklāšana apstrādes laikā
 
-When processing finishes:
+### Brīdinājuma pazīmes
 
-* Progress bar reaches 100%
-* **"Processing Complete"** message appears in Debug Log
-* Start button becomes enabled again
-* All output files are in camera model subfolder
+**Progresa apstāšanās (nekādas izmaiņas vairāk nekā 5 minūtes):**
+
+* Pārbaudiet Debug Log, vai nav kļūdas
+* Pārbaudiet pieejamo diska vietu
+* Pārbaudiet Task Manager, vai darbojas Chloros
+
+**Bieži parādās kļūdu ziņojumi:**
+
+* Pārtrauciet apstrādi un pārbaudiet kļūdas
+* Bieži sastopami iemesli: diska vieta, bojāti faili, atmiņas problēmas
+* Skatīt sadaļu „Problēmu novēršana” zemāk
+
+**Sistēma nereagē:**
+
+* Chloros+ paralēlais režīms izmanto pārāk daudz resursu
+* Apsveriet vienlaicīgo uzdevumu skaita samazināšanu vai aparatūras modernizēšanu
+* Brīvais režīms ir mazāk resursietilpīgs
+
+### Kad pārtraukt apstrādi
+
+Pārtrauciet apstrādi, ja redzat:
+
+* ❌ Kļūdas „Disks pilns” vai „Nevar rakstīt failu”
+* ❌ Atkārtotas attēlu failu bojājumu kļūdas
+* ❌ Sistēma ir pilnībā iesaldēta (nereagē)
+* ❌ Ir konstatēts, ka ir konfigurēti nepareizi iestatījumi
+* ❌ Ir importēti nepareizi attēli
+
+**Kā pārtraukt:**
+
+1. Noklikšķiniet uz **poga &quot;Pārtraukt/Atcelt&quot;** (aizstāj pogu &quot;Sākt&quot;)
+2. Apstrāde tiek apturēta, progress tiek zaudēts
+3. Novēršiet problēmas un sāciet no sākuma
 
 ***
 
-## Next Steps
+## Problēmu novēršana apstrādes laikā
 
-Once processing completes:
+### Apstrāde ir ļoti lēna
 
-1. **Review results** - See [Finishing the Processing](finishing-the-processing.md)
-2. **Check output folder** - Verify all files exported correctly
-3. **Review Debug Log** - Check for any warnings or errors
-4. **Preview processed images** - Use Image Viewer or external software
+**Iespējamie iemesli:**
 
-For information about reviewing and using your processed results, see [Finishing the Processing](finishing-the-processing.md).
+* Neatzīmēti mērķa attēli (visu attēlu skenēšana)
+* HDD vietā SSD uzglabāšana
+* Nepietiekami sistēmas resursi
+* Konfigurēti daudzi indeksi
+* Tīkla diska piekļuve
+
+**Risinājumi:**
+
+1. Ja tikko sākts un atrodas atklāšanas posmā: atceliet, atzīmējiet mērķus, sāciet no jauna
+2. Nākotnē: izmantojiet SSD, samaziniet indeksus, uzlabojiet aparatūru
+3. Apsveriet CLI izmantošanu lielu datu kopu partiju apstrādei
+
+### Brīdinājumi par &quot;diska vietu&quot;
+
+**Risinājumi:**
+
+1. Nekavējoties atbrīvojiet diska vietu
+2. Pārvietojiet projektu uz disku ar lielāku vietu
+3. Samaziniet eksportējamo indeksu skaitu.
+4. Izmantojiet JPG formātu, nevis TIFF (mazāki faili).
+
+### Bieži parādās ziņojumi par bojātiem failiem
+
+**Risinājumi:**
+
+1. Atkārtoti kopējiet attēlus no SD kartes, lai nodrošinātu integritāti.
+2. Pārbaudiet SD karti, vai tajā nav kļūdas.
+3. No projekta izdzēsiet bojātos failus.
+4. Turpiniet apstrādāt atlikušos attēlus.
+
+### Sistēmas pārkaršana/droseles ierobežošana
+
+**Risinājumi:**
+
+1. Nodrošiniet pietiekamu ventilāciju.
+2. Notīriet putekļus no datora ventilācijas atverēm.
+3. Samaziniet apstrādes slodzi (izmantojiet bezmaksas režīmu, nevis Chloros+).
+4. Veiciet apstrādi vēsākā dienas laikā.
+
+***
+
+## Paziņojums par apstrādes pabeigšanu
+
+Kad apstrāde ir pabeigta:
+
+* Progresa josla sasniedz 100 %
+* Debug Log parādās ziņojums **&quot;Processing Complete&quot;** (Apstrāde pabeigta)
+* Sākuma pogas atkal kļūst pieejamas
+* Visi izvades faili atrodas kameras modeļa apakšmapē
+
+***
+
+## Nākamie soļi
+
+Kad apstrāde ir pabeigta:
+
+1. **Pārskatiet rezultātus** — skatiet [Apstrādes pabeigšana](finishing-the-processing.md)
+2. **Pārbaudiet izvades mapi** — pārbaudiet, vai visi faili ir eksportēti pareizi
+3. **Pārskatiet debug žurnālu** — pārbaudiet, vai nav brīdinājumu vai kļūdu
+4. **Priekšskatiet apstrādātos attēlus** — izmantojiet attēlu skatītāju vai ārējo programmatūru
+
+Informāciju par apstrādāto rezultātu pārskatīšanu un izmantošanu skatiet sadaļā [Apstrādes pabeigšana](finishing-the-processing.md).

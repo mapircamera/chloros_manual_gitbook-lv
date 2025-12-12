@@ -1,17 +1,13 @@
-# Projects
+# GUI : Projekti
 
-Chloros allows you to create projects which can be reopened in the future.
+Chloros ļauj izveidot projektus, kurus var atvērt atkārtoti nākotnē.
 
-## New Project
+## Jauns projekts
 
-<figure><img src=".gitbook/assets/project_new.JPG" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/project_new.JPG" alt=""><figcaption></figcaption></figure>Izvēlieties galvenajā izvēlnē &quot;Jauns projekts&quot; un ievadiet unikālu nosaukumu savam projektam.
 
-Select "New Project" from the main menu and enter a unique name for your project.
+## Atvērt projektu
 
-## Open Project
+<figure><img src=".gitbook/assets/project_open.JPG" alt=""><figcaption></figcaption></figure>Izvēlieties &quot;Atvērt projektu&quot;, lai redzētu esošo projektu sarakstu projekta mapē. Ja nav projektu, sekundārā sānu izvēlne neatsvērsies. Jūs varat redzēt dažus GUI izveidotus projektus (t1, t2, t3), kas uzskaitīti iepriekšējā attēlā. DATE\_TIME projekti tika izveidoti ar CLI, izmantojot noklusējuma projekta nosaukuma shēmu. Noklikšķinot uz jebkura projekta nosaukuma, tas tiks atvērts.
 
-<figure><img src=".gitbook/assets/project_open.JPG" alt=""><figcaption></figcaption></figure>
-
-Select "Open Project" to see a list of existing projects in the Project Folder. If no projects exist the secondary side menu will not open. You can see some GUI created projects (t1, t2, t3) listed in the above photo. The DATE\_TIME projects were created by the CLI using the default project naming scheme. Clicking any project name will open it.
-
-Clicking the "Open Project Folder" button opens your computer's file explorer at the project path. You can adjust the project path in the [Project Settings](project-settings/page-2.md).
+Noklikšķinot uz pogas &quot;Atvērt projekta mapes&quot;, atvērsies datora failu pārlūks projekta ceļā. Projekta ceļu varat pielāgot [Projekta iestatījumos](project-settings/project-settings.md).

@@ -4,169 +4,165 @@ metaLinks:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/download
 ---
 
-# Download
+# Lejupielāde
 
-Download the latest version of Chloros for Windows to get started with multispectral image processing.
+Lejupielādējiet jaunāko Chloros versiju Windows, lai sāktu darbu ar multispektrālo attēlu apstrādi.
 
-### System Requirements
+### Sistēmas prasības
 
-| Requirement          | Minimum                         | Recommended                     |
+| Prasība          | Minimālā                         | Ieteicamā                     |
 | -------------------- | ------------------------------- | ------------------------------- |
-| **Operating System** | Windows 10 (64-bit)             | Windows 11 (64-bit)             |
-| **Processor**        | Intel Core i5 or equivalent     | Intel Core i7 or better         |
-| **Memory (RAM)**     | 8GB                             | 16GB or more                    |
-| **Graphics Card**    | DirectX 11 compatible           | NVIDIA GPU with 4GB+ VRAM       |
-| **Storage**          | 2GB free space                  | SSD with 10GB+ free space       |
-| **Display**          | 1920x1080                       | 2560x1440 or higher             |
-| **Internet**         | Required for license activation | Required for license activation |
+| **Operētājsistēma** | Windows 10 (64 bitu)             | Windows 11 (64 bitu)             |
+| **Procesors**        | Intel Core i5 vai līdzvērtīgs     | Intel Core i7 vai labāks         |
+| **Atmiņa (RAM)**     | 8 GB                             | 16 GB vai vairāk                    |
+| **Grafikas karte**    | DirectX 11 saderīga           | NVIDIA GPU ar 4 GB+ VRAM       |
+| **Uzglabāšana**          | 2 GB brīvas vietas                  | SSD ar 10 GB+ brīvas vietas       |
+| **Ekrāns**          | 1920x1080                       | 2560x1440 vai augstāka izšķirtspēja             |
+| **Internets**         | Nepieciešams licences aktivizēšanai | Nepieciešams licences aktivizēšanai |
 
-{% hint style="info" %}
-**GPU Acceleration**: Chloros+ users with NVIDIA GPUs (4GB+ VRAM) can use CUDA acceleration for significantly faster processing.
+{% hint style=&quot;info&quot; %}
+**GPU paātrinājums**: Chloros+ lietotāji ar NVIDIA GPU (4 GB+ VRAM) var izmantot CUDA paātrinājumu, lai ievērojami paātrinātu apstrādi.
 {% endhint %}
 
 ***
 
-## Download Chloros
+## Lejupielādēt Chloros
 
-### <a href="https://drive.google.com/file/d/1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4/view?usp=drive_link" class="button primary">Download Chloros Here</a>
+### <a href="https://drive.google.com/file/d/1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4/view?usp=drive_link" class="button primary">Lejupielādēt Chloros šeit</a>
 
-### Latest Stable Release
+### Jaunākā stabilā versija
 
-**Chloros Installer for Windows**
+**Chloros instalētājs Windows**
 
-* **Version**: 1.0.3
-* **Release Date**: December ?, 2025
-* **File Size**: 1.6GB
-* **File Type**: .exe (Windows Installer)
+* **Versija**: 1.0.3
+* **Izlaides datums**: 2025. gada decembris?
+* **Faila izmērs**: 1,6 GB
+* **Faila tips**: .exe (Windows instalētājs)
 
-#### **Installation Steps:**
+#### **Instalēšanas soļi:**
 
-1. Download the `CHLOROS INSTALLER - CURRENT VERSION.exe` file
-2. Double-click the installer to begin installation
-3. Follow the installation wizard prompts
-4. Choose installation directory (default: `C:\Program Files\Chloros\`)
-5. Complete installation and launch Chloros
-6. Sign in with your MAPIR Cloud Chloros+ account (or continue with free version)
+1. Lejupielādējiet failu `CHLOROS INSTALLER - CURRENT VERSION.exe`.
+2. Divkārši noklikšķiniet uz instalētāja, lai sāktu instalēšanu.
+3. Sekojiet instalēšanas vedņa norādījumiem.
+4. Izvēlieties instalēšanas direktoriju (noklusējums: `C:\Program Files\Chloros\`).
+5. Pabeidziet instalēšanu un palaidiet Chloros.
+6. Piesakieties ar savu MAPIR Cloud Chloros+ kontu (vai turpiniet ar bezmaksas versiju)
 
-{% hint style="success" %}
-The installer automatically adds `chloros-cli` to your system PATH for command-line access.
+{% hint style=&quot;success&quot; %}
+Instalētājs automātiski pievieno `chloros-cli` jūsu sistēmas PATH, lai nodrošinātu piekļuvi komandrindai.
 {% endhint %}
 
 ***
 
-## Additional Resources
+## Papildu resursi
 
 ### Python SDK
 
-For developers and automation workflows, install the Chloros Python SDK:
+Izstrādātājiem un automatizācijas darba plūsmām instalējiet Chloros Python SDK:
 
 ```bash
 pip install chloros-sdk
 ```
 
-**Documentation**: [API: Python SDK](api-python-sdk.md)
+**Dokumentācija**: [API: Python SDK](api-python-sdk.md)
 
-**Requirements**: Chloros Desktop must be installed, Chloros+ license required
-
-***
-
-## What's Included
-
-The Chloros installation includes:
-
-* ✅ **Chloros Desktop GUI** - Full-featured graphical interface
-* ✅ **Chloros (Browser)** - Web-based interface for lower-spec systems
-* ✅ **Chloros CLI** - Command-line interface (requires Chloros+ license)
-* ✅ **Backend Engine** - Image processing pipeline
-* ✅ **Camera Profiles** - Pre-configured MAPIR camera templates
+**Prasības**: Chloros Desktop jābūt instalētam, nepieciešama Chloros+ licence.
 
 ***
 
-## Upgrade to Chloros+
+## Kas ir iekļauts
 
-Unlock advanced features with a Chloros+ subscription:
+Chloros instalācijā ir iekļauts:
 
-* 🚀 **Multi-threaded Processing** - Process images in parallel
-* ⚡ **GPU (CUDA) Acceleration** - Leverage NVIDIA GPU power
-* 💻 **CLI Access** - Automate with command-line tools
-* 🐍 **Python SDK** - Programmatic API access
-* 📱 **Multiple Devices** - Use on 2-10+ devices (plan dependent)
-* 🧮 **Custom Formulas** - Create custom multispectral indices
-
-<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">View Chloros+ Plans &#x26; Pricing</a></p>
+* ✅ **Chloros Desktop GUI** - pilnfunkciju grafiskais interfeiss
+* ✅ **Chloros (pārlūks)** - tīmekļa interfeiss sistēmām ar zemāku specifikāciju
+* ✅ **Chloros CLI** – komandrindas interfeiss (nepieciešama Chloros+ licence)
+* ✅ **Backend Engine** – attēlu apstrādes cauruļvads
+* ✅ **Kameru profili** - Iepriekš konfigurēti MAPIR kameru veidnes
 
 ***
 
-## Installation Help
+## Pāreja uz Chloros+
 
-### Troubleshooting
+Atbloķējiet papildu funkcijas ar Chloros+ abonementu:
 
-**Installation fails with error message:**
+* 🚀 **Daudzpavedienu apstrāde** - attēlu apstrāde paralēli
+* ⚡ **GPU (CUDA) paātrinājums** - izmantojiet NVIDIA GPU jaudu
+* 💻 **CLI piekļuve** - automatizējiet ar komandrindas rīkiem
+* 🐍 **Python SDK** - Programmatiska API piekļuve
+* 📱 **Vairākas ierīces** - Lietošana 2-10+ ierīcēs (atkarībā no plāna)
+* 🧮 **Pielāgotas formulas** - Izveidojiet pielāgotus multispektrālos indeksus
 
-* Ensure you have administrator rights
-* Temporarily disable antivirus software
-* Check that you meet minimum system requirements
+<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Skatīt Chloros+ plānus un cenas</a></p>***
 
-**Application won't start:**
+## Palīdzība instalēšanā
 
-* Try Chloros (Browser) version
-* Verify Windows 10/11 (64-bit) is installed
-* Update graphics drivers
-* Check Windows Event Viewer for error details
-* Contact support with error logs
+### Problēmu novēršana
 
-**License activation issues:**
+**Instalēšana neizdodas ar kļūdas ziņojumu:**
 
-* Ensure internet connection is active
-* Verify credentials at [https://cloud.mapir.camera](https://cloud.mapir.camera)
-* Check firewall isn't blocking Chloros
-* See [Chloros+ Login](chloros+-login.md) for detailed instructions
+* Pārliecinieties, ka jums ir administratora tiesības
+* Pagaidām atspējojiet antivīrusu programmatūru
+* Pārbaudiet, vai atbilstat minimālajām sistēmas prasībām
 
-### Getting Support
+**Lietojumprogramma nepalaižas:**
 
-Need help with installation or setup?
+* Izmēģiniet Chloros (pārlūka) versiju
+* Pārbaudiet, vai ir instalēta Windows 10/11 (64 bitu) versija
+* Atjauniniet grafikas draiverus
+* Pārbaudiet Windows notikumu skatītāju, lai uzzinātu kļūdas detaļas
+* Sazinieties ar atbalsta dienestu, nosūtot kļūdu žurnālus
 
-* 📧 **Email**: info@mapir.camera
-* 🌐 **Website**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* 📚 **Documentation**: [Getting Started](./)
-* ❓ **FAQ**: [Frequently Asked Questions](faq.md)
+**Licences aktivizēšanas problēmas:**
+
+* Pārbaudiet, vai interneta savienojums ir aktīvs
+* Pārbaudiet autentifikācijas datus [https://cloud.mapir.camera](https://cloud.mapir.camera)
+* Pārbaudiet, vai ugunsmūris neblokē Chloros
+* Sīkākas instrukcijas skatiet [Chloros+ Pieslēgšanās](chloros+-login.md)
+
+### Atbalsta saņemšana
+
+Vajadzīga palīdzība ar instalēšanu vai konfigurēšanu?
+
+* 📧 **E-pasts**: info@mapir.camera
+* 🌐 **Tīmekļa vietne**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
+* 📚 **Dokumentācija**: [Sākums](./)
+* ❓ **FAQ**: [Bieži uzdotie jautājumi](faq.md)
 
 ***
 
-## Change Log
+## Izmaiņu žurnāls
 
 <details>
 
-<summary>Version 1.0.3</summary>
+<summary>Versija 1.0.3</summary>
 
-### **Release Date**: December ?, 2025
+### **Izlaides datums**: 2025. gada decembris?
 
-#### New Features
+#### Jaunas funkcijas
 
-* Initial Launch
+* Sākotnējā versija
 
-#### Improvements
+#### Uzlabojumi
 
-* Initial Launch
+* Sākotnējā versija
 
-#### Bug Fixes
+#### Kļūdu labojumi
 
-* Initial Launch
+* Sākotnējā versija
 
-#### Known Issues
+#### Zināmas problēmas
 
-* Initial Launch
+* Sākotnējā versija
 
-</details>
+</details>***
 
-***
+## Licences līgums
 
-## License Agreement
+**Proprietārā programmatūra** - Autortiesības (c) 2025 MAPIR Inc.
 
-**Proprietary Software** - Copyright (c) 2025 MAPIR Inc.
+Neatļauta izmantošana, izplatīšana vai modificēšana ir aizliegta.
 
-Unauthorized use, distribution, or modification is prohibited.
+**Bezmaksas versija**: pieejama personiskai un komerciālai lietošanai ar funkciju ierobežojumiem.
 
-**Free Version**: Available for personal and commercial use with feature limitations
-
-**Chloros+**: Subscription-based license for advanced features and commercial deployments
+**Chloros+**: abonementa licence papildu funkcijām un komerciālai izmantošanai.

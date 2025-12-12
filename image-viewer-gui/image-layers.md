@@ -1,352 +1,352 @@
-# Image Layers
+# Attēlu slāņi
 
-The Image Layers dropdown in the Chloros Image Viewer allows you to quickly switch between different versions of the same image - from the original captures to processed reflectance outputs and calculated index images.
+Chloros attēlu skatītāja izvēlne „Attēlu slāņi” ļauj ātri pārslēgties starp dažādām viena attēla versijām — no oriģinālajiem uzņēmumiem līdz apstrādātiem atstarojuma izvades attēliem un aprēķinātiem indeksa attēliem.
 
-## What are Image Layers?
+## Kas ir attēlu slāņi?
 
-In Chloros, **layers** refer to the different image outputs available for a single source image. When you process images, Chloros creates multiple versions:
+Chloros programmā **slāņi** ir dažādi attēlu izvades veidi, kas pieejami vienam avota attēlam. Apstrādājot attēlus, Chloros izveido vairākas versijas:
 
-* **Original images** (JPG and RAW files from your camera)
-* **Reflectance calibrated** outputs (if reflectance calibration was enabled)
-* **Target images** (if the image contains calibration targets)
-* **Index images** (NDVI, NDRE, GNDVI, etc. if indices were configured)
+* **Oriģinālie attēli** (JPG un RAW faili no jūsu kameras)
+* **Reflektances kalibrēti** rezultāti (ja reflektances kalibrēšana bija ieslēgta)
+* **Mērķa attēli** (ja attēls satur kalibrēšanas mērķus)
+* **Indeksa attēli** (NDVI, NDRE, GNDVI utt., ja indeksi bija konfigurēti)
 
-The **Layer Selector dropdown** in the top-right of the Image Viewer lets you instantly switch between these versions without leaving the viewer.
+**Sluoksņu izvēlnes nolaižamais izvēlnes elements** attēlu skatītāja augšējā labajā stūrī ļauj jums uzreiz pārslēgties starp šīm versijām, neizejot no skatītāja.
 
 ***
 
-## Available Layer Types
+## Pieejamie slāņu tipi
 
 ### JPG
 
-* The original JPG preview image from your camera
-* Always available for all images
-* Unprocessed, as captured by the camera
-* Fastest to load and display
+* Oriģinālais JPG priekšskatījuma attēls no jūsu kameras
+* Vienmēr pieejams visiem attēliem
+* Neapstrādāts, kā uzņemts ar kameru
+* Ātrākais ielādēties un parādīties
 
-**When to view:**
+**Kad skatīt:**
 
-* Quick preview of original capture
-* Checking image composition and framing
-* Verifying capture quality before processing
+* Ātrs oriģinālā uzņēmuma priekšskatījums
+* Attēla kompozīcijas un kadrējuma pārbaude
+* Uzņēmuma kvalitātes pārbaude pirms apstrādes
 
-### RAW (Original)
+### RAW (oriģināls)
 
-* The original RAW sensor data from your camera
-* Debayered with no post processing applied
-* Higher bit depth than JPG (typically 12-bit or 14-bit sensor data)
+* Oriģinālie RAW sensora dati no jūsu kameras
+* Debayered bez pēcapstrādes
+* Augstāka bitu dziļuma nekā JPG (parasti 12 bitu vai 14 bitu sensora dati)
 
-**When to view:**
+**Kad skatīt:**
 
-* Inspecting original sensor data quality
-* Checking for sensor issues or artifacts
-* Comparing before/after processing results
+* Oriģinālo sensora datu kvalitātes pārbaude
+* Sensora problēmu vai artefaktu pārbaude
+* Salīdzinājums pirms/pēc apstrādes rezultātiem
 
-### RAW (Target)
+### RAW (mērķis)
 
-* Only appears for images identified as containing calibration targets
-* Shows the original RAW image with target detected
-* Used to verify target detection was successful
+* Parādās tikai attēliem, kuros ir identificēti kalibrēšanas mērķi
+* Parāda oriģinālo RAW attēlu ar atklāto mērķi
+* Izmanto, lai pārbaudītu, vai mērķa atklāšana ir bijusi veiksmīga
 
-**When to view:**
+**Kad skatīt:**
 
-* Confirming calibration targets were detected correctly
-* Checking target image quality
-* Troubleshooting calibration issues
+* Lai apstiprinātu, ka kalibrēšanas mērķi ir atklāti pareizi
+* Lai pārbaudītu mērķa attēla kvalitāti
+* Lai novērstu kalibrēšanas problēmas
 
-{% hint style="info" %}
-**Target Layer**: This layer only appears in the dropdown for images that contain calibration targets. Regular capture images will not have this option.
+{% hint style=&quot;info&quot; %}
+**Mērķa slānis**: Šis slānis parādās tikai nolaižamajā izvēlnē attēliem, kas satur kalibrēšanas mērķus. Parastajiem uzņemtajiem attēliem šī opcija nav pieejama.
 {% endhint %}
 
-### RAW (Reflectance)
+### RAW (atstarošanās)
 
-* The calibrated reflectance output image
-* Vignette corrected (if enabled in processing)
-* Reflectance calibrated using target data (if enabled)
-* Multi-band TIFF with all camera channels
-* Pixel values represent percent reflectance (when using percent mode)
-* Ready to manipulate with the [Index/LUT Sandbox](index-lut-sandbox.md)
+* Kalibrētais atstarošanās izvades attēls
+* Vignette koriģēts (ja iespējots apstrādē)
+* Atstarošanās kalibrēts, izmantojot mērķa datus (ja ir iespējots)
+* Daudzjoslu TIFF ar visiem kameras kanāliem
+* Pikseļu vērtības attēlo atstarojuma procentu (ja izmanto procentu režīmu)
+* Gatavs apstrādei ar [Index/LUT Sandbox](index-lut-sandbox.md)
 
-**When to view:**
+**Kad skatīt:**
 
-* Inspecting calibrated results
-* Verifying calibration quality
-* Checking pixel values for scientific accuracy
-* Comparing with original to see calibration effects
+* Kalibrēto rezultātu pārbaude
+* Kalibrēšanas kvalitātes pārbaude
+* Pikseļu vērtību pārbaude zinātniskās precizitātes nodrošināšanai
+* Salīdzināšana ar oriģinālu, lai redzētu kalibrēšanas efektus
 
-{% hint style="success" %}
-**Recommended**: Use RAW (Reflectance) layer when checking pixel values for scientific measurements and analysis.
+{% hint style=&quot;success&quot; %}
+**Ieteicams**: izmantojiet RAW (atstarošanas) slāni, pārbaudot pikseļu vērtības zinātniskajiem mērījumiem un analīzei.
 {% endhint %}
 
-### RAW (NDVI Index)... and similar
+### RAW (NDVI indekss)... un līdzīgi
 
-* Calculated vegetation index image (NDVI in this example)
-* The index name changes based on which index was configured during processing
-* Examples: RAW (NDVI Index), RAW (NDRE Index), RAW (GNDVI Index), etc.
-* Single-band grayscale image showing index calculation results
-* One layer appears for each index configured in Project Settings
+* Aprēķinātais veģetācijas indeksa attēls (šajā piemērā NDVI)
+* Indeksa nosaukums mainās atkarībā no tā, kurš indekss tika konfigurēts apstrādes laikā
+* Piemēri: RAW (NDVI indekss), RAW (NDRE indekss), RAW (GNDVI indekss) utt.
+* Vienjoslas pelēktoņu attēls, kas parāda indeksa aprēķina rezultātus
+* Katram projektā konfigurētajam indeksam parādās viens slānis
 
-**Possible index names:**
+**Iespējamie indeksa nosaukumi:**
 
-* RAW (NDVI Index)
-* RAW (NDRE Index)
-* RAW (GNDVI Index)
-* RAW (OSAVI Index)
-* RAW (EVI Index)
-* RAW (SAVI Index)
-* And many more... (see [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md))
+* RAW (NDVI indekss)
+* RAW (NDRE indekss)
+* RAW (GNDVI indekss)
+* RAW (OSAVI indekss)
+* RAW (EVI indekss)
+* RAW (SAVI indekss)
+* Un daudzi citi... (skatīt [Daudzspektrālo indeksu formulas](../project-settings/multispectral-index-formulas.md))
 
-**When to view:**
+**Kad skatīt:**
 
-* Examining index calculation results
-* Checking index value ranges
-* Identifying areas of interest
-* Verifying index images before using in GIS or analysis
-
-***
-
-## Using the Layer Selector
-
-### Opening the Dropdown
-
-1. Open an image in fullscreen mode (click any thumbnail in the Image Viewer)
-2. Locate the **layer dropdown** in the top-right corner of the viewer
-3. The dropdown shows the currently selected layer (e.g., "JPG")
-4. Click the dropdown to see all available layers
-
-### Switching Layers
-
-1. Click the layer dropdown to open the list
-2. All available layers for the current image are shown
-3. Click any layer name to switch to that version
-4. The image updates immediately to show the selected layer
-
-**Quick switching:**
-
-* The dropdown remembers your last selection
-* When navigating to the next image, Chloros attempts to show the same layer type
-* If that layer doesn't exist on the next image, it defaults to JPG
-
-### Layer Availability
-
-Not all layers are available for every image:
-
-**Always available:**
-
-* ✅ JPG (every image has a JPG preview)
-
-**Conditionally available:**
-
-* ⚠️ RAW (Original) - Only if image was captured in RAW or RAW+JPG mode
-* ⚠️ RAW (Target) - Only if image contains detected calibration targets
-* ⚠️ RAW (Reflectance) - Only after processing with reflectance calibration enabled
-* ⚠️ RAW (\[Index] Index) - Only after processing with indices configured
+* Indeksa aprēķina rezultātu pārbaude
+* Indeksa vērtību diapazonu pārbaude
+* Interesējošo apgabalu identificēšana
+* Indeksa attēlu pārbaude pirms izmantošanas GIS vai analīzē
 
 ***
 
-## Layer Persistence
+## Slāņu izvēlnes izmantošana
 
-### Navigating Between Images
+### Izvēlnes atvēršana
 
-When you navigate to a different image (using arrow keys or clicking thumbnails):
+1. Atveriet attēlu pilnekrāna režīmā (noklikšķiniet uz jebkuras miniattēla attēlu skatītājā)
+2. Atrodiet **slāņu izvēlni** skatītāja augšējā labajā stūrī
+3. Izvēlnē tiek parādīts pašlaik izvēlētais slānis (piemēram, &quot;JPG&quot;)
+4. Noklikšķiniet uz izvēlnes, lai redzētu visus pieejamos slāņus
 
-**Layer preference is preserved:**
+### Slāņu pārslēgšana
 
-* If viewing "RAW (Reflectance)", next image shows "RAW (Reflectance)" (if available)
-* If viewing "RAW (NDVI Index)", next image shows "RAW (NDVI Index)" (if available)
-* If the same layer doesn't exist, defaults to JPG
+1. Noklikšķiniet uz slāņu izvēlnes, lai atvērtu sarakstu
+2. Tiek parādīti visi pieejamie slāņi pašreizējam attēlam
+3. Noklikšķiniet uz jebkura slāņa nosaukuma, lai pārslēgtos uz šo versiju
+4. Attēls nekavējoties atjauninās, lai parādītu izvēlēto slāni
 
-**Example workflow:**
+**Ātra pārslēgšanās:**
 
-1. Open Image 1, switch to RAW (NDVI Index)
-2. Press → to view Image 2
-3. Image 2 automatically displays RAW (NDVI Index) layer
-4. Continue navigating - all images show NDVI layer
-5. Very efficient for reviewing index results across many images
+* Izvēlne atceras jūsu pēdējo izvēli
+* Pārejot uz nākamo attēlu, Chloros mēģina parādīt to pašu slāņa tipu
+* Ja šis slānis nākamajā attēlā nepastāv, tiek izmantots JPG
 
-***
+### Slāņu pieejamība
 
-## Common Workflows
+Ne visi slāņi ir pieejami katram attēlam:
 
-### Workflow 1: Before/After Comparison
+**Vienmēr pieejami:**
 
-**Goal**: Compare original vs. calibrated image
+* ✅ JPG (katram attēlam ir JPG priekšskatījums)
 
-1. Open processed image in Image Viewer
-2. Select **RAW (Original)** from dropdown
-3. Note the vignetting and uncalibrated values
-4. Switch to **RAW (Reflectance)** from dropdown
-5. Compare - vignetting removed, values calibrated
+**Pieejami ar nosacījumiem:**
 
-### Workflow 2: Index Review
-
-**Goal**: Quickly review NDVI results across dataset
-
-1. Open first processed image
-2. Select **RAW (NDVI Index)** from dropdown
-3. Use → arrow key to navigate to next image
-4. NDVI layer persists automatically
-5. Continue through all images, checking NDVI patterns
-6. Switch to **RAW (NDRE Index)** to compare
-
-### Workflow 3: Target Verification
-
-**Goal**: Verify all target images were detected correctly
-
-1. Navigate to a target image
-2. Select **RAW (Target)** from dropdown
-3. Verify calibration targets are clearly visible and detected
-4. Navigate to next target image
-5. Repeat verification for all targets
-
-### Workflow 4: Pixel Value Inspection
-
-**Goal**: Check reflectance values for scientific accuracy
-
-1. Open processed image
-2. Select **RAW (Reflectance)** layer
-3. Enable **Pixel Percent** mode (button in top-right toolbar)
-4. Move cursor over vegetation areas
-5. Verify pixel values are in expected ranges (30-70% for NIR, 5-15% for Red)
-6. Check soil and water areas for appropriate values
+* ⚠️ RAW (oriģināls) — tikai tad, ja attēls ir uzņemts RAW vai RAW+JPG režīmā
+* ⚠️ RAW (mērķis) — tikai tad, ja attēls satur atklātus kalibrēšanas mērķus
+* ⚠️ RAW (atstarošanās) — tikai pēc apstrādes ar ieslēgtu atstarošanās kalibrēšanu
+* ⚠️ RAW (\[indekss] indekss) — tikai pēc apstrādes ar konfigurētiem indeksiem
 
 ***
 
-## Understanding Pixel Values by Layer
+## Slāņu saglabāšana
 
-Different layers show different pixel value ranges:
+### Pārvietošanās starp attēliem
 
-### JPG Layer
+Kad pārvietojaties uz citu attēlu (izmantojot bultu taustiņus vai noklikšķinot uz sīktēliem):
 
-* **Range**: 0-255 (8-bit)
-* **Meaning**: Display values, gamma-corrected
-* **Use**: Visual inspection only, not for scientific measurement
+**Slāņu iestatījumi tiek saglabāti:**
 
-### RAW (Original)
+* Ja skatāties &quot;RAW (Reflektance)&quot;, nākamais attēls parāda &quot;RAW (Reflektance)&quot; (ja pieejams)
+* Ja skatāties &quot;RAW (NDVI Index)&quot;, nākamais attēls parāda &quot;RAW (NDVI Index)&quot; (ja pieejams)
+* Ja tāds pats slānis nepastāv, noklusējuma iestatījums ir JPG
 
-* **Range**: 0-65535 (16-bit)
-* **Meaning**: Raw sensor digital numbers
-* **Use**: Checking sensor performance, not calibrated
+**Piemērs:**
 
-### RAW (Reflectance)
-
-* **Range**: 0-65,535 (16-bit TIFF) or 0.0-1.0 (32-bit Percent)
-* **Meaning**: Calibrated percent reflectance
-* **Use**: Scientific measurements and analysis
-
-**For 16-bit TIFF:** Divide by 65,535 to get percent reflectance **For 32-bit Percent:** Values directly represent percent (0.5 = 50% reflectance)
-
-### RAW (Index Images)
-
-* **Range**: Varies by index (typically -1.0 to +1.0 for normalized indices)
-* **Meaning**: Index calculation result
-* **Examples**:
-  * NDVI: -1 to +1 (vegetation typically 0.4 to 0.9)
-  * NDRE: -1 to +1 (stress detection)
-  * EVI: 0 to 1 (enhanced vegetation)
+1. Atveriet attēlu 1, pārslēdzieties uz RAW (NDVI Index)
+2. Nospiediet →, lai apskatītu attēlu 2
+3. Attēls 2 automātiski parāda slāni RAW (NDVI Index)
+4. Turpiniet navigāciju — visi attēli parāda NDVI slāni
+5. Ļoti efektīvs, lai pārskatītu indeksa rezultātus daudzos attēlos
 
 ***
 
-## Tips and Best Practices
+## Bieži izmantotas darba plūsmas
 
-### Efficient Layer Switching
+### Darba plūsma 1: Salīdzinājums pirms/pēc
 
-* **Keyboard shortcut awareness**: While there's no keyboard shortcut for layers, navigation arrows (←/→) work across all layers
-* **Consistent workflows**: Pick one layer (e.g., NDVI) and review entire dataset before switching to another
-* **Quick comparisons**: Toggle between Original and Reflectance to verify processing quality
+**Mērķis**: Salīdzināt oriģinālo attēlu ar kalibrēto attēlu
 
-### Performance Considerations
+1. Atveriet apstrādāto attēlu attēlu skatītājā
+2. Izvēlieties **RAW (oriģināls)** no nolaižamā izvēlnes
+3. Pievērsiet uzmanību vinjetēšanai un nekalibrētajām vērtībām
+4. Pārejiet uz **RAW (atstarošana)** no nolaižamā izvēlnes
+5. Salīdziniet — vinjetēšana ir noņemta, vērtības ir kalibrētas
 
-* **JPG loads fastest**: Use for quick navigation through many images
-* **RAW layers load slower**: Higher resolution and bit depth
-* **Index layers**: Similar speed to Reflectance layers
-* **First load is slowest**: Subsequent views of same layer are cached and faster
+### Darba plūsma 2: indeksa pārskatīšana
 
-### Quality Verification
+**Mērķis**: ātri pārskatīt NDVI rezultātus visā datu kopā
 
-* **Always check RAW (Original)**: Verify source data quality before trusting processed outputs
-* **Compare layers**: Use layer switching to validate processing worked correctly
-* **Check index ranges**: Use Pixel Percent mode with index layers to verify values are reasonable
+1. Atveriet pirmo apstrādāto attēlu
+2. Izvēlieties **RAW (NDVI indekss)** no nolaižamā izvēlnes
+3. Izmantojiet → bultu taustiņu, lai pārietu uz nākamo attēlu
+4. NDVI slānis saglabājas automātiski
+5. Turpiniet pārskatīt visus attēlus, pārbaudot NDVI modeļus
+6. Pāriet uz **RAW (NDRE indekss)**, lai salīdzinātu
 
-***
+### Darba plūsma 3: Mērķa pārbaude
 
-## Troubleshooting
+**Mērķis**: Pārbaudīt, vai visi mērķa attēli ir pareizi atklāti
 
-### Layer Not Available
+1. Pāriet uz mērķa attēlu
+2. Izvēlieties **RAW (mērķis)** no nolaižamā izvēlnes
+3. Pārbaudiet, vai kalibrēšanas mērķi ir skaidri redzami un atklāti
+4. Pāriet uz nākamo mērķa attēlu
+5. Atkārtot pārbaudi visiem mērķiem
 
-**Problem**: Expected layer doesn't appear in dropdown
+### Darba plūsma 4: Pikseļu vērtību pārbaude
 
-**Possible causes:**
+**Mērķis**: Pārbaudīt atstarojuma vērtības zinātniskās precizitātes nolūkā
 
-* Image wasn't processed (only JPG and RAW (Original) available)
-* Reflectance calibration was disabled during processing
-* Specific index wasn't configured in Project Settings
-* Image is a target-only image (no indices generated for targets)
-
-**Solutions:**
-
-1. Verify image was processed (check output folder for processed files)
-2. Check Project Settings to confirm indices were configured
-3. Reprocess with desired indices enabled
-
-### Wrong Layer Shown
-
-**Problem**: Image opens in unexpected layer
-
-**Cause**: Layer preference from previous image carried forward, but that layer doesn't exist on current image
-
-**Solution**: Chloros automatically falls back to JPG when preferred layer unavailable - this is normal behavior
-
-### Can't See Calibration Targets
-
-**Problem**: RAW (Target) layer doesn't show target detection
-
-**Possible causes:**
-
-* Targets weren't detected during processing
-* Image doesn't actually contain targets
-* Target detection settings too strict
-
-**Solutions:**
-
-1. Check Debug Log for "Target found" messages
-2. Verify image actually contains visible calibration targets
-3. Adjust target detection settings in Project Settings
-4. See [Choosing Target Images](../processing-images-gui/choosing-target-images.md)
+1. Atvērt apstrādāto attēlu
+2. Izvēlēties **RAW (Atstarojums)** slāni
+3. Aktivizēt **Pikseļu procentu** režīmu (poga augšējā labajā rīkjoslā)
+4. Pārvietojiet kursoru pār veģetācijas apgabaliem.
+5. Pārbaudiet, vai pikseļu vērtības atbilst sagaidāmajam diapazonam (30–70 % NIR gadījumā, 5–15 % Red gadījumā).
+6. Pārbaudiet, vai augsnes un ūdens apgabaliem ir atbilstošas vērtības.
 
 ***
 
-## Related Features
+## Pikseļu vērtību izpratne pēc slāņa
 
-### Image Viewer Tools
+Dažādi slāņi parāda atšķirīgas pikseļu vērtību diapazonus:
 
-When viewing any layer, you can use:
+### JPG slānis
 
-* **Zoom controls**: Magnify to inspect details
-* **Pan**: Click and drag to move around zoomed image
-* **Pixel value inspection**: See values at cursor location
-* **Navigation arrows**: Move between images while maintaining layer
-* **Pixel Percent mode**: Toggle between DN and percent display
+* **Diapazons**: 0–255 (8 biti)
+* **Nozīme**: parādītās vērtības, gamma korekcija
+* **Lietošana**: tikai vizuāla pārbaude, nevis zinātniski mērījumi
 
-See [Opening an Image Full Screen](page-3.md) for complete Image Viewer documentation.
+### RAW (oriģināls)
 
-### Index/LUT Sandbox
+* **Diapazons**: 0–65535 (16 bitu)
+* **Nozīme**: neapstrādāti sensora digitālie skaitļi
+* **Lietošana**: sensora darbības pārbaude, nav kalibrēts
 
-For interactive index testing and visualization:
+### RAW (atstarošanās)
 
-* **Real-time index calculation**: Test different index formulas
-* **LUT color mapping**: Apply color gradients to grayscale indices
-* **Export visualizations**: Save colored index images
+* **Diapazons**: 0–65 535 (16 bitu TIFF) vai 0,0–1,0 (32 bitu procenti)
+* **Nozīme**: Kalibrēta procentuālā atstarojamība
+* **Lietošana**: Zinātniskie mērījumi un analīze
 
-See [Index/LUT Sandbox](index-lut-sandbox.md) for details.
+**16 bitu TIFF gadījumā:** Daliet ar 65 535, lai iegūtu procentuālo atstarojamību **32 bitu procentu gadījumā:** Vērtības tieši atspoguļo procentus (0,5 = 50 % atstarojamība)
+
+### RAW (indeksa attēli)
+
+* **Diapazons**: atšķiras atkarībā no indeksa (parasti no -1,0 līdz +1,0 normalizētiem indeksiem)
+* **Nozīme**: indeksa aprēķina rezultāts
+* **Piemēri**:
+  * NDVI: no -1 līdz +1 (vegetācija parasti no 0,4 līdz 0,9)
+  * NDRE: no -1 līdz +1 (stresa noteikšana)
+  * EVI: no 0 līdz 1 (uzlabota veģetācija)
 
 ***
 
-## Next Steps
+## Padomi un labākā prakse
 
-Now that you understand image layers:
+### Efektīva slāņu pārslēgšana
 
-* [**Opening an Image Full Screen**](page-3.md) - Complete Image Viewer guide
-* [**Index/LUT Sandbox**](index-lut-sandbox.md) - Interactive index visualization
-* [**Multispectral Index Formulas**](../project-settings/multispectral-index-formulas.md) - Available indices reference
-* [**Finishing the Processing**](../processing-images-gui/finishing-the-processing.md) - Understanding processed outputs
+* **Tastatūras saīsnes**: lai gan slāņiem nav tastatūras saīsnes, navigācijas bultiņas (←/→) darbojas visos slāņos
+* **Vienota darba plūsma**: izvēlieties vienu slāni (piemēram, NDVI) un pārskatiet visu datu kopu, pirms pārslēdzaties uz citu
+* **Ātrs salīdzinājums**: pārslēdzieties starp Original un Reflectance, lai pārbaudītu apstrādes kvalitāti
+
+### Veiktspējas apsvērumi
+
+* **JPG tiek ielādēts visātrāk**: izmantojiet ātrai navigācijai pa daudziem attēliem
+* **RAW slāņi tiek ielādēti lēnāk**: augstāka izšķirtspēja un bitu dziļums
+* **Indeksa slāņi**: ātrums ir līdzīgs Reflectance slāņiem
+* **Pirmā ielāde ir lēnākā**: turpmākie skatījumi uz to pašu slāni tiek saglabāti cache atmiņā un ir ātrāki
+
+### Kvalitātes pārbaude
+
+* **Vienmēr pārbaudiet RAW (oriģinālu)**: pārbaudiet avota datu kvalitāti, pirms uzticaties apstrādātajiem rezultātiem
+* **Salīdziniet slāņus**: izmantojiet slāņu pārslēgšanu, lai pārbaudītu, vai apstrāde ir veikta pareizi
+* **Pārbaudiet indeksa diapazonus**: izmantojiet pikseļu procentu režīmu ar indeksa slāņiem, lai pārbaudītu, vai vērtības ir saprātīgas
+
+***
+
+## Problēmu novēršana
+
+### Slānis nav pieejams
+
+**Problēma**: Gaidītais slānis neparādās nolaižamajā izvēlnē
+
+**Iespējamie iemesli:**
+
+* Attēls nav apstrādāts (pieejami tikai JPG un RAW (oriģināls))
+* Apstrādes laikā atstarojuma kalibrēšana bija atspējota
+* Projektu iestatījumos nav konfigurēts konkrēts indekss
+* Attēls ir tikai mērķa attēls (mērķiem nav ģenerēti indeksi)
+
+**Risinājumi:**
+
+1. Pārbaudiet, vai attēls ir apstrādāts (pārbaudiet izvades mapē, vai ir apstrādāti faili)
+2. Pārbaudiet projekta iestatījumus, lai pārliecinātos, ka indeksi ir konfigurēti
+3. Veiciet atkārtotu apstrādi, aktivizējot vēlamos indeksus
+
+### Parādās nepareizs slānis
+
+**Problēma**: attēls atveras negaidītā slānī
+
+**Cēlonis**: slāņa iestatījumi no iepriekšējā attēla ir pārnesti, bet šis slānis pašreizējā attēlā nepastāv
+
+**Risinājums**: Chloros automātiski pārslēdzas uz JPG, ja vēlamais slānis nav pieejams — tā ir normāla darbība.
+
+### Nevar redzēt kalibrēšanas mērķus
+
+**Problēma**: RAW (mērķa) slānis neparāda mērķa atklāšanu.
+
+**Iespējamie cēloņi:**
+
+* Mērķi netika atklāti apstrādes laikā.
+* Attēls faktiski nesatur mērķus.
+* Mērķu noteikšanas iestatījumi ir pārāk stingri
+
+**Risinājumi:**
+
+1. Pārbaudiet Debug Log, vai tajā ir ziņojumi &quot;Target found&quot; (Mērķis atrasts)
+2. Pārbaudiet, vai attēls faktiski satur redzamus kalibrēšanas mērķus
+3. Pielāgojiet mērķu noteikšanas iestatījumus Project Settings (Projekta iestatījumi)
+4. Skatīt [Mērķa attēlu izvēle](../processing-images-gui/choosing-target-images.md)
+
+***
+
+## Saistītās funkcijas
+
+### Attēlu skatītāja rīki
+
+Skatot jebkuru slāni, varat izmantot:
+
+* **Tuvināšanas vadības elementus**: palieliniet, lai apskatītu detaļas
+* **Pārvietošanu**: noklikšķiniet un velciet, lai pārvietotos pa tuvināto attēlu
+* **Pikseļu vērtību pārbaudi**: skatiet vērtības kursora atrašanās vietā
+* **Navigācijas bultiņas**: pārvietojieties starp attēliem, saglabājot slāni
+* **Pikseļu procentu režīms**: pārslēgties starp DN un procentuālo attēlojumu
+
+Pilnīga attēlu skatītāja dokumentācija ir pieejama sadaļā [Attēla atvēršana pilnā ekrānā](opening-an-image-full-screen.md).
+
+### Indeksa/LUT smilšu kaste
+
+Interaktīvai indeksa testēšanai un vizualizācijai:
+
+* **Reāllaika indeksa aprēķins**: testējiet dažādas indeksa formulas
+* **LUT krāsu kartēšana**: piemērojiet krāsu gradientus pelēkto toņu indeksiem
+* **Eksportējiet vizualizācijas**: saglabājiet krāsainus indeksa attēlus
+
+Sīkāku informāciju skatiet sadaļā [Indeksa/LUT smilšu kaste](index-lut-sandbox.md).
+
+***
+
+## Nākamie soļi
+
+Tagad, kad jūs saprotat attēlu slāņus:
+
+* [**Attēla atvēršana pilnā ekrānā**](opening-an-image-full-screen.md) - Pilnīga Image Viewer rokasgrāmata
+* [**Index/LUT Sandbox**](index-lut-sandbox.md) - Interaktīva indeksa vizualizācija
+* [**Daudzspektrālo indeksu formulas**](../project-settings/multispectral-index-formulas.md) — pieejamo indeksu atsauce
+* [**Apstrādes pabeigšana**](../processing-images-gui/finishing-the-processing.md) — apstrādāto rezultātu izpratne

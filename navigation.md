@@ -1,47 +1,45 @@
-# GUI : Navigation
+# GUI: Navigācija
 
-When you first launch Chloros and Chloros (Browser) it will start up its backend. Once it is ready the top left main menu icon will be revealed <img src=".gitbook/assets/image (1).png" alt="" data-size="line"> .
+Kad pirmo reizi palaidāt Chloros un Chloros (pārlūks), tiks palaists tā backend. Kad tas būs gatavs, kreisajā augšējā stūrī parādīsies galvenā izvēlnes ikona <img src=".gitbook/assets/image (1).png" alt="" data-size="line"> .
 
 <figure><img src=".gitbook/assets/header.JPG" alt=""><figcaption></figcaption></figure>
 
-From left to right the top header contains:
+No kreisās puses uz labo pusi augšējā galvenajā izvēlnē ir:
 
-### <img src=".gitbook/assets/image (1) (1).png" alt="" data-size="line"> Main Menu
+### <img src=".gitbook/assets/image (1) (1).png" alt="" data-size="line"> Galvenā izvēlne
 
-From the main menu you can start a new project, open an existing project or open the project folder.
+No galvenās izvēlnes varat sākt jaunu projektu, atvērt esošu projektu vai atvērt projekta mapes.
 
-### <img src=".gitbook/assets/image (2).png" alt="" data-size="line"> Play/Start Button
+### <img src=".gitbook/assets/image (2).png" alt="" data-size="line"> Atskaņot/Sākt pogu
 
-When enabled, the start processing button starts the image processing pipeline.
+Kad tā ir ieslēgta, sākt apstrādes poga sāk attēla apstrādes procesu.
 
-### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Progress Bar <img src=".gitbook/assets/image (5).png" alt="" data-size="line">
+### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Progresa josla <img src=".gitbook/assets/image (5).png" alt="" data-size="line">Bezmaksas Chloros režīmā, kas apstrādā visus failus secīgi, progresa josla parāda 2 posmus: mērķa noteikšana un apstrāde.
 
-In the free Chloros mode, which processes all files sequentially, the progress bar will show 2 stages: Target Detect and Processing.
-
-In the paid Chloros+ licensed mode, which process all files simultaneously, the progress bar shows 4 stages: Detecting, Analyzing, Calibrating, Exporting. If you hover your mouse cursor over the Chloros+ progress bar it will drop down the extended 4 progress bar panel so you can follow along. Clicking the top progress bar will freeze the dropdown panel, clicking again unfreezes it.
+Maksas Chloros+ licencētajā režīmā, kas apstrādā visus failus vienlaikus, progresa josla parāda 4 posmus: noteikšana, analīze, kalibrēšana, eksportēšana. Ja uzvedat peles kursoru uz Chloros+ progresa joslas, atvērsies paplašināta 4 progresa joslas paneļa, lai jūs varētu sekot līdzi. Noklikšķinot uz augšējās progresa joslas, atvērsies nolaižamais panelis, noklikšķinot atkārtoti, tas atkal tiks atvērts.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 
-## Side Menu
+## Sānu izvēlne
 
-The left sidebar menu contains various icons to interact with:
+Kreisajā sānu izvēlnē ir dažādas ikonas, ar kurām var mijiedarboties:
 
-#### <img src=".gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> [Project Settings](project-settings/page-2.md)
+#### <img src=".gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> [Projekta iestatījumi](project-settings/project-settings.md)
 
-The Project Setting tab allows you to adjust project global and project processing settings. Adjust these prior to starting to process your files.
+Sadaļā „Projekta iestatījumi” varat pielāgot projekta vispārējos un apstrādes iestatījumus. Pielāgojiet tos pirms failu apstrādes sākšanas.
 
-#### <img src=".gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> File Browser
+#### <img src=".gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> Failu pārlūks
 
-Add files/folders and remove files from the project. Duplicate files are ignored. Check the target column box for any target image, and the processing will only look at checked images for targets, greatly speeding up your processing time.
+Pievienojiet failus/mapes un noņemiet failus no projekta. Dublikāti tiek ignorēti. Atzīmējiet mērķa attēla izvēles rūtiņu, un apstrāde skatīsies tikai atzīmētos attēlus, kas ievērojami paātrinās apstrādes laiku.
 
-#### <img src=".gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> [Image Viewer](image-viewer-gui/page-3.md)
+#### <img src=".gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> [Attēlu skatītājs](image-viewer-gui/opening-an-image-full-screen.md)
 
-When an image is clicked in the main image viewer it is opened full screen in the Image Viewer tab.
+Kad galvenajā attēlu skatītājā tiek noklikšķināts uz attēla, tas tiek atvērts pilna ekrāna režīmā cilnē „Attēlu skatītājs”.
 
 #### <img src=".gitbook/assets/icon_log.JPG" alt="" data-size="line"> Debug Log
 
-Review the log for debug prints when issues happen. Copy/download the log and send to [MAPIR Support](https://www.mapir.camera/community/contact) for assistance.
+Pārskatiet žurnālu, lai atrastu debug izdrukas, ja rodas problēmas. Kopējiet/lejupielādējiet žurnālu un nosūtiet to [MAPIR atbalstam](https://www.mapir.camera/community/contact), lai saņemtu palīdzību.
 
-#### <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> [User Login](chloros+-login.md)
+#### <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> [Lietotāja pieteikšanās](chloros+-login.md)
 
-The user login sidebar allows you to log into your Chloros+ account to unlock advanced features. You can also view the current application version, as well as adjust the language of the displayed text in Chloros GUI and CLI.
+Lietotāja pieteikšanās sānjoslā varat pieteikties savā Chloros+ kontā, lai atbloķētu papildu funkcijas. Varat arī apskatīt pašreizējo lietojumprogrammas versiju, kā arī pielāgot Chloros GUI un CLI parādītā teksta valodu.

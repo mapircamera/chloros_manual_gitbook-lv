@@ -1,43 +1,39 @@
-# Chloros+ Login
+# Chloros+ Pieslēgšanās
 
-## Chloros and Chloros (Browser) Login
+## Chloros un Chloros (pārlūks) Pieslēgšanās
 
-The user <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> sidebar menu allows you to log into your Chloros+ account and unlock additional features.
+Lietotāja <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> sānu joslas izvēlnē varat pieteikties savā Chloros+ kontā un atbloķēt papildu funkcijas.
 
-When logged in your account details will be shown:
+Pēc pieteikšanās tiks parādīta jūsu konta informācija:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Pieslēgties
 
-## CLI Login
+Pieslēdzieties ar saviem Chloros+ datiem, lai aktivizētu CLI apstrādi.
 
-Login with your Chloros+ credentials to enable CLI processing.
-
-**Syntax:**
+**Sintakse:**
 
 ```bash
 chloros-cli login <email> <password>
 ```
 
-**Example:**
+**Piemērs:**
 
 ```powershell
 chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
-{% hint style="warning" %}
-**Special Characters**: Use single quotes around passwords containing characters like `$`, `!`, or spaces.
+{% hint style=&quot;warning&quot; %}
+**Īpašie simboli**: Lietojiet vienkāršās pēdiņas ap parolēm, kas satur simbolus, piemēram, `$`, `!` vai atstarpes.
 {% endhint %}
 
-**Output:**
+**Rezultāts:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Plāna termiņa beigas
 
-### Plan Expiration
+Plāna termiņa beigas GUI parāda, kad jūsu licence kļūs nederīga. Atkārtotiem ikmēneša abonementiem termiņa beigas ir mēneša beigās. Gada abonementiem termiņa beigas ir gadu pēc abonementa sākuma. Licences pārbaudei ir nepieciešams ikmēneša interneta savienojums, lai veiktu pārbaudi, ar 30 dienu papildperiodu.
 
-The plan expiration in the GUI shows when your license will become invalid. For recurring monthly subscriptions the expiration is at the end of the month. For yearly subscriptions it is a year after you started the subscription. The license check requires a monthly internet connection to verify, with a 30 day grace period.
+### Ierīču skaita ierobežojums
 
-### Device Limit
+Katrs Chloros+ plāns piedāvā atšķirīgu reģistrēto ierīču skaitu. Katra ierīce, kurā jūs piesakāties ar Chloros+ kontu, tiks ieskaitīta jūsu reģistrēto ierīču skaitā. Jūs varat pārdēvēt un dzēst ierīci savā MAPIR Cloud konta lapā.
 
-Each Chloros+ plan offers a different number of registered devices. Each device you log into with a Chloros+ account will count towards your number of registered devices. You can rename and remove a device on your MAPIR Cloud account page.
-
-<table><thead><tr><th width="168.5999755859375" align="right">Chloros+ Plan</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">GOLD</th></tr></thead><tbody><tr><td align="right">Devices Supported</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
+<table><thead><tr><th width="168.5999755859375" align="right">Chloros+ plāns</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">ZELTS</th></tr></thead><tbody><tr><td align="right">Atbalstītās ierīces</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>

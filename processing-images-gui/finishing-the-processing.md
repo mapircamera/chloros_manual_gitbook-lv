@@ -1,306 +1,306 @@
-# Finishing the Processing
+# Apstrādes pabeigšana
 
-Once Chloros completes processing, it's time to review your results, verify output quality, and prepare your processed images for use in your workflow. This page guides you through the final steps and next actions.
+Kad Chloros ir pabeidzis apstrādi, ir pienācis laiks pārskatīt rezultātus, pārbaudīt izvades kvalitāti un sagatavot apstrādātos attēlus izmantošanai darba plūsmā. Šī lapa palīdzēs jums veikt pēdējos soļus un nākamās darbības.
 
-## Processing Complete Indication
+## Apstrādes pabeigšanas indikators
 
-When processing finishes successfully, you'll see several indicators:
+Kad apstrāde ir veiksmīgi pabeigta, redzēsiet vairākus indikatorus:
 
-* ✅ **Progress bar**: Reaches 100% completion
-* ✅ **Debug Log**: Shows "Processing Complete" message
-* ✅ **Start button**: Becomes enabled again (ready for next processing run)
-* ✅ **Output files**: All processed images saved to camera model subfolder
-
-***
-
-## Locating Your Processed Images
-
-### Opening the Output Folder
-
-1. Click the **Main Menu** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> icon (top left)
-2. Select **"Open Project Folder"**
-3. Your file explorer opens to the project directory
-4. Locate your project by name
+* ✅ **Progresa josla**: sasniedz 100 % pabeigšanu
+* ✅ **Debug Log**: parāda ziņojumu &quot;Processing Complete&quot; (Apstrāde pabeigta)
+* ✅ **Sākt pogu**: atkal kļūst pieejama (gatava nākamajai apstrādei)
+* ✅ **Izvades faili**: visi apstrādātie attēli saglabāti kameras modeļa apakšmapē
 
 ***
 
-## Reviewing Processed Images
+## Apstrādāto attēlu atrašana
 
-### Quick Preview in File Explorer
+### Izvades mapes atvēršana
 
-**Windows built-in preview:**
-
-1. Navigate to camera model subfolder
-2. Select an image file
-3. Preview appears in Windows Explorer preview pane
-4. Use arrow keys to browse through images
-
-### Preview in External Image Viewers
-
-**Recommended viewers:**
-
-* **QGIS** - Free GIS software (best for georeferenced multispectral analysis)
-* **IrfanView** - Fast, lightweight image viewer (supports TIFF)
-* **Adobe Photoshop** - Professional editing (TIFF support)
-* **GIMP** - Free alternative to Photoshop
-* **Windows Photos** - Basic viewing (may not support 16-bit TIFF)
-
-### Preview in Chloros Image Viewer
-
-Use Chloros's built-in Image Viewer for advanced visualization:
-
-1. Click an image thumbnail in the File Browser
-2. Image opens in the main preview area
-3. Click **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab in left sidebar
-4. Use [Index/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md) for interactive analysis
-
-See [Image Viewer](../image-viewer-gui/page-3.md) for detailed instructions.
+1. Noklikšķiniet uz **galvenās izvēlnes** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> (kreisajā augšējā stūrī)
+2. Izvēlieties **&quot;Atvērt projekta mapi&quot;**
+3. Jūsu failu pārlūks atveras projekta direktorijā
+4. Atrodiet savu projektu pēc nosaukuma
 
 ***
 
-## Reviewing the Debug Log
+## Apstrādāto attēlu pārskatīšana
 
-### Check for Warnings or Errors
+### Ātrā priekšskatīšana failu pārlūkprogrammā
 
-1. Open **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> tab
-2. Scroll through messages
-3. Look for yellow warnings or red errors
-4. Review any issues noted
-5. Contact MAPIR support for assistance
+**Windows iebūvēta priekšskatīšana:**
 
-### Saving the Log
+1. Pāriet uz kameras modeļa apakšmapes
+2. Izvēlieties attēla failu
+3. Priekšskatīšana parādās Windows Explorer priekšskatīšanas logā
+4. Izmantojiet bultu taustiņus, lai pārlūkotu attēlus
 
-To keep a record of processing or to send to MAPIR Support:
+### Pārskatīšana ārējās attēlu skatītājprogrammās
 
-1. Click **"Copy"** or **"Download"** button
-2. Save as text file in project folder
-3. Include with project documentation
-4. Send to MAPIR support if issues encountered
+**Ieteicamās skatītājprogrammas:**
 
-***
+* **QGIS** - bezmaksas GIS programmatūra (vislabāk piemērota ģeogrāfiski atsauktu multispektrālo analīžu veikšanai)
+* **IrfanView** - ātra, vieglā attēlu skatītājprogramma (atbalsta TIFF)
+* **Adobe Photoshop** — profesionāla rediģēšana (atbalsta TIFF)
+* **GIMP** — bezmaksas alternatīva Photoshop
+* **Windows Photos** — pamata apskate (var neatbalstīt 16 bitu TIFF)
 
-## Common Output Issues and Solutions
+### Priekšskatīšana Chloros attēlu skatītājā
 
-### Issue: Missing Output Files
+Izmantojiet Chloros iebūvēto attēlu skatītāju, lai veiktu uzlabotu vizualizāciju:
 
-**Possible causes:**
+1. Noklikšķiniet uz attēla sīktēla failu pārlūkā
+2. Attēls atveras galvenajā priekšskatīšanas zonā
+3. Noklikšķiniet uz **Attēlu skatītājs** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> cilni kreisajā sānjoslā.
+4. Interaktīvai analīzei izmantojiet [Index/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md).
 
-* Files didn't meet processing criteria
-* Target-only images (excluded from export)
-* Disk space ran out during export
-* File corruption during processing
-
-**Solutions:**
-
-1. Check Debug Log for skip/error messages
-2. Verify disk space was sufficient
-3. Count files: Should match (original count - target count) × (indices + 1)
-4. Re-import and reprocess any missing files
-
-### Issue: Dark or Bright Edges (Vignetting Still Visible)
-
-**Possible causes:**
-
-* Vignette correction disabled
-* Camera/lens not in Chloros profile database
-* Extreme vignetting beyond correction capability
-
-**Solutions:**
-
-1. Verify vignette correction was enabled in Project Settings
-2. Check camera model correctly detected
-3. Contact MAPIR support if vignetting persists
-
-### Issue: Incorrect Colors or Values
-
-**Possible causes:**
-
-* No calibration targets detected
-* Wrong calibration target model selected
-* Reflectance calibration disabled
-* Poor quality target images
-
-**Solutions:**
-
-1. Verify reflectance calibration was enabled
-2. Check "Target found" messages in Debug Log
-3. Review target image quality
-4. Reprocess with proper targets marked
-
-### Issue: NDVI Values Seem Wrong
-
-**Expected NDVI ranges:**
-
-* **Water, rocks, soil**: -0.1 to 0.2
-* **Sparse/unhealthy vegetation**: 0.2 to 0.4
-* **Moderate vegetation**: 0.4 to 0.6
-* **Healthy, dense vegetation**: 0.6 to 0.9
-
-**If values are outside these ranges:**
-
-1. Verify reflectance calibration was applied
-2. Verify light sensor log was included
-3. Check calibration targets were detected
-4. Ensure correct camera model was detected
-5. Review target image capture timing and conditions
+Sīkākas instrukcijas skatiet [Image Viewer](../image-viewer-gui/opening-an-image-full-screen.md).
 
 ***
 
-## Using Your Processed Images
+## Debug Log pārskatīšana
 
-### For Photogrammetry / Orthomosaic Creation
+### Pārbaudiet brīdinājumus vai kļūdas
 
-**Recommended workflow:**
+1. Atveriet cilni **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> cilni
+2. Pārskatiet ziņojumus
+3. Meklējiet dzeltenos brīdinājumus vai sarkanās kļūdas
+4. Pārskatiet visas atzīmētās problēmas
+5. Sazinieties ar MAPIR atbalsta dienestu, lai saņemtu palīdzību
 
-1. **Import calibrated reflectance images** into photogrammetry software:
+### Žurnāla saglabāšana
+
+Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
+
+1. Noklikšķiniet uz pogas **&quot;Kopēt&quot;** vai **&quot;Lejupielādēt&quot;**
+2. Saglabājiet kā teksta failu projekta mapē
+3. Iekļaujiet projekta dokumentācijā
+4. Nosūtiet MAPIR atbalsta dienestam, ja rodas problēmas
+
+***
+
+## Bieži sastopamas izvades problēmas un to risinājumi
+
+### Problēma: trūkstoši izvades faili
+
+**Iespējamie cēloņi:**
+
+* Faili neatbilst apstrādes kritērijiem
+* Tikai mērķa attēli (izslēgti no eksporta)
+* Eksporta laikā beidzās diska vieta
+* Failu bojājums apstrādes laikā
+
+**Risinājumi:**
+
+1. Pārbaudiet debug log failu, vai tajā nav izlaides/kļūdu ziņojumi
+2. Pārbaudiet, vai diska vieta bija pietiekama
+3. Saskaitiet failus: tiem jāatbilst (sākotnējais skaits - mērķa skaits) × (indeksi + 1)
+4. Atkārtoti importējiet un apstrādājiet visus trūkstošos failus
+
+### Problēma: tumšas vai gaišas malas (joprojām redzama vinjetēšana)
+
+**Iespējamie cēloņi:**
+
+* Vinjetēšanas korekcija ir atspējota
+* Kamera/objektīvs nav Chloros profilu datu bāzē
+* Ekstrēma vinjetēšana, kas pārsniedz korekcijas iespējas
+
+**Risinājumi:**
+
+1. Pārbaudiet, vai vinjetēšanas korekcija ir ieslēgta projekta iestatījumos
+2. Pārbaudiet, vai kameras modelis ir pareizi atpazīts
+3. Ja vinjetēšana joprojām ir redzama, sazinieties ar MAPIR atbalsta dienestu
+
+### Problēma: nepareizas krāsas vai vērtības
+
+**Iespējamie cēloņi:**
+
+* Nav atrasti kalibrēšanas mērķi
+* Izvēlēts nepareizs kalibrēšanas mērķa modelis
+* Atstarošanas kalibrēšana ir atspējota
+* Mērķa attēlu kvalitāte ir slikta
+
+**Risinājumi:**
+
+1. Pārbaudiet, vai ir ieslēgta atstarojuma kalibrēšana.
+2. Pārbaudiet ziņojumus „Mērķis atrasts” debug žurnālā.
+3. Pārbaudiet mērķa attēla kvalitāti.
+4. Veiciet atkārtotu apstrādi, atzīmējot pareizos mērķus.
+
+### Problēma: NDVI vērtības šķiet nepareizas
+
+**Paredzamie NDVI diapazoni:**
+
+* **Ūdens, akmeņi, augsne**: -0,1 līdz 0,2
+* **Retā/neveselīga veģetācija**: 0,2 līdz 0,4
+* **Vidēja veģetācija**: 0,4 līdz 0,6
+* **Veselīga, blīva veģetācija**: 0,6 līdz 0,9
+
+**Ja vērtības ir ārpus šiem diapazoniem:**
+
+1. Pārbaudiet, vai ir veikta atstarojuma kalibrēšana.
+2. Pārbaudiet, vai ir iekļauts gaismas sensora žurnāls.
+3. Pārbaudiet, vai ir atklāti kalibrēšanas mērķi.
+4. Pārbaudiet, vai ir atklāts pareizais kameras modelis.
+5. Pārbaudiet mērķa attēla uzņemšanas laiku un apstākļus.
+
+***
+
+## Apstrādāto attēlu izmantošana
+
+### Fotogrammetrijai/ortomosaikas izveidei
+
+**Ieteicamais darba process:**
+
+1. **Importējiet kalibrētus atstarojuma attēlus** fotogrammetrijas programmā:
    * Pix4Dmapper
    * Agisoft Metashape
    * DroneDeploy
    * WebODM
-2. **Keep EXIF metadata**: Ensure GPS data preserved for geotagging
-3. **Calibrated workflows**: Use reflectance images for scientific accuracy
-4. **Process index mosaics**: Create NDVI orthomosaics from individual index images
-5. **Export georeferenced GeoTIFF**: For use in GIS applications
+2. **Saglabājiet EXIF metadatus**: pārliecinieties, ka GPS dati ir saglabāti ģeogrāfiskai marķēšanai
+3. **Kalibrētas darba plūsmas**: izmantojiet atstarojuma attēlus zinātniskai precizitātei
+4. **Apstrādājiet indeksa mozaīkas**: izveidojiet NDVI ortomozaīkas no atsevišķiem indeksa attēliem
+5. **Eksportējiet ģeoreferencētos GeoTIFF**: izmantošanai GIS lietojumprogrammās
 
-### For GIS Analysis
+### GIS analīzei
 
-**Recommended workflow:**
+**Ieteicamais darba process:**
 
-1. **Load into QGIS, ArcGIS, or similar**
-2. **Use 16-bit TIFF** reflectance images for multi-band analysis
-3. **Use index images** (NDVI, NDRE) as ready-to-use vegetation layers
-4. **Raster calculator**: Combine bands for custom analysis
-5. **Export**: Create classification maps, change detection, vegetation health maps
+1. **Ielādējiet QGIS, ArcGIS vai līdzīgā programmā**
+2. **Izmantojiet 16 bitu TIFF** atstarojuma attēlus daudzjoslu analīzei
+3. **Izmantojiet indeksa attēlus** (NDVI, NDRE) kā gatavus veģetācijas slāņus
+4. **Rastra kalkulators**: apvienojiet joslas pielāgotai analīzei
+5. **Eksportējiet**: izveidojiet klasifikācijas kartes, izmaiņu noteikšanu, veģetācijas veselības kartes
 
-### For Direct Analysis / Reporting
+### Tiešai analīzei/ziņojumu sagatavošanai
 
-**Recommended workflow:**
+**Ieteicamais darba process:**
 
-1. **Use index images with LUT colors** for visual reports
-2. **Extract statistics**: Mean NDVI per field/plot
-3. **Time series**: Compare indices across multiple sessions
-4. **Generate reports**: Include maps, statistics, and visualizations
-
-***
-
-## Archiving and Backup
-
-### Recommended Backup Strategy
-
-**What to save:**
-
-* ✅ **Original RAW/JPG images** - Archive on separate drive/cloud
-* ✅ **Processed outputs** - Keep calibrated images and indices
-* ✅ **Project file** - Contains all settings for reprocessing if needed
-* ✅ **Debug Log** - Documents processing details
-* ✅ **Calibration target images** - For verification and reprocessing
-
-**Storage recommendations:**
-
-* **Immediate backup**: External hard drive
-* **Long-term archive**: Cloud storage (Google Drive, Dropbox, etc.)
-* **Critical data**: Keep 2-3 copies in different locations
+1. **Izmantojiet indeksa attēlus ar LUT krāsām** vizuāliem ziņojumiem
+2. **Iegūstiet statistiku**: vidējais NDVI uz lauku/zemes gabalu
+3. **Laika rindas**: salīdziniet indeksus vairākās sesijās
+4. **Izveidojiet ziņojumus**: iekļaujiet kartes, statistiku un vizualizācijas
 
 ***
 
-## Next Processing Runs
+## Arhivēšana un dublēšana
 
-### Reusing Project Settings
+### Ieteicamā dublēšanas stratēģija
 
-If processing similar datasets in the future:
+**Ko saglabāt:**
 
-1. **Save Project Template** (if not already done)
-2. **Create new project** using saved template
-3. **Import new images**
-4. **Process** with identical settings for consistency
+* ✅ **Oriģinālie RAW/JPG attēli** — arhivējiet atsevišķā diskā/mākonī
+* ✅ **Apstrādātie rezultāti** – saglabājiet kalibrētus attēlus un indeksus
+* ✅ **Projekta fails** – satur visus iestatījumus atkārtotai apstrādei, ja nepieciešams
+* ✅ **Debug Log** – dokumentē apstrādes detaļas
+* ✅ **Kalibrēšanas mērķa attēli** – pārbaudei un atkārtotai apstrādei
 
-### Batch Processing Multiple Sessions
+**Ieteikumi uzglabāšanai:**
 
-For multiple sessions/datasets:
-
-**Option 1: GUI - Multiple Projects**
-
-* Create separate project for each session
-* Use consistent template settings
-* Process one at a time
-
-**Option 2: Chloros CLI (Chloros+ only)**
-
-* Automate batch processing
-* Process multiple folders with scripts
-* See [CLI Documentation](../CLI.md)
-
-**Option 3: Python SDK (Chloros+ only)**
-
-* Programmatic control
-* Integration with analysis pipelines
-* See [API Documentation](../api-python-sdk.md)
+* **Tūlītēja dublējuma izveide**: Ārējais cietais disks
+* **Ilgtermiņa arhivēšana**: Mākonis (Google Drive, Dropbox utt.)
+* **Kritiskie dati**: Saglabājiet 2–3 kopijas dažādās vietās
 
 ***
 
-## Troubleshooting Post-Processing
+## Nākamās apstrādes kārtas
 
-### Re-Processing with Different Settings
+### Projekta iestatījumu atkārtota izmantošana
 
-If results aren't satisfactory:
+Ja nākotnē apstrādāsiet līdzīgus datu kopumus:
 
-1. Keep original images (never delete)
-2. Open same project in Chloros
-3. Adjust settings in Project Settings panel
-4. Process again - outputs will overwrite previous results
+1. **Saglabājiet projekta veidni** (ja vēl neesat to izdarījuši)
+2. **Izveidojiet jaunu projektu**, izmantojot saglabāto veidni
+3. **Importējiet jaunus attēlus**
+4. **Apstrādājiet** ar identiskām iestatījumiem, lai nodrošinātu konsekvenci
 
-### Processing Subset of Images
+### Vairāku sesiju partijas apstrāde
 
-To reprocess only specific images:
+Vairākām sesijām/datu kopām:
 
-1. Create new project
-2. Import only the images needing reprocessing
-3. Use same settings template
-4. Process smaller dataset
+**1. variants: GUI – vairāki projekti**
 
-### Getting Help
+* Izveidojiet atsevišķu projektu katrai sesijai
+* Izmantojiet konsekventus veidnes iestatījumus
+* Apstrādājiet vienu pēc otra
 
-If you encounter issues:
+**2. variants: Chloros CLI (tikai Chloros+)**
 
-* 📧 **Email**: info@mapir.camera (include Debug Log)
-* 🌐 **Support**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* 📚 **FAQ**: [Frequently Asked Questions](../faq.md)
-* 📖 **Documentation**: [Chloros Manual](../)
+* Automatizējiet partiju apstrādi
+* Apstrādājiet vairākas mapes ar skriptiem
+* Skatīt [CLI dokumentāciju](../CLI.md)
 
-***
+**3. variants: Python SDK (tikai Chloros+)**
 
-## Summary: Complete Workflow
-
-You've now completed the full Chloros processing workflow:
-
-1. ✅ **Created project** - See [Projects](../projects.md)
-2. ✅ **Added files** - See [Adding Files](page-1.md)
-3. ✅ **Adjusted settings** - See [Adjusting Project Settings](adjusting-project-settings.md)
-4. ✅ **Marked targets** - See [Choosing Target Images](choosing-target-images.md)
-5. ✅ **Started processing** - See [Starting the Processing](starting-the-processing.md)
-6. ✅ **Monitored progress** - See [Monitoring the Processing](monitoring-the-processing.md)
-7. ✅ **Reviewed results** - This page
-
-**Your calibrated, reflectance-corrected multispectral images are ready for analysis!**
+* Programmatiska kontrole
+* Integrācija ar analīzes cauruļvadiem
+* Skatīt [API dokumentāciju](../api-python-sdk.md)
 
 ***
 
-## Additional Resources
+## Problēmu novēršana pēc apstrādes
 
-### Advanced Features
+### Atkārtota apstrāde ar atšķirīgiem iestatījumiem
 
-* [**Image Viewer**](../image-viewer-gui/page-3.md) - Interactive visualization and analysis
-* [**Index/LUT Sandbox**](../image-viewer-gui/index-lut-sandbox.md) - Custom index testing
-* [**Multispectral Index Formulas**](../project-settings/multispectral-index-formulas.md) - Complete index reference
+Ja rezultāti nav apmierinoši:
 
-### Automation & Integration
+1. Saglabājiet oriģinālās attēlus (nekad nedzēsiet)
+2. Atveriet to pašu projektu Chloros
+3. Pielāgojiet iestatījumus paneļā Project Settings (Projekta iestatījumi)
+4. Apstrādājiet atkārtoti — rezultāti pārrakstīs iepriekšējos rezultātus
 
-* [**CLI Documentation**](../CLI.md) - Command-line batch processing
-* [**Python SDK**](../api-python-sdk.md) - Programmatic automation
-* [**Chloros+ Features**](../#chloros) - Advanced processing capabilities
+### Attēlu apakškopas apstrāde
 
-### Support & Learning
+Lai atkārtoti apstrādātu tikai konkrētus attēlus:
 
-* [**FAQ**](../faq.md) - Common questions answered
-* [**Calibration Targets**](../calibration-targets.md) - Understanding reflectance calibration
-* [**Supported Cameras**](../supported-cameras.md) - Compatible hardware
+1. Izveidojiet jaunu projektu
+2. Importējiet tikai tos attēlus, kuriem nepieciešama atkārtota apstrāde
+3. Izmantojiet to pašu iestatījumu veidni
+4. Apstrādājiet mazāku datu kopu
+
+### Palīdzības saņemšana
+
+Ja rodas problēmas:
+
+* 📧 **E-pasts**: info@mapir.camera (iekļaujiet Debug Log)
+* 🌐 **Atbalsts**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
+* 📚 **FAQ**: [Bieži uzdotie jautājumi](../faq.md)
+* 📖 **Dokumentācija**: [Chloros rokasgrāmata](../)
+
+***
+
+## Kopsavilkums: pilnīga darba plūsma
+
+Tagad esat pabeidzis pilnu Chloros apstrādes darba plūsmu:
+
+1. ✅ **Izveidots projekts** - Skatīt [Projekti](../projects.md)
+2. ✅ **Pievienoti faili** - Skatīt [Failu pievienošana](adding-files-to-a-project.md)
+3. ✅ **Pielāgotas iestatījumi** - Skatīt [Projekta iestatījumu pielāgošana](adjusting-project-settings.md)
+4. ✅ **Atzīmēti mērķi** - Skatīt [Mērķa attēlu izvēle](choosing-target-images.md)
+5. ✅ **Sākt apstrādi** - Skatīt [Apstrādes sākšana](starting-the-processing.md)
+6. ✅ **Uzraudzīts progress** - Skatīt [Apstrādes uzraudzība](monitoring-the-processing.md)
+7. ✅ **Pārskatīti rezultāti** - Šī lapa
+
+**Jūsu kalibrētie, atstarojuma koriģētie multispektrālie attēli ir gatavi analīzei!**
+
+***
+
+## Papildu resursi
+
+### Papildu funkcijas
+
+* [**Attēlu skatītājs**](../image-viewer-gui/opening-an-image-full-screen.md) - Interaktīva vizualizācija un analīze
+* [**Indeksa/LUT smilšu kaste**](../image-viewer-gui/index-lut-sandbox.md) - Pielāgota indeksa testēšana
+* [**Daudzspektrālo indeksu formulas**](../project-settings/multispectral-index-formulas.md) - Pilnīga indeksa atsauce
+
+### Automatizācija un integrācija
+
+* [**CLI dokumentācija**](../CLI.md) – komandrindas partiju apstrāde
+* [**Python SDK**](../api-python-sdk.md) – Programmatiska automatizācija
+* [**Chloros+ funkcijas**](../#chloros) – Uzlabotas apstrādes iespējas
+
+### Atbalsts un apmācība
+
+* [**FAQ**](../faq.md) – Atbildes uz bieži uzdotajiem jautājumiem
+* [**Kalibrēšanas mērķi**](../calibration-targets.md) – Reflektances kalibrēšanas izpratne
+* [**Atbalstītās kameras**](../supported-cameras.md) – Saderīgā aparatūra

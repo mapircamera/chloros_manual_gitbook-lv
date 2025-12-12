@@ -1,204 +1,204 @@
-# Adding Files to a Project
+# Failu pievienošana projektam
 
-Once you've created or opened a project in Chloros, the next step is to add your multispectral images to begin processing. The File Browser<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> tab makes it easy to import images and manage your dataset.
+Kad esat izveidojis vai atvēris projektu Chloros, nākamais solis ir pievienot multispektrālos attēlus, lai sāktu apstrādi. Failu pārlūks<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> atvieglo attēlu importēšanu un datu kopas pārvaldīšanu.
 
-## Accessing the File Browser
+## Piekļuve failu pārlūkprogrammai
 
-1. Open or create a project in Chloros
-2. Click the **File Browser** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> icon in the left sidebar
-3. The File Browser panel will display your project's file list
+1. Atveriet vai izveidojiet projektu Chloros
+2. Noklikšķiniet uz **Failu pārlūkprogramma** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> ikonu kreisajā sānjoslā
+3. Failu pārlūka panelī tiks parādīts jūsu projekta failu saraksts
 
-{% hint style="info" %}
-**Supported File Types**: Chloros supports RAW+JPG and JPG image files from MAPIR Survey3W and Survey3N cameras. Only RAW+JPG are recommended.
+{% padoms style=&quot;info&quot; %}
+**Atbalstītie failu tipi**: Chloros atbalsta RAW+JPG un JPG attēlu failus no MAPIR Survey3W un Survey3N kamerām. Ieteicams izmantot tikai RAW+JPG failus.
 {% endhint %}
 
 ***
 
-## Adding Images to Your Project
+## Attēlu pievienošana projektam
 
-There are two primary ways to add images to your project:
+Ir divi galvenie veidi, kā pievienot attēlus projektam:
 
-### Method 1: Add Files
+### 1. metode: failu pievienošana
 
-Use this option to import individual image files or a small selection of files.
+Izmantojiet šo opciju, lai importētu atsevišķus attēlu failus vai nelielu failu izlasi.
 
-1. Click the **"Add Files"** button at the top of the File Browser panel
-2. Navigate to the folder containing your images
-3. Select one or more image files (hold **Ctrl** to select multiple files)
-4. Click **"Open"** to import the selected files
+1. Noklikšķiniet uz pogas **&quot;Pievienot failus&quot;** failu pārlūka paneļa augšdaļā.
+2. Pāriet uz mapi, kurā atrodas jūsu attēli.
+3. Izvēlieties vienu vai vairākus attēlu failus (lai izvēlētos vairākus failus, turiet nospiestu **Ctrl**).
+4. Noklikšķiniet uz **&quot;Atvērt&quot;**, lai importētu izvēlētos failus.
 
-### Method 2: Add Folder
+### 2. metode: pievienot mapi
 
-Use this option to import all images from a folder at once.
+Izmantojiet šo opciju, lai vienlaikus importētu visus attēlus no mapes.
 
-1. Click the **"Add Folder"** button at the top of the File Browser panel
-2. Navigate to and select the folder containing your capture session images
-3. Click **"Select Folder"** to import all supported images from that folder
-
-***
-
-## Understanding the File Browser Table
-
-Once images are imported, they appear in a table with the following columns:
-
-### Thumbnail
-
-* Small preview of each image
-* Click thumbnail to view full image in the main preview area
-
-### File Name
-
-* Original filename from the camera
-* Maintains camera naming convention (e.g., IMG\_0001.RAW)
-
-### Timestamp
-
-* Date and time the image was captured
-* Extracted from image EXIF metadata
-* Used for PPK synchronization and calibration target detection
-
-### Camera Model
-
-* Automatically detected camera and filter configuration
-* Examples: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
-* Used to apply correct processing profiles
-
-### Target Column (Checkbox)
-
-* Check this box for images that contain calibration targets
-* Greatly speeds up target detection during processing
-* See [Choosing Target Images](choosing-target-images.md) for details
+1. Noklikšķiniet uz pogas **&quot;Pievienot mapi&quot;** failu pārlūka paneļa augšdaļā.
+2. Atrodiet un atlasiet mapi, kurā atrodas jūsu uzņemtie attēli.
+3. Noklikšķiniet uz **&quot;Atlasīt mapi&quot;**, lai importētu visus atbalstītos attēlus no šīs mapes.
 
 ***
 
-## Managing Files in Your Project
+## Failu pārlūka tabulas izpratne
 
-### Removing Files
+Pēc attēlu importēšanas tie parādās tabulā ar šādām kolonnām:
 
-To remove unwanted images from your project:
+### Sīktēls
 
-1. Select one or more images in the File Browser table
-2. Click the **"Remove Selected"** button
-3. Confirm removal (files are not deleted from disk, only removed from the project)
+* Katra attēla mazs priekšskatījums.
+* Noklikšķiniet uz sīkattēla, lai galvenajā priekšskatījuma zonā apskatītu pilnu attēlu.
 
-### Sorting and Filtering
+### Faila nosaukums
 
-* **Sort by column**: Click any column header to sort images
-* **Timestamp sort**: Useful for organizing chronological capture sequences
-* **Camera model filter**: Group images by camera type if using multiple cameras
+* Orijinālais faila nosaukums no kameras.
+* Saglabā kameras nosaukumu konvenciju (piemēram, IMG\_0001.RAW).
 
-***
+### Laika zīmogs
 
-## Image Preview
+* Attēla uzņemšanas datums un laiks.
+* Izvilkts no attēla EXIF metadatiem.
+* Izmanto PPK sinhronizācijai un kalibrēšanas mērķa noteikšanai
 
-### Viewing Full Image
+### Kameras modelis
 
-Click any image thumbnail in the File Browser to display it in the main preview area:
+* Automātiski noteikta kameras un filtra konfigurācija
+* Piemēri: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
+* Izmanto, lai piemērotu pareizos apstrādes profilus
 
-1. Image appears in the center preview panel
-2. Use zoom controls to inspect image details
-3. Navigate between images using arrow keys
+### Mērķa kolonna (izvēles rūtiņa)
 
-### Quick Navigation
-
-* **Previous Image**: Click left arrow or press ← key
-* **Next Image**: Click right arrow or press → key
-* **Zoom In/Out**: Use mouse wheel or zoom buttons
-* **Pan**: Click and drag on image when zoomed in
+* Atzīmējiet šo rūtiņu attēliem, kas satur kalibrēšanas mērķus
+* Ievērojami paātrina mērķa noteikšanu apstrādes laikā
+* Sīkāku informāciju skatiet sadaļā [Mērķa attēlu izvēle](choosing-target-images.md)
 
 ***
 
-## Duplicate File Handling
+## Failu pārvaldība projektā
 
-Chloros automatically detects and ignores duplicate files:
+### Failu dzēšana
 
-* Files with identical filenames are skipped
-* Prevents accidental double-processing
-* Warning message displayed when duplicates are detected
+Lai dzēstu nevajadzīgos attēlus no projekta:
 
-{% hint style="warning" %}
-**Important**: Do not rename or modify your original image files before importing. Chloros relies on original filenames and metadata for proper processing.
+1. Izvēlieties vienu vai vairākus attēlus failu pārlūka tabulā
+2. Noklikšķiniet uz pogas **&quot;Dzēst atlasītos&quot;**
+3. Apstipriniet dzēšanu (faili netiek dzēsti no diska, tikai no projekta)
+
+### Šķirošana un filtrēšana
+
+* **Šķirot pēc kolonnas**: noklikšķiniet uz jebkuras kolonnas virsraksta, lai šķirotu attēlus
+* **Šķirošana pēc laika zīmoga**: noderīga, lai organizētu hronoloģiskas uzņemšanas secības
+* **Kameras modeļa filtrs**: grupējiet attēlus pēc kameras tipa, ja izmantojat vairākas kameras
+
+***
+
+## Attēla priekšskatīšana
+
+### Pilna attēla skatīšana
+
+Noklikšķiniet uz jebkuras attēla sīktēla failu pārlūkā, lai to parādītu galvenajā priekšskatīšanas zonā:
+
+1. Attēls parādās centrālajā priekšskatīšanas panelī
+2. Izmantojiet tālummaiņas vadības elementus, lai apskatītu attēla detaļas
+3. Pārvietojieties starp attēliem, izmantojot bultu taustiņus
+
+### Ātra navigācija
+
+* **Iepriekšējais attēls**: noklikšķiniet uz kreisās bultiņas vai nospiediet taustiņu ←
+* **Nākamais attēls**: noklikšķiniet uz labās bultiņas vai nospiediet taustiņu →
+* **Tuvināt/attālināt**: izmantojiet peles ratu vai tālummaiņas pogas
+* **Pārvietot**: noklikšķiniet un velciet attēlu, kad tas ir tuvināts
+
+***
+
+## Dublikātu failu apstrāde
+
+Chloros automātiski atpazīst un ignorē dublikātus failus:
+
+* Faili ar identiskiem failu nosaukumiem tiek izlaisti
+* Novērš nejaušu dubultu apstrādi
+* Brīdinājuma ziņojums tiek parādīts, ja tiek atrasti dublikāti
+
+{% hint style=&quot;warning&quot; %}
+**Svarīgi**: Pirms importēšanas nemainiet oriģinālo attēlu failu nosaukumus un nemodificējiet tos. Chloros pareizai apstrādei izmanto oriģinālos failu nosaukumus un metadatus.
 {% endhint %}
 
 ***
 
-## Mixed Camera Datasets
+## Jaukti kameru datu kopumi
 
-If your project contains images from multiple MAPIR cameras:
+Ja jūsu projektā ir attēli no vairākām MAPIR kamerām:
 
-1. Chloros automatically detects each camera model
-2. Each camera type is processed with its appropriate calibration profile
-3. File Browser displays camera model in the Camera Model column
-4. Processing applies correct settings for each camera type
+1. Chloros automātiski atpazīst katru kameras modeli.
+2. Katrs kameras tips tiek apstrādāts ar atbilstošu kalibrēšanas profilu.
+3. Failu pārlūkprogramma parāda kameras modeli kolonnā „Kameras modelis”.
+4. Apstrāde piemēro pareizos iestatījumus katram kameras tipam.
 
-**Example scenario**: Survey3W RGN + Survey3N OCN dual-camera setup
-
-***
-
-## Best Practices
-
-### Organize Before Import
-
-* Keep calibration target images in the same folder as survey images
-* Maintain original folder structure from your camera/SD card
-* Don't mix datasets from different sessions in one project
-
-### File Naming
-
-* Preserve original camera filenames (IMG\_0001.RAW, etc.)
-* Don't rename files before import
-* Original names contain important metadata
-
-### Calibration Target Images
-
-* Always include 1-2 calibration target images per session
-* Capture targets before and after the capture session
-* Place targets in the same lighting conditions as capture area
-* Mark target images using the Target checkbox to speed up processing
+**Piemērs**: Survey3W RGN + Survey3N OCN divu kameru konfigurācija.
 
 ***
 
-## Common Issues and Solutions
+## Labākā prakse
 
-### Images Not Appearing After Import
+### Sakārtot pirms importēšanas
 
-**Possible causes:**
+* Kalibrēšanas mērķa attēlus glabājiet tajā pašā mapē, kurā atrodas apsekojuma attēli.
+* Saglabājiet kameras/SD kartes sākotnējo mapju struktūru.
+* Vienā projektā nemaisiet datu kopas no dažādām sesijām.
 
-* File format not supported (only RAW+JPG and JPG from MAPIR cameras)
-* Images are from non-MAPIR cameras (see [Supported Cameras](../supported-cameras.md))
-* File corruption or incomplete transfer from SD card
+### Failu nosaukumi
 
-**Solution**: Verify file format and camera model compatibility
+* Saglabājiet kameras sākotnējos failu nosaukumus (IMG\_0001.RAW utt.).
+* Pirms importēšanas failus nepārnosauciet.
+* Sākotnējie nosaukumi satur svarīgus metadatus.
 
-### Camera Model Not Detected
+### Kalibrēšanas mērķa attēli
 
-**Possible causes:**
-
-* Modified EXIF metadata
-* Images edited in external software
-* Incomplete file transfer
-
-**Solution**: Re-import original, unmodified files from camera/SD card
-
-### Missing Timestamps
-
-**Possible causes:**
-
-* Camera clock not set correctly
-* EXIF data stripped by external software
-
-**Solution**: Verify camera time settings were correct during capture
+* Vienmēr iekļaujiet 1–2 kalibrēšanas mērķa attēlus katrā sesijā.
+* Uzņemiet mērķus pirms un pēc uzņemšanas sesijas.
+* Novietojiet mērķus tādos pašos apgaismojuma apstākļos kā uzņemšanas zonā.
+* Atzīmējiet mērķa attēlus, izmantojot izvēles rūtiņu „Mērķis”, lai paātrinātu apstrādi.
 
 ***
 
-## Next Steps
+## Bieži sastopamas problēmas un to risinājumi
 
-Once your files are imported:
+### Attēli neparādās pēc importēšanas
 
-1. **Review the file list** - Ensure all images loaded correctly
-2. **Check camera models** - Verify correct camera detection
-3. **Mark target images** - See [Choosing Target Images](choosing-target-images.md)
-4. **Adjust settings** - Configure processing options in [Project Settings](adjusting-project-settings.md)
-5. **Start processing** - See [Starting the Processing](starting-the-processing.md)
+**Iespējamie iemesli:**
 
-For detailed information about project configuration, see [Adjusting Project Settings](adjusting-project-settings.md).
+* Failu formāts nav atbalstīts (tikai RAW+JPG un JPG no MAPIR kamerām)
+* Attēli ir no kamerām, kas nav MAPIR (skatiet [Atbalstītās kameras](../supported-cameras.md))
+* Failu bojājums vai nepilnīga pārsūtīšana no SD kartes
+
+**Risinājums**: Pārbaudiet failu formātu un kameras modeļa saderību.
+
+### Kameras modelis netiek atpazīts
+
+**Iespējamie iemesli:**
+
+* Modificēti EXIF metadati
+* Attēli rediģēti ārējā programmā
+* Nepilnīga failu pārsūtīšana
+
+**Risinājums**: Atkārtoti importējiet oriģinālos, nemodificētos failus no kameras/SD kartes.
+
+### Trūkstoši laika zīmogi
+
+**Iespējamie iemesli:**
+
+* Kameras pulkstenis nav pareizi iestatīts
+* EXIF dati izdzēsti ar ārējo programmatūru
+
+**Risinājums**: Pārbaudiet, vai kameras laika iestatījumi uzņemšanas laikā bija pareizi
+
+***
+
+## Nākamie soļi
+
+Kad faili ir importēti:
+
+1. **Pārskatiet failu sarakstu** - Pārliecinieties, ka visi attēli ir pareizi ielādēti
+2. **Pārbaudiet kameras modeļus** - Pārbaudiet, vai kamera ir pareizi atpazīta
+3. **Atzīmējiet mērķa attēlus** — skatiet [Mērķa attēlu izvēle](choosing-target-images.md)
+4. **Pielāgojiet iestatījumus** — konfigurējiet apstrādes opcijas [Projekta iestatījumos](adjusting-project-settings.md)
+5. **Sāciet apstrādi** – skatiet [Apstrādes sākšana](starting-the-processing.md)
+
+Sīkāku informāciju par projekta konfigurāciju skatiet [Projekta iestatījumu pielāgošana](adjusting-project-settings.md).
