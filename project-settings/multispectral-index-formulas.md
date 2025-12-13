@@ -1,16 +1,15 @@
 ---
-description: This page lists some multispectral indices that Chloros uses
+description: This page lists some multispectral indices that Chloros uses.
 metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/multispectral-index-formulas
 ---
-
 # Daudzspektrālo indeksu formulas
 
 Zemāk minētās indeksu formulas izmanto Survey3 filtra vidējo caurlaidības diapazonu kombināciju:
 
-<table><thead><tr><th align="center">Survey3 Filtra krāsa</th><th width="196.199951171875" align="center">Survey3 Filtra nosaukums</th><th width="159.800048828125" align="center">Transmisijas diapazons (FWHM)</th><th align="center">Vidējā caurlaidība</th></tr></thead><tbody><tr><td align="center">Blue</td><td align="center">NGB - Blue</td><td align="center">468–483 nm</td><td align="center">475 nm</td></tr><tr><td align="center">Cyan</td><td align="center">OCN- Cyan</td><td align="center">476–512 nm</td><td align="center">494 nm</td></tr><tr><td align="center">Green</td><td align="center">RGN | NGB - Green</td><td align="center">543-558 nm</td><td align="center">547 nm</td></tr><tr><td align="center">Orange</td><td align="center">OCN - Orange</td><td align="center">598–640 nm</td><td align="center">619 nm</td></tr><tr><td align="center">Red</td><td align="center">RGN - Red</td><td align="center">653–668 nm</td><td align="center">661 nm</td></tr><tr><td align="center">RedEdge</td><td align="center">Re - RedEdge</td><td align="center">712–735 nm</td><td align="center">724 nm</td></tr><tr><td align="center">NIR1</td><td align="center">OCN - NIR1</td><td align="center">798–848 nm</td><td align="center">823 nm</td></tr><tr><td align="center">NIR2</td><td align="center">RGN | NGB | NIR - NIR2</td><td align="center">835–865 nm</td><td align="center">850 nm</td></tr></tbody></table>
+<table><thead><tr><th align="center">Survey3 filtra krāsa</th><th width="196.199951171875" align="center">Survey3 filtra nosaukums</th><th width="159.800048828125" align="center">Transmisijas diapazons (FWHM)</th><th align="center">Vidējā caurlaidība</th></tr></thead><tbody><tr><td align="center">Blue</td><td align="center">NGB - Blue</td><td align="center">468–483 nm</td><td align="center">475 nm</td></tr><tr><td align="center">Cyan</td><td align="center">OCN- Cyan</td><td align="center">476–512 nm</td><td align="center">494 nm</td></tr><tr><td align="center">Green</td><td align="center">RGN | NGB - Green</td><td align="center">543-558 nm</td><td align="center">547 nm</td></tr><tr><td align="center">Orange</td><td align="center">OCN - Orange</td><td align="center">598–640 nm</td><td align="center">619 nm</td></tr><tr><td align="center">Red</td><td align="center">RGN - Red</td><td align="center">653-668 nm</td><td align="center">661 nm</td></tr><tr><td align="center">RedEdge</td><td align="center">Re - RedEdge</td><td align="center">712–735 nm</td><td align="center">724 nm</td></tr><tr><td align="center">NIR1</td><td align="center">OCN - NIR1</td><td align="center">798-848 nm</td><td align="center">823 nm</td></tr><tr><td align="center">NIR2</td><td align="center">RGN | NGB | NIR - NIR2</td><td align="center">835–865 nm</td><td align="center">850 nm</td></tr></tbody></table>
 
 Kad tiek izmantotas šīs formulas, nosaukums var beigties ar &quot;\_1&quot; vai &quot;\_2&quot;, kas atbilst tam, kurš NIR filtrs, vai nu NIR1, vai NIR2 tika izmantots.
 
@@ -18,13 +17,13 @@ Kad tiek izmantotas šīs formulas, nosaukums var beigties ar &quot;\_1&quot; va
 
 ## EVI — uzlabots veģetācijas indekss
 
-Šis indekss sākotnēji tika izstrādāts lietošanai kopā ar MODIS datiem kā uzlabojums salīdzinājumā ar NDVI, optimizējot veģetācijas signālu apgabalos ar augstu lapu platības indeksu (LAI). Tas ir visnoderīgākais reģionos ar augstu LAI, kur NDVI var būt piesātināts. Tas izmanto zilo atstarošanas reģionu, lai koriģētu augsnes fona signālus un samazinātu atmosfēras ietekmi, tostarp aerosolu izkliedi.
+Šis indekss sākotnēji tika izstrādāts lietošanai kopā ar MODIS datiem kā uzlabojums salīdzinājumā ar NDVI, optimizējot veģetācijas signālu apgabalos ar augstu lapu platības indeksu (LAI). Tas ir visnoderīgākais reģionos ar augstu LAI, kur NDVI var būt piesātināts. Tas izmanto zilo atstarojuma reģionu, lai koriģētu augsnes fona signālus un samazinātu atmosfēras ietekmi, tostarp aerosolu izkliedi.
 
 $$
 EVI = 2.5 *  {(NIR - Red) \over (NIR + 6 * Red - 7.5 * Blue + 1)}
 $$
 
-EVI vērtībām jābūt diapazonā no 0 līdz 1 veģetācijas pikseļiem. Spilgtas iezīmes, piemēram, mākoņi un baltas ēkas, kopā ar tumšām iezīmēm, piemēram, ūdens, var izraisīt anomālas pikseļu vērtības EVI attēlā. Pirms EVI attēla izveides jums jāmaskē mākoņi un gaišas iezīmes no atstarojuma attēla un, ja vēlaties, jānosaka pikseļu vērtību slieksnis no 0 līdz 1.
+EVI vērtībām veģetācijas pikseļiem jābūt diapazonā no 0 līdz 1. Spilgtas iezīmes, piemēram, mākoņi un baltas ēkas, kopā ar tumšām iezīmēm, piemēram, ūdens, var izraisīt anomālas pikseļu vērtības EVI attēlā. Pirms EVI attēla izveides jums jāmaskē mākoņi un spilgtas iezīmes no atstarojuma attēla un, ja vēlaties, jānosaka pikseļu vērtību slieksnis no 0 līdz 1.
 
 _Atsauce: Huete, A., et al. &quot;Pārskats par MODIS veģetācijas indeksu radiometrisko un biofizikālo veiktspēju.&quot; Remote Sensing of Environment 83 (2002):195–213._
 
@@ -52,15 +51,15 @@ $$
 FCI2 = Red * NIR
 $$
 
-Mežainām teritorijām būs zemākas FCI2 vērtības, jo kokiem ir zemāks atstarojums un vainagā ir ēnas.
+Mežainām teritorijām būs zemākas FCI2 vērtības, jo kokiem ir zemāks atstarojums un vainagu zonā ir ēnas.
 
-_Atsauce: Becker, Sarah J., Craig S.T. Daughtry un Andrew L. Russ. „Robust forest cover indices for multispectral images” (Robusti meža seguma indeksi daudzspektrāliem attēliem). Photogrammetric Engineering &amp; Remote Sensing 84.8 (2018): 505-512._
+_Atsauce: Becker, Sarah J., Craig S.T. Daughtry un Andrew L. Russ. „Robust forest cover indices for multispectral images” (Robusti meža seguma indeksi multispektrāliem attēliem). Photogrammetric Engineering &amp; Remote Sensing 84.8 (2018): 505-512._
 
 ***
 
 ## GEMI – Globālais vides monitoringa indekss
 
-Šis nelineārais veģetācijas indekss tiek izmantots globālajai vides uzraudzībai, izmantojot satelītattēlus, un mēģina koriģēt atmosfēras ietekmi. Tas ir līdzīgs NDVI, bet ir mazāk jutīgs pret atmosfēras ietekmi. To ietekmē kails augsnes segums, tādēļ to nav ieteicams izmantot apgabalos ar retu vai vidēji blīvu veģetāciju.
+Šis nelineārais veģetācijas indekss tiek izmantots globālajai vides uzraudzībai, izmantojot satelītattēlus, un mēģina koriģēt atmosfēras ietekmi. Tas ir līdzīgs NDVI, bet ir mazāk jutīgs pret atmosfēras ietekmi. To ietekmē kailā augsne, tādēļ to nav ieteicams izmantot apgabalos ar retu vai vidēji blīvu veģetāciju.
 
 $$
 GEMI = eta (1 - 0.25 * eta) - {Red - 0.125 \over 1 - Red}
@@ -86,7 +85,7 @@ $$
 
 Gamma konstante ir svēršanas funkcija, kas ir atkarīga no aerosola apstākļiem atmosfērā. ENVI izmanto vērtību 1,7, kas ir Gitelson, Kaufman un Merzylak (1996, 296. lpp.) ieteiktā vērtība.
 
-_Atsauce: Gitelson, A., Y. Kaufman un M. Merzylak. „Green kanāla izmantošana globālās veģetācijas attālajā uzrāšanā no EOS-MODIS.” Remote Sensing of Environment 58 (1996): 289-298._
+_Atsauce: Gitelson, A., Y. Kaufman un M. Merzylak. „Green kanāla izmantošana globālās veģetācijas attālajā uzraudzībā no EOS-MODIS.” Remote Sensing of Environment 58 (1996): 289-298._
 
 ***
 
@@ -106,7 +105,7 @@ _Atsauce: Gitelson, A., Y. Gritz un M. Merzlyak. „Saistība starp lapu hlorofi
 
 ## GLI - Green Lapu indekss
 
-Šis indekss sākotnēji tika izstrādāts lietošanai kopā ar digitālo RGB kameru, lai mērītu kviešu segumu, kur sarkano, zaļo un zilo digitālo skaitļu (DN) diapazons ir no 0 līdz 255.
+Šis indekss sākotnēji tika izstrādāts lietošanai kopā ar digitālo RGB kameru, lai izmērītu kviešu segumu, kur sarkano, zaļo un zilo digitālo skaitļu (DN) diapazons ir no 0 līdz 255.
 
 $$
 GLI = {(Green - Red) + (Green - Blue)  \over (2 * Green) + Red + Blue }
@@ -126,11 +125,11 @@ $$
 GNDVI = {(NIR - Green) \over (NIR + Green)  }
 $$
 
-_Atsauce: Gitelson, A., un M. Merzlyak. „Hlorofila koncentrācijas attālās uzrādes augstāko augu lapās.” Advances in Space Research 22 (1998): 689-692._
+_Atsauce: Gitelson, A., un M. Merzlyak. „Hlorofila koncentrācijas tālizpēte augstāko augu lapās.” Advances in Space Research 22 (1998): 689-692._
 
 ***
 
-## GOSAVI - Green Optimizēts augsnes pielāgots veģetācijas indekss
+## GOSAVI - Green Optimizēts augsnes koriģētais veģetācijas indekss
 
 Šis indekss sākotnēji tika izstrādāts, izmantojot krāsu infrasarkano fotogrāfiju, lai prognozētu kukurūzas slāpekļa vajadzības. Tas ir līdzīgs OSAVI, bet zaļo joslu aizstāj ar sarkano.
 
@@ -138,7 +137,7 @@ $$
 GOSAVI = {NIR - Green \over NIR + Green + 0.16)  }
 $$
 
-_Atsauce: Sripada, R., et al. &quot;Kukurūzas slāpekļa vajadzību noteikšana sezonas laikā, izmantojot krāsainu infrasarkano aerofotogrāfiju.&quot; Doktorantūras disertācija, Ziemeļkarolīnas Valsts universitāte, 2005._
+_Atsauce: Sripada, R., et al. &quot;Kukurūzas slāpekļa vajadzību noteikšana sezonas laikā, izmantojot krāsu infrasarkano aerofotogrāfiju.&quot; Doktora disertācija, Ziemeļkarolīnas Valsts universitāte, 2005. gads._
 
 ***
 
@@ -162,7 +161,7 @@ $$
 GSAVI = 1.5 * {(NIR - Green) \over (NIR + Green + 0.5)  }
 $$
 
-_Atsauce: Sripada, R., et al. &quot;Kukurūzas slāpekļa vajadzību noteikšana sezonas laikā, izmantojot krāsainu infrasarkano aerofotoattēlu.&quot; Doktorantūras disertācija, Ziemeļkarolīnas Valsts universitāte, 2005._
+_Atsauce: Sripada, R., et al. &quot;Kukurūzas slāpekļa vajadzību noteikšana sezonas laikā, izmantojot krāsainu infrasarkano aerofotogrāfiju.&quot; Doktorantūras disertācija, Ziemeļkarolīnas Valsts universitāte, 2005._
 
 ***
 
@@ -180,39 +179,39 @@ $$
 EVI = 2.5 *  {(NIR - Red) \over (NIR + 6 * Red - 7.5 * Blue + 1)}
 $$
 
-Augstas LAI vērtības parasti ir no aptuveni 0 līdz 3,5. Tomēr, ja ainā ir mākoņi un citi spilgti objekti, kas rada piesātinātas pikseļus, LAI vērtības var pārsniegt 3,5. Ideāli būtu, ja pirms LAI attēla izveides no ainas izslēgtu mākoņus un spilgtas detaļas.
+Augstas LAI vērtības parasti ir no aptuveni 0 līdz 3,5. Tomēr, ja ainā ir mākoņi un citi spilgti objekti, kas rada piesātinātas pikseļus, LAI vērtības var pārsniegt 3,5. Ideāli būtu, ja pirms LAI attēla izveides no ainas izslēgtu mākoņus un spilgtus objektus.
 
-_Atsauce: Boegh, E., H. Soegaard, N. Broge, C. Hasager, N. Jensen, K. Schelde un A. Thomsen. &quot;Gaisā iegūti multispektrālie dati lapu platības indeksa, slāpekļa koncentrācijas un fotosintēzes efektivitātes kvantificēšanai lauksaimniecībā.&quot; Remote Sensing of Environment 81, nr. 2-3 (2002): 179-193._
+_Atsauce: Boegh, E., H. Soegaard, N. Broge, C. Hasager, N. Jensen, K. Schelde un A. Thomsen. „Gaisā iegūti multispektrālie dati lapu platības indeksa, slāpekļa koncentrācijas un fotosintēzes efektivitātes kvantificēšanai lauksaimniecībā”. Remote Sensing of Environment 81, nr. 2-3 (2002): 179-193._
 
 ***
 
 ## LCI - Lapu hlorofila indekss
 
-Šo indeksu izmanto, lai novērtētu hlorofila saturu augstākajos augos, kas ir jutīgi pret hlorofila absorbcijas izraisītajām atstarojuma izmaiņām.
+Šo indeksu izmanto, lai novērtētu hlorofila saturu augstākajos augos, kas ir jutīgi pret atstarojuma izmaiņām, ko izraisa hlorofila absorbcija.
 
 $$
 LCI = {NIR2 - RedEdge \over NIR2 + Red}
 $$
 
-_Atsauce: Datt, B. „Eikaliptu lapu ūdens satura tālizpēte.” Augu fizioloģijas žurnāls 154, nr. 1 (1999): 30-36._
+_Atsauce: Datt, B. „Eikaliptu lapu ūdens satura attālās uzrādes.” Journal of Plant Physiology 154, nr. 1 (1999): 30-36._
 
 ***
 
-## MNLI — modificētais nelineārais indekss
+## MNLI – Modificētais nelineārais indekss
 
-Šis indekss ir nelineārā indeksa (NLI) uzlabojums, kas ietver augsnes pielāgoto veģetācijas indeksu (SAVI), lai ņemtu vērā augsnes fonu. ENVI izmanto lapotnes fona pielāgošanas koeficienta (_L_) vērtību 0,5.
+Šis indekss ir nelineārā indeksa (NLI) uzlabojums, kas ietver augsnes pielāgoto veģetācijas indeksu (SAVI), lai ņemtu vērā augsnes fonu. ENVI izmanto lapotnes fona pielāgošanas koeficientu (_L_) ar vērtību 0,5.
 
 $$
 MNLI = {(NIR^{2} - Red) * (1 + L) \over (NIR^{2} + Red + L)  }
 $$
 
-_Atsauce: Yang, Z., P. Willis un R. Mueller. „Band-Ratio Enhanced AWIFS Image ietekme uz kultūraugu klasifikācijas precizitāti.” Pecora 17 tālizpētes simpozija (2008) materiāli, Denver, CO._
+_Atsauce: Yang, Z., P. Willis un R. Mueller. „Band-Ratio Enhanced AWIFS Image ietekme uz kultūraugu klasifikācijas precizitāti.” Pecora 17 tālizpētes simpozija materiāli (2008), Denver, CO._
 
 ***
 
-## MSAVI2 — modificētais augsnes koriģētais veģetācijas indekss 2
+## MSAVI2 – Modificētais augsnes pielāgots veģetācijas indekss 2
 
-Šis indekss ir vienkāršāka versija MSAVI indeksam, ko ierosinājuši Qi u. c. (1994) un kas uzlabo augsnes koriģēto veģetācijas indeksu (SAVI). Tas samazina augsnes troksni un palielina veģetācijas signāla dinamisko diapazonu. MSAVI2 balstās uz induktīvu metodi, kas neizmanto konstantu _L_ vērtību (kā SAVI), lai izceltu veselīgu veģetāciju.
+Šis indekss ir vienkāršāka versija MSAVI indeksam, ko ierosināja Qi, et al (1994), kas uzlabo augsnes pielāgoto veģetācijas indeksu (SAVI). Tas samazina augsnes troksni un palielina veģetācijas signāla dinamisko diapazonu. MSAVI2 balstās uz induktīvu metodi, kas neizmanto konstantu _L_ vērtību (kā SAVI), lai izceltu veselīgu veģetāciju.
 
 $$
 MSAVI2 = {2 * NIR + 1 - \sqrt{(2 * NIR + 1)^{2} - 8(NIR - Red)} \over 2}
@@ -254,13 +253,13 @@ $$
 NLI = {NIR^{2} - Red \over NIR^{2} + Red  }
 $$
 
-_Atsauce: Goel, N., un W. Qin. &quot;Lapojuma arhitektūras ietekme uz attiecībām starp dažādiem veģetācijas indeksiem un LAI un Fpar: datorizēta simulācija.&quot; Remote Sensing Reviews 10 (1994): 309-347._
+_Atsauce: Goel, N., un W. Qin. „Lapojuma arhitektūras ietekme uz attiecībām starp dažādiem veģetācijas indeksiem un LAI un Fpar: datorizēta simulācija.” Remote Sensing Reviews 10 (1994): 309-347._
 
 ***
 
 ## OSAVI — optimizēts augsnes pielāgots veģetācijas indekss
 
-Šis indekss balstās uz augsnes pielāgoto veģetācijas indeksu (SAVI). Tas izmanto standarta vērtību 0,16 vainagu fona pielāgošanas koeficientam. Rondeaux (1996) noteica, ka šī vērtība nodrošina lielāku augsnes variāciju nekā SAVI zemai veģetācijas segai, vienlaikus demonstrējot paaugstinātu jutību pret veģetācijas segumu, kas pārsniedz 50 %. Šo indeksu vislabāk izmantot apgabalos ar salīdzinoši retu veģetāciju, kur augsne ir redzama caur lapotni.
+Šis indekss balstās uz augsnes pielāgoto veģetācijas indeksu (SAVI). Tas izmanto standarta vērtību 0,16 lapotnes fona pielāgošanas koeficientam. Rondeaux (1996) noteica, ka šī vērtība nodrošina lielāku augsnes variāciju nekā SAVI zemai veģetācijas segai, vienlaikus demonstrējot paaugstinātu jutību pret veģetācijas segumu, kas pārsniedz 50 %. Šo indeksu vislabāk izmantot apgabalos ar salīdzinoši retu veģetāciju, kur augsne ir redzama caur lapotni.
 
 $$
 OSAVI = {(NIR - Red) \over (NIR + Red + 0.16)  }
@@ -272,7 +271,7 @@ _Atsauce: Rondeaux, G., M. Steven un F. Baret. „Augsnes pielāgoto veģetācij
 
 ## RDVI — renormalizētais veģetācijas indeksa starpības rādītājs
 
-Šis indekss izmanto starpību starp tuvu infrasarkano un sarkano viļņu garumu kopā ar NDVI, lai izceltu veselīgu veģetāciju. Tas nav jutīgs pret augsnes un saules redzamības ģeometrijas ietekmi.
+Šis indekss izmanto starpību starp tuvu infrasarkano un sarkano viļņu garumu kopā ar NDVI, lai izceltu veselīgu veģetāciju. Tas nav jutīgs pret augsnes un saules skatīšanas ģeometrijas ietekmi.
 
 $$
 RDVI = {(NIR- Red) \over \sqrt{(NIR + Red)}  }
@@ -284,7 +283,7 @@ _Atsauce: Roujean, J., un F. Breon. &quot;Vegetācijas absorbētā PAR novērtē
 
 ## SAVI - Augsnes koriģētais veģetācijas indekss
 
-Šis indekss ir līdzīgs NDVI, bet tas nomāc augsnes pikseļu ietekmi. Tas izmanto lapotnes fona korekcijas koeficientu _L_, kas ir veģetācijas blīvuma funkcija un bieži prasa iepriekšējas zināšanas par veģetācijas daudzumu. Huete (1988) iesaka optimālo vērtību _L_=0,5, lai ņemtu vērā pirmās pakāpes augsnes fona variācijas. Šo indeksu vislabāk izmantot apgabalos ar salīdzinoši retu veģetāciju, kur augsne ir redzama caur lapotni.
+Šis indekss ir līdzīgs NDVI, bet tas nomāc augsnes pikseļu ietekmi. Tas izmanto lapotnes fona korekcijas koeficientu _L_, kas ir veģetācijas blīvuma funkcija un bieži prasa iepriekšējas zināšanas par veģetācijas daudzumu. Huete (1988) ierosina optimālo vērtību _L_=0,5, lai ņemtu vērā pirmās pakāpes augsnes fona variācijas. Šo indeksu vislabāk izmantot apgabalos ar salīdzinoši retu veģetāciju, kur augsne ir redzama caur lapotni.
 
 $$
 SAVI = {1.5 * (NIR- Red) \over (NIR + Red + 0.5)  }
@@ -296,7 +295,7 @@ _Atsauce: Huete, A. &quot;Augsnes koriģētais veģetācijas indekss (SAVI).&quo
 
 ## TDVI — transformētais atšķirības veģetācijas indekss
 
-Šis indekss ir noderīgs veģetācijas seguma uzraudzībai pilsētu vidē. Tas nesasniedz piesātinājumu tāpat kā NDVI un SAVI.
+Šis indekss ir noderīgs veģetācijas seguma uzraudzībai pilsētu vidē. Tas nesasniedz piesātinājumu kā NDVI un SAVI.
 
 $$
 TDVI = 1.5 * {(NIR- Red) \over \sqrt{NIR^{2} + Red + 0.5}  }
@@ -320,7 +319,7 @@ _Atsauce: Gitelson, A., et al. &quot;Vegetation and Soil Lines in Visible Spectr
 
 ## WDRVI — plaša dinamiskā diapazona veģetācijas indekss
 
-Šis indekss ir līdzīgs NDVI, bet tajā tiek izmantots svēruma koeficients (_a_), lai samazinātu atšķirību starp tuvu infrasarkano un sarkano signālu ieguldījumu NDVI. WDRVI ir īpaši efektīvs ainās, kurās ir vidēja līdz augsta veģetācijas blīvums, ja NDVI pārsniedz 0,6. NDVI tendence ir izlīdzināties, ja veģetācijas frakcija un lapu platības indekss (LAI) palielinās, savukārt WDRVI ir jutīgāks pret plašāku veģetācijas frakciju diapazonu un izmaiņām LAI.
+Šis indekss ir līdzīgs NDVI, bet tajā izmanto svēruma koeficientu (_a_), lai samazinātu atšķirību starp tuvu infrasarkano un sarkano signālu ieguldījumu NDVI. WDRVI ir īpaši efektīvs ainās ar vidēju līdz augstu veģetācijas blīvumu, ja NDVI pārsniedz 0,6. NDVI tendence ir izlīdzināties, kad palielinās veģetācijas frakcija un lapu platības indekss (LAI), savukārt WDRVI ir jutīgāks pret plašāku veģetācijas frakciju diapazonu un izmaiņām LAI.
 
 $$
 WDRVI = {(\alpha * NIR- Red) \over (\alpha * NIR + Red)}

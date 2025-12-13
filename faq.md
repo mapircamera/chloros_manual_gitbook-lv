@@ -1,17 +1,16 @@
 ---
-description: Frequently Asked Questions
+description: Bieži uzdotie jautājumi
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/faq
 ---
-
 # Bieži uzdotie jautājumi
 
 <details>
 
 <summary>Vai ar Chloros var apstrādāt attēlus no kamerām, kas nav MAPIR zīmola?</summary>
 
-Nē, Chloros atbalsta tikai MAPIR kameru attēlu apstrādi. Lai iegūtu vairāk informācijas, skatiet [atbalstīto kameru modeļu sarakstu](supported-cameras.md). Mēs piedāvājam apstrādāt attēlus no citām kamerām, izmantojot MAPIR Cloud, pilnu sarakstu skatiet [šeit](https://mapir.gitbook.io/mapir-cloud/supported-cameras).
+Nē, Chloros atbalsta tikai MAPIR kameru attēlu apstrādi. Lai iegūtu vairāk informācijas, skatiet [atbalstīto kameru modeļu sarakstu](supported-cameras.md). Mēs piedāvājam apstrādāt attēlus no citām kamerām MAPIR Cloud, pilnu sarakstu skatiet [šeit](https://mapir.gitbook.io/mapir-cloud/supported-cameras).
 
 </details>
 
@@ -43,7 +42,7 @@ Nē. Survey3 attēlu datu kopām jābūt ar fiksētu/bloķētu ekspozīciju, tā
 
 <summary>Vai Chloros var apstrādāt vai analizēt ortomosaikas attēlus?</summary>
 
-Nē. Tiek atbalstīti tikai atsevišķi MAPIR kameras attēli, nevis savienoti attēli, piemēram, ortomozaīkas karte.
+Nē. Tiek atbalstīti tikai atsevišķi MAPIR kameras attēli, nevis savienoti attēli, piemēram, ortomosaikas karte.
 
 </details>
 
