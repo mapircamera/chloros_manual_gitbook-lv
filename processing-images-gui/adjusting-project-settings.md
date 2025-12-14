@@ -16,7 +16,7 @@ Pirms attēlu apstrādes ir svarīgi konfigurēt projekta iestatījumus atbilsto
 
 ## Ātra konfigurācija tipiskiem darba procesiem
 
-### Noklusējuma iestatījumi (ieteicami lielākajai daļai lietotāju)
+### Noklusējuma iestatījumi (ieteicams lielākajai daļai lietotāju)
 
 Tipiskām MAPIR Survey3 kameru darbplūsmām labi der noklusējuma iestatījumi:
 
@@ -74,13 +74,13 @@ Konfigurējiet, kurus veģetācijas indeksus aprēķināt un eksportēt.
 1. Noklikšķiniet uz pogas **&quot;Pievienot indeksu&quot;**
 2. Izvēlieties indeksu no nolaižamās izvēlnes (NDVI, NDRE, GNDVI utt.)
 3. Konfigurējiet vizualizācijas iestatījumus (LUT krāsas, vērtību diapazoni)
-4. Pievienojiet vairākus indeksus pēc nepieciešamības
+4. Pēc nepieciešamības pievienojiet vairākus indeksus
 
 **Populāri indeksi:**
 
-* **NDVI**: Vispārējais veģetācijas veselības stāvoklis (visbiežāk izmantotais)
-* **NDRE**: Agrīna stresa noteikšana ar RedEdge
-* **GNDVI**: Jutīgs pret hlorofila koncentrāciju
+* **NDVI**: vispārējais veģetācijas veselības stāvoklis (visbiežāk izmantotais)
+* **NDRE**: agrīna stresa noteikšana ar RedEdge
+* **GNDVI**: jutīgs pret hlorofila koncentrāciju
 * **OSAVI**: labi darbojas ar redzamu augsni
 * **EVI**: reģioni ar augstu lapu platības indeksu (LAI)
 
@@ -99,7 +99,7 @@ Kontrolē izvades faila formātu un kvalitāti.
 **Pieejamie formāti:**
 
 * **TIFF (16 bitu)**: ieteicams GIS un zinātniskai analīzei (diapazons 0–65 535)
-* **TIFF (32 bitu, procentos)**: mainīgas precizitātes atstarojuma vērtības (diapazons 0,0–1,0)
+* **TIFF (32 bitu, procentos)**: peldošā punkta atstarojuma vērtības (diapazons 0,0–1,0)
 * **PNG (8 bitu)**: bezzaudējumu kompresija vizualizācijai (diapazons 0–255)
 * **JPG (8 bitu)**: mazākie faili, zaudējumu kompresija (diapazons 0–255)
 
@@ -109,12 +109,12 @@ Kontrolē izvades faila formātu un kvalitāti.
 
 ### Projekta veidnes saglabāšana
 
-Izveidojiet atkārtoti izmantojamus veidnes, lai nodrošinātu vienotu darba plūsmu:
+Izveidojiet atkārtoti izmantojamus veidnes vienotai darba plūsmai:
 
-1. Konfigurējiet visus vēlamos iestatījumus paneļa Projektu iestatījumi
-2. Pārvietojieties uz sadaļu **&quot;Saglabāt projekta veidni&quot;** apakšā
-3. Ievadiet aprakstošu veidnes nosaukumu (piemēram, &quot;Survey3N\_RGN\_Agriculture&quot;)
-4. Noklikšķiniet uz saglabāšanas ikonas
+1. Konfigurējiet visus vēlamos iestatījumus paneļā Projekta iestatījumi.
+2. Pārvietojieties uz sadaļu **&quot;Saglabāt projekta veidni&quot;** apakšā.
+3. Ievadiet aprakstošu veidnes nosaukumu (piemēram, &quot;Survey3N\_RGN\_Agriculture&quot;).
+4. Noklikšķiniet uz saglabāšanas ikonas.
 
 **Priekšrocības:**
 
@@ -133,7 +133,7 @@ Jaunā projekta izveide:
 
 ### Darba katalogs
 
-Iestatījums **&quot;Saglabāt projekta mapi&quot;** nosaka, kur pēc noklusējuma tiek izveidoti jauni projekti:
+Iestatījums **&quot;Saglabāt projekta mapes&quot;** nosaka, kur pēc noklusējuma tiek izveidoti jauni projekti:
 
 * **Noklusējuma atrašanās vieta**: `C:\Users\[Username]\Chloros Projects`
 * **Mainīt atrašanās vietu**: noklikšķiniet uz ikonas &quot;Rediģēt&quot; un izvēlieties jaunu mapi
@@ -198,18 +198,18 @@ Atkārtotiem apsekojumiem vienā un tajā pašā teritorijā laika gaitā:
 4. Lai iegūtu salīdzināmus rezultātus, izmantojiet identiskus iestatījumus
 5. Eksportējiet vienā formātā laika analīzei
 
-### Liela apjoma datu kopas
+### Lieli datu kopumi
 
 Projektiem ar daudziem attēliem (500+):
 
-* Apsveriet iespēju sadalīt mazākos projektos pēc datuma vai teritorijas.
+* Apsveriet sadalīšanu mazākos projektos pēc datuma vai teritorijas.
 * Lai iegūtu ātrākus rezultātus, izmantojiet Chloros+ paralēlo apstrādi.
 * Apsveriet CLI vai API izmantošanu partiju automatizācijai.
 * Pielāgojiet minimālo pārkalibrēšanas intervālu, lai samazinātu mērķa noteikšanas laiku.
 
 ***
 
-## Jūsu iestatījumu pārbaude
+## Iestatījumu pārbaude
 
 Pirms sākt apstrādi, pārskatiet šos galvenos iestatījumus:
 

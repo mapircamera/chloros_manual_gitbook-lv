@@ -1,6 +1,6 @@
 # Apstrādes uzraudzība
 
-Kad apstrāde ir sākta, Chloros piedāvā vairākus veidus, kā uzraudzīt progresu, pārbaudīt problēmas un saprast, kas notiek ar jūsu datu kopu. Šajā lapā ir izskaidrots, kā izsekot apstrādei un interpretēt informāciju, ko sniedz Chloros.
+Kad apstrāde ir sākusies, Chloros piedāvā vairākus veidus, kā uzraudzīt progresu, pārbaudīt problēmas un saprast, kas notiek ar jūsu datu kopu. Šajā lapā ir izskaidrots, kā izsekot apstrādei un interpretēt informāciju, ko sniedz Chloros.
 
 ## Progresa joslas pārskats
 
@@ -36,7 +36,7 @@ Lietotājiem ar Chloros+ licenci:
 
 * **Pielieciet peles kursoru** uz progresa joslas, lai redzētu paplašinātu 4 posmu paneli
 * **Noklikšķiniet** uz progresa joslas, lai iesaldētu/fiksētu paplašināto paneli
-* **Noklikšķiniet atkārtoti**, lai atbloķētu un automātiski paslēptu, novirzot peli
+* **Noklikšķiniet atkārtoti**, lai atbloķētu un automātiski paslēptu, novietojot peles kursoru
 * Katrs posms parāda individuālo progresu (0–100 %)
 
 ***
@@ -120,12 +120,12 @@ Lietotājiem ar Chloros+ licenci:
 * Pārbaudiet Debug Log, lai redzētu ziņojumus par katra attēla apstrādes pabeigšanu
 * Brīdinājumi par attēla kvalitāti vai kalibrēšanas problēmām
 
-### 4. posms: Eksportēšana
+### 4. posms: eksportēšana
 
 **Kas notiek:**
 
-* Kalibrētu attēlu ierakstīšana diskā izvēlētajā formātā
-* Daudzspektrālo indeksu attēlu eksportēšana ar LUT krāsām
+* Kalibrēto attēlu ierakstīšana diskā izvēlētajā formātā
+* Daudzspektrālo indeksa attēlu eksportēšana ar LUT krāsām
 * Kameras modeļu apakšmapju izveide
 * Orijinālo failu nosaukumu saglabāšana ar atbilstošiem papildu nosaukumiem
 
@@ -137,9 +137,9 @@ Lietotājiem ar Chloros+ licenci:
 * Failu rakstīšana
 * Eksporta formāts un galamērķis
 
-**Kas jāievēro:**
+**Kas jāuzrauga:**
 
-* Brīdinājumi par diska vietu
+* Diskas vietas brīdinājumi
 * Failu rakstīšanas kļūdas
 * Visu konfigurēto izvades pabeigšana
 
@@ -151,9 +151,9 @@ Debug Log sniedz detalizētu informāciju par apstrādes gaitu un visām raduša
 
 ### Piekļuve Debug Log
 
-1. Noklikšķiniet uz **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> ikonu kreisajā sānjoslā.
-2. Atveras žurnāla panelis, kurā tiek parādīti reāllaika apstrādes ziņojumi.
-3. Automātiski tiek parādīti jaunākie ziņojumi.
+1. Noklikšķiniet uz **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> ikonu kreisajā sānjoslā
+2. Atveras žurnāla panelis, kurā tiek parādīti reāllaika apstrādes ziņojumi
+3. Automātiski tiek parādīti jaunākie ziņojumi
 
 ### Žurnāla ziņojumu izpratne
 
@@ -234,8 +234,8 @@ Lai kopētu žurnālu problēmu novēršanai vai atbalstam:
 **Lai uzraudzītu:**
 
 * Windows Uzdevumu pārvaldnieks (Ctrl+Shift+Esc)
-* Sniegums cilne → CPU sadaļa
-* Meklējiet procesus &quot;Chloros&quot; vai &quot;chloros-backend&quot;
+* Sadaļa „Veiktspēja” → sadaļa „CPU”
+* Meklējiet procesus „Chloros” vai „chloros-backend”
 
 ### Atmiņas (RAM) izmantošana
 
@@ -249,7 +249,7 @@ Lai kopētu žurnālu problēmu novēršanai vai atbalstam:
 **Ja atmiņa ir nepietiekama:**
 
 * Apstrādājiet mazākas partijas
-* Aizveriet citas lietojumprogrammas
+* Aizveriet citas programmas
 * Ja regulāri apstrādājat lielus datu kopumus, uzlabojiet RAM
 
 ### GPU izmantošana (Chloros+ ar CUDA)
@@ -270,15 +270,15 @@ Kad ir ieslēgta GPU paātrināšana:
 
 **Ko gaidīt:**
 
-* Augsta diska lasīšanas ātruma fāze analīzes posmā
-* Augsta diska rakstīšanas ātruma fāze eksportēšanas posmā
+* Augsta diska lasīšana analizēšanas posmā
+* Augsta diska rakstīšana eksportēšanas posmā
 * SSD ir ievērojami ātrāks nekā HDD
 
 **Veiktspējas padoms:**
 
-* Ja iespējams, izmantojiet SSD projekta mapes glabāšanai
-* Izvairieties no tīkla diskiem lielu datu kopu glabāšanai
-* Pārliecinieties, ka disks nav gandrīz pilns (tas ietekmē rakstīšanas ātrumu)
+* Ja iespējams, izmantojiet SSD projekta mapē
+* Izvairieties no tīkla diskiem lieliem datu kopumiem
+* Pārliecinieties, ka disks nav tuvu kapacitātes robežai (ietekmē rakstīšanas ātrumu)
 
 ***
 
@@ -295,7 +295,7 @@ Kad ir ieslēgta GPU paātrināšana:
 **Bieži parādās kļūdu ziņojumi:**
 
 * Pārtrauciet apstrādi un pārbaudiet kļūdas
-* Bieži sastopamie iemesli: diska vieta, bojāti faili, atmiņas problēmas
+* Bieži sastopami iemesli: diska vieta, bojāti faili, atmiņas problēmas
 * Skatīt sadaļu „Problēmu novēršana” zemāk
 
 **Sistēma nereagē:**
@@ -337,7 +337,7 @@ Pārtrauciet apstrādi, ja redzat:
 **Risinājumi:**
 
 1. Ja tikko sākts un atrodas atklāšanas posmā: atceliet, atzīmējiet mērķus, sāciet no jauna
-2. Nākotnē: izmantojiet SSD, samaziniet indeksus, uzlabojiet aparatūru
+2. Nākotnei: izmantojiet SSD, samaziniet indeksus, uzlabojiet aparatūru
 3. Apsveriet CLI izmantošanu lielu datu kopu partiju apstrādei
 
 ### Brīdinājumi par &quot;diska vietu&quot;
@@ -362,7 +362,7 @@ Pārtrauciet apstrādi, ja redzat:
 
 **Risinājumi:**
 
-1. Nodrošiniet atbilstošu ventilāciju.
+1. Nodrošiniet pietiekamu ventilāciju.
 2. Notīriet putekļus no datora ventilācijas atverēm.
 3. Samaziniet apstrādes slodzi (izmantojiet bezmaksas režīmu, nevis Chloros+).
 4. Veiciet apstrādi vēsākā dienas laikā.
@@ -375,7 +375,7 @@ Kad apstrāde ir pabeigta:
 
 * Progresa josla sasniedz 100 %
 * Debug Log parādās ziņojums **&quot;Processing Complete&quot;** (Apstrāde pabeigta)
-* Sākšanas poga atkal kļūst pieejama
+* Start pogas atkal kļūst pieejamas
 * Visi izvades faili atrodas kameras modeļa apakšmapē
 
 ***
@@ -384,9 +384,9 @@ Kad apstrāde ir pabeigta:
 
 Kad apstrāde ir pabeigta:
 
-1. **Pārskatiet rezultātus** — skatiet [Apstrādes pabeigšana](finishing-the-processing.md)
-2. **Pārbaudiet izvades mapi** — pārbaudiet, vai visi faili ir eksportēti pareizi
-3. **Pārskatiet debug žurnālu** — pārbaudiet, vai nav brīdinājumu vai kļūdu
-4. **Priekšskatiet apstrādātos attēlus** — izmantojiet attēlu skatītāju vai ārējo programmatūru
+1. **Pārskatiet rezultātus** - Skatīt [Apstrādes pabeigšana](finishing-the-processing.md)
+2. **Pārbaudiet izvades mapes** — pārbaudiet, vai visi faili ir eksportēti pareizi
+3. **Pārskatiet debug log** — pārbaudiet, vai nav brīdinājumu vai kļūdu
+4. **Priekšskatiet apstrādātos attēlus** — izmantojiet Image Viewer vai ārējo programmatūru
 
-Informāciju par apstrādāto rezultātu pārskatīšanu un izmantošanu skatiet sadaļā [Apstrādes pabeigšana](finishing-the-processing.md).
+Informāciju par apstrādāto rezultātu pārskatīšanu un izmantošanu skatiet [Apstrādes pabeigšana](finishing-the-processing.md).

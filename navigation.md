@@ -18,25 +18,25 @@ Kad tā ir ieslēgta, sākt apstrādes poga sāk attēla apstrādes procesu.
 
 Bezmaksas Chloros režīmā, kas apstrādā visus failus secīgi, progresa josla parāda 2 posmus: mērķa noteikšana un apstrāde.
 
-Maksas Chloros+ licencētajā režīmā, kas apstrādā visus failus vienlaicīgi, progresa josla parāda 4 posmus: noteikšana, analīze, kalibrēšana, eksportēšana. Ja uzvedat peles kursoru uz Chloros+ progresa joslas, atvērsies paplašināta 4 progresa joslas paneļa, lai jūs varētu sekot līdzi. Noklikšķinot uz augšējās progresa joslas, atvērsies nolaižamais panelis, noklikšķinot atkārtoti, tas atkal tiks atvērts.
+Maksas Chloros+ licencētajā režīmā, kas apstrādā visus failus vienlaikus, progresa josla parāda 4 posmus: noteikšana, analīze, kalibrēšana, eksportēšana. Ja uzvedat peles kursoru uz Chloros+ progresa joslas, atvērsies paplašināta 4 progresa joslas paneļa, lai jūs varētu sekot līdzi. Noklikšķinot uz augšējās progresa joslas, atvērsies nolaižamais panelis, noklikšķinot atkārtoti, tas atkal aizvērsies.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 
 ## Sānu izvēlne
 
-Kreisajā sānu izvēlnē ir dažādas ikonas, ar kurām var mijiedarboties:
+Kreisajā sānu izvēlnē ir dažādas ikonas, ar kurām varat mijiedarboties:
 
 #### <img src=".gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> [Projekta iestatījumi](project-settings/project-settings.md)
 
-Sadaļā „Projekta iestatījumi” varat pielāgot projekta vispārējos un apstrādes iestatījumus. Pielāgojiet tos pirms failu apstrādes sākšanas.
+Sadaļā „Projekta iestatījumi” varat pielāgot projekta vispārējos un apstrādes iestatījumus. Pielāgojiet tos, pirms sākat apstrādāt failus.
 
 #### <img src=".gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> Failu pārlūks
 
-Pievienojiet failus/mapes un noņemiet failus no projekta. Dublikāti tiek ignorēti. Atzīmējiet mērķa attēla kolonnas lodziņu, un apstrāde skatīsies tikai atzīmētos attēlus, kas ievērojami paātrinās apstrādes laiku.
+Pievienojiet failus/mapes un noņemiet failus no projekta. Dublikāti tiek ignorēti. Atzīmējiet mērķa attēla izvēles rūtiņu, un apstrāde skatīsies tikai atzīmētos attēlus, kas ievērojami paātrinās apstrādes laiku.
 
 #### <img src=".gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> [Attēlu skatītājs](image-viewer-gui/opening-an-image-full-screen.md)
 
-Kad galvenajā attēlu skatītājā tiek noklikšķināts uz attēla, tas tiek atvērts pilna ekrāna režīmā cilnē „Attēlu skatītājs”.
+Kad galvenajā attēlu skatītājā tiek noklikšķināts uz attēla, tas tiek atvērts pilnekrāna režīmā cilnē „Attēlu skatītājs”.
 
 #### <img src=".gitbook/assets/icon_log.JPG" alt="" data-size="line"> Debug Log
 

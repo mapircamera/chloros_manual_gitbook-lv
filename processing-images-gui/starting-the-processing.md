@@ -2,19 +2,19 @@
 
 Kad esat importējis attēlus, atzīmējis kalibrēšanas mērķus un konfigurējis projekta iestatījumus, varat sākt apstrādi. Šī lapa palīdzēs jums sākt Chloros apstrādes procesu.
 
-## Pārstrādes sagatavošanas pārbaudes saraksts
+## Pārstrādes priekšapstrādes pārbaudes saraksts
 
-Pirms nospiežat pogu Start, pārbaudiet, vai viss ir gatavs:
+Pirms nospiest pogu Start, pārbaudiet, vai viss ir gatavs:
 
-* [ ] **Faili importēti** — visi attēli parādās failu pārlūkprogrammā
-* [ ] **Mērķa attēli atzīmēti** — mērķa kolonna pārbaudīta kalibrēšanas attēliem
-* [ ] **Kameru modeļi atklāti** - Kameru modeļu kolonnā redzamas pareizās kameras
+* [ ] **Faili importēti** - Visi attēli parādās failu pārlūkprogrammā
+* [ ] **Mērķa attēli atzīmēti** - Mērķa kolonna pārbaudīta kalibrēšanas attēliem
+* [ ] **Kameru modeļi atklāti** - Kameru modeļu ailē redzamas pareizās kameras
 * [ ] **Iestatījumi konfigurēti** - Projekta iestatījumi pārskatīti un pielāgoti
 * [ ] **Indeksi izvēlēti** - Pievienoti vēlamie multispektrālie indeksi (ja nepieciešams)
 * [ ] **Eksporta formāts izvēlēts** - Jūsu darba plūsmai atbilstošs izvades formāts
 
 {% hint style=&quot;info&quot; %}
-**Padoms**: Pirms apstrādes noklikšķiniet uz dažiem attēliem failu pārlūkā, lai pārliecinātos, ka tie ir pareizi ielādēti.
+**Padoms**: Pirms apstrādes noklikšķiniet uz dažiem attēliem failu pārlūkprogrammā, lai pārliecinātos, ka tie ir pareizi ielādēti.
 {% endhint %}
 
 ***
@@ -37,7 +37,7 @@ Sākšanas/atskaņošanas poga atrodas Chloros augšējā galvenes joslā:
 4. Progresa josla atjaunojas, parādot apstrādes stāvokli
 
 {% hint style=&quot;success&quot; %}
-**Apstrāde sākta**: Pēc klikšķa Chloros automātiski veic visus apstrādes posmus — mērķa noteikšanu, debayering, kalibrēšanu, indeksa aprēķināšanu un eksportēšanu.
+**Apstrāde sākta**: Pēc noklikšķināšanas Chloros automātiski veic visus apstrādes posmus — mērķa noteikšanu, debayering, kalibrēšanu, indeksa aprēķināšanu un eksportēšanu.
 {% endhint %}
 
 ***
@@ -53,13 +53,13 @@ Chloros darbojas divos dažādos apstrādes režīmos atkarībā no jūsu licenc
 **Kā tas darbojas:**
 
 * Apstrādā attēlus pa vienam, secīgi
-* Vienpakāpes darbība
+* Vienpakalpes darbība
 * Mazāks atmiņas patēriņš
 
-**Progresa josla parāda 2 posmus:**
+**Progresa josla rāda 2 posmus:**
 
-1. **Mērķa noteikšana** — kalibrēšanas mērķu skenēšana
-2. **Apstrāde** — kalibrēšanas piemērošana un attēlu eksportēšana
+1. **Mērķa noteikšana** - Kalibrēšanas mērķu skenēšana
+2. **Apstrāde** - Kalibrēšanas piemērošana un attēlu eksportēšana
 
 **Apstrādes laiks:**
 
@@ -77,12 +77,12 @@ Chloros darbojas divos dažādos apstrādes režīmos atkarībā no jūsu licenc
 * Izmanto vairākus CPU kodolus
 * Papildu GPU (CUDA) paātrinājums ar NVIDIA grafiskajām kartēm
 
-**Progresa josla parāda 4 posmus:**
+**Progresa josla rāda 4 posmus:**
 
-1. **Atklāšana** – kalibrēšanas mērķu meklēšana
-2. **Analizēšana** – attēlu metadatu pārbaude un cauruļvada sagatavošana
-3. **Kalibrēšana** – korekciju un kalibrēšanu piemērošana
-4. **Eksportēšana** – apstrādāto attēlu un indeksu saglabāšana
+1. **Atklāšana** — kalibrēšanas mērķu meklēšana
+2. **Analīze** — attēlu metadatu pārbaude un cauruļvada sagatavošana
+3. **Kalibrēšana** — korekciju un kalibrēšanas piemērošana
+4. **Eksportēšana** — apstrādāto attēlu un indeksu saglabāšana
 
 **Progresa joslas mijiedarbība:**
 
@@ -106,7 +106,7 @@ Chloros darbojas divos dažādos apstrādes režīmos atkarībā no jūsu licenc
 
 ### 1. posms: mērķa noteikšana
 
-**Ko dara Chloros:**
+**Chloros darbība:**
 
 * Skenē atzīmētos mērķa attēlus (vai visus attēlus, ja nav atzīmēti)
 * Identificē 4 kalibrēšanas paneļus katrā mērķī
@@ -119,7 +119,7 @@ Chloros darbojas divos dažādos apstrādes režīmos atkarībā no jūsu licenc
 
 **Chloros funkcijas:**
 
-* Konvertē RAW Bayer modeļa datus pilnās RGB attēlos
+* Konvertē RAW Bayer modeļa datus pilnā RGB attēlos
 * Piemēro augstas kvalitātes demosaicing algoritmu
 * Saglabā maksimālu attēla kvalitāti un detaļas
 
@@ -153,7 +153,7 @@ Chloros darbojas divos dažādos apstrādes režīmos atkarībā no jūsu licenc
 * Saglabā kalibrētos attēlus izvēlētajā formātā
 * Eksportē indeksa attēlus ar konfigurētām LUT krāsām
 * Raksta failus kameras modeļa apakšmapēs
-* Saglabā oriģinālos failu nosaukumus ar papildu piedēkļiem
+* Saglabā sākotnējos failu nosaukumus ar papildu piedēkļiem
 
 **Ilgums:** Atšķiras atkarībā no eksporta formāta un faila lieluma
 
@@ -163,11 +163,11 @@ Chloros darbojas divos dažādos apstrādes režīmos atkarībā no jūsu licenc
 
 ### Automātiskā apstrādes caurule
 
-Pēc sākšanas visa caurule darbojas automātiski:
+Pēc palaišanas visa caurule darbojas automātiski:
 
 * Nav nepieciešama lietotāja iejaukšanās
 * Visi konfigurētie soļi tiek izpildīti secīgi
-* Progresa atjauninājumi tiek parādīti reāllaikā
+* Progresa atjauninājumi tiek parādīti reālajā laikā
 
 ### Datoru izmantošana apstrādes laikā
 
@@ -185,7 +185,7 @@ Pēc sākšanas visa caurule darbojas automātiski:
 * Izvairieties no citu CPU intensīvu uzdevumu sākšanas
 
 {% hint style=&quot;warning&quot; %}
-**Veiktspējas padoms**: Lai nodrošinātu labāko Chloros+ veiktspēju, aizveriet citas lietojumprogrammas un ļaujiet Chloros izmantot visus sistēmas resursus.
+**Veiktspējas padoms**: Lai nodrošinātu labāko Chloros+ veiktspēju, aizveriet citas programmas un ļaujiet Chloros izmantot visus sistēmas resursus.
 {% endhint %}
 
 ### Apstrādi nevar apturēt
@@ -223,7 +223,7 @@ Ja jums ir nepieciešams pārtraukt apstrādi:
 1. Atrodiet **poga Stop/Cancel** (apstrādes laikā aizstāj pogu Start)
 2. Noklikšķiniet uz pogas Stop
 3. Apstrāde tiek nekavējoties pārtraukta
-4. Daļējie rezultāti tiek izdzēsti
+4. Daļējie rezultāti tiek izmesti
 
 ### Kad atcelt
 
@@ -247,7 +247,7 @@ Ja jums ir nepieciešams pārtraukt apstrādi:
 
 ***
 
-## Apstrādes laika aplēses
+## Apstrādes laika aprēķini
 
 Faktiskais apstrādes laiks ievērojami atšķiras atkarībā no:
 
@@ -255,14 +255,14 @@ Faktiskais apstrādes laiks ievērojami atšķiras atkarībā no:
 * Attēlu izšķirtspējas
 * RAW vai JPG ievades formāta
 * Apstrādes režīma (bezmaksas vai Chloros+)
-* procesora ātrumu un kodolu skaitu
-* GPU pieejamību (tikai Chloros+)
-* aprēķināmo indeksu skaitu
-* eksporta formāta sarežģītību
+* CPU ātrums un kodolu skaits
+* GPU pieejamība (tikai Chloros+)
+* Aprēķināmo indeksu skaits
+* Eksporta formāta sarežģītība
 
-### Aptuvenas aplēses (Chloros+, 12 MP attēli, moderns procesors)
+### Aptuvenas aplēses (Chloros+, 12 MP attēli, moderns CPU)
 
-| Attēlu skaits | Bezmaksas režīms | Chloros+ (procesors) | Chloros+ (grafiskais procesors) |
+| Attēlu skaits | Bezmaksas režīms | Chloros+ (CPU) | Chloros+ (GPU) |
 | ----------- | --------- | -------------- | -------------- |
 | 50 attēli   | 15–20 min | 5–8 min        | 3–5 min        |
 | 100 attēli  | 30–40 min | 10–15 min      | 5–8 min        |
@@ -278,18 +278,18 @@ Faktiskais apstrādes laiks ievērojami atšķiras atkarībā no:
 
 ## Bieži sastopamas problēmas sākumā
 
-### Sākšanas poga ir atspējota (izdzisusi)
+### Sākuma pogas ir atspējotas (izbalinātas)
 
 **Iespējamie iemesli:**
 
 * Nav importēti attēli
-* Aizmugure nav pilnībā sākta
+* Backend nav pilnībā sācies
 * Iepriekšējā apstrāde joprojām darbojas
 * Projekts nav pilnībā ielādēts
 
 **Risinājumi:**
 
-1. Gaidiet, līdz backend ir pilnībā inicializēts (pārbaudiet galvenās izvēlnes ikonu)
+1. Gaidiet, līdz backend ir pilnībā inicializēts (pārbaudiet galvenā izvēlnes ikonu)
 2. Pārbaudiet, vai attēli ir importēti failu pārlūkā
 3. Ja poga joprojām ir atspējota, restartējiet Chloros
 4. Pārbaudiet Debug Log, vai nav kļūdu ziņojumu
@@ -305,7 +305,7 @@ Faktiskais apstrādes laiks ievērojami atšķiras atkarībā no:
 
 **Risinājumi:**
 
-1. Pārbaudiet Debug Log <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> kļūdu ziņojumus
+1. Pārbaudiet debug log <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> kļūdu ziņojumus
 2. Pārbaudiet pieejamo diska vietu
 3. Mēģiniet apstrādāt mazāku attēlu apakškopu
 4. Pārbaudiet, vai attēli nav bojāti
@@ -359,8 +359,8 @@ Ja izmantojat NVIDIA GPU paātrinājumu:
 
 Kad apstrāde ir sākusies:
 
-1. **Uzraugiet procesa gaitu** - skatiet [Apstrādes uzraudzība](monitoring-the-processing.md)
+1. **Uzraugiet procesa gaitu** - Skatīt [Apstrādes uzraudzība](monitoring-the-processing.md)
 2. **Pagaidiet, līdz apstrāde ir pabeigta** — apstrāde notiek automātiski
 3. **Pārskatiet rezultātus** — skatiet [Apstrādes pabeigšana](finishing-the-processing.md)
 
-Informāciju par to, kas jādara apstrādes laikā, skatiet [Apstrādes uzraudzība](monitoring-the-processing.md).
+Informāciju par to, ko darīt apstrādes laikā, skatiet [Apstrādes uzraudzība](monitoring-the-processing.md).

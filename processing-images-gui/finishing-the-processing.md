@@ -1,6 +1,6 @@
 # Apstrādes pabeigšana
 
-Kad Chloros ir pabeidzis apstrādi, ir pienācis laiks pārskatīt rezultātus, pārbaudīt izvades kvalitāti un sagatavot apstrādātos attēlus izmantošanai darba procesā. Šī lapa palīdzēs jums veikt pēdējos soļus un nākamās darbības.
+Kad Chloros ir pabeidzis apstrādi, ir pienācis laiks pārskatīt rezultātus, pārbaudīt izvades kvalitāti un sagatavot apstrādātos attēlus izmantošanai darba plūsmā. Šī lapa palīdzēs jums veikt pēdējos soļus un nākamās darbības.
 
 ## Apstrādes pabeigšanas indikators
 
@@ -83,7 +83,7 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 
 ### Problēma: trūkstoši izvades faili
 
-**Iespējamie iemesli:**
+**Iespējamie cēloņi:**
 
 * Faili neatbilst apstrādes kritērijiem
 * Tikai mērķa attēli (izslēgti no eksporta)
@@ -94,16 +94,16 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 
 1. Pārbaudiet Debug Log, vai nav izlaides/kļūdu ziņojumu
 2. Pārbaudiet, vai diska vietas ir pietiekami
-3. Saskaitiet failus: tiem jāatbilst (sākotnējais skaits - mērķa skaits) × (indeksi + 1)
+3. Saskaitiet failus: jāatbilst (sākotnējais skaits - mērķa skaits) × (indeksi + 1)
 4. Atkārtoti importējiet un apstrādājiet trūkstošos failus
 
-### Problēma: tumšas vai gaišas malas (vignetting joprojām redzams)
+### Problēma: tumšas vai gaišas malas (joprojām redzama vinjetēšana)
 
 **Iespējamie cēloņi:**
 
-* Vignette korekcija ir atspējota
+* Vinjetēšanas korekcija ir atspējota
 * Kamera/objektīvs nav Chloros profilu datu bāzē
-* Ekstrēms vignetting, kas pārsniedz korekcijas iespējas
+* Ekstrēma vinjetēšana, kas pārsniedz korekcijas iespējas
 
 **Risinājumi:**
 
@@ -142,7 +142,7 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 2. Pārbaudiet, vai ir iekļauts gaismas sensora žurnāls.
 3. Pārbaudiet, vai ir atklāti kalibrēšanas mērķi.
 4. Pārliecinieties, ka ir atklāts pareizais kameras modelis.
-5. Pārbaudiet mērķa attēla uzņemšanas laiku un apstākļus.
+5. Pārskatiet mērķa attēla uzņemšanas laiku un apstākļus.
 
 ***
 
@@ -157,10 +157,10 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
    * Agisoft Metashape
    * DroneDeploy
    * WebODM
-2. **Saglabājiet EXIF metadatus**: pārliecinieties, ka GPS dati ir saglabāti ģeogrāfiskai marķēšanai
+2. **Saglabājiet EXIF metadatus**: pārliecinieties, ka GPS dati ir saglabāti ģeotagēšanai
 3. **Kalibrētas darba plūsmas**: izmantojiet atstarojuma attēlus zinātniskai precizitātei
-4. **Apstrādājiet indeksa mozaīkas**: Izveidojiet NDVI ortomosaikas no atsevišķiem indeksa attēliem
-5. **Eksportējiet ģeoreferencētos GeoTIFF**: izmantošanai GIS lietojumprogrammās
+4. **Apstrādājiet indeksa mozaīkas**: izveidojiet NDVI ortomozaīkas no atsevišķiem indeksa attēliem
+5. **Eksportējiet ģeoreferencēto GeoTIFF**: izmantošanai GIS lietojumprogrammās
 
 ### GIS analīzei
 
@@ -172,7 +172,7 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 4. **Rastra kalkulators**: apvienojiet joslas pielāgotai analīzei
 5. **Eksportējiet**: izveidojiet klasifikācijas kartes, izmaiņu noteikšanu, veģetācijas veselības kartes
 
-### Tiešai analīzei/ziņošanai
+### Tiešai analīzei/ziņojumu sagatavošanai
 
 **Ieteicamais darba process:**
 
@@ -183,42 +183,42 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 
 ***
 
-## Arhivēšana un dublējums
+## Arhivēšana un dublēšana
 
-### Ieteicamā dublējuma stratēģija
+### Ieteicamā dublēšanas stratēģija
 
 **Ko saglabāt:**
 
 * ✅ **Oriģinālie RAW/JPG attēli** — arhivējiet atsevišķā diskā/mākonī
-* ✅ **Apstrādātie rezultāti** – saglabājiet kalibrētus attēlus un indeksus
-* ✅ **Projekta fails** – satur visus iestatījumus atkārtotai apstrādei, ja nepieciešams
-* ✅ **Debug Log** – dokumentē apstrādes detaļas
+* ✅ **Apstrādātie rezultāti** — saglabājiet kalibrētus attēlus un indeksus
+* ✅ **Projekta fails** — satur visus iestatījumus atkārtotai apstrādei, ja nepieciešams
+* ✅ **Debug Log** — dokumentē apstrādes detaļas
 * ✅ **Kalibrēšanas mērķa attēli** – pārbaudei un atkārtotai apstrādei
 
 **Ieteikumi uzglabāšanai:**
 
-* **Tūlītēja dublējuma izveide**: Ārējais cietais disks
-* **Ilgtermiņa arhivēšana**: Mākonis (Google Drive, Dropbox utt.)
-* **Kritiskie dati**: Saglabājiet 2–3 kopijas dažādās vietās
+* **Tūlītēja dublēšana**: ārējais cietais disks
+* **Ilgtermiņa arhīvs**: mākonis (Google Drive, Dropbox utt.)
+* **Kritiskie dati**: saglabājiet 2–3 kopijas dažādās vietās
 
 ***
 
-## Nākamās apstrādes cikli
+## Nākamās apstrādes kārtas
 
 ### Projekta iestatījumu atkārtota izmantošana
 
 Ja nākotnē apstrādāsiet līdzīgus datu kopumus:
 
-1. **Saglabājiet projekta veidni** (ja tas vēl nav izdarīts)
+1. **Saglabājiet projekta veidni** (ja vēl neesat to izdarījuši)
 2. **Izveidojiet jaunu projektu**, izmantojot saglabāto veidni
 3. **Importējiet jaunus attēlus**
-4. **Apstrādājiet** ar identiskiem iestatījumiem, lai nodrošinātu konsekvenci
+4. **Apstrādājiet** ar identiskām iestatījumiem, lai nodrošinātu konsekvenci
 
 ### Vairāku sesiju partijas apstrāde
 
-Vairākām sesijām/datu kopām:
+Vairākām sesijām/datu kopumiem:
 
-**1. variants: GUI – vairāki projekti**
+**1. variants: GUI - vairāki projekti**
 
 * Izveidojiet atsevišķu projektu katrai sesijai
 * Izmantojiet konsekventus veidnes iestatījumus
@@ -226,7 +226,7 @@ Vairākām sesijām/datu kopām:
 
 **2. variants: Chloros CLI (tikai Chloros+)**
 
-* Automatizējiet partijas apstrādi
+* Automatizējiet partiju apstrādi
 * Apstrādājiet vairākas mapes ar skriptiem
 * Skatīt [CLI dokumentāciju](../CLI.md)
 
@@ -238,7 +238,7 @@ Vairākām sesijām/datu kopām:
 
 ***
 
-## Pēc apstrādes problēmu novēršana
+## Problēmu novēršana pēc apstrādes
 
 ### Atkārtota apstrāde ar citām iestatījumiem
 
@@ -281,7 +281,7 @@ Tagad esat pabeidzis pilnu Chloros apstrādes darba plūsmu:
 6. ✅ **Uzraudzīts process** - Skatīt [Apstrādes uzraudzība](monitoring-the-processing.md)
 7. ✅ **Pārskatīti rezultāti** - Šī lapa
 
-**Jūsu kalibrētie, atstarojuma koriģētie multispektrālie attēli ir gatavi analīzei!**
+**Jūsu kalibrētie, atstarojuma korekcijas multispektrālie attēli ir gatavi analīzei!**
 
 ***
 
@@ -290,7 +290,7 @@ Tagad esat pabeidzis pilnu Chloros apstrādes darba plūsmu:
 ### Papildu funkcijas
 
 * [**Attēlu skatītājs**](../image-viewer-gui/opening-an-image-full-screen.md) - Interaktīva vizualizācija un analīze
-* [**Indekss/LUT smilšu kaste**](../image-viewer-gui/index-lut-sandbox.md) - Pielāgota indeksa testēšana
+* [**Indeksa/LUT smilšu kaste**](../image-viewer-gui/index-lut-sandbox.md) - Pielāgota indeksa testēšana
 * [**Daudzspektrālo indeksu formulas**](../project-settings/multispectral-index-formulas.md) - Pilnīga indeksu atsauce
 
 ### Automatizācija un integrācija

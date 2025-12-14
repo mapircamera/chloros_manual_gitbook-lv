@@ -178,7 +178,7 @@ ChlorosLocal(
 | `auto_start_backend`      | bool | `True`                    | Automātiski sākt backend, ja nepieciešams |
 | `backend_exe`             | str  | `None` (automātiska atpazīšana)      | Ceļš uz backend izpildāmo failu            |
 | `timeout`                 | int  | `30`                      | Pieprasījuma laika limits sekundēs            |
-| `backend_startup_timeout` | int  | `60`                      | Laika limits backend palaišanai (sekundēs) |
+| `backend_startup_timeout` | int  | `60`                      | Laika limits backuzsākšanai (sekundēs) |
 
 **Piemēri:**
 
@@ -236,7 +236,7 @@ Importē attēlus no mapes.
 | `folder_path` | str/Path | Jā      | Ceļš uz mapi ar attēliem         |
 | `recursive`   | bool     | Nē       | Meklēt apakšmapes (noklusējums: False) |
 
-**Atgriež:** `dict` - Importē rezultātus ar failu skaitu
+**Atgriež:** `dict` - Importēšanas rezultāti ar failu skaitu
 
 **Piemērs:**
 
@@ -260,10 +260,10 @@ Konfigurējiet apstrādes iestatījumus.
 | ------------------------- | ---- | ----------------------- | ------------------------------- |
 | `debayer`                 | str  | &quot;Augsta kvalitāte (ātrāka)&quot; | Debayer metode                  |
 | `vignette_correction`     | bool | `True`                  | Iespējot vinjetes korekciju      |
-| `reflectance_calibration` | bool | `True`                  | Iespējot atstarojuma kalibrēšanu  |
+| `reflectance_calibration` | bool | `True`                  | Iespējot atstarošanas kalibrēšanu  |
 | `indices`                 | saraksts | `None`                  | Aprēķināmie veģetācijas indeksi |
 | `export_format`           | str  | &quot;TIFF (16 bitu)&quot;         | Izvades formāts                   |
-| `ppk`                     | bool | `False`                 | Aktivizēt PPK korekcijas          |
+| `ppk`                     | bool | `False`                 | Iespējot PPK korekcijas          |
 | `custom_settings`         | dict | `None`                  | Papildu pielāgotie iestatījumi        |
 
 **Eksporta formāti:**
@@ -271,7 +271,7 @@ Konfigurējiet apstrādes iestatījumus.
 * `"TIFF (16-bit)"` - Ieteicams GIS/fotogrammetrijai
 * `"TIFF (32-bit, Percent)"` - Zinātniskai analīzei
 * `"PNG (8-bit)"` - Vizuālai pārbaudei
-* `"JPG (8-bit)"` - Saspiestai izvadei
+* `"JPG (8-bit)"` - saspiesta izvade
 
 **Pieejamie indeksi:**
 
@@ -310,13 +310,13 @@ Apstrādājiet projekta attēlus.
 | ------------------- | -------- | ------------ | ----------------------------------------- |
 | `mode`              | str      | `"parallel"` | Apstrādes režīms: &quot;parallel&quot; vai &quot;serial&quot;   |
 | `wait`              | bool     | `True`       | Gaidīt pabeigšanu                       |
-| `progress_callback` | callable | `None`       | Progresa atgriešanās funkcija (progress, msg) |
-| `poll_interval`     | float    | `2.0`        | Progresa aptaujas intervāls (sekundes)   |
+| `progress_callback` | callable | `None`       | Progresa atgriezeniskās saites funkcija(progress, msg) |
+| `poll_interval`     | float    | `2.0`        | Progresa aptaujas intervāls (sekundēs)   |
 
 **Atgriež:** `dict` - Apstrādes rezultāti
 
 {% hint style=&quot;warning&quot; %}
-**Paralēlais režīms**: Nepieciešama Chloros+ licence. Automātiski pielāgojas jūsu procesora kodoliem (līdz 16 darbiniekiem).
+**Paralēlais režīms**: Nepieciešama Chloros+ licence. Automātiski pielāgojas jūsu CPU kodoliem (līdz 16 darbiniekiem).
 {% endhint %}
 
 **Piemērs:**
@@ -397,7 +397,7 @@ Vienrindas ērtības funkcija mapes apstrādei.
 | `folder_path`             | str/Path | Obligāts        | Ceļš uz mapi ar attēliem     |
 | `project_name`            | str      | Automātiski ģenerēts  | Projekta nosaukums                   |
 | `camera`                  | str      | `None`          | Kameras veidne                |
-| `indices`                 | list     | `["NDVI"]`      | Aprēķināmi indeksi           |
+| `indices`                 | list     | `["NDVI"]`      | Aprēķināmo indeksu skaits           |
 | `vignette_correction`     | bool     | `True`          | Iespējot vinjetes korekciju     |
 | `reflectance_calibration` | bool     | `True`          | Iespējot atstarošanas kalibrēšanu |
 | `export_format`           | str      | &quot;TIFF (16 bitu)&quot; | Izvades formāts                  |
@@ -457,7 +457,7 @@ with ChlorosLocal() as chloros:
 
 ### 1. piemērs: Pamata apstrāde
 
-Apstrādājiet mapes ar noklusējuma iestatījumiem:
+Apstrādājiet mapi ar noklusējuma iestatījumiem:
 
 ```python
 from chloros_sdk import process_folder
@@ -564,7 +564,7 @@ print("All flights processed!")
 
 ***
 
-### 4. piemērs: pētniecības procesu integrācija
+### 4. piemērs: Pētījumu procesa integrācija
 
 Chloros integrācija ar datu analīzi:
 
@@ -619,7 +619,7 @@ print(df)
 
 ***
 
-### 5. piemērs: pielāgota progresa uzraudzība
+### 5. piemērs: Pielāgota progresa uzraudzība
 
 Uzlabota progresa uzraudzība ar reģistrēšanu:
 
@@ -658,7 +658,7 @@ logging.info("Processing complete!")
 
 ***
 
-### 6. piemērs: kļūdu apstrāde
+### 6. piemērs: Kļūdu apstrāde
 
 Robusta kļūdu apstrāde ražošanas vajadzībām:
 
@@ -890,9 +890,9 @@ for i in range(0, len(images), batch_size):
 
 ## Problēmu novēršana
 
-### Aizmugure nedarbojas
+### Aizmugure nesākas
 
-**Problēma:** SDK nevar sākt aizmuguri
+**Problēma:** SDK nevar sākt backend
 
 **Risinājumi:**
 
@@ -905,7 +905,7 @@ print(f"Backend exists: {os.path.exists(backend_path)}")
 ```
 
 2. Pārbaudiet, vai Windows ugunsmūris neblokē
-3. Mēģiniet manuāli ievadīt backend ceļu:
+3. Izmēģiniet manuālo backend ceļu:
 
 ```python
 chloros = ChlorosLocal(backend_exe="C:\\Path\\To\\chloros-backend.exe")
@@ -913,7 +913,7 @@ chloros = ChlorosLocal(backend_exe="C:\\Path\\To\\chloros-backend.exe")
 
 ***
 
-### Licence netiek atpazīta
+### Licence nav atklāta
 
 **Problēma:** SDK brīdina par trūkstošu licenci
 
@@ -957,19 +957,19 @@ python -c "import sys; print(sys.path)"
 
 ### Apstrādes laika limits
 
-**Problēma:** Apstrādes laika limits ir beidzies
+**Problēma:** Apstrādes laika limits ir beidzies.
 
 **Risinājumi:**
 
-1. Palieliniet laika ierobežojumu:
+1. Palieliniet laika limitu:
 
 ```python
 chloros = ChlorosLocal(timeout=120)  # 2 minutes
 ```
 
-2. Apstrādājiet mazākas partijas
-3. Pārbaudiet pieejamo diska vietu
-4. Uzraugiet sistēmas resursus
+2. Apstrādājiet mazākas partijas.
+3. Pārbaudiet pieejamo diska vietu.
+4. Uzraugiet sistēmas resursus.
 
 ***
 
@@ -1016,7 +1016,7 @@ chloros.configure(export_format="PNG (8-bit)")  # Faster than TIFF
 chloros.configure(indices=["NDVI"])  # Not all indices
 ```
 
-4. **Apstrādājiet SSD** (nevis HDD)
+4. **Apstrādājiet uz SSD** (nevis HDD)
 
 ***
 
@@ -1123,7 +1123,7 @@ chloros.process(progress_callback=notebook_progress)
 
 ### J: Vai SDK ir nepieciešams interneta savienojums?
 
-**A:** Tikai sākotnējai licences aktivizēšanai. Pēc pieteikšanās caur Chloros, Chloros (pārlūks) vai Chloros CLI licence tiek saglabāta vietējā cache un darbojas bezsaistē 30 dienas.
+**A:** Tikai sākotnējai licences aktivizēšanai. Pēc ieejas sistēmā, izmantojot Chloros, Chloros (pārlūks) vai Chloros CLI, licence tiek saglabāta vietējā cache atmiņā un darbojas bezsaistē 30 dienas.
 
 ***
 
@@ -1132,7 +1132,7 @@ chloros.process(progress_callback=notebook_progress)
 **A:** Jā! Prasības:
 
 * Windows Server 2016 vai jaunāka versija
-* Chloros instalēta (vienreizēji)
+* Chloros instalēts (vienreizēji)
 * Licence aktivizēta jebkurā datorā (kešatmiņā saglabātā licence kopēta uz serveri)
 
 ***
@@ -1142,7 +1142,7 @@ chloros.process(progress_callback=notebook_progress)
 | Funkcija         | Desktop GUI | CLI komandrinda | Python SDK  |
 | --------------- | ----------- | ---------------- | ----------- |
 | **Saskarnes**   | Punktu klikšķis | Komanda          | Python API  |
-| **Vispiemērotākais**    | Vizuālais darbs | Skriptēšana        | Integrācija |
+| **Vislabāk piemērots**    | Vizuālam darbam | Skriptiem        | Integrācijai |
 | **Automatizācija**  | Ierobežota     | Laba             | Izcila   |
 | **Elastība** | Pamata       | Laba             | Maksimāla     |
 | **Licence**     | Chloros+    | Chloros+         | Chloros+    |
@@ -1153,7 +1153,7 @@ chloros.process(progress_callback=notebook_progress)
 
 **A:** SDK kodu var integrēt jūsu lietotnēs, bet:
 
-* Galalietotājiem ir nepieciešams Chloros
+* Galalietotājiem ir nepieciešams instalēt Chloros
 * Galalietotājiem ir nepieciešamas aktīvas Chloros+ licences
 * Komerciālai izplatīšanai ir nepieciešama OEM licence
 
@@ -1193,13 +1193,13 @@ from chloros_sdk import process_folder
 results = process_folder("C:\\Flights\\Today")
 ```
 
-Izmantojiet uzdevumu plānotāju, lai iestatītu ikdienas darbību.
+Iestatiet uzdevumu plānotājā, lai tas darboties katru dienu.
 
 ***
 
 ### J: Vai SDK atbalsta async/await?
 
-**A:** Pašreizējā versija ir sinhronizēta. Lai izmantotu async funkciju, izmantojiet `wait=False` vai palaidiet atsevišķā pavedienā:
+**A:** Pašreizējā versija ir sinhrona. Lai izmantotu async funkciju, izmantojiet `wait=False` vai palaidiet atsevišķā pavedienā:
 
 ```python
 import threading

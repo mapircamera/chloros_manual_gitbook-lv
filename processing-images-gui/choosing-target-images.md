@@ -1,6 +1,6 @@
 # Mērķa attēlu izvēle
 
-Attēlu, kuros ir kalibrēšanas mērķi, atzīmēšana ir ļoti svarīgs solis, kas ievērojami paātrina Chloros apstrādes procesu. Iepriekš atlasot mērķa attēlus, jums vairs nav nepieciešams, lai Chloros skenētu katru attēlu jūsu datu kopā, meklējot kalibrēšanas mērķus.
+Attēlu, kuros ir kalibrēšanas mērķi, atzīmēšana ir ļoti svarīgs solis, kas ievērojami paātrina Chloros apstrādes procesu. Iepriekš atlasot mērķa attēlus, jums nav nepieciešams Chloros skenēt katru attēlu datu kopā, lai atrastu kalibrēšanas mērķus.
 
 ## Kāpēc atzīmēt mērķa attēlus?
 
@@ -12,7 +12,7 @@ Ja mērķa attēli netiek atzīmēti, Chloros ir jāveic šādas darbības:
 * Jāizpilda mērķa noteikšanas algoritmi katram attēlam
 * Jāpārbauda simtiem vai tūkstošiem attēlu, kas nav nepieciešami
 
-**Rezultāts**: apstrāde var aizņemt ievērojami vairāk laika, īpaši lielu datu kopu gadījumā.
+**Rezultāts**: apstrāde var aizņemt ievērojami ilgāku laiku, īpaši lielu datu kopu gadījumā.
 
 ### Ar atzīmētiem mērķa attēliem
 
@@ -36,17 +36,17 @@ Pārskatiet importētos attēlus failu pārlūkprogrammā un identificējiet, ku
 
 **Bieži sastopami scenāriji:**
 
-* **Mērķis pirms uzņemšanas**: uzņemts pirms sesijas sākuma.
-* **Mērķis pēc uzņemšanas**: uzņemts pēc sesijas pabeigšanas.
-* **Mērķi laukā**: mērķi, kas atrodas uzņemšanas zonā.
-* **Vairāki mērķi**: 2–3 mērķa attēli vienā sesijā (ieteicams).
+* **Pirms uzņemšanas mērķis**: uzņemts pirms sesijas sākuma
+* **Pēc uzņemšanas mērķis**: uzņemts pēc sesijas pabeigšanas
+* **Lauka mērķi**: mērķi, kas atrodas uzņemšanas zonā
+* **Vairāki mērķi**: 2–3 mērķa attēli vienā sesijā (ieteicams)
 
 ### 2. solis: pārbaudiet mērķa kolonnu
 
 Katram attēlam, kas satur kalibrēšanas mērķi:
 
 1. Atrodiet attēlu failu pārlūkā
-2. Atrodiet **Mērķis** kolonnu (pa labi)
+2. Atrodiet **Mērķa** kolonnu (pa labi)
 3. Noklikšķiniet uz izvēles rūtiņas mērķa kolonā pie šī attēla
 4. Atkārtojiet šo darbību visiem attēliem, kas satur mērķus
 
@@ -73,7 +73,7 @@ Pirms apstrādes pārbaudiet:
 **Kameras novietojums:**
 
 * Turiet kameru virs mērķa tā, lai tā būtu centrēta un aizņemtu apmēram 40–60 % attēla centra.
-* Turiet kameru paralēli/nadīram mērķa virsmai
+* Kameru turiet paralēli/nadīram mērķa virsmai
 
 **Apgaismojums:**
 
@@ -86,7 +86,7 @@ Pirms apstrādes pārbaudiet:
 
 * Uzturiet mērķa paneļus tīrus un sausus
 * Visiem 4 paneļiem jābūt skaidri redzamiem un neaizsegtām
-* Mērķi, ja iespējams, novietojiet perpendikulāri/nadīri gaismas avotam
+* Mērķi pēc iespējas perpendikulāri/nadīri gaismas avotam
 
 ### Cik daudz mērķa attēlu?
 
@@ -148,7 +148,7 @@ Ja Chloros nekonstatē jūsu mērķus pareizi, pielāgojiet šos iestatījumus [
 
 ### Problēma: netiek atklāti mērķi
 
-**Iespējamie cēloņi:**
+**Iespējamie iemesli:**
 
 * Mērķa attēli nav atzīmēti failu pārlūkā
 * Mērķis ir pārāk mazs kadrā (&lt; 30 % no attēla)
@@ -157,12 +157,12 @@ Ja Chloros nekonstatē jūsu mērķus pareizi, pielāgojiet šos iestatījumus [
 
 **Risinājumi:**
 
-1. Pārbaudiet, vai mērķu kolonna ir atzīmēta pareizajiem attēliem
+1. Pārbaudiet, vai mērķu ailē ir atzīmēti pareizie attēli
 2. Pārskatiet mērķu attēlu kvalitāti priekšskatījumā
 3. Ja kvalitāte ir slikta, atkārtoti uzņemiet mērķus
 4. Ja nepieciešams, pielāgojiet mērķu atklāšanas iestatījumus
 
-### Problēma: kļūdaina mērķu atklāšana
+### Problēma: kļūdaini mērķu atklājumi
 
 **Iespējamie cēloņi:**
 
@@ -187,7 +187,7 @@ Pirms apstrādes sākšanas pārbaudiet mērķa attēlu atlasi:
 * [ ] Mērķa kolonnas izvēles rūtiņas ir atzīmētas visiem mērķa attēliem
 * [ ] Mērķa attēli uzņemti tajā pašā laika periodā, kad veikta apsekošana
 * [ ] Mērķi ir skaidri redzami priekšskatījumā, uzklikšķinot uz tiem
-* [ ] Visi 4 kalibrēšanas paneļi redzami katrā mērķa attēlā
+* [ ] Visi 4 kalibrēšanas paneļi ir redzami katrā mērķa attēlā
 * [ ] Uz mērķiem nav ēnu vai šķēršļu
 * [ ] Divu kameru gadījumā: mērķi ir atzīmēti abu kameru tipiem
 
@@ -200,7 +200,7 @@ Pirms apstrādes sākšanas pārbaudiet mērķa attēlu atlasi:
 Lai gan tas nav ieteicams zinātniskam darbam, jūs varat veikt apstrādi bez mērķiem:
 
 1. Atstājiet visas mērķu kolonnu izvēles rūtiņas neatzīmētas
-2. **Atvienojiet** &quot;Reflektances kalibrēšana&quot; projekta iestatījumos
+2. **Atvienojiet** &quot;Atstarošanas kalibrēšana&quot; projekta iestatījumos
 3. Vignette korekcija joprojām tiks piemērota
 4. Izvade netiks kalibrēta absolūtajai atstarojamībai
 
