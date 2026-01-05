@@ -6,7 +6,7 @@
 
 * 🚀 **Automatizācija** - vairāku datu kopu skriptu partiju apstrāde
 * 🔗 **Integrācija** - iekļaušana esošajos darba plūsmās un cauruļvados
-* 💻 **Darbība bez galvas** - darbināma bez GUI
+* 💻 **Bezgalvas darbība** - darbināšana bez GUI
 * 🌍 **Daudzvalodība** - atbalsts 38 valodām
 * ⚡ **Paralēla apstrāde** — dinamiski pielāgojas jūsu CPU (līdz 16 paralēliem darbiniekiem)
 
@@ -18,10 +18,10 @@
 | **Licence**          | Chloros+ ([nepieciešams maksas plāns](https://cloud.mapir.camera/pricing)) |
 | **Atmiņa**           | Vismaz 8 GB RAM (ieteicams 16 GB)                                  |
 | **Internets**         | Nepieciešams licences aktivizēšanai                                     |
-| **Diska vieta**       | Atšķiras atkarībā no projekta apjoma                                              |
+| **Diska vieta**       | Atšķiras atkarībā no projekta lieluma                                              |
 
 {% hint style=&quot;warning&quot; %}
-**Licences prasības**: CLI ir nepieciešama maksas Chloros+ abonementa. Standarta (bezmaksas) plāniem nav piekļuves CLI. Apmeklējiet [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing), lai veiktu uzlabojumus.
+**Licences prasības**: CLI ir nepieciešama maksas Chloros+ abonementa. Standarta (bezmaksas) plāniem nav piekļuves CLI. Apmeklējiet [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing), lai veiktu uzlabojumu.
 {% endhint %}
 
 ## Ātrs sākums
@@ -30,7 +30,8 @@
 
 CLI automātiski tiek iekļauts Chloros instalētājs:
 
-1. Lejupielādējiet un palaidiet **Chloros Installer.exe**
+1. Lejupielādējiet un palaidiet **Chloros instalētājs.exe**
+
 2. Pabeidziet instalēšanas vedni
 3. CLI instalēts: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
 
@@ -55,7 +56,7 @@ chloros-cli process "C:\Images\Dataset001"
 
 ### Pamata lietošana
 
-Apstrādājiet mapes ar noklusējuma iestatījumiem:
+Apstrādājiet mapi ar noklusējuma iestatījumiem:
 
 ```powershell
 chloros-cli process "C:\Images\Dataset001"
@@ -95,7 +96,7 @@ chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
 
 | Opcija                | Tips    | Noklusējums        | Apraksts                                                                            |
 | --------------------- | ------- | -------------- | -------------------------------------------------------------------------------------- |
-| `<input-folder>`      | Celiņš    | _Obligāts_     | Mapīte, kas satur RAW/JPG multispektrālos attēlus                                         |
+| `<input-folder>`      | Celiņš    | _Nepieciešams_     | Mapīte, kas satur RAW/JPG multispektrālos attēlus                                         |
 | `-o, --output`        | Celiņš    | Tāds pats kā ievade  | Izvades mapīte apstrādātajiem attēliem                                                     |
 | `-n, --project-name`  | String  | Automātiski ģenerēts | Pielāgots projekta nosaukums                                                                    |
 | `--vignette`          | Karodziņš    | Iespējots        | Iespējot vinjetes korekciju                                                             |
@@ -113,9 +114,9 @@ chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
 
 ***
 
-### `login` - Kontu autentificēšana
+### `login` - Konta autentifikācija
 
-Piesakieties ar savām Chloros+ identifikācijas datiem, lai aktivizētu CLI apstrādi.
+Piesakieties ar savām Chloros+ autentifikācijas datiem, lai aktivizētu CLI apstrādi.
 
 **Sintakse:**
 
@@ -133,13 +134,11 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 **Īpašie simboli**: Lietojiet vienkāršās pēdiņas ap parolēm, kas satur simbolus, piemēram, `$`, `!` vai atstarpes.
 {% endhint %}
 
-**Rezultāts:**
+**Rezultāts:**<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>***
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>***
+### `logout` - Dzēst paroles
 
-### `logout` - Dzēst autentifikācijas datus
-
-Dzēst saglabātos autentifikācijas datus un iziet no sava konta.
+Dzēst saglabātās paroles un iziet no sava konta.
 
 **Sintakse:**
 
@@ -160,11 +159,15 @@ chloros-cli logout
 ℹ Credentials cleared from cache
 ```
 
+{% hint style=&quot;info&quot; %}
+**SDK lietotāji**: Python SDK nodrošina arī programmatisku `logout()` metodi, lai dzēstu autentifikācijas datus Python skriptos. Sīkāku informāciju skatiet [Python SDK dokumentācijā](api-python-sdk.md#logout).
+{% endhint %}
+
 ***
 
-### `status` - Pārbaudīt licences statusu
+### `status` - Licences statusa pārbaude
 
-Parādīt pašreizējo licences un autentifikācijas statusu.
+Parāda pašreizējo licences un autentifikācijas statusu.
 
 **Sintakse:**
 
@@ -195,7 +198,7 @@ chloros-cli status
 
 ### `export-status` — eksporta gaitu pārbaude
 
-Uzrauga 4. pavediena eksporta gaitu apstrādes laikā vai pēc tās.
+Pārrauga 4. pavediena eksporta gaitu apstrādes laikā vai pēc tās.
 
 **Sintakse:**
 
@@ -209,13 +212,11 @@ chloros-cli export-status
 chloros-cli export-status
 ```
 
-**Lietošanas gadījums:** Izsauc šo komandu apstrādes laikā, lai pārbaudītu eksporta gaitu.
-
-***
+**Lietošanas gadījums:** Izsauc šo komandu apstrādes laikā, lai pārbaudītu eksporta gaitu.***
 
 ### `language` — interfeisa valodas pārvaldība
 
-Skatīt vai mainīt CLI saskarnes valodu.
+Skatīt vai mainīt CLI interfeisa valodu.
 
 **Sintakse:**
 
@@ -250,44 +251,44 @@ chloros-cli language ja
 
 | Kods    | Valoda              | Vietējais nosaukums      |
 | ------- | --------------------- | ---------------- |
-| `en`    | Angļu               | English          |
-| `es`    | Spāņu               | Español          |
-| `pt`    | Portugāļu            | Português        |
-| `fr`    | Franču                | Français         |
+| `en`    | Angļu valoda               | English          |
+| `es`    | Spāņu valoda               | Español          |
+| `pt`    | Portugāļu valoda            | Português        |
+| `fr`    | Franču valoda                | Français         |
 | `de`    | Vācu valoda                | Deutsch          |
 | `it`    | Itāļu valoda               | Italiano         |
 | `ja`    | Japāņu valoda              | 日本語              |
 | `ko`    | Korejiešu valoda                | 한국어              |
-| `zh`    | Ķīniešu (vienkāršots)  | 简体中文             |
-| `zh-TW` | Ķīniešu (tradicionāls) | 繁體中文             |
-| `ru`    | Krievu               | Русский          |
-| `nl`    | Holandiešu valoda | Nederlands       |
-| `ar`    | Arābu valoda | العربية          |
-| `pl`    | Poļu valoda | Polski           |
-| `tr`    | Turku valoda | Türkçe           |
-| `hi`    | Hindi                 | हिंदी            |
-| `id`    | Indonēziešu            | Bahasa Indonesia |
-| `vi`    | Vjetnamiešu            | Tiếng Việt       |
-| `th`    | Taizemiešu valoda | ไทย              |
-| `sv`    | Zviedru valoda | Svenska          |
-| `da`    | Dāņu valoda | Dansk            |
-| `no`    | Norvēģu valoda | Norsk            |
-| `fi`    | Somu               | Suomi            |
-| `el`    | Grieķu                 | Ελληνικά         |
-| `cs`    | Čehu                 | Čeština          |
+| `zh`    | Ķīniešu valoda (vienkāršota)  | 简体中文             |
+| `zh-TW` | Ķīniešu valoda (tradicionālā) | 繁體中文             |
+| `ru`    | Krievu valoda               | Русский          |
+| `nl`    | Holandiešu valoda                 | Nederlands       |
+| `ar`    | Arābu valoda                | العربية          |
+| `pl`    | Poļu valoda                | Polski           |
+| `tr`    | Turku valoda               | Türkçe           |
+| `hi`    | Hindi valoda                 | हिंदी            |
+| `id`    | Indonēziešu valoda            | Bahasa Indonesia |
+| `vi`    | vjetnamiešu valoda | Tiếng Việt       |
+| `th`    | taju valoda | ไทย              |
+| `sv`    | zviedru valoda | Svenska          |
+| `da`    | dāņu valoda | Dansk            |
+| `no`    | Norvēģu valoda             | Norsk            |
+| `fi`    | Somu valoda               | Suomi            |
+| `el`    | Grieķu valoda                 | Ελληνικά         |
+| `cs`    | Čehu valoda                 | Čeština          |
 | `hu`    | Ungāru valoda             | Magyar           |
 | `ro`    | Rumāņu valoda              | Română           |
 | `uk`    | Ukraiņu valoda             | Українська       |
 | `pt-BR` | Brazīlijas portugāļu valoda  | Português Brasileiro |
 | `zh-HK` | Kantoniešu valoda             | 粵語             |
-| `ms`    | Malajiešu valoda                 | Bahasa Melayu    |
-| `sk`    | Slovāku valoda                | Slovenčina       |
-| `bg`    | Bulgāru valoda             | Български        |
+| `ms`    | Malajiešu valoda | Bahasa Melayu    |
+| `sk`    | Slovāku valoda | Slovenčina       |
+| `bg`    | Bulgāru valoda | Български        |
 | `hr`    | Horvātu valoda              | Hrvatski         |
 | `lt`    | Lietuviešu valoda            | Lietuvių         |
-| `lv`    | Latviešu               | Latviešu         |
-| `et`    | Eesti              | Eesti            |
-| `sl`    | Slovenščina             | Slovenščina      |
+| `lv`    | Latviešu valoda               | Latviešu         |
+| `et`    | Igaunijas valoda              | Eesti            |
+| `sl`    | Slovēņu valoda             | Slovenščina      |
 
 {% hint style=&quot;success&quot; %}
 **Automātiska saglabāšana**: Jūsu valodas izvēle tiek saglabāta `~/.chloros/cli_language.json` un saglabājas visās sesijās.
@@ -357,7 +358,7 @@ chloros-cli reset-project-folder
 | --------------- | ------- | ------------- | ------------------------------------------------ |
 | `--backend-exe` | Celiņš    | Automātiski noteikts | Celiņš uz backend izpildāmo failu                       |
 | `--port`        | Vesels skaitlis | 5000          | Backend API porta numurs                          |
-| `--restart`     | Karodziņš    | -             | Piespiedu atkārtota aizmugures programmas palaišana (izbeidz esošos procesus) |
+| `--restart`     | Karodziņš    | -             | Piespiedu atkārtota backend palaišana (izbeidz esošos procesus) |
 | `--version`     | Karodziņš    | -             | Parāda versijas informāciju un iziet                |
 | `--help`        | Karodziņš    | -             | Parāda palīdzības informāciju un iziet                   |
 
@@ -373,21 +374,17 @@ chloros-cli --port 5001 process "C:\Datasets\Survey_001"
 
 ### Paralēlā apstrāde
 
-Chloros+ CLI **automātiski mēro** paralēlo apstrādi, lai tā atbilstu jūsu datora iespējām:
-
-**Kā tas darbojas:**
+Chloros+ CLI **automātiski mēro**paralēlo apstrādi, lai tā atbilstu jūsu datora iespējām:**Kā tas darbojas:**
 
 * Atklāj jūsu CPU kodolus un RAM
-* Piešķir darba spēkus: **2× CPU kodoli** (izmanto hiperthreading)
-* **Maksimums: 16 paralēli darba spēki** (stabilitātes nodrošināšanai)
+* Piešķir darba vienības: **2× CPU kodoli** (izmanto hipervadu)
+* **Maksimums: 16 paralēlas darba vienības** (stabilitātes nodrošināšanai)**Sistēmas līmeņi:**
 
-**Sistēmas līmeņi:**
-
-| Sistēmas tips   | CPU        | RAM      | Darba spēki  | Veiktspēja     |
+| Sistēmas tips   | CPU        | RAM      | Darba vienības  | Veiktspēja     |
 | ------------- | ---------- | -------- | -------- | --------------- |
 | **Augstākā klase**  | 16+ kodoli  | 32+ GB   | Līdz 16 | Maksimālais ātrums   |
-| **Vidēja klase** | 8–15 kodoli | 16–31 GB | 8–16     | Lielisks ātrums |
-| **Zema klase**   | 4–7 kodoli  | 8–15 GB  | 4–8      | Labs ātrums      |
+| **Vidējais līmenis** | 8-15 kodoli | 16-31 GB | 8-16     | Lielisks ātrums |
+| **Zems līmenis**   | 4-7 kodoli  | 8-15 GB  | 4-8      | Labs ātrums      |
 
 {% hint style=&quot;success&quot; %}
 **Automātiska optimizācija**: CLI automātiski atpazīst jūsu sistēmas specifikācijas un konfigurē optimālu paralēlo apstrādi. Nav nepieciešama manuāla konfigurācija!
@@ -405,20 +402,20 @@ CLI izmanto **Augsta kvalitāte (ātrāka)** kā noklusējuma un ieteicamo debay
 
 **Funkcija:** Koriģē gaismas zudumu attēla malās (tumšāki stūri, kas bieži sastopami kameru attēlos).
 
-* **Iespējots pēc noklusējuma** — lielākajai daļai lietotāju šī funkcija ir jāatstāj iespējota.
-* Lai atspējotu, izmantojiet `--no-vignette`.
+* **Iespējots pēc noklusējuma** — lielākajai daļai lietotāju šī funkcija ir jāatstāj iespējota
+* Lai atspējotu, izmantojiet `--no-vignette`
 
 {% hint style=&quot;success&quot; %}
 **Ieteikums**: vienmēr ieslēdziet vinjetes korekciju, lai nodrošinātu vienādu spilgtumu visā kadrā.
 {% endhint %}
 
-### Atstarošanas kalibrēšana
+### Reflektances kalibrēšana
 
-Pārvērš neapstrādātos sensora vērtības standartizētos atstarošanas procentos, izmantojot kalibrēšanas paneļus.
+Pārvērš neapstrādātas sensora vērtības standartizētās reflektances procentos, izmantojot kalibrēšanas paneļus.
 
 * **Iespējots pēc noklusējuma** — nepieciešams veģetācijas analīzei.
 * Nepieciešami kalibrēšanas mērķa paneļi attēlos.
-* Lai atspējotu, izmantojiet `--no-reflectance`.
+* Lai atspēkotu, izmantojiet `--no-reflectance`.
 
 {% hint style=&quot;info&quot; %}
 **Prasības**: Lai nodrošinātu precīzu atstarojuma pārveidošanu, pārliecinieties, ka kalibrēšanas paneļi ir pareizi eksponēti un redzami attēlos.
@@ -426,7 +423,7 @@ Pārvērš neapstrādātos sensora vērtības standartizētos atstarošanas proc
 
 ### PPK korekcijas
 
-**Funkcijas:** Pielieto pēcapstrādes kinemātiskās korekcijas, izmantojot DAQ-A-SD žurnāla datus, lai uzlabotu GPS precizitāti.
+**Funkcijas:** Piemēro pēcapstrādes kinemātiskās korekcijas, izmantojot DAQ-A-SD žurnāla datus, lai uzlabotu GPS precizitāti.
 
 * **Pēc noklusējuma atspējots**
 * Lai aktivizētu, izmantojiet `--ppk`
@@ -434,7 +431,7 @@ Pārvērš neapstrādātos sensora vērtības standartizētos atstarošanas proc
 
 ### Izvades formāti
 
-<table><thead><tr><th width="197">Formāts</th><th width="130.20001220703125">Bitu dziļums</th><th width="116.5999755859375">Faila izmērs</th><th>Vislabāk piemērots</th></tr></thead><tbody><tr><td><strong>TIFF (16 bitu)</strong> ⭐</td><td>16 bitu vesels skaitlis</td><td>Liels</td><td>ĢIS analīze, fotogrammetrija (ieteicams)</td></tr><tr><td><strong>TIFF (32 bitu, procentos)</strong></td><td>32 bitu peldošais</td><td>Ļoti liels</td><td>Zinātniskā analīze, pētījumi</td></tr><tr><td><strong>PNG (8 bitu)</strong></td><td>8 bitu vesels skaitlis</td><td>Vidējs</td><td>Vizuāla pārbaude, tīmekļa koplietošana</td></tr><tr><td><strong>JPG (8 bitu)</strong></td><td>8 bitu vesels skaitlis</td><td>Mazs</td><td>Ātrs priekšskatījums, saspiesta izvade</td></tr></tbody></table>***
+<table><thead><tr><th width="197">Formāts</th><th width="130.20001220703125">Bitu dziļums</th><th width="116.5999755859375">Faila izmērs</th><th>Vislabāk piemērots</th></tr></thead><tbody><tr><td><strong>TIFF (16 bitu)</strong> ⭐</td><td>16 bitu vesels skaitlis</td><td>Liels</td><td>ĢIS analīze, fotogrammetrija (ieteicams)</td></tr><tr><td><strong>TIFF (32 bitu, procenti)</strong></td><td>32 bitu peldošais</td><td>Ļoti liels</td><td>Zinātniskā analīze, pētījumi</td></tr><tr><td><strong>PNG (8 bitu)</strong></td><td>8 bitu vesels skaitlis</td><td>Vidējs</td><td>Vizuāla pārbaude, tīmekļa koplietošana</td></tr><tr><td><strong>JPG (8 bitu)</strong></td><td>8 bitu vesels skaitlis</td><td>Mazs</td><td>Ātrs priekšskatījums, saspiesta izvade</td></tr></tbody></table>***
 
 ## Automatizācija un skripti
 
@@ -576,7 +573,7 @@ if __name__ == '__main__':
 
 ### Standarta darba plūsma
 
-1. **Ievade**: Mapes, kas satur RAW/JPG attēlu pārus
+1. **Ievade**: Mapīte, kas satur RAW/JPG attēlu pārus
 2. **Atklāšana**: CLI automātiski skenē atbalstītos attēlu failus
 3. **Apstrāde**: Paralēlais režīms pielāgojas jūsu procesora kodoliem (Chloros+)
 4. **Izvade**: Izveido kameras modeļa apakšmapes ar apstrādātiem attēliem
@@ -584,6 +581,7 @@ if __name__ == '__main__':
 ### Izvades struktūras piemērs
 
 ```
+
 MyProject/
 ├── project.json                             # Project metadata
 ├── 2025_0203_193056_008.JPG                # Original JPG
@@ -594,7 +592,7 @@ MyProject/
     └── ...
 ```
 
-### Apstrādes laika aprēķini
+### Aplēstais apstrādes laiks
 
 Tipisks apstrādes laiks 100 attēliem (katrs 12 MP):
 
@@ -641,11 +639,10 @@ dir "C:\Program Files\Chloros\resources\cli\chloros-cli.exe"
 
 ***
 
-### Backend neizdevās sākt
-
-**Kļūda:**
+### Backend neizdevās sākt**Kļūda:**
 
 ```
+
 Backend failed to start within 30 seconds
 ```
 
@@ -667,18 +664,17 @@ chloros-cli --restart process "C:\Datasets\Field_A"
 
 ***
 
-### Licences / autentifikācijas problēmas
-
-**Kļūda:**
+### Licences/autentifikācijas problēmas**Kļūda:**
 
 ```
+
 Chloros+ license required for CLI access
 ```
 
 **Risinājumi:**
 
 1. Pārbaudiet, vai jums ir aktīvs Chloros+ abonements.
-2. Piesakieties ar savām identifikācijas ziņām:
+2. Piesakieties ar savām autentifikācijas ziņām:
 
 ```powershell
 chloros-cli login user@example.com 'password'
@@ -694,11 +690,10 @@ chloros-cli status
 
 ***
 
-### Nav atrastas attēlus
-
-**Kļūda:**
+### Nav atrastas attēlus**Kļūda:**
 
 ```
+
 No images found in the specified folder
 ```
 
@@ -711,9 +706,7 @@ No images found in the specified folder
 
 ***
 
-### Apstrāde apstājas vai iesaldējas
-
-**Risinājumi:**
+### Apstrāde apstājas vai iesaldējas**Risinājumi:**
 
 1. Pārbaudiet pieejamo diska vietu (pārliecinieties, ka tā ir pietiekama izvadei)
 2. Aizveriet citas programmas, lai atbrīvotu atmiņu
@@ -721,11 +714,10 @@ No images found in the specified folder
 
 ***
 
-### Ports jau tiek izmantots
-
-**Kļūda:**
+### Ports jau tiek izmantots**Kļūda:**
 
 ```
+
 Port 5000 is already in use
 ```
 
@@ -743,7 +735,7 @@ chloros-cli --port 5001 process "C:\Datasets\Field_A"
 
 ### J: Vai man ir nepieciešama licence CLI?
 
-**A:** Jā! CLI ir nepieciešama maksas **Chloros+ licence**.
+**A:**Jā! CLI ir nepieciešama maksas**Chloros+ licence**.
 
 * ❌ Standarta (bezmaksas) plāns: CLI ir atspējots
 * ✅ Chloros+ (maksas) plāni: CLI pilnībā iespējots
@@ -752,9 +744,7 @@ Abonējieties: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/p
 
 ***
 
-### J: Vai es varu izmantot CLI serverī bez GUI?
-
-**A:** Jā! CLI darbojas pilnīgi bez galvas. Prasības:
+### J: Vai es varu izmantot CLI serverī bez GUI?**A:** Jā! CLI darbojas pilnīgi bez galvas. Prasības:
 
 * Windows Server 2016 vai jaunāka versija
 * Visual C++ Redistributable instalēta
@@ -763,9 +753,7 @@ Abonējieties: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/p
 
 ***
 
-### J: Kur tiek saglabāti apstrādātie attēli?
-
-**A:** Pēc noklusējuma apstrādātie attēli tiek saglabāti **tajā pašā mapē, kurā ievadīti**, kameras modeļa apakšmapēs (piemēram, `Survey3N_RGN/`).
+### J: Kur tiek saglabāti apstrādātie attēli?**A:**Pēc noklusējuma apstrādātie attēli tiek saglabāti**tajā pašā mapē, kurā ievadīti**, kameras modeļa apakšmapēs (piemēram, `Survey3N_RGN/`).
 
 Izmantojiet opciju `-o`, lai norādītu citu izvades mapi:
 
@@ -775,15 +763,9 @@ chloros-cli process "C:\Input" -o "D:\Output"
 
 ***
 
-### J: Vai varu apstrādāt vairākas mapes vienlaikus?
+### J: Vai varu apstrādāt vairākas mapes vienlaikus?**A:** Ne tieši ar vienu komandu, bet varat izmantot skriptu, lai apstrādātu mapes secīgi. Skatīt sadaļu [Automātika un skripti](CLI.md#automation--scripting).***
 
-**A:** Ne tieši ar vienu komandu, bet varat izmantot skriptu, lai apstrādātu mapes secīgi. Skatīt sadaļu [Automation &amp; Scripting](CLI.md#automation--scripting).
-
-***
-
-### J: Kā saglabāt CLI izvadi žurnāla failā?
-
-**PowerShell:**
+### J: Kā saglabāt CLI izvadi žurnāla failā?**PowerShell:**
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" | Tee-Object -FilePath "processing.log"
@@ -797,9 +779,7 @@ chloros-cli process "C:\Datasets\Field_A" > processing.log 2>&1
 
 ***
 
-### J: Kas notiek, ja apstrādes laikā nospiežu Ctrl+C?
-
-**A:** CLI:
+### J: Kas notiek, ja apstrādes laikā nospiežu Ctrl+C?**A:** CLI:
 
 1. Pārtrauks apstrādi
 2. Izslēgs backend
@@ -809,15 +789,9 @@ Daļēji apstrādāti attēli var palikt izvades mapē.
 
 ***
 
-### J: Vai varu automatizēt CLI apstrādi?
+### J: Vai varu automatizēt CLI apstrādi?**A:** Protams! CLI ir paredzēts automatizācijai. Skatīt [Automation &amp; Scripting](CLI.md#automation--scripting) par PowerShell, Batch un Python piemēriem.***
 
-**A:** Protams! CLI ir paredzēts automatizācijai. Skatīt [Automation &amp; Scripting](CLI.md#automation--scripting) par PowerShell, Batch un Python piemēriem.
-
-***
-
-### J: Kā pārbaudīt CLI versiju?
-
-**A:**
+### J: Kā pārbaudīt CLI versiju?**A:**
 
 ```powershell
 chloros-cli --version
@@ -826,6 +800,7 @@ chloros-cli --version
 **Rezultāts:**
 
 ```
+
 Chloros CLI 1.0.2
 ```
 
@@ -851,9 +826,7 @@ chloros-cli language --help
 
 * **E-pasts**: info@mapir.camera
 * **Tīmekļa vietne**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* **Cenas**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
-
-***
+* **Cenas**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)***
 
 ## Pilnīgi piemēri
 
@@ -869,7 +842,7 @@ chloros-cli process "C:\Datasets\Field_A_2025_01_15"
 
 ### 2. piemērs: Augstas kvalitātes zinātniski rezultāti
 
-32 bitu peldošais TIFF:
+32 bitu peldošā komata TIFF:
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" ^
@@ -905,7 +878,7 @@ chloros-cli process "C:\Datasets\Field_A" ^
 
 ***
 
-### 5. piemērs: Pielāgota rezultātu atrašanās vieta
+### 5. piemērs: Pielāgota izvades atrašanās vieta
 
 Apstrādā uz citu disku ar konkrētu formātu:
 

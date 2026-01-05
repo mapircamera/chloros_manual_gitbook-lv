@@ -22,39 +22,32 @@ Ir divi galvenie veidi, kā pievienot attēlus projektam:
 
 Izmantojiet šo opciju, lai importētu atsevišķus attēlu failus vai nelielu failu izlasi.
 
-1. Noklikšķiniet uz pogas **&quot;Pievienot failus&quot;** failu pārlūka paneļa augšdaļā.
-2. Pāriet uz mapi, kurā atrodas jūsu attēli.
-3. Izvēlieties vienu vai vairākus attēlu failus (lai izvēlētos vairākus failus, turiet nospiestu **Ctrl**).
-4. Noklikšķiniet uz **&quot;Atvērt&quot;**, lai importētu izvēlētos failus.
+1. Noklikšķiniet uz **&quot;Pievienot failus&quot;** <img src="../.gitbook/assets/image.png" alt="" data-size="line"> poga failu pārlūka paneļa augšdaļā
+2. Pāriet uz mapi, kurā atrodas jūsu attēli
+3. Izvēlieties vienu vai vairākus attēlu failus (turiet nospiestu **Ctrl**, lai izvēlētos vairākus failus)
+4. Noklikšķiniet uz **&quot;Atvērt&quot;**, lai importētu izvēlētos failus
 
-### 2. metode: pievienot mapes
+### 2. metode: pievienot mapi
 
 Izmantojiet šo opciju, lai vienlaikus importētu visus attēlus no mapes.
 
-1. Noklikšķiniet uz pogas **&quot;Pievienot mapi&quot;** failu pārlūka paneļa augšdaļā.
-2. Atrodiet un izvēlieties mapi, kurā atrodas jūsu uzņemtie attēli.
-3. Noklikšķiniet uz **&quot;Izvēlēties mapi&quot;**, lai importētu visus atbalstītos attēlus no šīs mapes.
-
-***
+1. Noklikšķiniet uz **&quot;Pievienot mapes&quot;** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> poga failu pārlūka paneļa augšdaļā.
+2. Atveriet un izvēlieties mapi, kurā atrodas jūsu uzņemtie attēli.
+3. Noklikšķiniet uz **&quot;Izvēlēties mapi&quot;**, lai importētu visus atbalstītos attēlus no šīs mapes.***
 
 ## Failu pārlūka tabulas izpratne
 
 Pēc attēlu importēšanas tie parādās tabulā ar šādām kolonnām:
 
-### Sīkattēls
-
-* Katra attēla mazs priekšskatījums.
-* Noklikšķiniet uz sīkattēla, lai galvenajā priekšskatījuma zonā apskatītu pilnu attēlu.
-
 ### Faila nosaukums
 
-* Orijinālais faila nosaukums no kameras.
-* Saglabā kameras nosaukumu konvenciju (piemēram, IMG\_0001.RAW).
+* Orijinālais faila nosaukums no kameras
+* Saglabā kameras nosaukumu konvenciju (piemēram, IMG\_0001.RAW)
 
 ### Laika zīmogs
 
-* Attēla uzņemšanas datums un laiks.
-* Izvilkts no attēla EXIF metadatiem.
+* Attēla uzņemšanas datums un laiks
+* Izvilkts no attēla EXIF metadatiem
 * Izmanto PPK sinhronizācijai un kalibrēšanas mērķa noteikšanai
 
 ### Kameras modelis
@@ -65,7 +58,7 @@ Pēc attēlu importēšanas tie parādās tabulā ar šādām kolonnām:
 
 ### Mērķa kolonna (izvēles rūtiņa)
 
-* Atzīmējiet šo rūtiņu attēliem, kuros ir kalibrēšanas mērķi
+* Atzīmējiet šo rūtiņu attēliem, kas satur kalibrēšanas mērķus
 * Ievērojami paātrina mērķa noteikšanu apstrādes laikā
 * Sīkāku informāciju skatiet sadaļā [Mērķa attēlu izvēle](choosing-target-images.md)
 
@@ -75,25 +68,23 @@ Pēc attēlu importēšanas tie parādās tabulā ar šādām kolonnām:
 
 ### Failu dzēšana
 
-Lai dzēstu nevajadzīgos attēlus no projekta:
+Lai no projekta dzēstu nevajadzīgos attēlus:
 
 1. Izvēlieties vienu vai vairākus attēlus failu pārlūka tabulā
-2. Noklikšķiniet uz pogas **&quot;Dzēst atlasītos&quot;**
-3. Apstipriniet dzēšanu (faili netiek dzēsti no diska, tikai no projekta)
+2. Noklikšķiniet uz pogas **&quot;Dzēst atlasītos&quot;** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line"> .
+3. Apstipriniet izņemšanu (faili netiek dzēsti no diska, tikai izņemti no projekta).
 
 ### Šķirošana un filtrēšana
 
-* **Šķirot pēc kolonnas**: noklikšķiniet uz jebkuras kolonnas virsraksta, lai šķirotu attēlus
-* **Šķirošana pēc laika zīmoga**: noderīga, lai organizētu hronoloģiskas uzņemšanas secības
-* **Kameras modeļa filtrs**: grupējiet attēlus pēc kameras tipa, ja izmantojat vairākas kameras
-
-***
+* **Šķirot pēc kolonnas**: noklikšķiniet uz jebkuras kolonnas virsraksta, lai šķirotu attēlus.
+* **Šķirot pēc laika zīmoga**: noderīgi, lai organizētu hronoloģiskas uzņemšanas secības.
+* **Kameras modeļa filtrs**: attēlu grupēšana pēc kameras tipa, ja izmantojat vairākas kameras***
 
 ## Attēla priekšskatīšana
 
 ### Pilna attēla skatīšana
 
-Noklikšķiniet uz jebkuras attēla sīktēla failu pārlūkā, lai to parādītu galvenajā priekšskatīšanas laukā:
+Noklikšķiniet uz jebkura attēla sīktēla failu pārlūkā, lai to parādītu galvenajā priekšskatīšanas laukā:
 
 1. Attēls parādās centrālajā priekšskatīšanas panelī
 2. Izmantojiet tālummaiņas vadības elementus, lai apskatītu attēla detaļas
@@ -104,9 +95,7 @@ Noklikšķiniet uz jebkuras attēla sīktēla failu pārlūkā, lai to parādīt
 * **Iepriekšējais attēls**: noklikšķiniet uz kreisās bultiņas vai nospiediet taustiņu ←
 * **Nākamais attēls**: noklikšķiniet uz labās bultiņas vai nospiediet taustiņu →
 * **Tuvināt/attālināt**: izmantojiet peles ratu vai tuvināšanas pogas
-* **Pārvietot**: noklikšķiniet un velciet attēlu, kad tas ir tuvināts
-
-***
+* **Pārvietot**: noklikšķiniet un velciet attēlu, kad tas ir tuvināts***
 
 ## Dublikātu failu apstrāde
 
@@ -131,9 +120,7 @@ Ja jūsu projektā ir attēli no vairākām MAPIR kamerām:
 3. Failu pārlūkprogramma parāda kameras modeli kolonnā „Kameras modelis”.
 4. Apstrāde piemēro pareizos iestatījumus katram kameras tipam.
 
-**Piemērs**: Survey3W RGN + Survey3N OCN divu kameru konfigurācija
-
-***
+**Piemērs**: Survey3W RGN + Survey3N OCN divu kameru konfigurācija***
 
 ## Labākā prakse
 
@@ -146,7 +133,7 @@ Ja jūsu projektā ir attēli no vairākām MAPIR kamerām:
 ### Failu nosaukumi
 
 * Saglabājiet kameras sākotnējos failu nosaukumus (IMG\_0001.RAW utt.).
-* Pirms importēšanas failus nepārnosaukiet.
+* Pirms importēšanas failus nepārnosauciet.
 * Sākotnējie nosaukumi satur svarīgus metadatus.
 
 ### Kalibrēšanas mērķa attēli
@@ -187,9 +174,7 @@ Ja jūsu projektā ir attēli no vairākām MAPIR kamerām:
 * Kameras pulkstenis nav pareizi iestatīts
 * EXIF dati izdzēsti ar ārējo programmatūru
 
-**Risinājums**: Pārbaudiet, vai kameras laika iestatījumi uzņemšanas laikā bija pareizi
-
-***
+**Risinājums**: Pārbaudiet, vai kameras laika iestatījumi uzņemšanas laikā bija pareizi***
 
 ## Nākamie soļi
 
@@ -198,7 +183,7 @@ Kad faili ir importēti:
 1. **Pārskatiet failu sarakstu** - Pārliecinieties, ka visi attēli ir pareizi ielādēti
 2. **Pārbaudiet kameras modeļus** - Pārbaudiet, vai kamera ir pareizi atpazīta
 3. **Atzīmējiet mērķa attēlus** — skatiet [Mērķa attēlu izvēle](choosing-target-images.md)
-4. **Pielāgojiet iestatījumus** — konfigurējiet apstrādes opcijas [Projekta iestatījumi](adjusting-project-settings.md)
+4. **Pielāgojiet iestatījumus** — konfigurējiet apstrādes opcijas [Projekta iestatījumos](adjusting-project-settings.md)
 5. **Sāciet apstrādi** – skatiet [Apstrādes sākšana](starting-the-processing.md)
 
 Sīkāku informāciju par projekta konfigurāciju skatiet [Projekta iestatījumu pielāgošana](adjusting-project-settings.md).

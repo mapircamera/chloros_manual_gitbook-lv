@@ -18,7 +18,7 @@
 * [Projekta iestatījumu pielāgošana](processing-images-gui/adjusting-project-settings.md)
 * [Failu pievienošana projektam](processing-images-gui/adding-files-to-a-project.md)
 * [Mērķa attēlu izvēle](processing-images-gui/choosing-target-images.md)
-* [Apstrādes uzsākšana](processing-images-gui/starting-the-processing.md)
+* [Apstrādes sākšana](processing-images-gui/starting-the-processing.md)
 * [Apstrādes uzraudzība](processing-images-gui/monitoring-the-processing.md)
 * [Apstrādes pabeigšana](processing-images-gui/finishing-the-processing.md)
 
@@ -29,6 +29,8 @@
 
 ## ATTĒLU SKATĪTĀJS (GUI)
 
-* [Attēla atvēršana pilnā ekrānā](image-viewer-gui/opening-an-image-full-screen.md)
+* [Attēlu režģis](image-viewer-gui/image-grid.md)
+* [Attēla atvēršana pilnekrāna režīmā](image-viewer-gui/opening-an-image-full-screen.md)
 * [Attēla slāņi](image-viewer-gui/image-layers.md)
 * [Indekss/LUT smilšu kaste](image-viewer-gui/index-lut-sandbox.md)
+* [Kartes marķieri](image-viewer-gui/map-markers.md)

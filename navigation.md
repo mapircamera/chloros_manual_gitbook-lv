@@ -1,24 +1,22 @@
 # GUI: Navigācija
 
-Kad pirmo reizi palaidāt Chloros un Chloros (pārlūks), tiks palaists tā backend. Kad tas būs gatavs, kreisajā augšējā stūrī parādīsies galvenā izvēlnes ikona <img src=".gitbook/assets/image (1).png" alt="" data-size="line"> .
+Kad pirmo reizi palaidāt Chloros un Chloros (pārlūks), tiks palaists tā backend. Kad tas būs gatavs, kreisajā augšējā stūrī parādīsies galvenā izvēlnes ikona <img src=".gitbook/assets/image (1) (1) (1).png" alt="" data-size="line"> .
 
 <figure><img src=".gitbook/assets/header.JPG" alt=""><figcaption></figcaption></figure>
 
 No kreisās puses uz labo pusi augšējā galvenajā izvēlnē ir:
 
-### <img src=".gitbook/assets/image (1) (1).png" alt="" data-size="line"> Galvenā izvēlne
+### <img src=".gitbook/assets/image (1) (1) (1) (1).png" alt="" data-size="line"> Galvenā izvēlne
 
 No galvenās izvēlnes varat sākt jaunu projektu, atvērt esošu projektu vai atvērt projekta mapi.
 
-### <img src=".gitbook/assets/image (2).png" alt="" data-size="line"> Atskaņot/Sākt pogu
+### <img src=".gitbook/assets/image (2) (1).png" alt="" data-size="line"> Atskaņot/Sākt pogu
 
 Kad tā ir ieslēgta, sākt apstrādes poga sāk attēla apstrādes procesu.
 
-### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Progresa josla <img src=".gitbook/assets/image (5).png" alt="" data-size="line">
+### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Progresa josla <img src=".gitbook/assets/image (5).png" alt="" data-size="line">Bezmaksas Chloros režīmā, kas apstrādā visus failus secīgi, progresa josla parāda 2 posmus: mērķa noteikšana un apstrāde.
 
-Bezmaksas Chloros režīmā, kas apstrādā visus failus secīgi, progresa josla parāda 2 posmus: mērķa noteikšana un apstrāde.
-
-Maksas Chloros+ licencētajā režīmā, kas apstrādā visus failus vienlaikus, progresa josla parāda 4 posmus: noteikšana, analīze, kalibrēšana, eksportēšana. Ja uzvedat peles kursoru uz Chloros+ progresa joslas, atvērsies paplašināta 4 progresa joslas paneļa, lai jūs varētu sekot līdzi. Noklikšķinot uz augšējās progresa joslas, atvērsies nolaižamais panelis, noklikšķinot atkārtoti, tas atkal aizvērsies.
+Maksas Chloros+ licencētajā režīmā, kas apstrādā visus failus vienlaikus, progresa josla parāda 4 posmus: noteikšana, analīze, kalibrēšana, eksportēšana. Ja uzvedat peles kursoru uz Chloros+ progresa joslas, atvērsies paplašināta 4 progresa joslas paneļa, lai jūs varētu sekot līdzi. Noklikšķinot uz augšējās progresa joslas, izvēlnes panelis tiks iesaldēts, noklikšķinot atkārtoti, tas tiks atbloķēts.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 
@@ -28,15 +26,19 @@ Kreisajā sānu izvēlnē ir dažādas ikonas, ar kurām varat mijiedarboties:
 
 #### <img src=".gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> [Projekta iestatījumi](project-settings/project-settings.md)
 
-Sadaļā „Projekta iestatījumi” varat pielāgot projekta vispārējos un apstrādes iestatījumus. Pielāgojiet tos, pirms sākat apstrādāt failus.
+Sadaļā „Projekta iestatījumi” varat pielāgot projekta vispārējos un apstrādes iestatījumus. Pielāgojiet tos pirms failu apstrādes sākšanas.
 
 #### <img src=".gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> Failu pārlūks
 
-Pievienojiet failus/mapes un noņemiet failus no projekta. Dublikāti tiek ignorēti. Atzīmējiet mērķa attēla izvēles rūtiņu, un apstrāde skatīsies tikai atzīmētos attēlus, kas ievērojami paātrinās apstrādes laiku.
+Pievienojiet failus/mapes un noņemiet failus no projekta. Dublikāti tiek ignorēti. Atzīmējiet mērķa attēla izvēles rūtiņu, un apstrāde skatīsies tikai atzīmētos attēlus, kas ievērojami paātrinās apstrādes laiku. Izmantojiet attēla/metadatu slēdzi, lai pārslēgtos starp izvēlētā attēla sīktēlu režģi un detalizētu metadatu tabulu.
 
 #### <img src=".gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> [Attēlu skatītājs](image-viewer-gui/opening-an-image-full-screen.md)
 
-Kad galvenajā attēlu skatītājā tiek noklikšķināts uz attēla, tas tiek atvērts pilnekrāna režīmā cilnē „Attēlu skatītājs”.
+Kad attēls tiek noklikšķināts galvenajā attēlu skatītājā, tas tiek atvērts pilna ekrāna režīmā cilnē „Attēlu skatītājs”.
+
+#### <img src=".gitbook/assets/image (7).png" alt="" data-size="line"> [Karte](image-viewer-gui/map-markers.md)
+
+Skatīt attēlus interaktīvā 2D kartē, pamatojoties uz to GPS koordinātēm. Atbalsta Google Maps un ESRI flīžu piegādātājus, automātiski izvēloties labāko pakalpojumu jūsu atrašanās vietai. Pārvietojiet kursoru pār marķieriem, lai redzētu attēlu sīktēlu priekšskatījumus.
 
 #### <img src=".gitbook/assets/icon_log.JPG" alt="" data-size="line"> Debug Log
 
