@@ -6,7 +6,7 @@ Lietotāja <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> sā
 
 Pēc pieteikšanās tiks parādīta jūsu konta informācija:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Pieslēgties
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" data-size="line"><figcaption></figcaption></figure>## CLI Pieslēgties
 
 Pieslēdzieties ar saviem Chloros+ datiem, lai aktivizētu CLI apstrādi.
 

@@ -88,7 +88,7 @@ Kartes cilne atbalsta divus flīžu piegādātājus fona kartes attēliem:
 
 Jūs varat izvēlēties kartes slāņa veidu (no kreisās puses uz labo):
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Reljefs
+ <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Reljefs
 
 Rāda augstuma profilus un kartes flīzes ar detaļām (ceļi utt.)
 
