@@ -10,15 +10,15 @@ Visbiežāk izmantotais veids, kā atvērt attēlu attēlu skatītājā:
 
 1. Pārliecinieties, ka atrodaties cilnē **Failu pārlūks** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
 2. Noklikšķiniet uz jebkuras **attēla miniaturas** attēlu režģī
-3. Attēls atveras **galvenajā priekšskatīšanas zonā** (ekrāna centrā)
+3. Attēls atveras **galvenajā priekšskatījuma zonā** (ekrāna centrā)
 4. Attēls tagad ir ielādēts un gatavs pilna ekrāna skatīšanai
 
 ### Image Viewer cilnes atvēršana
 
-Kad attēls ir ielādēts priekšskatīšanas zonā:
+Kad attēls ir ielādēts priekšskatījuma zonā:
 
 1. Noklikšķiniet uz **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> ikonu kreisajā sānjoslā
-2. Atvērsies attēlu skatītāja cilne, kurā izvēlētais attēls tiks parādīts pilnā ekrānā
+2. Atvērsies attēlu skatītāja cilne, kurā izvēlētais attēls tiks parādīts pilna ekrāna režīmā
 3. Kreisajā sānjoslā kļūs pieejami papildu skatīšanas un analīzes rīki
 
 ***
@@ -46,7 +46,7 @@ Pārlūkojiet attēlu kopu, izmantojot tastatūras saīsnes vai pogas:
 
 * **Nākamais attēls**: noklikšķiniet uz pogas → vai nospiediet taustiņu **→** (labā bultiņa)
 * **Iepriekšējais attēls**: noklikšķiniet uz pogas ← vai nospiediet taustiņu **←** (kreisā bultiņa)
-* **Pāriet uz konkrētu attēlu**: atgriezieties failu pārlūkprogrammā un noklikšķiniet uz vēlamā sīkattēla
+* **Pāriet uz konkrētu attēlu**: atgriezieties failu pārlūkā un noklikšķiniet uz vēlamā sīktēla
 
 #### Tuvināšanas vadības elementi
 
@@ -64,12 +64,6 @@ Pielāgojiet palielinājumu, lai apskatītu attēla detaļas:
 * Nospiediet **−** (mīnus) taustiņu
 * Pagrieziet peles ratu **uz leju**
 
-**Pielāgot ekrānam:**
-
-* Noklikšķiniet uz **↔** (Pielāgot) pogas
-* Nospiediet **0** (Nulle) taustiņu
-* Divreiz noklikšķiniet uz attēla
-
 #### Pārvietošana, kad ir palielināts
 
 Kad ir palielināts vairāk nekā ekrāna izmērs:
@@ -79,36 +73,38 @@ Kad ir palielināts vairāk nekā ekrāna izmērs:
 3. **Velciet**, lai pārvietotu attēlu
 4. Atlaidiet, lai pārtrauktu pārvietošanu
 
-**Alternatīva**: izmantojiet bultu taustiņus, lai pārvietotu attēlu nelielos solīšos
+**Alternatīva**: izmantojiet bultu taustiņus, lai pārvietotu nelielos solīšos
 
 ***
 
 ## Pikseļu vērtību pārbaude
 
-### Pikseļu vērtību skatīšana kursora vietā
+### Pikseļu vērtību apskatīšana kursora vietā
 
-Kad pārvietojat peles kursoru uz attēla, pikseļu vērtības tiek parādītas reāllaikā:
+Kad pārvietojat peles kursoru pār attēlu, pikseļu vērtības tiek parādītas reālajā laikā:
 
 **Vērtību parādīšanas vieta:**
 
 * **Peldošs skaitlis un sarkana līnija labās puses indeksa LUT gradienta leģendā**
-* **Kad tiek palielināts attēls, peldoša vērtība pie kursora un izcelta pikseļa**
-* Parāda vērtības pikselim **zem kursora vai izcelta**
-* Atjaunina, kad pārvietojat peli
+* **Kad palielināt attēlu vēl vairāk, peldoša vērtība pie kursora un izceltā pikseļa**
+* Parāda vērtības pikseļiem **zem kursora vai izceltā**
+* Atjauninās, kad pārvietojat peli
 
 ***
 
 ## Attēlu veidi, kurus varat apskatīt
 
-### Orijinālie attēli (pirms apstrādes)
+### JPG
 
-**RAW + JPG attēli no kameras:**
+**JPG attēli no kameras:**
 
-* Parāda RAW datus kā priekšskatījumu
+* Parāda JPG datus kā priekšskatījumu
 * Parāda oriģinālās, nekoriģētās vērtības
 * Noderīgi attēla kvalitātes pārbaudei pirms apstrādes
 
-### Kalibrēti atstarojuma attēli
+### RAW (oriģināls)
+
+### RAW (atstarošanās)
 
 **Pēc apstrādes:**
 
@@ -117,7 +113,7 @@ Kad pārvietojat peles kursoru uz attēla, pikseļu vērtības tiek parādītas 
 * Daudzjoslu TIFF (Red, Green, NIR utt.)
 * Zinātniskie dati gatavi analīzei
 
-### Indeksa attēli
+### RAW (indekss)
 
 **NDVI, NDRE, GNDVI utt. (\_NDVI.tif faili):**
 
@@ -130,15 +126,15 @@ Kad pārvietojat peles kursoru uz attēla, pikseļu vērtības tiek parādītas 
 
 ## Indeksa un LUT piemērošana
 
-Piemērojiet multispektrālos indeksus un krāsu meklēšanas tabulas:
+Piemērojiet daudzspektrālos indeksus un krāsu meklēšanas tabulas:
 
 1. Atrodiet **Indeksa/LUT smilšu kasti** **attēlu skatītājā** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sānu joslā
 2. Izvēlieties veģetācijas indeksu (NDVI, NDRE utt.)
 3. Izvēlieties multispektrālo formulu vai izveidojiet savu pielāgotu formulu (tikai Chloros+)
-4. Lai vizualizētu, piemērojiet krāsu LUT gradientu
+4. Vizualizācijai piemērojiet krāsu LUT gradientu
 5. Pielāgojiet vērtību diapazonus un sliekšņus
 
-Sīkākas instrukcijas skatiet [Indekss/LUT Sandbox](index-lut-sandbox.md).
+Sīkākas instrukcijas skatiet [Indekss/LUT smilšu kaste](index-lut-sandbox.md).
 
 ***
 
@@ -151,23 +147,11 @@ Sīkākas instrukcijas skatiet [Indekss/LUT Sandbox](index-lut-sandbox.md).
 * **Sākums**: pirmais attēls sarakstā
 * **End**: Pēdējais attēls sarakstā
 
-### Tuvināšana
+### Tuvināt/attālināt
 
-* **+** vai **=**: Tuvināšana
-* **−**: Attālināšana
-* **0** (Nulle): Pielāgošana ekrānam
-* **Peles ritenītis**: Tuvināšana/attālināšana
-
-### Skatīšanas vadības elementi
-
-* **P**: Pārslēgt pikseļu procentu režīmu
-* **L**: Pārslēgt slāņu paneli
-* **Esc**: Aizvērt pilna ekrāna režīmu vai atgriezties failu pārlūkā
-
-### Citi
-
-* **Ctrl+S**: Saglabāt pašreizējo attēlu
-* **F**: Pilna ekrāna režīms (ja pieejams)
+* **+** vai **=**: Tuvināt
+* **−**: Attālināt
+* **Peles ritenītis**: Tuvināt/attālināt
 
 ***
 
@@ -175,10 +159,10 @@ Sīkākas instrukcijas skatiet [Indekss/LUT Sandbox](index-lut-sandbox.md).
 
 Pārbaudiet, vai indeksi ir aprēķināti pareizi:
 
-1. Atveriet NDVI vai citu indeksa attēlu.
+1. Atveriet NDVI vai citu indeksa attēlu
 2. Pārbaudiet veģetācijas platības:
-   * **NDVI**: Veseliem augiem jābūt 0,4–0,9.
-   * **NDRE**: augstākas vērtības spēcīgai augšanai
+   * **NDVI**: Veseliem augiem jābūt 0,4–0,9
+   * **NDRE**: Augstākas vērtības straujai augšanai
    * **GNDVI**: līdzīgs NDVI, bet jutīgs pret hlorofilu
 3. Pārbaudiet neaugu zonu:
    * **Augsne**: tuvu 0 vai nedaudz negatīva
@@ -194,22 +178,22 @@ Pārbaudiet, vai indeksi ir aprēķināti pareizi:
 
 * Fails bojāts apstrādes laikā
 * Nepiedāvāts faila formāts
-* Nepietiekama atmiņa liela izmēra attēlam
+* Nepietiekama atmiņa lielam attēlam
 
 **Risinājumi:**
 
-1. Mēģiniet atvērt ārējā skatītājā, lai pārbaudītu faila integritāti
-2. Pārbaudiet, vai faila formāts atbilst gaidītajam tipam
-3. Aizveriet citas programmas, lai atbrīvotu atmiņu
-4. Mēģiniet mazāku/citu attēlu
+1. Mēģiniet atvērt ārējā skatītājā, lai pārbaudītu faila integritāti.
+2. Pārbaudiet, vai faila formāts atbilst gaidītajam tipam.
+3. Aizveriet citas programmas, lai atbrīvotu atmiņu.
+4. Mēģiniet atvērt mazāku/citu attēlu.
 
 ### Melna vai balta attēla parādīšana
 
 **Iespējamie iemesli:**
 
-* Vērtību diapazons ārpus displeja iespējām
-* 32 bitu peldošā attēla ar neparastām vērtībām
-* Indeksa aprēķina kļūda
+* Vērtību diapazons pārsniedz displeja iespējas.
+* 32 bitu peldošā komata attēls ar neparastām vērtībām.
+* Indeksa aprēķina kļūda.
 
 **Risinājumi:**
 
@@ -219,9 +203,9 @@ Pārbaudiet, vai indeksi ir aprēķināti pareizi:
 
 ### Pikseļu vērtības šķiet nepareizas
 
-**Iespējamie iemesli:**
+**Iespējamie cēloņi:**
 
-* Tiek skatīts nepareizs attēls (oriģināls pret apstrādātu)
+* Tiek skatīts nepareizs attēls (oriģināls pret apstrādātu).
 * Kalibrēšana nav veikta pareizi
 * Gaismas sensora dati nav iekļauti ievadē
 * Procentu režīms ir nepareizi pārslēgts

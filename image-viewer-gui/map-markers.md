@@ -2,6 +2,8 @@
 
 Kartes cilnē jūsu attēli tiek parādīti interaktīvā 2D kartē, pamatojoties uz to GPS koordinātēm. Tas nodrošina ģeogrāfisku pārskatu par jūsu uzņemšanas sesiju un palīdz vizualizēt telpisko pārklājumu. Tas ir noderīgi arī, kad pirmo reizi importējat attēlus, lai ātri izdzēstu attēlus, kurus nevajag apstrādāt.
 
+<figure><img src="../.gitbook/assets/chloros_map_markers.gif" alt=""><figcaption></figcaption></figure>
+
 ## Piekļuve cilnei „Karte”
 
 1. Atveriet vai izveidojiet projektu Chloros
@@ -9,7 +11,7 @@ Kartes cilnē jūsu attēli tiek parādīti interaktīvā 2D kartē, pamatojotie
 3. Noklikšķiniet uz cilnes **Karte** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> cilni kreisajā sānjoslā
 4. Karte parādīs atzīmes katra attēla GPS atrašanās vietā
 
-{% hint style=&quot;info&quot; %}
+{% hint style="info" %}
 **Nepieciešams GPS**: kartē tiks parādīti tikai attēli, kuru EXIF metadatos ir iegultas GPS koordinātas. Pārliecinieties, ka jūsu kamerā uzņemšanas laikā ir ieslēgts GPS.
 {% endhint %}
 
@@ -17,7 +19,7 @@ Kartes cilnē jūsu attēli tiek parādīti interaktīvā 2D kartē, pamatojotie
 
 ## Attēlu pielāgošana no cilnes „Karte”
 
-Cilnē **Karte**<img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> ir tādas pašas pievienošanas  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  un noņemšanas  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  poga, kāda ir [**Failu pārlūks**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> cilnē. Tajā ir redzams arī tāds pats projekta failu tabulas saraksts, bet ar atšķirīgiem kolonnas virsrakstiem:
+Cilnei **Karte** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> cilnē ir tādas pašas pievienošanas  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  un noņemšanas  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  failu pogas kā [**Failu pārlūks**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> cilnē. Tajā tiek parādīts arī tāds pats projekta failu tabulas saraksts, bet ar atšķirīgiem kolonnu virsrakstiem:
 
 ### Faila nosaukums
 
@@ -36,7 +38,7 @@ Cilnē **Karte**<img src="../.gitbook/assets/image (3).png" alt="" data-size="li
 
 * Attēla augstums
 
-{% hint style=&quot;info&quot; %}
+{% hint style="info" %}
 Uzklikšķinot uz tabulas kolonnu virsrakstiem, tiek arī šķiroti rindu dati.
 {% endhint %}
 
@@ -49,24 +51,24 @@ Katrs attēls ar GPS datiem tiek attēlots ar marķieri kartē:
 ### Marķiera attēlošana
 
 * Marķieri norāda precīzas GPS koordinātes, kurās katrs attēls tika uzņemts.
-* Marķieri var grupēties kopā, ja tiek samazināts attēla mērogs.
+* Marķieri var grupēties kopā, ja tiek samazināts attēla izmērs.
 * Palieliniet attēlu, lai redzētu atsevišķu attēlu atrašanās vietas.
 
-{% hint style=&quot;success&quot; %}
-SUPER-ZOOM: Kad sasniedzat maksimālo tālummaiņas līmeni no kartes flīžu piegādātāja, flīzes tiek palielinātas, turpinot tālummaiņu, ļaujot jums redzēt marķierus, kas atrodas tuvu viens otram.
+{% hint style="success" %}
+SUPER-ZOOM: Kad sasniedzat maksimālo palielinājuma līmeni no kartes flīžu piegādātāja, flīzes tiek palielinātas, ļaujot redzēt marķierus, kas atrodas tuvu viens otram.
 {% endhint %}
 
-### Pārskatīšana, uzvedot peles kursoru
+### Pārskatīšana ar peles kursoru
 
-* **Pielieciet peles kursoru** uz jebkuru atzīmi, lai redzētu attēla sīkbildes priekšskatījumu.
-* Tas ļauj ātri vizuāli identificēt attēlu, neizejot no kartes skata.
-* Noderīgi, lai atrastu konkrētus attēlus lielā uzņēmumu sesijā.
+* **Pārvietojiet peles kursoru** uz jebkuru atzīmi, lai redzētu attēla sīkbildes pārskatīšanu
+* Tas ļauj ātri vizuāli identificēt attēlu, neizejot no kartes skata
+* Noderīgi, lai atrastu konkrētus attēlus lielā uzņemšanas sesijā
 
 ***
 
 ## Kartes flīžu piegādātāji
 
-{% hint style=&quot;success&quot; %}
+{% hint style="success" %}
 **Automātiskā izvēle**: Chloros automātiski izvēlas flīžu pakalpojumu, kas nodrošina labāko tālummaiņas līmeni jūsu pašreizējai kartes atrašanās vietai. Ja vēlaties, varat manuāli pārslēgties starp piegādātājiem.
 {% endhint %}
 
@@ -90,7 +92,7 @@ Jūs varat izvēlēties kartes slāņa veidu (no kreisās puses uz labo):
 
  <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Reljefs
 
-Rāda augstuma profilus un kartes flīzes ar detaļām (ceļi utt.)
+Rāda reljefa profilus un kartes flīzes ar detaļām (ceļi utt.)
 
 ### Karte
 
@@ -110,12 +112,14 @@ Rāda satelīta kartes flīzes ar pievienotām detaļām (ceļi utt.)
 
 ### Tuvināšanas/attālināšanas vadības elementi
 
-* **Tuvināšana/attālināšana**: izmantojiet peles ritentiņu vai tuvināšanas pogas.
+* **Tuvināšana/attālināšana**: izmantojiet peles ritināšanas ratu vai tuvināšanas pogas.
 * **Pilna ekrāna režīms**: karti parāda pilna ekrāna režīmā.
 
 ### Pārvietošanas vadības elementi
 
-* **Pārvietošana**: noklikšķiniet un velciet, lai pārvietotos pa karti.***
+* **Pārvietošana**: noklikšķiniet un velciet, lai pārvietotos pa karti.
+
+***
 
 ## Lietošanas piemēri
 
@@ -141,7 +145,7 @@ Rāda satelīta kartes flīzes ar pievienotām detaļām (ceļi utt.)
 
 ## Problēmu novēršana
 
-### Nav redzami marķieri
+### Ne parādās marķieri
 
 **Iespējamie iemesli:**
 
@@ -149,7 +153,7 @@ Rāda satelīta kartes flīzes ar pievienotām detaļām (ceļi utt.)
 * GPS bija atspējots kamerā uzņemšanas laikā
 * EXIF dati tika izdzēsti ar ārējo programmatūru
 
-**Risinājums**: Pārbaudiet, vai kamerā ir ieslēgts GPS, un atkārtoti importējiet oriģinālās failus
+**Risinājums**: Pārbaudiet, vai kamerā ir ieslēgts GPS, un atkārtoti importējiet oriģinālos failus
 
 ### Marķieri nepareizā vietā
 
