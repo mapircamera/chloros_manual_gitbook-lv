@@ -10,18 +10,18 @@ Lejupielādējiet jaunāko Chloros versiju, lai sāktu darbu ar multispektrālo 
 
 ### Sistēmas prasības
 
-| Prasība          | Minimālā                         | Ieteicamā                     |
-| -------------------- | ------------------------------- | ------------------------------- |
-| **Operētājsistēma** | Windows 10 (64 bitu)             | Windows 11 (64 bitu)             |
-| **Procesors**        | Intel Core i5 vai līdzvērtīgs     | Intel Core i7 vai labāks         |
-| **Atmiņa (RAM)**     | 8 GB                             | 16 GB vai vairāk                    |
-| **Grafikas karte**    | DirectX 11 saderīga           | NVIDIA GPU ar 4 GB+ VRAM       |
-| **Atmiņas vieta**          | 6 GB brīvas vietas                  | SSD ar 10 GB+ brīvas vietas       |
-| **Ekrāns**          | 1920x1080                       | 2560x1440 vai augstāka izšķirtspēja             |
-| **Internets**         | Nepieciešams licences aktivizēšanai | Nepieciešams licences aktivizēšanai |
+| Prasība          | Minimālā                                              | Ieteicamā                                          |
+| -------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| **Operētājsistēma** | Windows 10 (64 bitu)                                  | Windows 11 (64 bitu)                                  |
+| **Procesors**        | Intel Core i5 vai līdzvērtīgs                          | Intel Core i7 vai labāks                              |
+| **Atmiņa (RAM)**     | 8 GB                                                  | 16 GB vai vairāk                                         |
+| **Grafikas karte**    | DirectX 11 saderīga                                | NVIDIA GPU ar 4 GB+ VRAM                            |
+| **Uzglabāšana**          | 6 GB brīvas vietas                                       | SSD ar 10 GB+ brīvas vietas                            |
+| **Ekrāns**          | 1920x1080                                            | 2560x1440 vai augstāka izšķirtspēja                                  |
+| **Internets**         | Nepieciešams \[pēc izvēles] Chloros+ licences aktivizēšanai | Nepieciešams \[pēc izvēles] Chloros+ licences aktivizēšanai |
 
-{% hint style=&quot;info&quot; %}
-**GPU paātrinājums**: Chloros+ lietotāji ar NVIDIA GPU (4 GB+ VRAM) var izmantot CUDA paātrinājumu, lai ievērojami paātrinātu apstrādi. Chloros+ lietotāji iegūst arī daudzpavedienu apstrādi, lai sasniegtu maksimālo ātrumu.
+{% hint style="info" %}
+**GPU paātrinājums**: Chloros+ lietotāji ar NVIDIA GPU var izmantot CUDA paātrinājumu, lai ievērojami paātrinātu apstrādi. Chloros+ lietotāji iegūst arī daudzpavedienu apstrādi maksimālai ātrdarbībai.
 {% endhint %}
 
 ***
@@ -32,22 +32,22 @@ Lejupielādējiet jaunāko Chloros versiju, lai sāktu darbu ar multispektrālo 
 
 ### Jaunākā stabilā versija
 
-**Chloros instalētājs Windows*** **Versija**: 1.0.4
-* **Izlaides datums**: 2026. gada 5. janvāris
-* **Faila izmērs (lejupielāde)**: 1,8 GB
+**Chloros instalētājs Windows*** **Versija**: 1.0.5
+* **Izlaides datums**: 2026. gada 10. februāris
+* **Faila izmērs (lejupielāde)**: 1,6 GB
 * **Faila izmērs (instalēts)**: 5,7 GB
 * **Faila tips**: .exe (Windows instalētājs)
 
 #### **Instalēšanas soļi:**
 
 1. Lejupielādējiet failu `CHLOROS INSTALLER - CURRENT VERSION.exe`
-2. Divkārši noklikšķiniet uz instalētāja, lai sāktu instalēšanu
+2. Divreiz noklikšķiniet uz instalētāja, lai sāktu instalēšanu
 3. Sekojiet instalēšanas vedņa norādījumiem
 4. Izvēlieties instalēšanas direktoriju (noklusējums: `C:\Program Files\[USER]\Chloros\`)
-5. Pabeidziet instalēšanu un palaidiet Chloros, Chloros (pārlūks) vai Chloros CLI
+5. Pabeidziet instalēšanu un palaidiet Chloros vai Chloros CLI
 6. Piesakieties ar savu [MAPIR Cloud Chloros+ kontu](https://cloud.mapir.camera/pricing) (vai turpiniet ar bezmaksas versiju)
 
-{% hint style=&quot;success&quot; %}
+{% hint style="success" %}
 Instalētājs automātiski pievieno `chloros-cli` jūsu sistēmas PATH, lai nodrošinātu piekļuvi komandrindai.
 {% endhint %}
 
@@ -69,22 +69,22 @@ pip install chloros-sdk
 
 Chloros instalācijā ir iekļauts:
 
-* ✅ **Chloros** - pilnfunkciju grafiskais interfeiss
-* ✅ **Chloros (pārlūks)** - tīmekļa interfeiss sistēmām ar zemāku specifikāciju
+* ✅ **Chloros** - Pilnfunkciju grafiskais interfeiss (GUI)
 * ✅ **Chloros CLI** - Komandrindas interfeiss (nepieciešama Chloros+ licence)
 * ✅ **Chloros SDK** - Python API (nepieciešama Chloros+ licence)
-* ✅ **Kameru profili** - Iepriekš konfigurēti MAPIR kameru veidnes***
+* ✅ **Kameras profili** - iepriekš konfigurēti MAPIR kameras veidnes***
 
 ## Pāriet uz Chloros+
 
 Atbloķējiet papildu funkcijas ar Chloros+ abonementu:
 
-* 🚀 **Daudzpavedienu apstrāde** - Apstrādājiet attēlus paralēli
-* ⚡ **GPU (CUDA) paātrinājums** - Izmantojiet NVIDIA GPU jaudu
-* 💻 **CLI piekļuve** — automatizējiet ar komandrindas rīkiem
+* 🚀 **Daudzpavedienu apstrāde** - attēlu apstrāde paralēli
+* ⚡ **GPU (CUDA) paātrinājums** - izmantojiet NVIDIA GPU jaudu
+* 💻 **CLI piekļuve** - automatizējiet ar komandrindas rīkiem
 * 🐍 **Python SDK** — programmatiska API piekļuve
-* 📱 **Vairākas ierīces** — izmantojiet 2–10+ ierīcēs (atkarībā no plāna)
-* 🧮 **Pielāgotas formulas** — izveidojiet pielāgotus multispektrālos indeksus
+* 📱 **Vairākas ierīces** — lietojiet 2–10+ ierīcēs (atkarībā no plāna)
+* **🐻 Uzlabota tekstūras atpazīšanas debayer metode** - augstas kvalitātes malu atpazīšanas debayer, kas apvienots ar AI/ML trokšņu samazināšanas modeli, kas noņem gandrīz visus debayering trokšņus. 
+* 🧮 **Pielāgotas formulas** - izveidojiet pielāgotus multispektrālos indeksus
 
 <p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Skatīt Chloros+ plānus un cenas</a></p>***
 
@@ -92,16 +92,15 @@ Atbloķējiet papildu funkcijas ar Chloros+ abonementu:
 
 ### Problēmu novēršana
 
-**Instalēšana neizdodas, parādoties kļūdas ziņojumam:**
+**Instalēšana neizdodas ar kļūdas ziņojumu:**
 
 * Pārliecinieties, ka jums ir administratora tiesības
-* Uz laiku atspējojiet antivīrusu programmatūru
+* Pagaidām atspējojiet antivīrusu programmatūru
 * Pārbaudiet, vai atbilstat minimālajām sistēmas prasībām
 
 **Lietojumprogramma nepalaižas:**
 
-* Izmēģiniet Chloros (pārlūka) versiju
-* Pārbaudiet, vai ir instalēta Windows 10/11 (64 bitu) versija
+* Pārbaudiet, vai ir instalēta Windows 10/11 (64 bitu versija)
 * Atjauniniet grafikas draiverus
 * Pārbaudiet Windows notikumu skatītāju, lai uzzinātu kļūdas detaļas
 * Sazinieties ar atbalsta dienestu, nosūtot kļūdu žurnālus
@@ -109,7 +108,7 @@ Atbloķējiet papildu funkcijas ar Chloros+ abonementu:
 **Licences aktivizēšanas problēmas:**
 
 * Pārbaudiet, vai interneta savienojums ir aktīvs
-* Pārbaudiet autentifikācijas datus [https://cloud.mapir.camera](https://cloud.mapir.camera)
+* Pārbaudiet savas paroles [https://cloud.mapir.camera](https://cloud.mapir.camera)
 * Pārbaudiet, vai ugunsmūris neblokē Chloros
 * Sīkākas instrukcijas skatiet [Chloros+ Pieslēgšanās](chloros+-login.md)
 
@@ -126,16 +125,27 @@ Nepieciešama palīdzība ar instalēšanu vai konfigurēšanu?
 
 <details>
 
+<summary>Versija 1.0.5</summary>
+
+#### **Izlaides datums**: 2026. gada 10. februāris**Jaunas funkcijas*** **Tekstūras apzināta Debayer metode \[Chloros+ Tikai] -** Tekstūras apzināta metode izmanto augstas kvalitātes malu apzinātu Debayer metodi, kas apvienota ar AI/ML trokšņu samazināšanas modeli, kas noņem gandrīz visus Debayer trokšņus.
+* **Atbalsts T4P kalibrēšanas mērķiem*** **Ātrāka Chloros+ GPU apstrāde, labāka atmiņas pārvaldība**
+
+**Kļūdu labojumi*** Pilnīgi jauns interfeiss (GUI), tagad darbojas visos Windows datoros.
+
+</details>
+
+<details>
+
 <summary>Versija 1.0.4</summary>
 
-#### **Izlaides datums**: 2026. gada 5. janvāris**Jaunas funkcijas*** **Attēla/metadatu pārslēgšana**: failu pārlūkprogrammā pievienota pārslēgšanas funkcija, lai izvēlēto attēlu metadatus skatītu tabulā, nevis attēlu režģī
+#### **Izlaides datums**: 2026. gada 5. janvāris**Jaunas funkcijas*** **Attēla/metadatu pārslēgšana**: failu pārlūkā pievienota pārslēgšanas funkcija, lai izvēlēto attēlu metadatus skatītu tabulā, nevis attēlu režģī
 * **Attēlu režģa tālummaiņas sliders**: jauns lietotāja interfeisa sliders, lai pielāgotu sīkattēlu izmēru (atbalsta arī CTRL + peles ritenīti)
 * **Attēlu režģa eksportēšanas pogas**: pogas augšējā rindā, lai pārslēgtos no JPG miniattēliem uz apstrādātiem eksportiem (mērķi, atstarojums, indekss, LUT)
 * **Kartes cilne**: jauna interaktīva 2D karte, kas parāda attēlu GPS atrašanās vietas marķierus.
   * Atbalsta Google Maps un ESRI kartes flīzes (automātiski izvēlas labāko flīžu pakalpojumu, pamatojoties uz pieejamo tālummaiņas līmeni).
   * Peles uzvedne uz miniatūru priekšskatījumu kartes marķieros.
 
-**Kļūdu labojumi*** Uzlabota atbalsts Chloros instalēšanai datoros, kas nav angļu valodā.
+**Kļūdu labojumi*** Uzlabota atbalsta instalēšana Chloros datoros, kas nav angļu valodā.
 
 </details>
 
@@ -153,7 +163,7 @@ Nepieciešama palīdzība ar instalēšanu vai konfigurēšanu?
 
 </details>***
 
-## Licences līgums**Proprietārā programmatūra** - Autortiesības (c) 2025 MAPIR Inc.
+## Licences līgums**Proprietārā programmatūra** - Autortiesības (c) 2026 MAPIR Inc.
 
 Neatļauta izmantošana, izplatīšana vai modificēšana ir aizliegta.
 

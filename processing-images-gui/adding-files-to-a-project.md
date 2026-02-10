@@ -9,7 +9,7 @@ Kad esat izveidojis vai atvēris projektu Chloros, nākamais solis ir pievienot 
 3. Failu pārlūka panelī tiks parādīts jūsu projekta failu saraksts
 
 {% hint style="info" %}
-**Atbalstītie failu tipi**: Chloros atbalsta RAW+JPG un JPG attēlu failus no MAPIR Survey3W un Survey3N kamerām. Ieteicams izmantot tikai RAW+JPG.
+**Atbalstītie failu tipi**: Chloros atbalsta RAW+JPG un JPG attēlu failus no MAPIR Survey3W un Survey3N kamerām. Ieteicams izmantot tikai RAW+JPG failus.
 {% endhint %}
 
 ***
@@ -27,15 +27,13 @@ Izmantojiet šo opciju, lai importētu atsevišķus attēlu failus vai nelielu f
 3. Izvēlieties vienu vai vairākus attēlu failus (turiet nospiestu **Ctrl**, lai izvēlētos vairākus failus)
 4. Noklikšķiniet uz **&quot;Atvērt&quot;**, lai importētu izvēlētos failus
 
-### 2. metode: pievienot mapes
+### 2. metode: pievienot mapi
 
 Izmantojiet šo opciju, lai vienlaikus importētu visus attēlus no mapes.
 
-1. Noklikšķiniet uz **&quot;Pievienot mapi&quot;** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> poga failu pārlūka paneļa augšdaļā.
-2. Atveriet un izvēlieties mapi, kurā atrodas jūsu uzņemtie attēli.
-3. Noklikšķiniet uz **&quot;Izvēlēties mapi&quot;**, lai importētu visus atbalstītos attēlus no šīs mapes.
-
-***
+1. Noklikšķiniet uz **&quot;Pievienot mapes&quot;** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> poga failu pārlūka paneļa augšdaļā.
+2. Atrodiet un izvēlieties mapi, kurā atrodas jūsu uzņemtie attēli.
+3. Noklikšķiniet uz **&quot;Izvēlēties mapi&quot;**, lai importētu visus atbalstītos attēlus no šīs mapes.***
 
 ## Failu pārlūka tabulas izpratne
 
@@ -86,9 +84,7 @@ Lai no projekta dzēstu nevajadzīgos attēlus:
 
 * **Šķirošana pēc kolonnas**: noklikšķiniet uz jebkuras kolonnas virsraksta, lai šķirotu attēlus.
 * **Šķirošana pēc laika zīmoga**: noderīga, lai organizētu hronoloģiskas uzņemšanas secības.
-* **Kameras modeļa filtrs**: grupējiet attēlus pēc kameras tipa, ja izmantojat vairākas kameras.
-
-***
+* **Kameras modeļa filtrs**: grupējiet attēlus pēc kameras tipa, ja izmantojat vairākas kameras.***
 
 ## Attēla priekšskatīšana
 
@@ -102,23 +98,21 @@ Noklikšķiniet uz jebkuras attēla sīktēla failu pārlūkā, lai to parādīt
 
 ### Ātra navigācija
 
-* **Iepriekšējais attēls**: noklikšķiniet uz kreisās bultas vai nospiediet taustiņu ←
-* **Nākamais attēls**: noklikšķiniet uz labās bultiņas vai nospiediet → taustiņu
+* **Iepriekšējais attēls**: noklikšķiniet uz kreisās bultiņas vai nospiediet taustiņu ←
+* **Nākamais attēls**: noklikšķiniet uz labās bultiņas vai nospiediet taustiņu →
 * **Tuvināt/attālināt**: izmantojiet peles ratu vai tuvināšanas pogas
-* **Pārvietot**: tuvinot attēlu, noklikšķiniet uz tā un velciet
-
-***
+* **Pārvietot**: tuvinot attēlu, noklikšķiniet uz tā un velciet***
 
 ## Dublikātu failu apstrāde
 
 Chloros automātiski atpazīst un ignorē dublikātu failus:
 
 * Faili ar identiskiem nosaukumiem tiek izlaisti
-* Novērš nejaušu divkāršu apstrādi
+* Novērš nejaušu dubultu apstrādi
 * Kad tiek atklāti dublikāti, tiek parādīts brīdinājuma ziņojums
 
 {% hint style="warning" %}
-**Svarīgi**: Pirms importēšanas nepārnosauciet un nemainiet sākotnējos attēlu failus. Chloros pareizai apstrādei izmanto sākotnējos failu nosaukumus un metadatus.
+**Svarīgi**: Pirms importēšanas nemainiet oriģinālo attēlu failu nosaukumus un neizmainiet tos. Chloros pareizai apstrādei izmanto oriģinālos failu nosaukumus un metadatus.
 {% endhint %}
 
 ***
@@ -129,12 +123,10 @@ Ja jūsu projektā ir attēli no vairākām MAPIR kamerām:
 
 1. Chloros automātiski atpazīst katru kameras modeli
 2. Katrs kameras tips tiek apstrādāts ar atbilstošu kalibrēšanas profilu
-3. Failu pārlūkprogramma kameras modeli parāda kolonnā „Kameras modelis”
+3. Failu pārlūkprogramma kameras modeli parāda kameras modeļa ailē
 4. Apstrāde piemēro pareizos iestatījumus katram kameras tipam
 
-**Piemērs**: Survey3W RGN + Survey3N OCN divu kameru konfigurācija
-
-***
+**Piemērs**: Survey3W RGN + Survey3N OCN divu kameru konfigurācija***
 
 ## Labākā prakse
 
@@ -147,8 +139,8 @@ Ja jūsu projektā ir attēli no vairākām MAPIR kamerām:
 ### Failu nosaukumi
 
 * Saglabājiet kameras sākotnējos failu nosaukumus (IMG\_0001.RAW utt.)
-* Pirms importēšanas nepārnosaukiet failus
-* Orijinālie nosaukumi satur svarīgus metadatus.
+* Pirms importēšanas nepārnosauciet failus
+* Oriģinālajos nosaukumos ir svarīgi metadati.
 
 ### Kalibrēšanas mērķa attēli
 
@@ -188,9 +180,7 @@ Ja jūsu projektā ir attēli no vairākām MAPIR kamerām:
 * Kameras pulkstenis nav pareizi iestatīts
 * EXIF dati izdzēsti ar ārējo programmatūru
 
-**Risinājums**: Pārbaudiet, vai kameras laika iestatījumi uzņemšanas brīdī bija pareizi
-
-***
+**Risinājums**: Pārbaudiet, vai kameras laika iestatījumi uzņemšanas brīdī bija pareizi***
 
 ## Nākamie soļi
 

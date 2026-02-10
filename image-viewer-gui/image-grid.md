@@ -4,14 +4,14 @@ Pēc attēlu importēšanas projektā galvenajā laukā redzēsiet attēlus, kas
 
 ## Sīkattēlu izmērs
 
-Lai pielāgotu attēlu sīkattēlu izmēru, varat izmantot tālummaiņas slideri augšējā labajā stūrī. Sīkattēlus varat arī mainīt, turot nospiestu CTRL + peles ratu.
+Lai pielāgotu attēlu sīkattēlu izmēru, varat izmantot tālummaiņas slideri augšējā labajā stūrī. Sīkattēlus varat arī mērogot, turot nospiestu CTRL + peles ratu.
 
 <figure><img src="../.gitbook/assets/chloros_grid_zoom.gif" alt=""><figcaption></figcaption></figure>## Eksportēšanas pogas
 
-Kad attēli tiek apstrādāti, režģa apgabala augšējā kreisajā stūrī parādās pogas. Šīs pogas ļauj pārslēgties starp dažādiem attēlu veidiem:
+Kad attēli tiek apstrādāti, režģa apgabala augšējā kreisajā stūrī parādās pogas. Šīs pogas ļauj pārslēgties starp dažādu attēlu tipu sīkattēliem:
 
 * **JPG** - Orijinālie kameras JPG sīkattēli
-* **Mērķi** - Attēli, kuros ir atklāti kalibrēšanas mērķi
+* **Mērķi** - Attēli, kas satur atklātos kalibrēšanas mērķus
 * **Atstarošanās** - Kalibrēti atstarošanās attēli
 * **RWA (indekss/LUT)** - Aprēķināti multispektrālie indeksa attēli ar krāsu LUT gradientu
 

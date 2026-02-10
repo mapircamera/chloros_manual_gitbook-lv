@@ -1,6 +1,6 @@
 # Attēla atvēršana pilnā ekrānā
 
-Chloros attēlu skatītājs nodrošina īpašu pilna ekrāna saskarni multispektrālo attēlu skatīšanai, analīzei un apstrādei. Neatkarīgi no tā, vai skatāt oriģinālos attēlus vai apstrādātos rezultātus, attēlu skatītājs piedāvā jaudīgus rīkus pārbaudei un analīzei.
+Chloros attēlu skatītājs nodrošina īpašu pilna ekrāna interfeisu multispektrālo attēlu skatīšanai, analīzei un apstrādei. Neatkarīgi no tā, vai skatāt oriģinālos attēlus vai apstrādātos rezultātus, attēlu skatītājs piedāvā jaudīgus rīkus pārbaudei un analīzei.
 
 ## Piekļuve attēlu skatītājam
 
@@ -9,7 +9,7 @@ Chloros attēlu skatītājs nodrošina īpašu pilna ekrāna saskarni multispekt
 Visbiežāk izmantotais veids, kā atvērt attēlu attēlu skatītājā:
 
 1. Pārliecinieties, ka atrodaties cilnē **Failu pārlūks** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
-2. Noklikšķiniet uz jebkuras **attēla miniaturas** attēlu režģī
+2. Noklikšķiniet uz jebkuras **attēla miniattēla** attēlu režģī
 3. Attēls atveras **galvenajā priekšskatījuma zonā** (ekrāna centrā)
 4. Attēls tagad ir ielādēts un gatavs pilna ekrāna skatīšanai
 
@@ -18,8 +18,8 @@ Visbiežāk izmantotais veids, kā atvērt attēlu attēlu skatītājā:
 Kad attēls ir ielādēts priekšskatījuma zonā:
 
 1. Noklikšķiniet uz **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> ikonu kreisajā sānjoslā
-2. Atvērsies attēlu skatītāja cilne, kurā izvēlētais attēls tiks parādīts pilna ekrāna režīmā
-3. Kreisajā sānjoslā kļūs pieejami papildu skatīšanas un analīzes rīki
+2. Atveras attēlu skatītāja cilne, kurā izvēlētais attēls tiek parādīts pilna ekrāna režīmā
+3. Kreisajā sānjoslā kļūst pieejami papildu skatīšanas un analīzes rīki
 
 ***
 
@@ -32,9 +32,7 @@ Lielākā ekrāna daļa parāda jūsu attēlu:
 * **Pilna izšķirtspēja**: attēli tiek parādīti oriģinālajā izšķirtspējā
 * **Tuvināms**: izmantojiet vadības elementus vai peles ratu, lai tuvinātu attēlu
 * **Pārvietojams**: noklikšķiniet un velciet, lai pārvietotos, kad attēls ir tuvināts
-* **Saglabāts attēla proporcijas**: attēli tiek proporcionāli mērogi
-
-***
+* **Saglabāts attēla proporcijas**: attēli tiek proporcionāli mērogi***
 
 ## Skatīšanas opcijas
 
@@ -44,23 +42,19 @@ Lielākā ekrāna daļa parāda jūsu attēlu:
 
 Pārlūkojiet attēlu kopu, izmantojot tastatūras saīsnes vai pogas:
 
-* **Nākamais attēls**: noklikšķiniet uz pogas → vai nospiediet taustiņu **→** (labā bultiņa)
-* **Iepriekšējais attēls**: noklikšķiniet uz pogas ← vai nospiediet taustiņu **←** (kreisā bultiņa)
-* **Pāriet uz konkrētu attēlu**: atgriezieties failu pārlūkā un noklikšķiniet uz vēlamā sīktēla
+* **Nākamais attēls**: noklikšķiniet uz pogas → vai nospiediet taustiņu**→** (labā bultiņa)
+* **Iepriekšējais attēls**: noklikšķiniet uz pogas ← vai nospiediet taustiņu**←** (kreisā bultiņa)
+* **Pāriet uz konkrētu attēlu**: atgriezieties failu pārlūkā un noklikšķiniet uz vēlamā sīkattēla
 
 #### Tuvināšanas vadības elementi
 
 Pielāgojiet palielinājumu, lai apskatītu attēla detaļas:
 
-**Tuvināt:**
-
-* Noklikšķiniet uz **+** (plus) pogas
-* Nospiediet **+** vai **=** taustiņu
+**Tuvināt:*** Noklikšķiniet uz **+** (plus) pogas
+* Nospiediet **+**vai**=** taustiņu
 * Pagrieziet peles ratu **uz augšu**
 
-**Attālināt:**
-
-* Noklikšķiniet uz **−** (mīnus) pogas
+**Attālināt:*** Noklikšķiniet uz **−** (mīnus) pogas
 * Nospiediet **−** (mīnus) taustiņu
 * Pagrieziet peles ratu **uz leju**
 
@@ -68,27 +62,19 @@ Pielāgojiet palielinājumu, lai apskatītu attēla detaļas:
 
 Kad ir palielināts vairāk nekā ekrāna izmērs:
 
-1. Pārvietojiet peles kursoru uz attēla
+1. Pārvietojiet peles kursoru pār attēlu
 2. Noklikšķiniet un **turiet nospiestu peles kreiso pogu**
-3. **Velciet**, lai pārvietotu attēlu
+
+3.**Velciet**, lai pārvietotu attēlu
 4. Atlaidiet, lai pārtrauktu pārvietošanu
 
-**Alternatīva**: izmantojiet bultu taustiņus, lai pārvietotu nelielos solīšos
-
-***
+**Alternatīva**: izmantojiet bultu taustiņus, lai pārvietotu nelielos solīšos***
 
 ## Pikseļu vērtību pārbaude
 
 ### Pikseļu vērtību apskatīšana kursora vietā
 
-Kad pārvietojat peles kursoru pār attēlu, pikseļu vērtības tiek parādītas reālajā laikā:
-
-**Vērtību parādīšanas vieta:**
-
-* **Peldošs skaitlis un sarkana līnija labās puses indeksa LUT gradienta leģendā**
-* **Kad palielināt attēlu vēl vairāk, peldoša vērtība pie kursora un izceltā pikseļa**
-* Parāda vērtības pikseļiem **zem kursora vai izceltā**
-* Atjauninās, kad pārvietojat peli
+Kad pārvietojat peles kursoru pār attēlu, pikseļu vērtības tiek parādītas reāllaikā:**Vērtību parādīšanas vieta:*** **Peldošs skaitlis un sarkana līnija labās puses indeksa LUT gradienta leģendā*** **Kad palielināt attēlu vēl vairāk, peldoša vērtība pie kursora un izceltā pikseļa*** Parāda vērtības pikseļiem **zem kursora vai izceltā pikseļa*** Atjauninās, kad pārvietojat peli
 
 ***
 
@@ -119,22 +105,22 @@ Kad pārvietojat peles kursoru pār attēlu, pikseļu vērtības tiek parādīta
 
 * Vienjoslas pelēktoņu attēli
 * Pikseļu vērtības atspoguļo indeksa aprēķina rezultātus
-* Normālo indeksu diapazons parasti ir no -1 līdz +1
+* Normāli indeksiem diapazons ir no -1 līdz +1
 * Vizualizācijai var piemērot krāsu LUT
 
 ***
 
 ## Indeksa un LUT piemērošana
 
-Piemērojiet daudzspektrālos indeksus un krāsu meklēšanas tabulas:
+Piemērojiet multispektrālos indeksus un krāsu meklēšanas tabulas:
 
 1. Atrodiet **Indeksa/LUT smilšu kasti** **attēlu skatītājā** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sānu joslā
 2. Izvēlieties veģetācijas indeksu (NDVI, NDRE utt.)
-3. Izvēlieties multispektrālo formulu vai izveidojiet savu pielāgotu formulu (tikai Chloros+)
-4. Vizualizācijai piemērojiet krāsu LUT gradientu
+3. Izvēlieties daudzspektrālo formulu vai izveidojiet savu pielāgotu formulu (tikai Chloros+)
+4. Lai vizualizētu, piemērojiet krāsu LUT gradientu
 5. Pielāgojiet vērtību diapazonus un sliekšņus
 
-Sīkākas instrukcijas skatiet [Indekss/LUT smilšu kaste](index-lut-sandbox.md).
+Sīkākas instrukcijas skatiet [Indekss/LUT Sandbox](index-lut-sandbox.md).
 
 ***
 
@@ -147,13 +133,11 @@ Sīkākas instrukcijas skatiet [Indekss/LUT smilšu kaste](index-lut-sandbox.md)
 * **Sākums**: pirmais attēls sarakstā
 * **End**: Pēdējais attēls sarakstā
 
-### Tuvināt/attālināt
+### Tuvināšana
 
-* **+** vai **=**: Tuvināt
-* **−**: Attālināt
-* **Peles ritenītis**: Tuvināt/attālināt
-
-***
+* **+**vai**=**: Tuvināšana
+* **−**: Attālināšana
+* **Peles ritenītis**: Tuvināšana/attālināšana***
 
 ### Indeksu aprēķinu pārbaude
 
@@ -162,13 +146,11 @@ Pārbaudiet, vai indeksi ir aprēķināti pareizi:
 1. Atveriet NDVI vai citu indeksa attēlu
 2. Pārbaudiet veģetācijas platības:
    * **NDVI**: Veseliem augiem jābūt 0,4–0,9
-   * **NDRE**: Augstākas vērtības straujai augšanai
+   * **NDRE**: Spēcīgai augšanai jābūt augstākām vērtībām
    * **GNDVI**: līdzīgs NDVI, bet jutīgs pret hlorofilu
 3. Pārbaudiet neaugu zonu:
    * **Augsne**: tuvu 0 vai nedaudz negatīva
-   * **Ūdens**: negatīvas vērtības (-0,5 līdz 0)
-
-***
+   * **Ūdens**: negatīvas vērtības (-0,5 līdz 0)***
 
 ## Problēmu novēršana attēlu skatīšanā
 
@@ -192,7 +174,7 @@ Pārbaudiet, vai indeksi ir aprēķināti pareizi:
 **Iespējamie iemesli:**
 
 * Vērtību diapazons pārsniedz displeja iespējas.
-* 32 bitu peldošā komata attēls ar neparastām vērtībām.
+* 32 bitu peldošā punkta attēls ar neparastām vērtībām.
 * Indeksa aprēķina kļūda.
 
 **Risinājumi:**
@@ -205,7 +187,7 @@ Pārbaudiet, vai indeksi ir aprēķināti pareizi:
 
 **Iespējamie cēloņi:**
 
-* Tiek skatīts nepareizs attēls (oriģināls pret apstrādātu).
+* Tiek skatīts nepareizs attēls (oriģināls pret apstrādātu)
 * Kalibrēšana nav veikta pareizi
 * Gaismas sensora dati nav iekļauti ievadē
 * Procentu režīms ir nepareizi pārslēgts
