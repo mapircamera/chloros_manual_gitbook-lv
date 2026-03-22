@@ -1,15 +1,15 @@
 # Failu pievienošana projektam
 
-Kad esat izveidojis vai atvēris projektu Chloros, nākamais solis ir pievienot multispektrālos attēlus, lai sāktu apstrādi. Failu pārlūks<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> atvieglo attēlu importēšanu un datu kopas pārvaldīšanu.
+Kad esat izveidojis vai atvēris projektu programmā Chloros, nākamais solis ir pievienot multispektrālos attēlus, lai sāktu apstrādi. Izvēlne „File Browser“<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> atvieglo attēlu importēšanu un datu kopas pārvaldīšanu.
 
-## Piekļuve failu pārlūkprogrammai
+## Piekļuve failu pārlūkam
 
-1. Atveriet vai izveidojiet projektu Chloros
-2. Noklikšķiniet uz **Failu pārlūkprogramma** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> ikonu kreisajā sānjoslā
+1. Atveriet vai izveidojiet projektu programmā Chloros
+2. Noklikšķiniet uz **Failu pārlūks** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> ikonu kreisajā sānjoslā
 3. Failu pārlūka panelī tiks parādīts jūsu projekta failu saraksts
 
 {% hint style="info" %}
-**Atbalstītie failu tipi**: Chloros atbalsta RAW+JPG un JPG attēlu failus no MAPIR Survey3W un Survey3N kamerām. Ieteicams izmantot tikai RAW+JPG failus.
+**Atbalstītie failu tipi**: Chloros atbalsta RAW+JPG un JPG attēlu failus no MAPIR, Survey3W un Survey3N kamerām. Ieteicams izmantot tikai RAW+JPG.
 {% endhint %}
 
 ***
@@ -18,101 +18,101 @@ Kad esat izveidojis vai atvēris projektu Chloros, nākamais solis ir pievienot 
 
 Ir divi galvenie veidi, kā pievienot attēlus projektam:
 
-### 1. metode: failu pievienošana
+### 1. metode: Pievienot failus
 
 Izmantojiet šo opciju, lai importētu atsevišķus attēlu failus vai nelielu failu izlasi.
 
-1. Noklikšķiniet uz **&quot;Pievienot failus&quot;** <img src="../.gitbook/assets/image.png" alt="" data-size="line"> poga failu pārlūka paneļa augšdaļā
+1. Noklikšķiniet uz pogas **&quot;Pievienot failus&quot;** <img src="../.gitbook/assets/image.png" alt="" data-size="line"> poga failu pārlūka paneļa augšdaļā
 2. Pāriet uz mapi, kurā atrodas jūsu attēli
 3. Izvēlieties vienu vai vairākus attēlu failus (turiet nospiestu **Ctrl**, lai izvēlētos vairākus failus)
 4. Noklikšķiniet uz **&quot;Atvērt&quot;**, lai importētu izvēlētos failus
 
-### 2. metode: pievienot mapi
+### 2. metode: Pievienot mapi
 
 Izmantojiet šo opciju, lai vienlaikus importētu visus attēlus no mapes.
 
-1. Noklikšķiniet uz **&quot;Pievienot mapes&quot;** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> poga failu pārlūka paneļa augšdaļā.
-2. Atrodiet un izvēlieties mapi, kurā atrodas jūsu uzņemtie attēli.
-3. Noklikšķiniet uz **&quot;Izvēlēties mapi&quot;**, lai importētu visus atbalstītos attēlus no šīs mapes.***
+1. Noklikšķiniet uz pogas **&quot;Pievienot mapi&quot;** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> poga failu pārlūka paneļa augšdaļā
+2. Atveriet un izvēlieties mapi, kurā atrodas jūsu uzņemšanas sesijas attēli
+3. Noklikšķiniet uz **&quot;Izvēlēties mapi&quot;**, lai importētu visus atbalstītos attēlus no šīs mapes***
 
 ## Failu pārlūka tabulas izpratne
 
-Pēc attēlu importēšanas tie parādās tabulā ar šādām kolonnām:
+Kad attēli ir importēti, tie parādās tabulā ar šādām kolonnām:
 
 ### Faila nosaukums
 
 * Orijinālais faila nosaukums no kameras
-* Saglabā kameras nosaukumu konvenciju (piemēram, IMG\_0001.RAW)
+* Saglabā kameras nosaukumu konvenciju (piem., IMG\_0001.RAW)
 
 ### Laika zīmogs
 
-* Attēla uzņemšanas datums un laiks
-* Izvilkts no attēla EXIF metadatiem
-* Izmanto PPK sinhronizācijai un kalibrēšanas mērķa noteikšanai
+* Datums un laiks, kad attēls tika uzņemts
+* Izgūts no attēla EXIF metadatiem
+* Tiek izmantots PPK sinhronizācijai un kalibrēšanas mērķa noteikšanai
 
 ### Kameras modelis
 
 * Automātiski noteikta kameras un filtra konfigurācija
 * Piemēri: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
-* Izmanto, lai piemērotu pareizos apstrādes profilus
+* Tiek izmantots, lai piemērotu pareizos apstrādes profilus
 
 ### Mērķa kolonna (izvēles rūtiņa)
 
-* Atzīmējiet šo izvēles rūtiņu attēliem, kas satur kalibrēšanas mērķus
-* Ievērojami paātrina mērķa noteikšanu apstrādes laikā
+* Atzīmējiet šo izvēles rūtiņu attēliem, kuros ir kalibrēšanas mērķi
+* Ievērojami paātrina mērķu noteikšanu apstrādes laikā
 * Sīkāku informāciju skatiet sadaļā [Mērķa attēlu izvēle](choosing-target-images.md)
 
-### Attēla metadatu skatīšana
+### Attēla metadatu apskatīšana
 
-Noklikšķinot uz pārslēgšanas pogas tabulas augšējā labajā stūrī, attēla režģa zonā tiek parādīti izvēlētā attēla metadati.
+Noklikšķinot uz pārslēgšanas pogas tabulas augšējā labajā stūrī, izvēlētā attēla metadati tiek parādīti attēlu režģa zonā.
 
 <figure><img src="../.gitbook/assets/chloros_grid_meta.gif" alt=""><figcaption></figcaption></figure>
 
 ***
 
-## Failu pārvaldīšana projektā
+## Failu pārvaldība projektā
 
 ### Failu dzēšana
 
 Lai no projekta dzēstu nevajadzīgos attēlus:
 
 1. Izvēlieties vienu vai vairākus attēlus failu pārlūka tabulā
-2. Noklikšķiniet uz pogas **&quot;Dzēst atlasītos&quot;** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line"> poga.
-3. Apstipriniet dzēšanu (faili netiek dzēsti no diska, tikai no projekta).
+2. Noklikšķiniet uz pogas **&quot;Dzēst atlasītos&quot;** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line"> pogu
+3. Apstipriniet dzēšanu (faili netiek dzēsti no diska, tikai no projekta)
 
 ### Šķirošana un filtrēšana
 
-* **Šķirošana pēc kolonnas**: noklikšķiniet uz jebkuras kolonnas virsraksta, lai šķirotu attēlus.
-* **Šķirošana pēc laika zīmoga**: noderīga, lai organizētu hronoloģiskas uzņemšanas secības.
-* **Kameras modeļa filtrs**: grupējiet attēlus pēc kameras tipa, ja izmantojat vairākas kameras.***
+* **Šķirošana pēc kolonnas**: noklikšķiniet uz jebkuras kolonnas virsraksta, lai šķirotu attēlus
+* **Šķirošana pēc laika zīmoga**: noderīga hronoloģisku uzņēmumu secību organizēšanai
+* **Kameras modeļa filtrs**: grupējiet attēlus pēc kameras tipa, ja izmantojat vairākas kameras***
 
-## Attēla priekšskatīšana
+## Attēla priekšskatījums
 
 ### Pilna attēla skatīšana
 
-Noklikšķiniet uz jebkuras attēla sīktēla failu pārlūkā, lai to parādītu galvenajā priekšskatīšanas zonā:
+Noklikšķiniet uz jebkuras attēla sīktēla failu pārlūkā, lai to parādītu galvenajā priekšskatījuma zonā:
 
-1. Attēls parādās centrālajā priekšskatīšanas panelī
+1. Attēls parādās centrālajā priekšskatījuma panelī
 2. Izmantojiet tālummaiņas vadības elementus, lai apskatītu attēla detaļas
 3. Pārvietojieties starp attēliem, izmantojot bultu taustiņus
 
-### Ātra navigācija
+### Ātrā navigācija
 
-* **Iepriekšējais attēls**: noklikšķiniet uz kreisās bultiņas vai nospiediet taustiņu ←
-* **Nākamais attēls**: noklikšķiniet uz labās bultiņas vai nospiediet taustiņu →
-* **Tuvināt/attālināt**: izmantojiet peles ratu vai tuvināšanas pogas
-* **Pārvietot**: tuvinot attēlu, noklikšķiniet uz tā un velciet***
+* **Iepriekšējais attēls**: Noklikšķiniet uz kreisās bultas vai nospiediet ← taustiņu
+* **Nākamais attēls**: noklikšķiniet uz labās bultiņas vai nospiediet → taustiņu
+* **Tuvināšana/attālināšana**: izmantojiet peles ratu vai tālummaiņas pogas
+* **Pārvietošana**: noklikšķiniet un velciet attēlu, kad tas ir tuvināts***
 
-## Dublikātu failu apstrāde
+## Datu dublikātu apstrāde
 
-Chloros automātiski atpazīst un ignorē dublikātu failus:
+Chloros automātiski atpazīst un ignorē datu dublikātus:
 
 * Faili ar identiskiem nosaukumiem tiek izlaisti
-* Novērš nejaušu dubultu apstrādi
-* Kad tiek atklāti dublikāti, tiek parādīts brīdinājuma ziņojums
+* Novērš nejaušu divkāršu apstrādi
+* Tiek parādīts brīdinājuma ziņojums, ja tiek atklāti dublikāti
 
 {% hint style="warning" %}
-**Svarīgi**: Pirms importēšanas nemainiet oriģinālo attēlu failu nosaukumus un neizmainiet tos. Chloros pareizai apstrādei izmanto oriģinālos failu nosaukumus un metadatus.
+**Svarīgi**: Pirms importēšanas nepārdēvējiet vai nemainiet oriģinālos attēlu failus. Chloros pareizai apstrādei izmanto oriģinālos failu nosaukumus un metadatus.
 {% endhint %}
 
 ***
@@ -123,31 +123,31 @@ Ja jūsu projektā ir attēli no vairākām MAPIR kamerām:
 
 1. Chloros automātiski atpazīst katru kameras modeli
 2. Katrs kameras tips tiek apstrādāts ar atbilstošu kalibrēšanas profilu
-3. Failu pārlūkprogramma kameras modeli parāda kameras modeļa ailē
+3. Failu pārlūks parāda kameras modeli kolonnā „Kameras modelis”
 4. Apstrāde piemēro pareizos iestatījumus katram kameras tipam
 
 **Piemērs**: Survey3W RGN + Survey3N OCN divu kameru konfigurācija***
 
 ## Labākā prakse
 
-### Organizējiet pirms importēšanas
+### Organizēšana pirms importēšanas
 
-* Saglabājiet kalibrēšanas mērķa attēlus tajā pašā mapē, kurā atrodas apsekojuma attēli
-* Saglabājiet kameras/SD kartes sākotnējo mapju struktūru
-* Vienā projektā nemaisiet datu kopas no dažādām sesijām
+* Glabājiet kalibrēšanas mērķa attēlus tajā pašā mapē, kurā atrodas uzņemto attēlu mape
+* Saglabājiet sākotnējo mapju struktūru no jūsu kameras/SD kartes
+* Nevienā projektā nemaisiet datu kopas no dažādām sesijām
 
 ### Failu nosaukumi
 
-* Saglabājiet kameras sākotnējos failu nosaukumus (IMG\_0001.RAW utt.)
-* Pirms importēšanas nepārnosauciet failus
-* Oriģinālajos nosaukumos ir svarīgi metadati.
+* Saglabājiet sākotnējos kameras failu nosaukumus (IMG\_0001.RAW utt.)
+* Pirms importēšanas nepārdēvējiet failus
+* Sākotnējie nosaukumi satur svarīgus metadatus
 
 ### Kalibrēšanas mērķa attēli
 
-* Vienmēr iekļaujiet 1–2 kalibrēšanas mērķa attēlus katrā sesijā.
-* Uzņemiet mērķus pirms un pēc uzņemšanas sesijas.
-* Novietojiet mērķus tādos pašos apgaismojuma apstākļos kā uzņemšanas zonā.
-* Atzīmējiet mērķa attēlus, izmantojot izvēles rūtiņu „Mērķis”, lai paātrinātu apstrādi.
+* Vienmēr iekļaujiet 1–2 kalibrēšanas mērķa attēlus katrā sesijā
+* Uzņemiet mērķus pirms un pēc uzņemšanas sesijas
+* Novietojiet mērķus tādos pašos apgaismojuma apstākļos kā uzņemšanas zona
+* Atzīmējiet mērķa attēlus, izmantojot izvēles rūtiņu „Target”, lai paātrinātu apstrādi
 
 ***
 
@@ -157,39 +157,39 @@ Ja jūsu projektā ir attēli no vairākām MAPIR kamerām:
 
 **Iespējamie iemesli:**
 
-* Failu formāts nav atbalstīts (tikai RAW+JPG un JPG no MAPIR kamerām)
+* Failu formāts netiek atbalstīts (tikai RAW+JPG un JPG no MAPIR kamerām)
 * Attēli ir no kamerām, kas nav MAPIR (skatiet [Atbalstītās kameras](../supported-cameras.md))
-* Fails ir bojāts vai nav pilnībā pārnests no SD kartes
+* Fails ir bojāts vai pārraide no SD kartes nav pabeigta
 
-**Risinājums**: Pārbaudiet faila formātu un kameras modeļa saderību
+**Risinājums**: Pārbaudiet faila formāta un kameras modeļa saderību
 
 ### Kameras modelis nav atpazīts
 
-**Iespējamie iemesli:**
+**Iespējamie cēloņi:**
 
 * Modificēti EXIF metadati
-* Attēli rediģēti ārējā programmā
-* Nepilnīga failu pārnese
+* Attēli ir rediģēti ārējā programmā
+* Nepabeigta failu pārraide
 
-**Risinājums**: Atkārtoti importējiet oriģinālos, nemodificētos failus no kameras/SD kartes
+**Risinājums**: No jauna importējiet oriģinālos, nemodificētos failus no kameras/SD kartes
 
 ### Trūkstoši laika zīmogi
 
 **Iespējamie iemesli:**
 
-* Kameras pulkstenis nav pareizi iestatīts
+* Nepareizi iestatīts kameras pulkstenis
 * EXIF dati izdzēsti ar ārējo programmatūru
 
 **Risinājums**: Pārbaudiet, vai kameras laika iestatījumi uzņemšanas brīdī bija pareizi***
 
-## Nākamie soļi
+## Turpmākie soļi
 
 Kad faili ir importēti:
 
-1. **Pārskatiet failu sarakstu** - Pārliecinieties, ka visi attēli ir pareizi ielādēti
-2. **Pārbaudiet kameras modeļus** — pārbaudiet, vai kamera ir pareizi atpazīta
+1. **Pārskatiet failu sarakstu** – pārliecinieties, ka visi attēli ir ielādēti pareizi
+2. **Pārbaudiet kameru modeļus** — pārliecinieties, ka kamera ir atpazīta pareizi
 3. **Atzīmējiet mērķa attēlus** — skatiet [Mērķa attēlu izvēle](choosing-target-images.md)
 4. **Pielāgojiet iestatījumus** — konfigurējiet apstrādes opcijas [Projekta iestatījumos](adjusting-project-settings.md)
-5. **Sāciet apstrādi** – skatiet [Apstrādes sākšana](starting-the-processing.md)
+5. **Sāciet apstrādi** — skatiet [Apstrādes sākšana](starting-the-processing.md)
 
-Sīkāku informāciju par projekta konfigurāciju skatiet [Projekta iestatījumu pielāgošana](adjusting-project-settings.md).
+Sīkāku informāciju par projekta konfigurāciju skatiet sadaļā [Projekta iestatījumu pielāgošana](adjusting-project-settings.md).

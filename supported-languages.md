@@ -1,20 +1,20 @@
 # Atbalstītās valodas
 
-Chloros nodrošina pilnīgu saskarnes atbalstu **38 valodās visā pasaulē**, padarot to pieejamu lietotājiem visā pasaulē. Jūs varat uzreiz pārslēgties starp valodām visās saskarnēs: darbvirsma, pārlūks, CLI un Python SDK.
+Chloros nodrošina pilnīgu saskarnes atbalstu **38 valodās visā pasaulē**, padarot to pieejamu lietotājiem visā pasaulē. Jūs varat uzreiz mainīt valodu visās saskarnēs: darbvirsma, pārlūks, CLI un Python SDK.
 
 Chloros atbalsta šādas valodas:
 
-| # | Valoda | Dzimtā valoda | CLI kods |
+| # | Valoda | Nativais nosaukums | CLI kods |
 |---|----------|-------------|----------|
-| 1 | 🇺🇸 Angļu | Angļu | `en` |
+| 1 | 🇺🇸 Angļu | English | `en` |
 | 2 | 🇪🇸 Spāņu | Español | `es` |
 | 3 | 🇵🇹 Portugāļu | Português | `pt` |
 | 4 | 🇫🇷 Franču | Français | `fr` |
-| 5 | 🇩🇪 Vācu valoda | Deutsch | `de` |
-| 6 | 🇮🇹 Itāļu valoda | Italiano | `it` |
-| 7 | 🇯🇵 Japāņu valoda | 日本語 | `ja` |
+| 5 | 🇩🇪 Vācu | Deutsch | `de` |
+| 6 | 🇮🇹 Itāļu | Italiano | `it` |
+| 7 | 🇯🇵 Japāņu | 日本語 | `ja` |
 | 8 | 🇰🇷 Korejiešu | 한국어 | `ko` |
-| 9 | 🇨🇳 Ķīniešu (vienkāršots) | 简体中文 | `zh` |
+| 9 | 🇨🇳 Ķīniešu (vienkāršotā) | 简体中文 | `zh` |
 | 10 | 🇹🇼 Ķīniešu (tradicionālā) | 繁體中文 | `zh-TW` |
 | 11 | 🇷🇺 Krievu | Русский | `ru` |
 | 12 | 🇳🇱 Holandiešu | Nederlands | `nl` |
@@ -24,39 +24,39 @@ Chloros atbalsta šādas valodas:
 | 16 | 🇮🇳 Hindi | हिंदी | `hi` |
 | 17 | 🇮🇩 Indonēziešu | Bahasa Indonesia | `id` |
 | 18 | 🇻🇳 Vjetnamiešu | Tiếng Việt | `vi` |
-| 19 | 🇹🇭 Taizemes valoda | ไทย | `th` |
-| 20 | 🇸🇪 Zviedru valoda | Svenska | `sv` |
-| 21 | 🇩🇰 Dāņu valoda | Dansk | `da` |
+| 19 | 🇹🇭 Taizemes | ไทย | `th` |
+| 20 | 🇸🇪 Zviedru | Svenska | `sv` |
+| 21 | 🇩🇰 Dāņu | Dansk | `da` |
 | 22 | 🇳🇴 Norvēģu | Norsk | `no` |
 | 23 | 🇫🇮 Somu | Suomi | `fi` |
 | 24 | 🇬🇷 Grieķu | Ελληνικά | `el` |
 | 25 | 🇨🇿 Čehu | Čeština | `cs` |
 | 26 | 🇭🇺 Ungāru | Magyar | `hu` |
 | 27 | 🇷🇴 Rumāņu | Română | `ro` |
-| 28 | 🇺🇦 Ukrainas | Українська | `uk` |
-| 29 | 🇧🇷 Brazīlijas portugāļu valoda | Português Brasileiro | `pt-BR` |
-| 30 | 🇭🇰 Kantoniešu valoda | 粵語 | `zh-HK` |
+| 28 | 🇺🇦 Ukraiņu | Українська | `uk` |
+| 29 | 🇧🇷 Brazīlijas portugāļu | Português Brasileiro | `pt-BR` |
+| 30 | 🇭🇰 Kantoniešu | 粵語 | `zh-HK` |
 | 31 | 🇲🇾 Malajiešu | Bahasa Melayu | `ms` |
 | 32 | 🇸🇰 Slovāku | Slovenčina | `sk` |
 | 33 | 🇧🇬 Bulgāru | Български | `bg` |
 | 34 | 🇭🇷 Horvātu | Hrvatski | `hr` |
 | 35 | 🇱🇹 Lietuviešu | Lietuvių | `lt` |
 | 36 | 🇱🇻 Latviešu | Latviešu | `lv` |
-| 37 | 🇪🇪 Igaunijas valoda | Eesti | `et` |
-| 38 | 🇸🇮 Slovēņu valoda | Slovenščina | `sl` |
+| 37 | 🇪🇪 Igaunijas | Eesti | `et` |
+| 38 | 🇸🇮 Slovēņu | Slovenščina | `sl` |
 
 ## Kā mainīt valodu
 
 ### Chloros darbvirsmā/pārlūkprogrammā
 
-1. Atveriet lietojumprogrammas iestatījumus.
-2. Pāriet uz valodas izvēles izvēlni.
-3. Izvēlieties vēlamo valodu no saraksta.
-4. Interfeiss tiks nekavējoties atjaunināts.
+1. Atveriet lietojumprogrammas iestatījumus
+2. Pārejiet uz valodas izvēles izvēlni
+3. Izvēlieties vēlamo valodu no saraksta
+4. Interfeiss tiks atjaunināts uzreiz
 
 ### Chloros CLI
 
-Izmantojiet komandu `language`, lai apskatītu vai mainītu CLI interfeisa valodu:
+Izmantojiet `language` komandu, lai apskatītu vai mainītu CLI saskarnes valodu:
 
 ```bash
 # View current language
@@ -79,15 +79,15 @@ Sīkāku informāciju skatiet [CLI dokumentācijā](CLI.md).
 
 ### Chloros Python SDK
 
-Iestatiet valodas parametru, inicializējot SDK, lai saņemtu ziņojumus un izvadi jūsu vēlamajā valodā.
+Iestatiet valodas parametru, inicializējot SDK, lai saņemtu ziņojumus un izvadi vēlamajā valodā.
 
-## Pārklājums
+## Atbalstītās valodas
 
 Visas 38 valodas ir pilnībā atbalstītas:
 
-* **Chloros Desktop** - pilnīga GUI tulkojums
-* **Chloros Browser** - tīmekļa interfeiss visās valodās
-* **Chloros CLI** - komandrindas interfeiss un izvades ziņojumi
+* **Chloros Desktop** - Pilnīgs GUI tulkojums
+* **Chloros Browser** - Tīmekļa saskarne visās valodās
+* **Chloros CLI** - Komandrindas saskarne un izvades ziņojumi
 * **Chloros Python SDK** - API ziņojumi un dokumentācija
 
 Valodu atbalsts nodrošina, ka lietotāji visā pasaulē var efektīvi strādāt savā dzimtajā valodā bez šķēršļiem.

@@ -1,79 +1,77 @@
-# Mērķa attēlu izvēle
+# Mērķa attēlu atlase
 
-Attēlu, kuros ir kalibrēšanas mērķi, atzīmēšana ir ļoti svarīgs solis, kas ievērojami paātrina Chloros apstrādes procesu. Iepriekš atlasot mērķa attēlus, jums nav nepieciešams Chloros skenēt katru attēlu datu kopā, lai atrastu kalibrēšanas mērķus.
+To attēlu atzīmēšana, kuros ir kalibrēšanas mērķi, ir ļoti svarīgs solis, kas ievērojami paātrina Chloros apstrādes procesu. Iepriekš atlasot mērķa attēlus, jūs atbrīvojat Chloros no nepieciešamības pārskatīt katru attēlu jūsu datu kopā, meklējot kalibrēšanas mērķus.
 
 ## Kāpēc atzīmēt mērķa attēlus?
 
 ### Apstrādes ātrums
 
-Ja mērķa attēli netiek atzīmēti, Chloros ir jāveic šādas darbības:
+Ja mērķa attēli nav atzīmēti, Chloros ir jāveic šādas darbības:
 
-* Jāskenē katrs attēls projektā
-* Jāizpilda mērķa noteikšanas algoritmi katram attēlam
-* Jāpārbauda simtiem vai tūkstošiem attēlu, kas nav nepieciešami
+* Pārskatīt katru attēlu jūsu projektā
+* Izpildīt mērķa noteikšanas algoritmus katram attēlam
+* Nevajadzīgi pārbaudīt simtiem vai tūkstošiem attēlu
 
-**Rezultāts**: apstrāde var aizņemt ievērojami ilgāku laiku, īpaši lielu datu kopu gadījumā.
+**Rezultāts**: Apstrāde var aizņemt ievērojami ilgāku laiku, īpaši lielu datu kopu gadījumā.
 
 ### Ar atzīmētiem mērķa attēliem
 
-Kad jūs atzīmējat mērķa kolonnu konkrētiem attēliem:
+Kad jūs atzīmējat konkrētus attēlus kolonnā „Mērķis”:
 
-* Chloros skenē tikai atzīmētos attēlus, meklējot mērķus
-* Mērķu noteikšana notiek daudz ātrāk
-* Kopējais apstrādes laiks ir ievērojami samazināts
+* Chloros mērķus skenē tikai atzīmētajos attēlos
+* Mērķu atpazīšana notiek daudz ātrāk
+* Kopējais apstrādes laiks ievērojami samazinās
 
-{% hint style=&quot;success&quot; %}
-**Ātruma uzlabojums**: atzīmējot 2–3 mērķa attēlus 500 attēlu datu kopā, mērķa noteikšanas laiku var samazināt no vairāk nekā 30 minūtēm līdz mazāk nekā 1 minūtei.
+{% hint style="success" %}
+**Ātruma uzlabojums**: Atzīmējot 2–3 mērķa attēlus 500 attēlu datu kopā, mērķu atpazīšanas laiku var samazināt no vairāk nekā 30 minūtēm līdz mazāk nekā 1 minūtei.
 {% endhint %}
 
 ***
 
 ## Kā atzīmēt mērķa attēlus
 
-### 1. solis: Identificējiet mērķa attēlus
+### 1. solis: Identificējiet savus mērķa attēlus
 
-Pārskatiet importētos attēlus failu pārlūkprogrammā un identificējiet, kuri attēli satur kalibrēšanas mērķus.
+Pārskatiet importētos attēlus failu pārlūkā un identificējiet, kuri attēli satur kalibrēšanas mērķus.
 
-**Bieži sastopami scenāriji:**
-
-* **Pirms uzņemšanas mērķis**: uzņemts pirms sesijas sākuma
-* **Pēc uzņemšanas mērķis**: uzņemts pēc sesijas pabeigšanas
-* **Lauka mērķi**: mērķi, kas atrodas uzņemšanas zonā
+**Bieži sastopami scenāriji:*** **Mērķis pirms uzņemšanas**: Uzņemts pirms sesijas sākuma
+* **Mērķis pēc uzņemšanas**: Uzņemts pēc sesijas pabeigšanas
+* **Mērķi uz vietas**: Mērķi, kas novietoti uzņemšanas zonā
 * **Vairāki mērķi**: 2–3 mērķa attēli vienā sesijā (ieteicams)
 
-### 2. solis: pārbaudiet mērķa kolonnu
+### 2. solis: Pārbaudiet mērķa kolonnu
 
-Katram attēlam, kas satur kalibrēšanas mērķi:
+Katram attēlam, kurā ir kalibrēšanas mērķis:
 
-1. Atrodiet attēlu failu pārlūkā
-2. Atrodiet **Mērķa** kolonnu (pa labi)
-3. Noklikšķiniet uz izvēles rūtiņas mērķa kolonā pie šī attēla
-4. Atkārtojiet šo darbību visiem attēliem, kas satur mērķus
+1. Atrodiet attēlu failu pārlūka tabulā
+2. Atrodiet **Mērķis** kolonnu (pa labi esošā kolonna)
+3. Noklikšķiniet uz izvēles rūtiņas Mērķis kolonnā attiecīgajam attēlam
+4. Atkārtojiet šo darbību visiem attēliem, kuros ir mērķi
 
-### 3. solis: pārbaudiet savu izvēli
+### 3. solis: Pārbaudiet savu izvēli
 
-Pirms apstrādes pārbaudiet:
+Pirms apstrādes pārbaudiet vēlreiz:
 
-* [ ] Ir atzīmēti visi attēli ar kalibrēšanas mērķiem
-* [ ] Nav nejauši atzīmēti attēli, kas nav mērķa attēli
+* [ ] Visi attēli ar kalibrēšanas mērķiem ir atzīmēti
+* [ ] Nav nejauši atzīmēti attēli, kuros nav mērķu
 * [ ] Mērķi ir skaidri redzami atzīmētajos attēlos
 
 ***
 
-## Labākā prakse mērķa attēlu izmantošanai
+## Labākā prakse attiecībā uz mērķa attēliem
 
 ### Mērķa attēlu uzņemšanas vadlīnijas
 
 **Laiks:**
 
 * Uzņemiet mērķa attēlus tieši pirms un visā uzņemšanas sesijas laikā
-* Tādos pašos apgaismojuma apstākļos kā DAQ gaismas sensors
+* Tādās pašās apgaismojuma apstākļos kā jūsu DAQ gaismas sensors
 * Ideāli būtu uzņemt mērķa attēlus pēc iespējas biežāk, lai iegūtu labākos rezultātus. Pretējā gadījumā gaismas sensora dati tiks izmantoti, lai laika gaitā pielāgotu kalibrēšanu.
 
 **Kameras novietojums:**
 
-* Turiet kameru virs mērķa tā, lai tā būtu centrēta un aizņemtu apmēram 40–60 % attēla centra.
-* Kameru turiet paralēli/nadīram mērķa virsmai
+* Turiet kameru virs mērķa tā, lai tas būtu centrēts un aizņemtu apmēram 40–60 % no attēla centra.
+* Turiet kameru paralēli/vertikāli pret mērķa virsmu
 
 **Apgaismojums:**
 
@@ -86,34 +84,32 @@ Pirms apstrādes pārbaudiet:
 
 * Uzturiet mērķa paneļus tīrus un sausus
 * Visiem 4 paneļiem jābūt skaidri redzamiem un neaizsegtām
-* Mērķi pēc iespējas perpendikulāri/nadīri gaismas avotam
+* Ja iespējams, mērķi novietojiet perpendikulāri/nadīri pret gaismas avotu
 
 ### Cik daudz mērķa attēlu?
 
-**Minimums:** 1 mērķa attēls vienā sesijā. **Ieteicams:** 3–5 mērķa attēli vienā sesijā.
+**Minimums:**1 mērķa attēls vienā sesijā.**Ieteicams:** 3–5 mērķa attēli vienā sesijā.**Labākā prakse:**
 
-**Labākā prakse:**
-
-* 3–5 attēli, kas uzņemti īsi pēc gaismas sensora ieraksta sākuma
-* Lai iegūtu labākos rezultātus, pagrieziet kameru starp uzņēmumiem
+* 3–5 attēli, kas uzņemti īsi pēc gaismas sensora reģistrēšanas sākuma
+* Lai iegūtu labākus rezultātus, mainiet kameras novietojumu starp uzņēmumiem
 * Pēc izvēles: periodiski sesijas vidū, ja apgaismojuma apstākļi pastāvīgi mainās
 
 ***
 
 ## Darbs ar vairākām kamerām
 
-### Divu kameru uzstādījumi
+### Divu kameru konfigurācijas
 
-Ja vienlaikus izmantojat divas MAPIR kameras (piemēram, Survey3W RGN + Survey3N OCN):
+Ja vienlaikus izmantojat divas MAPIR kameras (piem., Survey3W RGN + Survey3N OCN):
 
-1. Uzņemiet mērķa attēlus ar **abām kamerām** vienlaikus.
-2. Abām kamerām izmantojiet **vienu un to pašu fizisko mērķi**.
-3. Failu pārlūkā atzīmējiet mērķa attēlus **abiem kameru tipiem**.
-4. Chloros izmantos atbilstošus mērķus katras kameras kalibrēšanai.
+1. Uztveriet mērķa attēlus ar **abām kamerām** vienlaikus
+2. Izmantojiet **vienu un to pašu fizisko mērķi** abām kamerām
+3. Atzīmējiet mērķa attēlus **abiem kameru tipiem** failu pārlūkprogrammā
+4. Chloros izmantos atbilstošos mērķus katras kameras kalibrēšanai
 
 ### Kameras modeļa kolonna
 
-Kolonna **Kameras modelis** palīdz identificēt, kuri attēli ir uzņemti ar kuru kameru:
+**Kameras modeļa** kolonna palīdz identificēt, kuri attēli ir no kuras kameras:
 
 * Survey3W\_RGN
 * Survey3N\_OCN
@@ -124,72 +120,62 @@ Izmantojiet šo kolonnu, lai pārbaudītu, vai esat atzīmējis mērķus katram 
 
 ***
 
-## Mērķu noteikšanas iestatījumi
+## Mērķu atklāšanas iestatījumi
 
-### Noteikšanas jutīguma pielāgošana
+### Atklāšanas jutības regulēšana
 
-Ja Chloros nekonstatē jūsu mērķus pareizi, pielāgojiet šos iestatījumus [Projekta iestatījumos](adjusting-project-settings.md):
-
-**Minimālā kalibrēšanas parauga platība:**
-
-* **Noklusējums**: 25 pikseļi
+Ja Chloros neatklāj jūsu mērķus pareizi, pielāgojiet šos iestatījumus [Projekta iestatījumos](adjusting-project-settings.md):**Minimālā kalibrēšanas parauga platība:*** **Noklusējums**: 25 pikseļi
 * **Palieliniet**, ja tiek iegūti kļūdaini atklājumi uz maziem artefaktiem
-* **Samaziniet**, ja mērķi netiek atklāti
+* **Samaziniet**, ja mērķi netiek atklāti**Minimālā mērķu grupēšana:*** **Noklusējums**: 60
+* **Palieliniet**, ja mērķi tiek sadalīti vairākos atklājumos
+* **Samaziniet**, ja mērķi ar krāsu variācijām netiek pilnībā atklāti***
 
-**Minimālā mērķu klasterizācija:**
+## Bieži sastopamas problēmas ar mērķa attēliem
 
-* **Noklusējums**: 60
-* **Palieliniet**, ja mērķi tiek sadalīti vairākās atklāšanās
-* **Samaziniet**, ja mērķi ar krāsu variācijām netiek pilnībā atklāti
-
-***
-
-## Bieži sastopamas mērķa attēla problēmas
-
-### Problēma: netiek atklāti mērķi
+### Problēma: Mērķi netiek atklāti
 
 **Iespējamie iemesli:**
 
 * Mērķa attēli nav atzīmēti failu pārlūkā
-* Mērķis ir pārāk mazs kadrā (&lt; 30 % no attēla)
+* Mērķis kadrā ir pārāk mazs (&lt; 30% no attēla)
 * Slikts apgaismojums (ēnas, atspīdumi)
-* Mērķu atklāšanas iestatījumi ir pārāk stingri
+* Pārāk stingri mērķa atklāšanas iestatījumi
 
 **Risinājumi:**
 
-1. Pārbaudiet, vai mērķu ailē ir atzīmēti pareizie attēli
-2. Pārskatiet mērķu attēlu kvalitāti priekšskatījumā
-3. Ja kvalitāte ir slikta, atkārtoti uzņemiet mērķus
-4. Ja nepieciešams, pielāgojiet mērķu atklāšanas iestatījumus
+1. Pārbaudiet, vai kolonnā „Mērķis” ir atzīmēti pareizie attēli
+2. Pārskatiet mērķa attēla kvalitāti priekšskatījumā
+3. Ja kvalitāte ir slikta, nofotografējiet mērķus no jauna
+4. Vajadzības gadījumā pielāgojiet mērķu atklāšanas iestatījumus
 
-### Problēma: kļūdaini mērķu atklājumi
+### Problēma: nepareizi atklāti mērķi
 
 **Iespējamie cēloņi:**
 
-* Baltas ēkas, transportlīdzekļi vai zemes segums, kas tiek sajaukti ar mērķiem
-* Spilgtas plankumi veģetācijā
+* Baltas ēkas, transportlīdzekļi vai augsnes segums tiek sajaukts ar mērķiem
+* Spilgti laukumi veģetācijā
 * Pārāk zema atklāšanas jutība
 
 **Risinājumi:**
 
 1. Atzīmējiet tikai faktiskos mērķa attēlus, lai ierobežotu atklāšanas apjomu
 2. Palieliniet minimālo kalibrēšanas parauga platību
-3. Palieliniet minimālo mērķa klasterizācijas vērtību
-4. Pārliecinieties, ka mērķa attēlos redzams tikai mērķis (minimāls fona traucējums)
+3. Palieliniet minimālo mērķu grupēšanas vērtību
+4. Pārliecinieties, ka mērķa attēlos redzams tikai mērķis (minimāls fona troksnis)
 
 ***
 
-## Pārbaudes kontrolsaraksts
+## Pārbaudes saraksts
 
-Pirms apstrādes sākšanas pārbaudiet mērķa attēlu atlasi:
+Pirms apstrādes sākšanas pārbaudiet savu mērķa attēlu atlasi:
 
-* [ ] Vismaz 1 mērķa attēls atzīmēts katrā sesijā
-* [ ] Mērķa kolonnas izvēles rūtiņas ir atzīmētas visiem mērķa attēliem
+* [ ] Vismaz 1 atzīmēts mērķa attēls katrā sesijā
+* [ ] Visos mērķa attēlos ir atzīmētas mērķa kolonnas izvēles rūtiņas
 * [ ] Mērķa attēli uzņemti tajā pašā laika periodā, kad veikta apsekošana
-* [ ] Mērķi ir skaidri redzami priekšskatījumā, uzklikšķinot uz tiem
-* [ ] Visi 4 kalibrēšanas paneļi ir redzami katrā mērķa attēlā
+* [ ] Mērķi ir skaidri redzami priekšskatījumā, uz tiem noklikšķinot
+* [ ] Katrā mērķa attēlā redzami visi 4 kalibrēšanas paneļi
 * [ ] Uz mērķiem nav ēnu vai šķēršļu
-* [ ] Divu kameru gadījumā: mērķi ir atzīmēti abu kameru tipiem
+* [ ] Divkameru gadījumā: mērķi atzīmēti abu kameru tipiem
 
 ***
 
@@ -197,25 +183,25 @@ Pirms apstrādes sākšanas pārbaudiet mērķa attēlu atlasi:
 
 ### Apstrāde bez kalibrēšanas mērķiem
 
-Lai gan tas nav ieteicams zinātniskam darbam, jūs varat veikt apstrādi bez mērķiem:
+Lai gan tas nav ieteicams zinātniskiem darbiem, jūs varat veikt apstrādi bez mērķiem:
 
-1. Atstājiet visas mērķu kolonnu izvēles rūtiņas neatzīmētas
-2. **Atvienojiet** &quot;Atstarošanas kalibrēšana&quot; projekta iestatījumos
+1. Atstājiet visas mērķa kolonnas izvēles rūtiņas neatzīmētas
+2. **Atvienojiet** &quot;Atstarošanas kalibrēšanu&quot; projekta iestatījumos
 3. Vignette korekcija joprojām tiks piemērota
-4. Izvade netiks kalibrēta absolūtajai atstarojamībai
+4. Rezultāts netiks kalibrēts absolūtajai atstarošanai
 
-{% hint style=&quot;warning&quot; %}
-**Nav ieteicams**: bez atstarojamības kalibrēšanas pikseļu vērtības attēlo tikai relatīvo spilgtumu, nevis zinātniskos atstarojamības mērījumus. Lai iegūtu precīzus, atkārtojamus rezultātus, izmantojiet kalibrēšanas mērķus.
+{% hint style="warning" %}
+**Nav ieteicams**: Bez atstarojuma kalibrēšanas pikseļu vērtības atspoguļo tikai relatīvo spilgtumu, nevis zinātniskus atstarojuma mērījumus. Lai iegūtu precīzus un atkārtojamus rezultātus, izmantojiet kalibrēšanas mērķus.
 {% endhint %}
 
 ***
 
-## Nākamie soļi
+## Turpmākie soļi
 
 Kad esat atzīmējuši mērķa attēlus:
 
-1. **Pārskatiet savus iestatījumus** - skatiet [Projekta iestatījumu pielāgošana](adjusting-project-settings.md)
-2. **Sāciet apstrādi** - Skatīt [Apstrādes sākšana](starting-the-processing.md)
-3. **Uzraugiet progresu** - Skatīt [Apstrādes uzraudzība](monitoring-the-processing.md)
+1. **Pārskatiet savus iestatījumus** — skatiet [Projekta iestatījumu pielāgošana](adjusting-project-settings.md)
+2. **Sāciet apstrādi** — skatiet [Apstrādes sākšana](starting-the-processing.md)
+3. **Uzraugiet progresu** — skatiet [Apstrādes uzraudzība](monitoring-the-processing.md)
 
 Lai iegūtu vairāk informācijas par kalibrēšanas mērķiem, skatiet [Kalibrēšanas mērķi](../calibration-targets.md).

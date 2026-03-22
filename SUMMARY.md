@@ -1,6 +1,6 @@
 # Saturs
 
-* [Sākums](README.md)
+* [Ievads](README.md)
 * [GUI: navigācija](navigation.md)
 * [GUI: projekti](projects.md)
 * [CLI: Komandu rinda](CLI.md)
@@ -32,5 +32,16 @@
 * [Attēlu režģis](image-viewer-gui/image-grid.md)
 * [Attēla atvēršana pilnekrāna režīmā](image-viewer-gui/opening-an-image-full-screen.md)
 * [Attēla slāņi](image-viewer-gui/image-layers.md)
-* [Indekss/LUT smilšu kaste](image-viewer-gui/index-lut-sandbox.md)
+* [Indeksa/LUT izmēģinājumu vide](image-viewer-gui/index-lut-sandbox.md)
 * [Kartes marķieri](image-viewer-gui/map-markers.md)
+
+## Linux un malu datu apstrāde
+
+* [Linux pārskats](linux/linux-overview.md)
+* [Linux instalācija](linux/linux-installation.md)
+* [NVIDIA Jetson rokasgrāmata](linux/nvidia-jetson-guide.md)
+
+## Apstrādes arhitektūra
+
+* [Dinamiskā aprēķinu pielāgošana](processing-architecture/dynamic-compute-adaptation.md)
+* [Apstrādes cauruļvads](processing-architecture/processing-pipeline.md)

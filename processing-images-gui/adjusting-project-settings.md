@@ -1,6 +1,6 @@
 # Projekta iestatījumu pielāgošana
 
-Pirms attēlu apstrādes ir svarīgi konfigurēt projekta iestatījumus atbilstoši darba plūsmas prasībām. Projekta iestatījumu <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> nodrošina visaptverošu kontroli pār kalibrēšanu, apstrādes opcijām, multispektrāliem indeksiem un eksporta formātiem.
+Pirms attēlu apstrādes ir svarīgi konfigurēt projekta iestatījumus atbilstoši jūsu darba plūsmas prasībām. Sadaļa „Projekta iestatījumi“ <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> paneļa nodrošina visaptverošu kontroli pār kalibrēšanu, apstrādes opcijām, multispektrālajiem indeksiem un eksporta formātiem.
 
 ## Piekļuve projekta iestatījumiem
 
@@ -9,36 +9,36 @@ Pirms attēlu apstrādes ir svarīgi konfigurēt projekta iestatījumus atbilsto
 3. Projektu iestatījumu panelī tiek parādītas visas konfigurācijas opcijas
 
 {% hint style="info" %}
-**Iestatījumi tiek automātiski saglabāti** kopā ar projektu. Atverot projektu atkārtoti, visi iestatījumi tiek atjaunoti.
+**Iestatījumi tiek saglabāti automātiski** kopā ar projektu. Kad atverat projektu no jauna, visi iestatījumi tiek atjaunoti.
 {% endhint %}
 
 ***
 
-## Ātra konfigurācija tipiskiem darba procesiem
+## Ātra konfigurācija tipiskām darba plūsmām
 
-### Noklusējuma iestatījumi (ieteicams lielākajai daļai lietotāju)
+### Noklusējuma iestatījumi (ieteicami lielākajai daļai lietotāju)
 
-Tipiskām MAPIR Survey3 kameru darba plūsmām labi der noklusējuma iestatījumi:
+Tipiskām MAPIR Survey3 kameru darbplūsmām noklusējuma iestatījumi darbojas labi:
 
-* ✅ **Vignette korekcija**: ieslēgta
-* ✅ **Atstarošanas kalibrēšana**: ieslēgta (nepieciešami MAPIR mērķu attēli)
+* ✅ **Vignette korekcija**: Iespējota
+* ✅ **Atstarošanas kalibrēšana**: Iespējota (nepieciešami MAPIR mērķu attēli)
 * ✅ **Debayer metode**: Standarta (ātra, vidēja kvalitāte)
 * ✅ **Eksporta formāts**: TIFF (16 bitu)
 
-Vienkārši importējiet savus attēlus un sāciet apstrādi ar šiem noklusējumiem.
+Vienkārši importējiet savus attēlus un sāciet apstrādi, izmantojot šos noklusējumus.
 
 ***
 
 ## Projekta iestatījumu pārskats
 
-Projekta iestatījumu panelis ir sadalīts vairākās kategorijās. Zemāk ir katras sadaļas kopsavilkums. Pilnīga dokumentācija ir pieejama [Projekta iestatījumi](../project-settings/project-settings.md).
+Projekta iestatījumu panelis ir sadalīts vairākās kategorijās. Zemāk ir katras sadaļas kopsavilkums. Pilnīgu dokumentāciju skatiet [Projekta iestatījumi](../project-settings/project-settings.md).
 
 ### Mērķa noteikšana
 
 Kontrolē, kā Chloros identificē kalibrēšanas mērķus jūsu attēlos.
 
-**Galvenie iestatījumi:*** **Minimālā kalibrēšanas parauga platība**: izmēra slieksnis mērķa atklāšanai (noklusējums: 25 pikseļi)
-* **Minimālā mērķa klasterizācija**: līdzības slieksnis mērķa reģionu grupēšanai (noklusējums: 60)**Kad pielāgot:**
+**Galvenie iestatījumi:*** **Minimālā kalibrēšanas parauga platība**: Mērķa atklāšanas izmēra slieksnis (noklusējums: 25 pikseļi)
+* **Minimālā mērķu grupēšana**: Līdzības slieksnis mērķa reģionu grupēšanai (noklusējums: 60)**Kad pielāgot:**
 
 * Palieliniet parauga platību, ja tiek iegūti kļūdaini atklājumi
 * Samaziniet, ja mērķi netiek atklāti
@@ -46,14 +46,14 @@ Kontrolē, kā Chloros identificē kalibrēšanas mērķus jūsu attēlos.
 
 ### Apstrāde
 
-Galvenās attēlu apstrādes un kalibrēšanas opcijas.
+Galvenās attēla apstrādes un kalibrēšanas opcijas.
 
-**Galvenie iestatījumi:*** **Vignette korekcija**: kompensē objektīva tumšākošanu malās ✅ Ieteicams
-* **Atstarošanas kalibrēšana**: normalizē vērtības, izmantojot kalibrēšanas mērķus ✅ Ieteicams
-* **Debayer metode**: algoritms RAW konvertēšanai uz 3 kanālu multispektrālo
-* **Minimālais pārkalibrēšanas intervāls**: laiks starp kalibrēšanas mērķu izmantošanu (0 = izmantot visus)**Papildu iestatījumi:*** **Gaismas sensora laika zonas nobīde**: PPK laika sinhronizācijai (noklusējums: 0)
-* **Piemērot PPK korekcijas**: izmanto GPS/ekspozīcijas pinu datus no .daq failiem
-* **Ekspozīcijas pīns 1/2**: piešķir kameras ekspozīcijas pīniem divu kameru konfigurācijām
+**Galvenie iestatījumi:*** **Vignette korekcija**: Kompensē objektīva tumšošanos malās ✅ Ieteicams
+* **Atstarošanas kalibrēšana**: Normalizē vērtības, izmantojot kalibrēšanas mērķus ✅ Ieteicams
+* **Debayer metode**: Algoritms RAW failu konvertēšanai 3-kanālu multispektrālos attēlos
+* **Minimālais atkārtotas kalibrēšanas intervāls**: Laiks starp kalibrēšanas mērķu izmantošanu (0 = izmantot visus)**Papildu iestatījumi:*** **Gaismas sensora laika zonas nobīde**: PPK laika sinhronizācijai (noklusējums: 0)
+* **Piemērot PPK korekcijas**: Izmanto GPS/ekspozīcijas pinu datus no .daq failiem
+* **Ekspozīcijas pini 1/2**: Piesaista kameras ekspozīcijas piniem divkameru konfigurācijām
 
 ### Debayer metode
 
@@ -61,11 +61,11 @@ Pašlaik Chloros piedāvājam 2 debayering metodes:
 
 #### Standarta (ātra, vidēja kvalitāte)
 
-Standarta debayer apstrādā ātri, bet parāda debayering krāsu troksni, kā rezultātā attēli ir mazāk precīzi un trokšņaināki.
+Standarta debayeringa process ir ātrs, bet parāda debayeringa krāsu troksni, kā rezultātā attēli ir mazāk precīzi un trokšņaināki.
 
-#### Tekstūras atpazīšana (lēns, augstākā kvalitāte) \[Chloros+ Tikai]
+#### Tekstūras apzināšanās (lēns, augstākā kvalitāte) \[Tikai Chloros+]
 
-Tekstūras atpazīšana izmanto augstas kvalitātes malu atpazīšanas debayer, kas apvienots ar AI/ML trokšņu samazināšanas modeli, kas noņem gandrīz visu debayering troksni. Tekstūras atpazīšanas modelim darbībai ir nepieciešama GPU atmiņa (VRAM). Lai nodrošinātu ātrāku apstrādi, ieteicams to izmantot, ja jums ir pieejama &gt;4 GB VRAM.
+Tekstūras apzināšanās izmanto augstas kvalitātes malu apzināšanās debayeringu kombinācijā ar AI/ML trokšņu samazināšanas modeli, kas noņem gandrīz visu debayeringa troksni. Tekstūras atpazīšanas modelim darbībai ir nepieciešama GPU atmiņa (VRAM). Lai nodrošinātu ātrāku apstrādi, ieteicams to izmantot, ja jums ir pieejami &gt;4 GB VRAM.
 
 ### Indekss (daudzspektrālie indeksi)
 
@@ -77,11 +77,11 @@ Konfigurējiet, kurus veģetācijas indeksus aprēķināt un eksportēt.
 
 2. Izvēlieties indeksu no nolaižamās izvēlnes (NDVI, NDRE, GNDVI utt.)
 3. Konfigurējiet vizualizācijas iestatījumus (LUT krāsas, vērtību diapazoni)
-4. Pievienojiet vairākus indeksus pēc nepieciešamības
+4. Pēc nepieciešamības pievienojiet vairākus indeksus
 
-**Populāri indeksi:*** **NDVI**: vispārējais veģetācijas veselības stāvoklis (visbiežāk izmantotais)
-* **NDRE**: agrīna stresa noteikšana ar RedEdge
-* **GNDVI**: jutīgs pret hlorofila koncentrāciju
+**Populāri indeksi:*** **NDVI**: Vispārējais veģetācijas veselības stāvoklis (visbiežāk izmantotais)
+* **NDRE**: Agrīna stresa noteikšana kopā ar RedEdge
+* **GNDVI**: Jutīgs pret hlorofila koncentrāciju
 * **OSAVI**: labi darbojas ar redzamu augsni
 * **EVI**: reģioni ar augstu lapu platības indeksu (LAI)**Pielāgotas formulas (tikai Chloros+):**
 
@@ -95,43 +95,44 @@ Visus pieejamos indeksus un formulas skatiet [Multispektrālo indeksu formulas](
 
 Kontrolē izvades faila formātu un kvalitāti.
 
-**Pieejamie formāti:*** **TIFF (16 bitu)**: ieteicams GIS un zinātniskai analīzei (diapazons 0–65 535)
-* **TIFF (32 bitu, procentos)**: peldošā punkta atstarošanas vērtības (diapazons 0,0–1,0)
+**Pieejamie formāti:*** **TIFF (16 bitu)**: Ieteicams ģeogrāfiskās informācijas sistēmām (GIS) un zinātniskai analīzei (diapazons 0–65 535)
+* **TIFF (32 bitu, procentos)**: Atstarošanas vērtības ar peldošo komatu (diapazons 0,0–1,0)
 * **PNG (8 bitu)**: bezzaudējumu kompresija vizualizācijai (diapazons 0–255)
-* **JPG (8 bitu)**: mazākie faili, zaudējumu kompresija (diapazons 0–255)***
+* **JPG (8 bitu)**: vismazākie faili, zaudējumu kompresija (diapazons 0–255)***
 
 ## Iestatījumu saglabāšana un ielāde
 
 ### Projekta veidnes saglabāšana
 
-Izveidojiet atkārtoti izmantojamus veidnes vienveidīgai darba plūsmai:
+Izveidojiet atkārtoti izmantojamus veidnes, lai nodrošinātu vienotu darba plūsmu:
 
-1. Konfigurējiet visus vēlamos iestatījumus paneļā Projekta iestatījumi
-2. Pārvietojieties uz sadaļu **&quot;Saglabāt projekta veidni&quot;** apakšā
-3. Ievadiet aprakstošu veidnes nosaukumu (piemēram, &quot;Survey3N\_RGN\_Agriculture&quot;)
+1. Konfigurējiet visus vēlamos iestatījumus paneļā „Projekta iestatījumi”
+2. Pārvietojieties uz sadaļu **„Saglabāt projekta veidni”** apakšā
+3. Ievadiet aprakstošu veidnes nosaukumu (piem., „Survey3N\_RGN\_Agriculture”)
 4. Noklikšķiniet uz saglabāšanas ikonas
 
-**Ieguvumi:**
+**Priekšrocības:**
 
-* Vienādi iestatījumi vairākiem projektiem
-* Konfigurāciju koplietošana ar komandas locekļiem
-* Atkārtotu apsekojumu konsekvence
+* Piemērojiet identiskus iestatījumus vairākos projektos
+* Dalieties ar konfigurācijām ar komandas locekļiem
+* Saglabājiet konsekvenci atkārtotām aptaujām
 
-### Veidnes ielāde jaunā projektā
+### Ielādējiet veidni jaunā projektā
 
-Jaunā projekta izveide:
+Izveidojot jaunu projektu:
 
-1. Galvenajā izvēlnē izvēlieties **&quot;Jauns projekts&quot;**.
-2. Izvēlieties opciju **&quot;Ielādēt no veidnes&quot;**.
-3. Izvēlieties saglabāto veidni.
-4. Visi iestatījumi tiek automātiski piemēroti.
+1. Izvēlieties **&quot;Jauns projekts&quot;** galvenajā izvēlnē
+2. Izvēlieties opciju **&quot;Ielādēt no veidnes&quot;**
+
+3. Izvēlieties savu saglabāto veidni
+4. Visi iestatījumi tiek automātiski piemēroti
 
 ### Darba katalogs
 
-Iestatījums **&quot;Saglabāt projekta mapi&quot;** nosaka, kur pēc noklusējuma tiek izveidoti jauni projekti:
+Iestatījums **&quot;Projekta saglabāšanas mape&quot;** nosaka, kur pēc noklusējuma tiek izveidoti jauni projekti:
 
 * **Noklusējuma atrašanās vieta**: `C:\Users\[Username]\Chloros Projects`
-* **Mainīt atrašanās vietu**: noklikšķiniet uz rediģēšanas ikonas un izvēlieties jaunu mapi
+* **Mainīt atrašanās vietu**: Noklikšķiniet uz rediģēšanas ikonas un izvēlieties jaunu mapi
 * **Kad mainīt**:
   * Tīkla disks komandas sadarbībai
   * Cits disks ar lielāku uzglabāšanas vietu
@@ -139,87 +140,88 @@ Iestatījums **&quot;Saglabāt projekta mapi&quot;** nosaka, kur pēc noklusēju
 
 ***
 
-## PPK (pēc apstrādes kinemātika) iestatījumi
+## PPK (pēcapstrādātas kinemātikas) iestatījumi
 
 Ja izmantojat MAPIR DAQ ierakstītājus ar GPS precīzai ģeolokācijai:
 
-### Priekšnoteikumi
+### Priekšnosacījumi
 
 * MAPIR DAQ ar GPS (GNSS) moduli
-* .daq žurnāla fails ar ekspozīcijas pinu ierakstiem
-* Kamera, kas savienota ar DAQ ekspozīcijas piniem uzņemšanas sesijas laikā
+* .daq žurnāla fails ar ekspozīcijas kontaktu ierakstiem
+* Kamera, kas uzņemšanas sesijas laikā ir pieslēgta DAQ ekspozīcijas kontaktiem
 
 ### Konfigurācijas soļi
 
 1. Ievietojiet .daq žurnāla failu savā projekta mapē
-2. Projekta iestatījumos atļaujiet **&quot;Piemērot PPK korekcijas&quot;** izvēles rūtiņu
-3. Vajadzības gadījumā iestatiet **&quot;Gaismas sensora laika zonas nobīde&quot;** (noklusējums: 0 UTC)
-4. Piesaistiet kameras ekspozīcijas kontaktiem:
-   * **Viena kamera**: automātiski piesaistīta 1. kontaktam
-   * **Divas kameras**: manuāli piesaistiet katru kameru pareizajam kontaktam**Ekspozīcijas kontaktu piesaistīšana:*** **Ekspozīcijas kontakts 1**: izvēlieties kameras modeli no nolaižamā izvēlnes
-* **Ekspozīcijas kontakts 2**: izvēlieties otro kameru vai &quot;Nelietot&quot;
+2. Projektu iestatījumos atzīmējiet izvēles rūtiņu **&quot;Piemērot PPK korekcijas&quot;**
+
+3. Ja nepieciešams, iestatiet**&quot;Gaismas sensora laika zonas nobīdi&quot;** (noklusējums: 0 UTC)
+4. Piešķiriet kameras ekspozīcijas kontaktligzdām:
+   * **Viena kamera**: automātiski piešķirta 1. kontaktligzdai
+   * **Divas kameras**: manuāli piešķiriet katru kameru pareizajai kontaktligzdai**Ekspozīcijas kontaktligzdu piešķiršana:*** **Ekspozīcijas kontakts 1**: Izvēlieties kameras modeli no izvēlnes
+* **Ekspozīcijas kontakts 2**: Izvēlieties otro kameru vai &quot;Nelietot&quot;
 * Vienu un to pašu kameru nevar piešķirt abiem kontaktiem
 
 {% hint style="warning" %}
-**Svarīgi**: ekspozīcijas kontaktiem jābūt pareizi piešķirtiem attiecīgajām kamerām. Nepareiza piešķiršana radīs nepareizus ģeolokācijas datus.
+**Svarīgi**: Ekspozīcijas kontaktiem jābūt pareizi piešķirtiem attiecīgajām kamerām. Nepareiza piešķiršana izraisīs nepareizus ģeolokācijas datus.
 {% endhint %}
 
 ***
 
 ## Papildu scenāriji
 
-### Daudzkameru projekti
+### Projektu ar vairākām kamerām
 
 Apstrādājot attēlus no vairākām MAPIR kamerām vienā projektā:
 
-1. Chloros automātiski atpazīst katru kameras modeli
+1. Chloros automātiski atpazīst katras kameras modeli
 2. Katrai kamerai tiek piešķirts atbilstošs apstrādes profils
-3. PPK: manuāli piešķiriet katrai kamerai pareizo ekspozīcijas tapu
+3. PPK: manuāli piešķiriet katrai kamerai pareizo ekspozīcijas kontaktu
 4. Visas kameras izmanto vienādu eksporta formātu un indeksus
 
-**Piemērs**: Survey3W RGN + Survey3N OCN divkameru platforma
+**Piemērs**: Survey3W RGN + Survey3N OCN divkameru statīvs
 
 ### Laika nobīdes vai vairāku datumu apsekojumi
 
-Atkārtotiem apsekojumiem vienā un tajā pašā teritorijā laika gaitā:
+Lai laika gaitā atkārtoti veiktu apsekojumus vienā un tajā pašā teritorijā:
 
-1. Izveidojiet veidni ar standarta iestatījumiem
-2. Katrā sesijā izmantojiet vienotu kalibrēšanas mērķa iestatījumu
+1. Izveidojiet šablonu ar saviem standarta iestatījumiem
+2. Katrā sesijā izmantojiet vienotu kalibrēšanas mērķa konfigurāciju
 3. Apstrādājiet katru datumu kā atsevišķu projektu
 4. Lai iegūtu salīdzināmus rezultātus, izmantojiet identiskus iestatījumus
-5. Eksportējiet vienā formātā laika analīzei
+5. Eksportējiet vienā un tajā pašā formātā, lai veiktu laika analīzi
 
-### Liela apjoma datu kopas
+### Lieli datu kopumi
 
 Projektiem ar daudziem attēliem (500+):
 
-* Apsveriet iespēju sadalīt mazākos projektos pēc datuma vai teritorijas.
-* Lai iegūtu ātrākus rezultātus, izmantojiet Chloros+ paralēlo apstrādi.
-* Apsveriet CLI vai API izmantošanu partiju automatizācijai.
-* Pielāgojiet minimālo pārkalibrēšanas intervālu, lai samazinātu mērķa noteikšanas laiku.
+* Apsvērt sadalīšanu mazākos projektos pēc datuma vai teritorijas
+* Izmantot Chloros+ paralēlo apstrādi ātrākiem rezultātiem
+* Apsvērt CLI vai API partiju automatizācijai
+* Pielāgot minimālo atkārtotās kalibrēšanas intervālu, lai samazinātu mērķa noteikšanas laiku
 
 ***
 
 ## Jūsu iestatījumu pārbaude
 
-Pirms sākt apstrādi, pārskatiet šos galvenos iestatījumus:
+Pirms apstrādes sākšanas pārbaudiet šos galvenos iestatījumus:
 
-* [ ] Kameras modelis pareizi noteikts failu pārlūkprogrammā
+* [ ] Kameras modelis pareizi atpazīts failu pārlūkā
 * [ ] Vignette korekcija ieslēgta
-* [ ] Atstarošanas kalibrēšana ieslēgta
+* [ ] Reflektances kalibrēšana ieslēgta
 * [ ] Importēts vismaz viens kalibrēšanas mērķa attēls
 * [ ] Pievienoti vēlamie multispektrālie indeksi
-* [ ] Eksporta formāts atbilstošs jūsu darba plūsmai
+* [ ] Eksporta formāts atbilst jūsu darba plūsmai
 * [ ] PPK iestatījumi konfigurēti (ja izmantojat .daq ar ekspozīcijas notikumiem)
 
 ***
 
-## Nākamie soļi
+## Turpmākie soļi
 
 Kad iestatījumi ir konfigurēti:
 
-1. **Atzīmējiet kalibrēšanas mērķa attēlus** - skatiet [Mērķa attēlu izvēle](choosing-target-images.md)
-2. **Sāciet apstrādi** - skatiet [Apstrādes sākšana](starting-the-processing.md)
+1. **Atzīmējiet kalibrēšanas mērķa attēlus** — skatiet [Mērķa attēlu izvēle](choosing-target-images.md)
+2. **Sāciet apstrādi** — skatiet [Apstrādes sākšana](starting-the-processing.md)
 3. **Uzraugiet progresu** — skatiet [Apstrādes uzraudzība](monitoring-the-processing.md)
 
-Pilnīga informācija par visiem pieejamajiem iestatījumiem ir atrodama [Projekta iestatījumu](../project-settings/project-settings.md) atsauces dokumentācijā.
+Pilnīga informācija par visiem pieejamajiem iestatījumiem ir atrodama atsauces dokumentācijā [Projekta iestatījumi](../project-settings/project-settings.md).

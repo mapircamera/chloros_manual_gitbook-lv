@@ -1,14 +1,14 @@
 # Chloros+ Pieslēgšanās
 
-## Chloros un Chloros (pārlūks) Pieslēgšanās
+## Chloros un Chloros (pārlūkprogramma) Pieslēgšanās
 
-Lietotāja <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> sānu joslas izvēlnē varat pieteikties savā Chloros+ kontā un atbloķēt papildu funkcijas.
+Lietotāja <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> sānu joslas izvēlne ļauj jums pieteikties savā Chloros+ kontā un atbloķēt papildu funkcijas.
 
 Pēc pieteikšanās tiks parādīta jūsu konta informācija:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" data-size="line"><figcaption></figcaption></figure>## CLI Pieslēgties
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Pieslēgšanās
 
-Pieslēdzieties ar saviem Chloros+ datiem, lai aktivizētu CLI apstrādi.
+Piesakieties ar savām Chloros+ piekļuves datiem, lai aktivizētu CLI apstrādi. Linux (bez grafiskās lietotāja saskarnes) versijā tas ir vienīgais veids, kā aktivizēt savu licenci.
 
 **Sintakse:**
 
@@ -16,8 +16,8 @@ Pieslēdzieties ar saviem Chloros+ datiem, lai aktivizētu CLI apstrādi.
 chloros-cli login <email> <password>
 ```
 
-{% hint style=&quot;info&quot; %}
-**SDK lietotāji**: Python SDK nodrošina arī programmatisku `logout()` metodi, lai dzēstu kešatmiņā saglabātās piekļuves datus. Sīkāku informāciju skatiet [Python SDK dokumentācijā](api-python-sdk.md#logout).
+{% hint style="info" %}
+**SDK lietotāji**: Python SDK piedāvā arī programmatisku `logout()` metodi, lai dzēstu kešatmiņā saglabātās autentifikācijas datus. Sīkāku informāciju skatiet [Python SDK dokumentācijā](api-python-sdk.md#logout).
 {% endhint %}
 
 **Piemērs:**
@@ -26,18 +26,27 @@ chloros-cli login <email> <password>
 chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
-{% hint style=&quot;warning&quot; %}
-**Īpašie simboli**: Lietojiet vienkāršās pēdiņas ap parolēm, kas satur simbolus, piemēram, `$`, `!` vai atstarpes.
+{% hint style="warning" %}
+**Īpašie simboli**: Parolēm, kurās ir simboli, piemēram, `$`, `!` vai atstarpes, izmantojiet vienkāršās pēdiņas.
 {% endhint %}
 
 **Rezultāts:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Plāna termiņa beigas
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Pieslēgšanās datu uzglabāšana
 
-Plāna termiņa beigas GUI parāda, kad jūsu licence kļūs nederīga. Atkārtotiem ikmēneša abonementiem termiņa beigas ir mēneša beigās. Gada abonementiem termiņa beigas ir gadu pēc abonementa sākšanas. Licences pārbaudei ir nepieciešams ikmēneša interneta savienojums, lai veiktu pārbaudi, ar 30 dienu papildperiodu.
+Cache atmiņā saglabātie pieslēgšanās dati tiek uzglabāti platformai specifiskā vietā:
 
-### Ierīču skaita ierobežojums
+| Platforma | Pieslēgšanās datu cache ceļš |
+| --- | --- |
+| **Windows** | `%APPDATA%\Chloros\cache\` |
+| **Linux** | `~/.cache/chloros/` |
 
-Katrs Chloros+ plāns piedāvā atšķirīgu reģistrēto ierīču skaitu. Katra ierīce, kurā jūs piesakāties ar Chloros+ kontu, tiks iekļauta jūsu reģistrēto ierīču skaitā. Jūs varat pārdēvēt un dzēst ierīci savā MAPIR Cloud konta lapā.
+### Plāna derīguma termiņš
+
+Plāna derīguma termiņš GUI rāda, kad jūsu licence vairs nebūs derīga. Atkārtotiem ikmēneša abonementiem derīguma termiņš beidzas mēneša beigās. Gada abonementiem tas ir gads pēc abonementa sākuma. Licences pārbaudei ir nepieciešams ikmēneša interneta savienojums, ar 30 dienu papildlaiku.
+
+### Ierīču limits
+
+Katrs Chloros+ plāns piedāvā atšķirīgu reģistrēto ierīču skaitu. Katra ierīce, kurā jūs piesakāties ar Chloros+ kontu, tiks ieskaitīta jūsu reģistrēto ierīču skaitā. Jūs varat pārdēvēt un noņemt ierīci savā MAPIR Cloud konta lapā.
 
 <table><thead><tr><th width="168.5999755859375" align="right">Chloros+ plāns</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">ZELTS</th></tr></thead><tbody><tr><td align="right">Atbalstītās ierīces</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>

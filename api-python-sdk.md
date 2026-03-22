@@ -1,29 +1,29 @@
 # API : Python SDK
 
-**Chloros Python SDK** nodrošina programmatisku piekļuvi Chloros attēlu apstrādes dzinējam, ļaujot automatizēt, pielāgot darba plūsmas un vienkārši integrēt ar jūsu Python lietojumprogrammām un pētniecības procesiem.
+**Chloros Python SDK** nodrošina programmatisku piekļuvi attēlu apstrādes dzinējam Chloros, ļaujot automatizēt, izveidot pielāgotas darba plūsmas un vienkārši integrēt ar jūsu Python lietojumprogrammām un pētniecības procesiem.
 
 ### Galvenās funkcijas
 
-* 🐍 **Native Python** - Tīrs, Pythonic API attēlu apstrādei
+* 🐍 **Native Python** - Tīrs, Python stilā rakstīts API attēlu apstrādei
 * 🔧 **Pilnīga API piekļuve** - Pilnīga kontrole pār Chloros apstrādi
-* 🚀 **Automatizācija** - Izveidojiet pielāgotas partiju apstrādes darba plūsmas
-* 🔗 **Integrācija** - Ievietojiet Chloros esošajās Python lietojumprogrammās
-* 📊 **Pētniecībai gatavs** - Ideāli piemērots zinātniskās analīzes procesiem
-* ⚡ **Paralēla apstrāde** - Mērogs atbilstoši jūsu CPU kodoliem (Chloros+)
+* 🚀 **Automatizācija** — izveidojiet pielāgotas partiju apstrādes darbplūsmas
+* 🔗 **Integrācija** — iekļaujiet Chloros esošajās Python lietojumprogrammās
+* 📊 **Pētniecībai gatavs** — ideāli piemērots zinātniskās analīzes procesiem
+* ⚡ **Paralēlā apstrāde** - Mērogojas atbilstoši jūsu procesora kodoliem (Chloros+)
 
 ### Prasības
 
 | Prasība          | Detalizēta informācija                                                             |
 | -------------------- | ------------------------------------------------------------------- |
-| **Chloros Desktop**  | Jāinstalē lokāli                                           |
+| **Chloros instalēts** | Windows: instalētājs darbvirsmai; Linux: `.deb` pakete                  |
 | **Licence**          | Chloros+ ([nepieciešams maksas plāns](https://cloud.mapir.camera/pricing)) |
-| **Operētājsistēma** | Windows 10/11 (64 bitu)                                              |
+| **Operētājsistēma** | Windows 10/11 (64 bitu), Linux x86_64 (amd64), Linux arm64 (NVIDIA Jetson JetPack 6) |
 | **Python**           | Python 3.7 vai jaunāka versija                                                |
 | **Atmiņa**           | Vismaz 8 GB RAM (ieteicams 16 GB)                                  |
 | **Internets**         | Nepieciešams licences aktivizēšanai                                     |
 
-{% hint style=&quot;warning&quot; %}
-**Licences prasības**: Python SDK piekļuvei API ir nepieciešama maksas Chloros+ abonementa. Standarta (bezmaksas) plāniem nav piekļuves API/SDK. Apmeklējiet [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing), lai veiktu uzlabojumus.
+{% hint style="warning" %}
+**Licences prasības**: Python SDK prasa maksas Chloros+ abonementu, lai piekļūtu API. Standarta (bezmaksas) plāniem nav piekļuves API/SDK. Apmeklējiet [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing), lai veiktu uzlabojumu.
 {% endhint %}
 
 ## Ātrs sākums
@@ -36,24 +36,31 @@ Instalējiet, izmantojot pip:
 pip install chloros-sdk
 ```
 
-{% hint style=&quot;info&quot; %}
-**Pirmā uzstādīšana**: Pirms SDK lietošanas aktivizējiet savu Chloros+ licenci, atverot Chloros, Chloros (pārlūks) vai Chloros CLI un pieteikties ar savām identifikācijas ziņām. Tas jādara tikai vienu reizi.
+{% hint style="info" %}
+**Pirmā uzstādīšana**: Pirms SDK lietošanas aktivizējiet savu Chloros+ licenci, atverot Chloros, Chloros (pārlūks) vai Chloros CLI un pieteicoties ar savām lietotājvārda un paroles datiem. To ir nepieciešams izdarīt tikai vienu reizi. Linux (bez grafiskās lietotāja saskarnes) izmantojiet: `chloros-cli login user@example.com 'password'`
 {% endhint %}
 
 ### Pamata lietošana
 
-Apstrādājiet mapes ar tikai dažām rindām:
+Apstrādājiet mapi ar tikai dažām rindām:
 
 ```python
 from chloros_sdk import process_folder
 
-# One-line processing
+# One-line processing (Windows)
 results = process_folder("C:\\DroneImages\\Flight001")
+
+# One-line processing (Linux)
+results = process_folder("/home/user/drone_images/flight001")
 ```
+
+{% hint style="info" %}
+**Daudzplatformas ceļi**: Šīs lapas koda piemēros izmantoti Windows stila ceļi (piem., `C:\\DroneImages\\Flight001`). Linux vietā izmantojiet Linux ceļus (piem., `/home/user/drone_images/flight001` vai `~/drone_images/flight001`). SDK darbojas identiski abās platformās.
+{% endhint %}
 
 ### Pilnīga kontrole
 
-Papildu darbplūsmas:
+Papildu darbplūsmām:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -65,7 +72,8 @@ chloros = ChlorosLocal()
 chloros.create_project("MyProject", camera="Survey3N_RGN")
 
 # Import images
-chloros.import_images("C:\\DroneImages\\Flight001")
+chloros.import_images("C:\\DroneImages\\Flight001")  # Windows
+# chloros.import_images("/home/user/drone_images/flight001")  # Linux
 
 # Configure settings
 chloros.configure(
@@ -80,14 +88,14 @@ chloros.process(mode="parallel", wait=True)
 
 ***
 
-## Uzstādīšanas rokasgrāmata
+## Instalācijas rokasgrāmata
 
-### Priekšnoteikumi
+### Priekšnosacījumi
 
-Pirms uzstādīt SDK, pārliecinieties, ka jums ir:
+Pirms SDK instalēšanas pārliecinieties, ka jums ir:
 
-1. **Chloros Desktop** ir instalēts ([lejupielādēt](download.md))
-2. **Python 3.7+** ir instalēts ([python.org](https://www.python.org))
+1. **Chloros ir instalēts** — Windows: instalācijas programma darbvirsmai ([lejupielāde](download.md)); Linux: `.deb` pakete ([Linux uzstādīšana](linux/linux-installation.md))
+2. **Python 3.7+** instalēts ([python.org](https://www.python.org))
 3. **Aktīva Chloros+ licence** ([atjauninājums](https://cloud.mapir.camera/pricing))
 
 ### Instalēšana ar pip
@@ -104,7 +112,7 @@ pip install chloros-sdk
 pip install chloros-sdk[progress]
 ```
 
-**Attīstības instalācija:**
+**Izstrādes instalācija:**
 
 ```bash
 pip install chloros-sdk[dev]
@@ -125,23 +133,25 @@ print(f"Chloros SDK version: {chloros_sdk.__version__}")
 
 ### Licences aktivizēšana
 
-SDK izmanto to pašu licenci kā Chloros, Chloros (pārlūks) un Chloros CLI. Aktivizējiet vienreiz, izmantojot GUI vai CLI:
+SDK izmanto to pašu licenci kā Chloros, Chloros (pārlūks) un Chloros CLI. Aktivizējiet vienreiz, izmantojot GUI vai CLI:**Windows:**Atveriet**Chloros vai Chloros (pārlūks)** un pieteikties lietotāja <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> vai izmantojiet CLI.**Linux:** Izmantojiet CLI (GUI nav pieejams):
 
-1. Atveriet **Chloros vai Chloros (pārlūks)**un pieteikties lietotāja <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> cilnē. Vai arī atveriet**CLI**.
-2. Ievadiet savas Chloros+ piekļuves datus un pieteikties
-3. Licence tiek saglabāta vietējā cache (paliek pēc pārstartēšanas)
+```bash
+chloros-cli login user@example.com 'your_password'
+```
 
-{% hint style=&quot;success&quot; %}
-**Vienreizēja konfigurācija**: Pēc pieteikšanās caur GUI vai CLI, SDK automātiski izmanto saglabāto licenci. Nav nepieciešama papildu autentifikācija!
+Licence tiek saglabāta vietējā cache un saglabājas pēc sistēmas pārstartēšanas.
+
+{% hint style="success" %}
+**Vienreizēja konfigurācija**: Pēc pieteikšanās caur GUI vai CLI, SDK automātiski izmanto cache saglabāto licenci. Nav nepieciešama papildu autentifikācija!
 {% endhint %}
 
-{% hint style=&quot;info&quot; %}
-**Iziet**: SDK lietotāji var programmatiski dzēst cache atmiņā saglabātās paroles, izmantojot `logout()` metodi. Skatīt [logout() metodi](#logout) API atsauces dokumentā.
+{% hint style="info" %}
+**Iziet**: SDK lietotāji var programmatiski dzēst saglabātās autentifikācijas datus, izmantojot `logout()` metodi. Skatīt [logout() metode](#logout) API atsauces dokumentā.
 {% endhint %}
 
-### Pārbaudiet savienojumu
+### Savienojuma pārbaude
 
-Pārbaudiet, vai SDK var savienoties ar Chloros:
+Pārbaudiet, vai SDK var izveidot savienojumu ar Chloros:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -178,27 +188,37 @@ ChlorosLocal(
 
 | Parametrs                 | Tips | Noklusējums                   | Apraksts                           |
 | ------------------------- | ---- | ------------------------- | ------------------------------------- |
-| `api_url`                 | str  | `"http://localhost:5000"` | URL vietējā Chloros backend          |
+| `api_url`                 | str  | `"http://localhost:5000"` | URL vietējā Chloros aizmugurējā procesa          |
 | `auto_start_backend`      | bool | `True`                    | Automātiski sākt backend, ja nepieciešams |
-| `backend_exe`             | str  | `None` (automātiska atpazīšana)      | Ceļš uz backend izpildāmo failu            |
+| `backend_exe`             | str  | `None` (automātiska noteikšana)      | Ceļš uz backend izpildāmo failu            |
 | `timeout`                 | int  | `30`                      | Pieprasījuma laika limits sekundēs            |
-| `backend_startup_timeout` | int  | `60`                      | Laika limits backend uzsākšanai (sekundēs) |
+| `backend_startup_timeout` | int  | `60`                      | Laika limits backend palaišanai (sekundēs) |
 
 **Piemēri:**
 
 ```python
-# Default (auto-start backend)
+# Default (auto-start backend, auto-detect path on Windows and Linux)
 chloros = ChlorosLocal()
 
 # Connect to running backend
 chloros = ChlorosLocal(auto_start_backend=False)
 
-# Custom backend path
+# Custom backend path (Windows)
 chloros = ChlorosLocal(backend_exe="C:/Custom/chloros-backend.exe")
 
-# Custom timeout
-chloros = ChlorosLocal(timeout=60)
+# Custom backend path (Linux)
+chloros = ChlorosLocal(backend_exe="/opt/mapir/chloros/backend/chloros-backend")
+
+# Custom timeout with longer startup (e.g., for Jetson)
+chloros = ChlorosLocal(timeout=60, backend_startup_timeout=120)
 ```
+
+{% hint style="info" %}
+**Daudzplatformas automātiskā noteikšana**: SDK automātiski mēģina atrast pareizo backend ceļu jūsu platformai:
+* **Windows**: `C:\Program Files\MAPIR\Chloros\resources\backend\chloros-backend.exe`
+* **Linux (.deb)**: `/usr/lib/chloros/chloros-backend`
+* **Linux (manuāli)**: `/opt/mapir/chloros/backend/chloros-backend`
+{% endhint %}
 
 ***
 
@@ -206,16 +226,16 @@ chloros = ChlorosLocal(timeout=60)
 
 #### `create_project(project_name, camera=None)`
 
-Izveido jaunu Chloros projektu.
+Izveidojiet jaunu Chloros projektu.
 
 **Parametri:**
 
-| Parametrs      | Tips | Nepieciešams | Apraksts                                              |
+| Parametrs      | Tips | Obligāts | Apraksts                                              |
 | -------------- | ---- | -------- | -------------------------------------------------------- |
 | `project_name` | str  | Jā      | Projekta nosaukums                                     |
-| `camera`       | str  | Nē       | Kameras veidne (piemēram, &quot;Survey3N\_RGN&quot;, &quot;Survey3W\_OCN&quot;) |
+| `camera`       | str  | Nē       | Kameras veidne (piem., &quot;Survey3N\_RGN&quot;, &quot;Survey3W\_OCN&quot;) |
 
-**Atgriež:** `dict` - Projekta izveides atbilde**Piemērs:**
+**Atgriež:** `dict` - Atbilde par projekta izveidi**Piemērs:**
 
 ```python
 # Basic project
@@ -233,9 +253,9 @@ Importē attēlus no mapes.
 
 **Parametri:**
 
-| Parametrs     | Tips     | Nepieciešams | Apraksts                        |
+| Parametrs     | Tips     | Obligāts | Apraksts                        |
 | ------------- | -------- | -------- | ---------------------------------- |
-| `folder_path` | str/Path | Jā      | Ceļš uz mapes ar attēliem         |
+| `folder_path` | str/Path | Jā      | Ceļš uz mapi ar attēliem         |
 | `recursive`   | bool     | Nē       | Meklēt apakšmapes (noklusējums: False) |
 
 **Atgriež:** `dict` - Importēšanas rezultāti ar failu skaitu**Piemērs:**
@@ -258,20 +278,20 @@ Konfigurējiet apstrādes iestatījumus.
 
 | Parametrs                 | Tips | Noklusējums                 | Apraksts                     |
 | ------------------------- | ---- | ----------------------- | ------------------------------- |
-| `debayer`                 | str  | &quot;Augsta kvalitāte (ātrāka)&quot; | Debayer metode                  |
+| `debayer`                 | str  | &quot;Standarta (ātrs, vidēja kvalitāte)&quot; | Debayer metode            |
 | `vignette_correction`     | bool | `True`                  | Iespējot vinjetes korekciju      |
 | `reflectance_calibration` | bool | `True`                  | Iespējot atstarojuma kalibrēšanu  |
-| `indices`                 | saraksts | `None`                  | Aprēķināmie veģetācijas indeksi |
-| `export_format`           | str  | &quot;TIFF (16 bitu)&quot;         | Izvades formāts                   |
-| `ppk`                     | bool | `False`                 | Aktivizēt PPK korekcijas          |
+| `indices`                 | list | `None`                  | Aprēķināmie veģetācijas indeksi |
+| `export_format`           | str  | &quot;TIFF (16-bit)&quot;         | Izvades formāts                   |
+| `ppk`                     | bool | `False`                 | Iespējot PPK korekcijas          |
 | `custom_settings`         | dict | `None`                  | Papildu pielāgotie iestatījumi        |
 
 **Eksporta formāti:**
 
 * `"TIFF (16-bit)"` - Ieteicams GIS/fotogrammetrijai
-* `"TIFF (32-bit, Percent)"` - Zinātniskai analīzei
-* `"PNG (8-bit)"` - Vizuālai pārbaudei
-* `"JPG (8-bit)"` - saspiesta izvade
+* `"TIFF (32-bit, Percent)"` - Zinātniskā analīze
+* `"PNG (8-bit)"` - Vizuālā pārbaude
+* `"JPG (8-bit)"` - Saspiesta izvade
 
 **Pieejamie indeksi:**NDVI, NDRE, GNDVI, OSAVI, CIG, EVI, SAVI, MSAVI, MTVI2 un citi.**Piemērs:**
 
@@ -285,7 +305,7 @@ chloros.configure(
 
 # Advanced configuration
 chloros.configure(
-    debayer="High Quality (Faster)",
+    debayer="Standard (Fast, Medium Quality)",
     vignette_correction=True,
     reflectance_calibration=True,
     ppk=True,
@@ -306,13 +326,13 @@ Apstrādājiet projekta attēlus.
 | ------------------- | -------- | ------------ | ----------------------------------------- |
 | `mode`              | str      | `"parallel"` | Apstrādes režīms: &quot;parallel&quot; vai &quot;serial&quot;   |
 | `wait`              | bool     | `True`       | Gaidīt pabeigšanu                       |
-| `progress_callback` | izsaucams | `None`       | Progresa atgriezeniskā funkcija (progress, msg) |
+| `progress_callback` | izsaucams | `None`       | Progresa atgriezeniskās saites funkcija (progress, msg) |
 | `poll_interval`     | float    | `2.0`        | Progresa aptaujas intervāls (sekundes)   |
 
 **Atgriež:** `dict` - Apstrādes rezultāti
 
-{% hint style=&quot;warning&quot; %}
-**Paralēlais režīms**: Nepieciešama Chloros+ licence. Automātiski pielāgojas jūsu CPU kodoliem (līdz 16 darbiniekiem).
+{% hint style="warning" %}
+**Paralēlais režīms**: Nepieciešama Chloros+ licence. Automātiski pielāgojas jūsu procesora kodoliem (līdz 16 darba procesiem).
 {% endhint %}
 
 **Piemērs:**
@@ -352,14 +372,34 @@ print(config['Project Settings'])
 
 #### `get_status()`
 
-Iegūstiet informāciju par backend statusu.
+Iegūst informāciju par backend statusu, ieskaitot apstrādes gaitu katrā pavedienā.
 
-**Atgriež:** `dict` - Backend status**Piemērs:**
+**Atgriež:** `dict` - Backend statuss ar šādu struktūru:
+
+```python
+{
+    "running": True,
+    "url": "http://localhost:5000",
+    "processing": {
+        "percent": 75.0,
+        "phase": "processing"
+    },
+    "export": {
+        "percent": 50.0,
+        "phase": "exporting",
+        "active": True
+    }
+}
+```
+
+**Piemērs:**
 
 ```python
 status = chloros.get_status()
 print(f"Running: {status['running']}")
 print(f"URL: {status['url']}")
+print(f"Processing: {status['processing']['percent']}%")
+print(f"Export: {status['export']['percent']}% - Active: {status['export']['active']}")
 ```
 
 ***
@@ -378,14 +418,14 @@ chloros.shutdown_backend()
 
 #### `logout()`
 
-Dzēš no vietējās sistēmas cache atmiņā saglabātās autentifikācijas datus.
+Dzēš no vietējās sistēmas kešatmiņā saglabātās autentifikācijas datus.
 
 **Apraksts:**
 
-Programmatiski iziet no sistēmas, dzēšot cache atmiņā saglabātos autentifikācijas datus. Tas ir noderīgi:
+Programmatiski iziet no sistēmas, dzēšot kešatmiņā saglabātos autentifikācijas datus. Tas ir noderīgi:
 * Pārslēgšanās starp dažādiem Chloros+ kontiem
-* Autentifikācijas datu dzēšana automatizētās vidēs
-* Drošības nolūkos (piemēram, autentifikācijas datu dzēšana pirms atinstalēšanas)
+* Pieslēgšanās datu dzēšanai automatizētās vidēs
+* Drošības nolūkos (piem., noņemot pieslēgšanās datus pirms atinstalēšanas)
 
 **Atgriež:** `dict` - Izslēgšanās darbības rezultāts**Piemērs:**
 
@@ -402,8 +442,8 @@ print(f"Logout successful: {result}")
 # After logout, login required via GUI/CLI/Browser before next SDK use
 ```
 
-{% hint style=&quot;info&quot; %}
-**Nepieciešama atkārtota autentifikācija**: Pēc `logout()` izsaukšanas jums ir jāpiesakās atkārtoti, izmantojot Chloros, Chloros (pārlūkprogramma) vai Chloros CLI, pirms izmantot SDK.
+{% hint style="info" %}
+**Nepieciešama atkārtota autentifikācija**: Pēc `logout()` izsaukšanas jums ir jāpiesakās atkārtoti, izmantojot Chloros, Chloros (pārlūkprogramma) vai Chloros CLI, pirms izmantojat SDK.
 {% endhint %}
 
 ***
@@ -418,13 +458,13 @@ Vienrindas ērtības funkcija mapes apstrādei.
 
 | Parametrs                 | Tips     | Noklusējums         | Apraksts                    |
 | ------------------------- | -------- | --------------- | ------------------------------ |
-| `folder_path`             | str/Celiņš | Nepieciešams        | Celiņš uz mapi ar attēliem     |
+| `folder_path`             | str/Path | Obligāts        | Ceļš uz mapi ar attēliem     |
 | `project_name`            | str      | Automātiski ģenerēts  | Projekta nosaukums                   |
-| `camera`                  | str      | `None`          | Kameras veidne                |
+| `camera`                  | str      | `None`          | Kameras šablons                |
 | `indices`                 | saraksts     | `["NDVI"]`      | Aprēķināmi indeksi           |
 | `vignette_correction`     | bool     | `True`          | Iespējot vinjetes korekciju     |
 | `reflectance_calibration` | bool     | `True`          | Iespējot atstarošanas kalibrēšanu |
-| `export_format`           | str      | &quot;TIFF (16 bitu)&quot; | Izvades formāts                  |
+| `export_format`           | str      | &quot;TIFF (16-bit)&quot; | Izvades formāts                  |
 | `mode`                    | str      | `"parallel"`    | Apstrādes režīms                |
 | `progress_callback`       | izsaucams | `None`          | Progresa atgriezeniskā saite              |
 
@@ -475,7 +515,11 @@ with ChlorosLocal() as chloros:
 
 ***
 
-## Pilnīgi piemēri
+## Pilni piemēri
+
+{% hint style="info" %}
+**Linux lietotāji**: Visi zemāk minētie piemēri izmanto Windows ceļus. Aizstājiet `C:\\...` ceļus ar saviem Linux ceļiem (piem., `/home/user/...` vai `~/...`). Visas SDK funkcijas ir identiskas visās platformās.
+{% endhint %}
 
 ### 1. piemērs: Pamata apstrāde
 
@@ -494,7 +538,7 @@ print(f"Processing complete: {results}")
 
 ### 2. piemērs: Pielāgota darba plūsma
 
-Pilnīga kontrole pār apstrādes cauruļvadu:
+Pilnīga kontrole pār apstrādes procesu:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -511,7 +555,7 @@ print(f"Imported {len(import_results.get('files', []))} images")
 
 # Configure advanced settings
 chloros.configure(
-    debayer="High Quality (Faster)",
+    debayer="Standard (Fast, Medium Quality)",
     vignette_correction=True,
     reflectance_calibration=True,
     ppk=False,
@@ -534,9 +578,9 @@ print("Processing complete!")
 
 ***
 
-### 3. piemērs: vairāku mapju apstrāde partijās
+### 3. piemērs: vairāku mapju partiju apstrāde
 
-Vairāku lidojumu datu kopu apstrāde:
+Apstrādājiet vairākus lidojumu datu kopumus:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -586,9 +630,9 @@ print("All flights processed!")
 
 ***
 
-### 4. piemērs: pētniecības procesa integrācija
+### 4. piemērs: integrācija pētniecības procesā
 
-Chloros integrācija ar datu analīzi:
+Integrējiet Chloros ar datu analīzi:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -641,9 +685,9 @@ print(df)
 
 ***
 
-### 5. piemērs: Pielāgota progresa uzraudzība
+### 5. piemērs: Pielāgota procesa gaitu uzraudzība
 
-Uzlabota progresa uzraudzība ar reģistrēšanu:
+Uzlabota procesa gaitu uzraudzība ar žurnāla reģistrēšanu:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -708,7 +752,7 @@ def process_safely(folder_path):
         return False, f"License error: {e}. Upgrade to Chloros+ at cloud.mapir.camera/pricing"
     
     except ChlorosBackendError as e:
-        return False, f"Backend error: {e}. Ensure Chloros Desktop is installed."
+        return False, f"Backend error: {e}. Ensure Chloros is installed (Windows installer or Linux .deb package)."
     
     except ChlorosProcessingError as e:
         return False, f"Processing error: {e}"
@@ -732,9 +776,9 @@ else:
 
 ***
 
-### 7. piemērs: Konta pārvaldība un iziet no sistēmas
+### 7. piemērs: Kontu pārvaldība un iziet no sistēmas
 
-Pārvaldiet autentifikācijas datus ar programmas palīdzību:
+Pārvaldiet autentifikācijas datus ar programmēšanas palīdzību:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -892,7 +936,7 @@ except ChlorosLicenseError:
     print("Chloros+ license required. Upgrade at cloud.mapir.camera/pricing")
 
 except ChlorosBackendError:
-    print("Backend failed to start. Ensure Chloros Desktop is installed.")
+    print("Backend failed to start. Ensure Chloros is installed (Windows installer or Linux .deb package).")
 
 except ChlorosProcessingError as e:
     print(f"Processing failed: {e}")
@@ -905,9 +949,9 @@ except ChlorosError as e:
 
 ## Papildu tēmas
 
-### Pielāgota backend konfigurācija
+### Pielāgota aizmugures konfigurācija
 
-Izmantojiet pielāgotu backend atrašanās vietu vai konfigurāciju:
+Izmantojiet pielāgotu aizmugures atrašanās vietu vai konfigurāciju:
 
 ```python
 chloros = ChlorosLocal(
@@ -942,7 +986,7 @@ print("Processing complete!")
 
 ### Atmiņas pārvaldība
 
-Lieliem datu kopumiem veiciet apstrādi partijās:
+Lieliem datu kopumiem apstrādājiet pa daļām:
 
 ```python
 from pathlib import Path
@@ -969,28 +1013,39 @@ for i in range(0, len(images), batch_size):
 
 ## Problēmu novēršana
 
-### Aizmugure nedarbojas
+### Backend nepalaižas
 
-**Problēma:** SDK nevar sākt aizmuguri**Risinājumi:**
+**Problēma:** SDK nevar palaist backend**Risinājumi:**
 
-1. Pārbaudiet, vai ir instalēts Chloros Desktop:
+1. Pārbaudiet, vai ir instalēts Chloros:
 
 ```python
 import os
-backend_path = r"C:\Program Files\MAPIR\Chloros\resources\backend\chloros-backend.exe"
+import platform
+
+# Auto-detect backend path
+if platform.system() == "Windows":
+    backend_path = r"C:\Program Files\MAPIR\Chloros\resources\backend\chloros-backend.exe"
+else:
+    backend_path = "/usr/lib/chloros/chloros-backend"
+
 print(f"Backend exists: {os.path.exists(backend_path)}")
 ```
 
-2. Pārbaudiet, vai Windows ugunsmūris neblokē
-3. Mēģiniet manuāli ievadīt backend ceļu:
+2. Pārbaudiet ugunsmūri (Windows) vai porta pieejamību (Linux: `lsof -i :5000`)
+3. Izmēģiniet manuālo backend ceļu:
 
 ```python
+# Windows
 chloros = ChlorosLocal(backend_exe="C:\\Path\\To\\chloros-backend.exe")
+
+# Linux
+chloros = ChlorosLocal(backend_exe="/opt/mapir/chloros/backend/chloros-backend")
 ```
 
 ***
 
-### Licence nav atklāta**Problēma:** SDK brīdina par trūkstošu licenci**Risinājumi:**
+### Licence nav atpazīta**Problēma:** SDK brīdina par trūkstošu licenci**Risinājumi:**
 
 1. Atveriet Chloros, Chloros (pārlūks) vai Chloros CLI un piesakieties.
 2. Pārbaudiet, vai licence ir saglabāta kešatmiņā:
@@ -998,13 +1053,18 @@ chloros = ChlorosLocal(backend_exe="C:\\Path\\To\\chloros-backend.exe")
 ```python
 from pathlib import Path
 import os
+import platform
 
-# Check cache location (Windows)
-cache_path = Path(os.getenv('APPDATA')) / 'Chloros' / 'cache'
+# Check cache location
+if platform.system() == "Windows":
+    cache_path = Path(os.getenv('APPDATA')) / 'Chloros' / 'cache'
+else:
+    cache_path = Path.home() / '.cache' / 'chloros'
+
 print(f"Cache exists: {cache_path.exists()}")
 ```
 
-3. Ja rodas problēmas ar autentifikācijas datiem, izdzēsiet cache atmiņā saglabātos autentifikācijas datus un atkārtoti pieteikties:
+3. Ja rodas problēmas ar autentifikācijas datiem, izdzēsiet kešatmiņā saglabātos autentifikācijas datus un pieteikties atkārtoti:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -1036,7 +1096,7 @@ python -c "import sys; print(sys.path)"
 
 ***
 
-### Apstrādes laika limits**Problēma:** Apstrādes laika limits ir beidzies.**Risinājumi:**
+### Apstrādes laika limits**Problēma:** Apstrādes laika limits ir beidzies**Risinājumi:**
 
 1. Palieliniet laika limitu:
 
@@ -1044,8 +1104,8 @@ python -c "import sys; print(sys.path)"
 chloros = ChlorosLocal(timeout=120)  # 2 minutes
 ```
 
-2. Apstrādājiet mazākas partijas.
-3. Pārbaudiet pieejamo diska vietu.
+2. Apstrādājiet mazākas partijas
+3. Pārbaudiet pieejamo diska vietu
 4. Uzraugiet sistēmas resursus
 
 ***
@@ -1060,8 +1120,14 @@ chloros = ChlorosLocal(api_url="http://localhost:5001")
 Vai atrodiet un aizveriet konfliktējošo procesu:
 
 ```powershell
-# PowerShell
+# Windows PowerShell
 Get-NetTCPConnection -LocalPort 5000
+```
+
+```bash
+# Linux
+lsof -i :5000
+kill $(lsof -t -i :5000)
 ```
 
 ***
@@ -1076,7 +1142,7 @@ Get-NetTCPConnection -LocalPort 5000
 chloros.process(mode="parallel")  # Up to 16 workers
 ```
 
-2. **Samaziniet izvades izšķirtspēju** (ja tas ir pieņemams)
+2. **Samaziniet izvades izšķirtspēju** (ja tas ir pieņemami)
 
 ```python
 chloros.configure(export_format="PNG (8-bit)")  # Faster than TIFF
@@ -1102,9 +1168,9 @@ Lieliem datu kopumiem:
 
 ***
 
-### Fona apstrāde
+### Apstrāde fonā
 
-Atbrīvojiet Python citām uzdevumiem:
+Atbrīvojiet Python citiem uzdevumiem:
 
 ```python
 chloros.process(wait=False)  # Non-blocking
@@ -1194,29 +1260,32 @@ chloros.process(progress_callback=notebook_progress)
 
 ### J: Vai SDK ir nepieciešams interneta savienojums?
 
-**A:** Tikai sākotnējai licences aktivizēšanai. Pēc ieejas caur Chloros, Chloros (pārlūkprogramma) vai Chloros CLI licence tiek saglabāta vietējā cache atmiņā un darbojas bezsaistē 30 dienas.***
+**A:** Tikai sākotnējai licences aktivizēšanai. Pēc ieejas sistēmā, izmantojot Chloros, Chloros (pārlūks) vai Chloros CLI, licence tiek saglabāta vietējā cache un darbojas bezsaistē 30 dienas.***
 
-### J: Vai varu izmantot SDK serverī bez GUI?**A:** Jā! Prasības:
+### J: Vai varu izmantot SDK serverī bez grafiskās lietotāja saskarnes?**A:** Jā! SDK darbojas bez grafiskās saskarnes gan Windows, gan Linux serveros.**Linux (ieteicams bez grafiskās saskarnes):**
+* Instalējiet, izmantojot `.deb` paketi
+* Aktivizējiet licenci: `chloros-cli login user@example.com 'password'`
 
+**Windows Server:**
 * Windows Server 2016 vai jaunāka versija
-* Chloros instalēta (vienreizēji)
-* Licence aktivizēta jebkurā datorā (kešatmiņā saglabātā licence kopēta uz serveri)
+* Chloros instalēts (vienreiz)
+* Licence aktivizēta ar CLI vai jebkurā datorā
 
 ***
 
 ### J: Kāda ir atšķirība starp Desktop, CLI un SDK?
 
-| Funkcija         | Desktop GUI | CLI komandrinda | Python SDK  |
+| Funkcija         | Desktop GUI | CLI Komandu rinda | Python SDK  |
 | --------------- | ----------- | ---------------- | ----------- |
-| **Saskarnes**   | Punktu klikšķis | Komanda          | Python API  |
-| **Vislabāk piemērots**    | Vizuālam darbam | Skriptiem        | Integrācijai |
+| **Saskarnes veids**   | Punktu-klikšķis | Komandas          | Python API  |
+| **Vispiemērotākais**    | Vizuāls darbs | Skriptēšana        | Integrācija |
 | **Automatizācija**  | Ierobežota     | Laba             | Izcila   |
 | **Elastība** | Pamata       | Laba             | Maksimāla     |
 | **Licence**     | Chloros+    | Chloros+         | Chloros+    |***
 
-### J: Vai es varu izplatīt ar SDK izveidotas lietotnes?**A:** SDK kodu var integrēt jūsu lietotnēs, bet:
+### J: Vai es varu izplatīt lietotnes, kas izstrādātas ar SDK?**A:** SDK kodu var integrēt jūsu lietotnēs, bet:
 
-* Galalietotājiem ir nepieciešams instalēt Chloros
+* Galalietotājiem ir jābūt instalētam Chloros
 * Galalietotājiem ir nepieciešamas aktīvas Chloros+ licences
 * Komerciālai izplatīšanai ir nepieciešama OEM licence
 
@@ -1234,7 +1303,7 @@ pip install --upgrade chloros-sdk
 
 ### J: Kur tiek saglabāti apstrādātie attēli?
 
-Pēc noklusējuma, projekta ceļā:
+Pēc noklusējuma — projekta ceļā:
 
 ```
 
@@ -1245,21 +1314,27 @@ Project_Path/
 
 ***
 
-### J: Vai varu apstrādāt attēlus no Python skriptiem, kas darbojas pēc grafika?**A:** Jā! Izmantojiet Windows uzdevumu plānotāju ar Python skriptiem:
+### J: Vai varu apstrādāt attēlus no Python skriptiem, kas darbojas saskaņā ar grafiku?**A:** Jā! Izmantojiet savas operētājsistēmas plānotāju ar Python skriptiem:
 
 ```python
 # scheduled_processing.py
 from chloros_sdk import process_folder
 
 # Process today's flights
-results = process_folder("C:\\Flights\\Today")
+results = process_folder("/data/flights/today")  # Linux
+# results = process_folder("C:\\Flights\\Today")  # Windows
 ```
 
-Plānojiet ikdienas darbību, izmantojot uzdevumu plānotāju.
+**Windows:** Plānojiet izpildi katru dienu, izmantojot uzdevumu plānotāju.**Linux:** Plānojiet izpildi, izmantojot cron:
+
+```cron
+# Run at 2 AM daily
+0 2 * ** /usr/bin/python3 /home/user/scheduled_processing.py >> /var/log/chloros.log 2>&1
+```
 
 ***
 
-### J: Vai SDK atbalsta async/await?**A:** Pašreizējā versija ir sinhronizēta. Lai izmantotu async funkciju, izmantojiet `wait=False` vai palaidiet atsevišķā pavedienā:
+### J: Vai SDK atbalsta async/await?**A:** Pašreizējā versija ir sinhronā. Lai izmantotu asinhrono darbību, izmantojiet `wait=False` vai palaidiet atsevišķā pavedienā:
 
 ```python
 import threading
@@ -1275,7 +1350,7 @@ thread.start()
 
 ***
 
-### J: Kā pārslēgties starp dažādiem Chloros+ kontiem?**A:** Izmantojiet `logout()` metodi, lai dzēstu kešatmiņā saglabātās paroles, pēc tam atkārtoti piesakieties ar jauno kontu:
+### J: Kā pārslēgties starp dažādiem Chloros+ kontiem?**A:** Izmantojiet `logout()` metodi, lai dzēstu kešēto autentifikācijas informāciju, pēc tam atkārtoti piesakieties ar jauno kontu:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -1287,15 +1362,15 @@ chloros.logout()
 # Re-login via Chloros, Chloros (Browser), or Chloros CLI with new account
 ```
 
-Pēc iziet no konta, autentificējieties ar jauno kontu, izmantojot GUI, pārlūku vai CLI, pirms atkārtoti izmantot SDK.
+Pēc iziet no sistēmas, autentificējieties ar jauno kontu, izmantojot GUI, pārlūku vai CLI, pirms atkārtoti izmantojat SDK.
 
 ***
 
-## Palīdzība
+## Palīdzības saņemšana
 
 ### Dokumentācija
 
-* **API atsauce**: Šī lapa
+* **API atsauces**: Šī lapa
 
 ### Atbalsta kanāli
 
@@ -1305,10 +1380,10 @@ Pēc iziet no konta, autentificējieties ar jauno kontu, izmantojot GUI, pārlū
 
 ### Parauga kods
 
-Visi šeit uzskaitītie piemēri ir pārbaudīti un gatavi izmantošanai. Kopējiet un pielāgojiet tos savām vajadzībām.
+Visi šeit uzskaitītie piemēri ir pārbaudīti un gatavi lietošanai. Kopējiet un pielāgojiet tos savām vajadzībām.
 
 ***
 
-## Licence**Proprietārā programmatūra** - Autortiesības (c) 2025 MAPIR Inc.
+## Licence**Autortiesību aizsargāta programmatūra** - Autortiesības (c) 2025 MAPIR Inc.
 
 SDK prasa aktīvu Chloros+ abonementu. Neatļauta izmantošana, izplatīšana vai modificēšana ir aizliegta.
