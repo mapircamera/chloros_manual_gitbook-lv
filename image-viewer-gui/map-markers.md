@@ -1,142 +1,124 @@
 # Kartes atzīmes
 
-Sadaļā „Karte“ jūsu attēli tiek attēloti interaktīvā 2D kartē, pamatojoties uz to GPS koordinātēm. Tas sniedz ģeogrāfisku pārskatu par jūsu uzņemšanas sesiju un palīdz vizualizēt telpisko pārklājumu. Tas ir noderīgi arī attēlu pirmreizējās importēšanas laikā, lai ātri izslēgtu attēlus, kurus nav nepieciešams apstrādāt.
+Sadaļā „Karte” jūsu attēli tiek attēloti interaktīvā 2D kartē, pamatojoties uz to GPS koordinātēm. Tā sniedz ģeogrāfisku pārskatu par uzņemšanas sesiju un ir ātrākais veids, kā uzreiz pēc importēšanas atlasīt attēlus, kurus nevēlaties apstrādāt.
 
 <figure><img src="../.gitbook/assets/chloros_map_markers.gif" alt=""><figcaption></figcaption></figure>
 
-## Piekļuve cilnei „Karte”
+## Kā atvērt cilni „Karte”
 
-1. Atveriet vai izveidojiet projektu Chloros
+1. Atveriet vai izveidojiet projektu programmā Chloros
 2. Importējiet attēlus, kuros ir GPS metadati
-3. Noklikšķiniet uz cilnes **Karte** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> cilni kreisajā sānjoslā
-4. Kartē tiks parādīti marķieri katra attēla GPS atrašanās vietā
+3. Noklikšķiniet uz cilnes **„Karte”** <img src="../.gitbook/assets/image (3) (1).png" alt="" data-size="line"> kreisajā sānjoslā
+4. Kartē katra attēla GPS atrašanās vietā parādās marķieris
 
 {% hint style="info" %}
-**Nepieciešams GPS**: Kartē tiks parādīti tikai attēli, kuru EXIF metadatos ir iekļautas GPS koordinātas. Pārliecinieties, ka uzņemšanas laikā jūsu kamerā ir ieslēgts GPS.
+**Nepieciešams GPS**: kartē parādās tikai tie attēli, kuru EXIF metadatos ir norādītas GPS koordinātas. Attēls bez koordinātām joprojām atrodas projektā un tiek apstrādāts kā parasti — tam vienkārši nav atzīmes.
 {% endhint %}
 
 ***
 
-## Attēlu pielāgošana no cilnes „Karte”
+## Attēlu pielāgošana cilnē „Karte”
 
-Cilnei **Karte**<img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> ir tāds pats pievienošanas  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  un noņemšanas  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  kā [**Failu pārlūks**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> . Tajā tiek parādīts arī tāds pats projekta failu tabulas saraksts, bet ar atšķirīgiem kolonnu virsrakstiem:
+Cilnē **Karte**<img src="../.gitbook/assets/image (3) (1).png" alt="" data-size="line"> ir tādas pašas pogas failu pievienošanai <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> un noņemšanai <img src="../.gitbook/assets/image (2) (1).png" alt="" data-size="line"> kā cilnē [**Failu pārlūks**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">. Tajā tiek parādīts tas pats projekta failu saraksts ar ģeogrāfiskajām kolonnām:
 
-### Faila nosaukums
-
-* Orijinālais faila nosaukums no kameras
-* Saglabā kameras nosaukumu piešķiršanas konvenciju (piem., IMG\_0001.RAW)
-
-### Platums
-
-* Attēla platums
-
-### Garums
-
-* Attēla garums
-
-### Augstums
-
-* Attēla augstums
+| Kolonna        | Saturs                                                           |
+| ------------- | ------------------------------------------------------------------ |
+| **Nosaukums**      | Faila nosaukums tā, kā tas tika saglabāts no kameras                             |
+| **Platums**  | Decimālie grādi, seši zīmīši aiz komata                                |
+| **Garums** | Decimālie grādi, sešas zīmes aiz komata                                |
+| **Augstums**  | Metri, viena zīme aiz komata — `-`, ja attēlam nav augstuma |
 
 {% hint style="info" %}
-Noklikšķinot uz tabulas kolonnu virsrakstiem, tiek arī šķiroti rindu dati
+Noklikšķiniet uz jebkuras slejas virsraksta, lai kārtotu pēc tās; noklikšķiniet vēlreiz, lai mainītu secību.
+{% endhint %}
+
+{% hint style="warning" %}
+**Augstums ir augstums virs jūras līmeņa, nevis augstums virs zemes.** Šī vērtība ir iegūta no attēla EXIF `GPSAltitude` tagiem, kas attiecas uz vidējo jūras līmeni. Tas nav lidojuma augstums virs reljefa, un Chloros no tā neaprēķinās attālumu līdz zemes virsmai — virs lauka, kas atrodas 300 m virs jūras līmeņa, dronis, kas lido 100 m virs zemes (AGL), šeit reģistrē aptuveni 400 m. Izmantojiet šo kolonnu, lai atklātu novirzes un pārliecinātos par lidojuma augstuma stabilitāti, nevis kā AGL mērījumu.
 {% endhint %}
 
 ***
 
 ## Attēlu marķieri
 
-Katrs attēls ar GPS datiem tiek attēlots kā marķieris kartē:
+Katram attēlam ar GPS datiem tiek piešķirts marķieris tā koordinātās.
 
 ### Marķieru attēlošana
 
-* Atzīmes norāda precīzas GPS koordinātes, kur katrs attēls tika uzņemts
-* Atzīmes var grupēties kopā, ja tiek samazināts attēls
-* Palieliniet attēlu, lai redzētu atsevišķu attēlu atrašanās vietas
-
-{% hint style="success" %}
-SUPER-ZOOM: Kad sasniedzat maksimālo palielinājuma līmeni no kartes flīžu sniedzēja, flīze tiek palielināta, turpinot palielināt attēlu, ļaujot jums redzēt atzīmes, kas atrodas tuvu viena otrai.
-{% endhint %}
+* Marķieri atrodas tieši tajās koordinātēs, kas reģistrētas katram attēlam
+* Marķieri, kas atrodas tuvu viens otram, var vizuāli pārklāties, ja attēls ir samazināts — palieliniet attēlu, lai tos nošķirtu
+* Izvēlētie un izceltie marķieri tiek attēloti virs pārējiem
 
 ### Priekšskatījums, uzvedot kursoru
 
-* **Uzvediet peles kursoru** uz jebkuru atzīmi, lai redzētu attēla sīkattēlu
-* Tas ļauj ātri vizuāli identificēt attēlu, neizejot no kartes skata
-* Noderīgi, lai atrastu konkrētus attēlus lielā uzņemšanas sesijā
+* **Uzvediet kursoru** uz jebkura marķiera, lai parādītu attēla sīktēlu ar tā faila nosaukumu
+* **Noklikšķiniet**uz marķiera, lai atlasītu attēlu un**fiksētu** atvērtā loga palikšanu — tas paliks atvērts, kamēr neklikšķināsiet citur. Kamēr logs ir fiksēts, uzvedot kursoru uz citiem marķieriem, tas netiks aizstāts
+* Tas ir ātrs veids, kā atrast konkrētu kadru lielā sesijā, neizejot no kartes
+
+<figure><img src="../.gitbook/assets/image (36).png" alt=""><figcaption><p>Sadaļā „Karte” tiek attēloti visi projektā esošie attēli ar ģeogrāfiskajām atzīmēm</p></figcaption></figure>### Super-tuvinājums
+
+{% hint style="success" %}
+**SUPER-TUVIŅŠANĀS**: kad sasniedzat maksimālo tuvinājumu, kāds ir pieejams attēlu sniedzēja sniegtajos attēlos, turpmāka tuvināšana nevis apstājas, bet gan palielina flīzes, tādējādi ļaujot atšķirt marķierus, kas atrodas gandrīz viens virs otra.
+{% endhint %}
+
+* Super-zoom tiek aktivizēts tikai tad, ja esat **sasniedzis** pakalpojuma sniedzēja maksimālo tuvinājumu konkrētajai vietai un flīzes ir pilnībā ielādētas. Ja tuvinājums ir mazāks, tā darbība ir standarta
+* Diapazons ir **no 1× līdz 32×** virs pakalpojuma sniedzēja noteiktā maksimālā tuvinājuma
+* Stūrī esošais indikators parāda pašreizējo super-tuvinājumu procentos, un **×** poga blakus tam ar vienu klikšķi atgriež jūs pie parastā tuvinājuma
+* Attālināšanās vienmēr tiek nodota pašai kartei, tādējādi jūs nekad nevarat iestrēgt super-tuvinājumā
+* Tuvināšana un panoramēšana supertuvināšanas režīmā pārnes izrietošo nobīdi atpakaļ uz karti, tādējādi novirzītajai zonai, uz kuru esat pārvietojies, tiek turpināta flīžu pieprasīšana, nevis ekrāns paliek tukšs
+* Marķieri tiek attēloti kā vektoru elementi, nevis rasterizēti, tādējādi tie saglabā asumu jebkurā supertuvināšanas līmenī
 
 ***
 
 ## Kartes flīžu pakalpojumu sniedzēji
 
 {% hint style="success" %}
-**Automātiskā izvēle**: Chloros automātiski izvēlas flīžu pakalpojumu, kas nodrošina labāko tālummaiņas līmeni jūsu pašreizējai kartes atrašanās vietai. Ja vēlaties, varat manuāli pārslēgties starp pakalpojumu sniedzējiem.
+**Automātiskā izvēle**: Chloros izvēlas to flīžu pakalpojumu, kas piedāvā labāko tuvinājuma līmeni jebkurā vietā, kur atrodas jūsu attēli. Jūs to varat mainīt manuāli jebkurā brīdī.
 {% endhint %}
 
-Sadaļa „Karte” atbalsta divus flīžu pakalpojumu sniedzējus fona kartes attēliem:
-
-### Google Maps
-
-* Standarta satelīta un kartes attēli no Google
-* Vispiemērotākais vispārējam pārklājumam visā pasaulē
-
-### ESRI
-
-* Satelīta un aerofoto attēli no ESRI ArcGIS
-* Dažos reģionos bieži nodrošina augstākas izšķirtspējas attēlus
-
-***
+| Piegādātājs        | Piezīmes                                                                                                                                                             |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Google Maps** | Plašs pārklājums visā pasaulē; atbalsta visus četrus flīžu veidus                                                                                                            |
+| **Esri ArcGIS**| Dažos reģionos bieži vien ir pieejami augstākas izšķirtspējas aerofotoattēli. Esri gadījumā flīžu veids**Terrain** netiek piedāvāts, un, kamēr ir izvēlēts Esri, tā poga ir atspējota |***
 
 ## Kartes flīžu veidi
 
-Jūs varat izvēlēties kartes slāņa veidu (no kreisās puses uz labo):
+Izvēlieties kartes slāņa veidu, izmantojot pogas (no kreisās puses uz labo):
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Reljefs
+![](&lt;../.gitbook/assets/image (14).png&gt;)
 
-Rāda augstuma profilus un kartes flīzes ar detaļām (ceļi utt.)
+| Veids                 | Rāda                                                                |
+| -------------------- | -------------------------------------------------------------------- |
+| **Reljefs**          | Augstuma ēnojums ar kartes detaļām (ceļi, apzīmējumi). Tikai Google       |
+| **Karte**              | Standarta ielu kartes flīzes — variants ar vismazāko datu pārraides platjoslu              |
+| **Satelīts**        | Detalizēti satelīta attēli bez apzīmējumiem — variants ar vislielāko datu pārraides platjoslu |
+| **Hibrīds** (noklusējums) | Satelīta attēli ar uz tiem uzvilktiem ceļiem un apzīmējumiem                |
 
-### Karte
+Lapa „Karte” atveras režīmā **Hibrīds**. Jūsu izvēle tiek pārnesta uz pakalpojuma sniedzēja maiņu, ja pakalpojuma sniedzējs to atbalsta.***
 
-Rāda standarta (zemākas joslas platuma) kartes flīzes ar detaļām (ceļi utt.)
+## Navigācija kartē
 
-### Satelīts
+* **Tuvināšana**: peles ritentiņš vai tuvināšanas pogas uz kartes
+* **Pārvietošana**: noklikšķiniet un velciet
+* **Pilnekrāna režīms**: pilnekrāna vadības elements paplašina karti uz visu logu***
 
-Rāda detalizētas (augstākas joslas platuma) satelītkartes flīzes
+## Lietošanas piemēri
 
-### Hibrīds
+### Lidojuma maršruta pārskatīšana
 
-Rāda satelītkartes flīzes ar pievienotām detaļām (ceļi utt.)
+* Vienā skatienā apskatiet drona lidojuma sesijas pārklājuma zonu
+* Atklājiet vietas, kur lidojums nav noticis
+* Pārliecinieties, ka lidojums noritēja saskaņā ar plānoto maršrutu
 
-***
+### Zemes apsekojuma pārskatīšana
 
-## Kartes navigācija
-
-### Tuvināšanas/attālināšanas vadības elementi
-
-* **Tuvināšana/attālināšana**: izmantojiet peles ritentiņu vai tuvināšanas pogas
-* **Pilnekrāna režīms**: parādiet karti pilnekrāna režīmā
-
-### Pārvietošanas vadības elementi
-
-* **Pārvietošana**: noklikšķiniet un velciet, lai pārvietotos pa karti***
-
-## Lietošanas gadījumi
-
-### Lidojuma maršruta vizualizācija
-
-* Apskatiet dronu uzņemšanas sesiju pārklājuma zonu
-* Identificējiet attēlu pārklājuma nepilnības
-* Pārbaudiet lidojuma maršruta izpildi
-
-### Zemes apsekojuma pārskats
-
-* Apskatiet zemes uzņemumu telpisko izkliedi
-* Atrodiet kalibrēšanas mērķa attēlus attiecībā pret apsekojuma zonu
-* Plānojiet papildu uzņemšanas vietas
+* Apskatiet, kā izvietoti uz zemes uzņemtie attēli
+* Atrodiet kalibrēšanas mērķu rāmjus attiecībā pret apsekojamo zonu
+* Izlemiet, kur nepieciešami papildu attēli
 
 ### Kvalitātes kontrole
 
-* Ātri identificējiet attēlus, kas uzņemti negaidītās vietās
-* Pārbaudiet GPS precizitāti visā datu kopā
+* Atrodiet attēlus, kas uzņemti neparedzētā vietā, un izdzēsiet tos pirms apstrādes
+* Šķirojiet pēc augstuma, lai atrastu kadru, kas uzņemts nepareizā augstumā, vai tādu, kurā GPS signāls bija vājš
 * Salīdziniet attēlu atrašanās vietas ar lauka piezīmēm
 
 ***
@@ -145,19 +127,24 @@ Rāda satelītkartes flīzes ar pievienotām detaļām (ceļi utt.)
 
 ### Neparādās marķieri
 
-**Iespējamie iemesli:**
+**Iespējamie iemesli**
 
 * Attēlos nav GPS metadatu
 * Uzņemšanas laikā kamerā bija atspējots GPS
-* EXIF dati tika izdzēsti ar ārējo programmatūru
+* EXIF dati tika noņemti ar citu programmatūru pirms importēšanas
 
-**Risinājums**: Pārbaudiet, vai kamerā ir ieslēgts GPS, un atkārtoti importējiet oriģinālās failus
+**Ko darīt**: pārliecinieties, ka kamerā ir ieslēgts GPS, un atkārtoti importējiet sākotnējos failus. Jūs varat pārbaudīt, vai konkrētam failam ir koordinātas, meklējot to cilnē „Karte” esošajā failu tabulā — attēlam bez koordinātām tur nav atsevišķas rindas.
 
-### Marķieri nepareizā vietā
+### Atzīmes atrodas nepareizā vietā
 
-**Iespējamie cēloņi:**
+**Iespējamie cēloņi**: slikta satelītu signāla uztveršana uzņemšanas brīdī vai GPS novirze sesijas laikā.**Ko darīt**: šī ir problēma, kas radusies uzņemšanas brīdī, nevis kaut kas, ko Chloros var labot pēc tam. Precīzam darbam izmantojiet PPK/RTK GPS darba plūsmu — skatiet iestatījumu**Piemērot PPK korekcijas** sadaļā [Projekta iestatījumi](../project-settings/project-settings.md).
 
-* Kameras GPS bija slikta satelītu fiksācija
-* GPS novirze uzņemšanas laikā
+### Karte ir tukša vai flīzes vairs neielādējas
 
-**Risinājums**: Parasti tas ir uzņemšanas laika problēma; apsveriet PPK/RTK GPS izmantošanu precīzām lietojumprogrammām
+Flīžu piegādātāji ir tiešsaistes pakalpojumi. Ja flīzes vairs netiek saņemtas, pārbaudiet ierīces tīkla savienojumu, pēc tam mēģiniet mainīt piegādātāju. Ja bijāt ļoti tuvinājis attēlu, nospiediet **×** atjaunošanas pogu, lai atgrieztos pie normāla tuvinājuma līmeņa un ļautu kartē atkārtoti pieprasīt flīzes.***
+
+## Saistītās lapas
+
+* [**Attēlu rāsts**](image-grid.md) — tas pats attēlu kopums, kas izmantots kā sīktēli
+* [**Attēla atvēršana pilnekrāna režīmā**](opening-an-image-full-screen.md) — viena attēla detalizēta apskate
+* [**Failu pievienošana projektam**](../processing-images-gui/adding-files-to-a-project.md) — šajā cilnē pieejamās pogas failu pievienošanai un noņemšanai

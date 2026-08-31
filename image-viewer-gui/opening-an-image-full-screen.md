@@ -1,212 +1,226 @@
 # Attēla atvēršana pilnekrāna režīmā
 
-Chloros attēlu skatītājs piedāvā īpašu pilnekrāna saskarni multispektrālo attēlu apskatei, analīzei un apstrādei. Neatkarīgi no tā, vai skatāt oriģinālos attēlus vai apstrādātos rezultātus, attēlu skatītājs piedāvā jaudīgus rīkus pārbaudei un analīzei.
+<figure><img src="../.gitbook/assets/image (34).png" alt=""><figcaption><p>Attēls atvērts pilnekrāna režīmā, ar slāņu izvēlni augšējā labajā stūrī</p></figcaption></figure>
+
+Chloros attēlu skatītājs ir pilnekrāna saskarne jūsu attēlu skatīšanai, pārbaudīšanai un mērīšanai. Tieši šeit jūs varat nolasīt **reālās pikseļu vērtības** — DN katram kanālam, atstarošanas procentus vai starojuma intensitāti W/m²/sr/nm — nevis izstiepto priekšskatījumu, ko attēlo ekrāns.
 
 ## Piekļuve attēlu skatītājam
 
 ### No failu pārlūka
 
-Visbiežāk izmantotais veids, kā atvērt attēlu attēlu skatītājā:
+1. Atveriet cilni **Failu pārlūks** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
+2. Noklikšķiniet uz jebkuras **sīktēla** [attēlu režģī](image-grid.md)
+3. Attēls atveras pilnekrāna režīmā cilnē **Attēlu skatītājs**
 
-1. Pārliecinieties, ka atrodaties cilnē **Failu pārlūks** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
-2. Noklikšķiniet uz jebkuras **attēla sīktēla** attēlu režģī
-3. Attēls atveras **galvenajā priekšskatīšanas zonā** (ekrāna centrā)
-4. Attēls tagad ir ielādēts un gatavs skatīšanai pilnekrāna režīmā
+Attēls atveras tajā produktā, kuru rādīja rāsts. Ja rāsts ir iestatīts uz `RAW (Reflectance)`, tad tieši šajā slānī jūs nonāksiet.
 
-### Attēlu skatītāja cilnes atvēršana
+### Attēlu skatītāja sānu joslas atvēršana
 
-Kad attēls ir ielādēts priekšskatīšanas zonā:
+Noklikšķiniet uz **Attēlu skatītāja** ikonas <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> kreisajā sānu joslā, lai izslīdētu analīzes paneli. Tajā no augšas uz leju atrodas:
 
-1. Noklikšķiniet uz **Attēlu skatītāja** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> ikona kreisajā sānjoslā
-2. Atveras attēlu skatītāja cilne, kurā izvēlētais attēls tiek parādīts pilnekrāna režīmā
-3. Kreisajā sānjoslā kļūst pieejami papildu skatīšanas un analīzes rīki
+* attēla nosaukums un tā kameras modelis
+* poga **Eksportēt/saglabāt attēlu(-us)** (tikai tad, ja ir aktīvs indekss vai LUT)
+* **Indeksa**un**LUT** izvēles rūtiņas un indeksa konfigurācijas panelis — skatiet [Indeksa/LUT izmēģinājumu vidi](index-lut-sandbox.md)
+* panelis **Kursora vērtības**: nolasījums pa kanāliem, slāņa histogramma un GSD vadības elements***
 
-***
+## Navigācija un tuvināšana
 
-## Attēlu skatītāja saskarnes pārskats
+### Attēlu pārlūkošana
 
-### Galvenā attēlošanas zona
+* **Nākamais attēls**: poga → vai taustiņš**→** (labā bultiņa)
+* **Iepriekšējais attēls**: poga ← vai taustiņš**←** (kreisā bultiņa)
+* **Pāreja uz konkrētu attēlu**: atgriezieties pie režģa un noklikšķiniet uz attēla sīktēla
 
-Lielākajā ekrāna daļā tiek parādīts jūsu attēls:
+Tuvināšana un panoramēšana saglabājas, pārvietojoties starp attēliem, tādējādi varat pārskatīt attēlu kopu, paliekot tajā pašā kadra daļā.
 
-* **Pilna izšķirtspēja**: attēli tiek parādīti oriģinālajā izšķirtspējā
-* **Tuvināšana**: izmantojiet vadības elementus vai peles ratu, lai tuvinātu
-* **Pārvietošana**: noklikšķiniet un velciet, lai pārvietotos, kad attēls ir tuvināts
-* **Saglabāts attēla proporciju attiecība**: attēli tiek mērogi proporcionāli***
+### Tuvināšana
 
-## Skatīšanas opcijas
+Tuvināšanu vada ar **peles ratiņu**, 15 % soļos, fiksējot uz kursora — punkts zem rādītāja paliek zem rādītāja. Tā diapazons ir ierobežots ar attēla un loga izmēru: jūs nevarat samazināt attēlu tālāk par „pielāgot logam”, un augšējā robeža ir noteikta ar attēla sākotnējo izšķirtspēju.
 
-### Pamata attēlu navigācija
+Pilnekrāna skatītājā nav atsevišķu tālummaiņas taustiņu. (Tīklā **Ctrl + `+` / `−`** maina sīktēlu izmēru — tas ir atsevišķs vadības elements.)
 
-#### Attēlu pārlūkošana
+### Pārvietošana, kad attēls ir palielināts
 
-Pārvietojieties pa attēlu kopu, izmantojot tastatūras saīsnes vai pogas:
+Noklikšķiniet un turiet nospiestu peles kreiso pogu virs attēla un velciet. Pārvietošana ir ierobežota, tāpēc attēlu nevar velkt ārpus ekrāna.
 
-* **Nākamais attēls**: noklikšķiniet uz pogas → vai nospiediet taustiņu**→** (labā bultiņa)
-* **Iepriekšējais attēls**: noklikšķiniet uz pogas ← vai nospiediet taustiņu**←** (kreisā bultiņa)
-* **Pāriet uz konkrētu attēlu**: atgriezieties failu pārlūkā un noklikšķiniet uz vēlamās sīktēmas
+### Pārbaude pa pikseļiem lielā palielinājumā
 
-#### Tuvināšanas vadības elementi
+Kad efektīvais palielinājums pārsniedz **60×**, Chloros ap atsevišķo attēloto pikseli zem kursora iezīmē izceltu lodziņu un blakus tam parāda peldošu vērtību.
 
-Pielāgojiet palielinājumu, lai apskatītu attēla detaļas:
+„Efektīvais” palielinājums ņem vērā GSD bloka izmēru: ja bloka izmērs ir 8, izcelšana parādās jau pie 7,5× palielinājuma, nevis pie 60×, jo viens attēlotais pikselis jau atbilst 8 × 8 avota pikseļiem. Samazinot palielinājumu zem sliekšņa, izcelšana pazūd.
 
-**Palielināt:*** Noklikšķiniet uz pogas **+** (pluss)
-* Nospiediet taustiņu **+**vai**=*** Pagrieziet peles ratiņu **uz augšu**
+### Tastatūras saīsnes
 
-**Samazināt:*** Noklikšķiniet uz pogas **−** (mīnus)
-* Nospiediet taustiņu **−** (mīnus)
-* Pagrieziet peles ratiņu **uz leju**
+| Taustiņš                             | Kur       | Darbība                              |
+| ------------------------------- | ----------- | ----------------------------------- |
+| **→**                           | Pilnekrāna režīms | Nākamais attēls                          |
+| **←**                           | Pilnekrāna režīms | Iepriekšējais attēls                      |
+| **Ctrl + R**                    | Pilnekrāna režīms | Atjaunot indeksa/LUT izmēģinājumu vidi         |
+| **Ctrl + `+`**/**Ctrl + `=`** | Tīkls        | Lielākas sīktēmas (4 pikseļi katram nospiedienam)  |
+| **Ctrl + `−`**                  | Tīkls        | Mazākas sīktēmas (4 pikseļi katram nospiedienam) |***
 
-#### Pārvietošana, kad attēls ir palielināts
+## Kursora vērtības
 
-Kad attēls ir palielināts tā, ka pārsniedz ekrāna izmēru:
+Pārvietojiet kursoru pār attēlu, un panelī **Kursora vērtības** tiks parādītas katra zem tā esošā kanāla vērtības.
 
-1. Pārvietojiet peles kursoru pār attēlu
-2. Noklikšķiniet un **turiet nospiestu peles kreiso pogu**
+{% hint style="success" %}
+**Tās ir faila reālās vērtības.** Ekrānā redzamais kanvas ir 8 bitu izstiepts priekšskatījums, kas nevar nodrošināt šos rādītājus, tāpēc Chloros no faktiskā faila ņem paraugus, lai parādītu rādījumus. Tāpēc 12 bitu neapstrādāts kadrs parāda vērtības, kas pārsniedz 255, un float32 starojuma slānis parāda fiziskās vienības.
+{% endhint %}
 
-3.**Velciet**, lai pārvietotu attēlu
-4. Atlaidiet pogu, lai pārtrauktu pārvietošanu
+### Kolonnu nozīme
 
-**Alternatīva**: izmantojiet bultu taustiņus, lai pārvietotu attēlu nelielos solīšos***
+Panelis pielāgojas slānim, kuru jūs skatāties:
 
-## Pikseļu vērtību pārbaude
+| Skatāmais slānis              | Rādītās kolonnas    | Piezīmes                                                                                           |
+| ---------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------- |
+| Atstarošanas koeficients                        | **DN**un**%** | Procentuālā vērtība tiek aprēķināta, izmantojot šī faila paša mērogu — skatīt zemāk                                      |
+| Starojuma intensitāte                           | **W/m²/sr/nm**   | Fizikālās vērtības ar peldošo komatu; nav DN kolonnas, jo DN šeit nav nozīmīgs                           |
+| Neapstrādāts / Debayered / priekšskatījums / JPG    | **DN**           | Veseli skaitļi                                                                         |
+| 32bitu procentuālā atstarojamība | tikai **%**       | Saglabātā peldošā komata vērtība nav DN, tāpēc, noapaļojot to līdz veselskaitlim, tiktu izdrukāts bezjēdzīgs `0` vai `1` |
 
-### Pikseļu vērtību skatīšana pie kursora
+Katra rinda ir apzīmēta ar jūsu kameras filtra kanāla nosaukumu — `Red / Green / NIR` attiecībā uz RGN, `Orange / Cyan / NIR` attiecībā uz OCN, `NIR / Green / Blue` — NGB, `Red / Green / Blue` — RGB, kā arī vienkanāla nosaukums kamerām RE, NIR un mono M3M kamerām. Katram marķējumam ir krāsains punkts, kas atbilst kanālu apļiem, kurus izmanto indeksa formulas redaktorā.
 
-Kad pārvietojat peles kursoru pār attēlu, pikseļu vērtības tiek parādītas reāllaikā:**Vērtību parādīšanas vieta:*** **Peldošs skaitlis un sarkana līnija labās puses indeksa LUT gradienta leģendā*** **Kad palielināt vēl vairāk, peldoša vērtība pie kursora un izceltā pikseļa*** Parāda vērtības pikselim **zem kursora vai izceltam*** Atjaunojas, kad pārvietojat peli
+Saglabātie **indeksa un LUT** attēli ir īpašs gadījums: tie satur krāsu kartes komponentus, nevis spektrālos joslu, tāpēc to rindas ir apzīmētas ar `Red / Green / Blue` (vai `Index` vienkanāla indeksa failam), nevis ar kameras filtru nosaukumiem.
+
+Kad indekss ir aktīvs „smilšu kastē”, zem kanāliem parādās papildu rinda, kurā redzama **indeksa vērtība** kursora atrašanās vietā, kopā ar indeksa nosaukumu un baltu punktu, kas atbilst tā marķierim histogrammā.
+
+### Atstarošanas procenti izmanto katra faila paša mērogu
+
+{% hint style="warning" %}
+**Neuzskatiet, ka 65535 = 100 %.** Chloros saglabā atstarojumu dažādās skalās atkarībā no tā, kura kamera to radījusi, un skatītājs katram failam nosaka pareizo.
+{% endhint %}
+
+| Avots                  | DN, kas atbilst atstarošanas koeficientam 1,0 | Kā to identificē                                                                                                                               |
+| ----------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **LATTICE**(M3C / M3M) |**32768**                      | XMP birka `Chloros:PixelScale=32768` tiek ierakstīta katrā LATTICE atstarojuma eksportā. 2× rezerves diapazons ļauj failā iekļaut ρ vērtības, kas pārsniedz 1,0, neizraisot nogriešanu |
+| **Survey3**|**65535**                      | Nav Chloros XMP mēroga tag — Survey3 kalibrēšana ieraksta ρ × dtype-max un nogriež pie 1,0                                                               |
+
+Skatītājs, indeksa/LUT smilšu kaste un indeksa eksports visi aprēķina mērogu, izmantojot vienu un to pašu īstenojumu, tādēļ vērtība, ko redzat pie kursora, ir tā pati vērtība, ko izmanto indeksa aprēķini.
+
+Divas sekas, par kurām ir vērts zināt:
+
+* **32 bitu procentuālais**TIFF saglabā DN/65535 kā peldošā punkta skaitli, savukārt**8 bitu** PNG/JPG eksports saglabā DN × 255/65535 — skatītājs abus pārvērš atpakaļ, pirms izdrukā procentuālo vērtību.
+* Vienu gadījumu nevar atjaunot: **8-bitu TIFF eksports no 8-bitu avota uzņēmuma** tiek nogriezts diapazonā 0–255, nevis pārskalots, un tam apzināti nav pievienota mēroga atzīme. Šiem failiem panelis izdrukā tikai DN, bez procentu kolonnas. Šī ir godīga atbilde, nevis kļūda.***
+
+## Slāņa histogramma
+
+Zem kursora rindām atrodas reāllaika histogramma par slāni, kuru jūs skatāties, **256 intervālos**. Pēc noklusējuma tiek attēlota viena apvienota līkne, svērta `(R + 2G + B) / 4` — tajā pašā mērījumu telpā, ko izmanto LATTICE kameru histogrammas. Ieslēdzot**RGB** , tā tiek aizstāta ar līknēm katram kanālam atsevišķi kanālu krāsās, kas tiek aditīvi sajauktas, lai pārklāšanās joprojām būtu salasāmas. Mono slāņiem vienmēr tiek attēlota viena līkne.
+
+Horizontālā ass ir slāņa paša vienībās:
+
+| Slānis       | Ass vienība  | Ass maksimālā vērtība                                               |
+| ----------- | ---------- | ---------------------------------------------------------- |
+| Atstarošanās | procenti    | 125% — produkta rezerves diapazons ļauj ρ vērtībai pārsniegt 1,0           |
+| Starojums    | W/m²/sr/nm | Kadra maksimālā vērtība, noapaļota līdz divām nozīmīgajām cipārām |
+| 8-bitu dati  | DN         | 255                                                        |
+| 12-bitu dati | DN         | 4095                                                       |
+| 16-bitu dati | DN         | 65535                                                      |
+
+Ja ass ir iestatīta uz DN un atrodas uz viena no šiem trim maksimālajiem rādītājiem, Chloros zina arī to, kāda ir skatāmā attēla bitu dziļums.
+
+Virs histogrammas atrodas trīs pogas:
+
+| Poga     | Noklusējums | Efekts                                                                                                                                                                                                                                                                                   |
+| ---------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **KURSORS** | Ieslēgts | Uzzīmē marķierlīnijas uz histogrammas tieši pie tām vērtībām, kas norādītas rindās augšā, lai jūs varētu redzēt, kur kadrā atrodas pikselis zem jūsu kursora. RGB režīmā katram kanālam ir viens marķieris savā krāsā; pretējā gadījumā tiek parādīts viens balts marķieris pie apvienotās vērtības |
+| **INDEKSS**| Ieslēgts      | Parādās tikai tad, ja ir aktīvs indekss. Pārslēdz histogrammu no avota joslām uz**indeksa vērtību sadalījumu**, kur abas klipēšanas sliekšņa līnijas tiek attēlotas kā oranžas pārtrauktas līnijas, bet kursora indeksa vērtība — kā balta līnija                                                          |
+| **RGB**| Izslēgts     | Pārslēdz no apvienotās līknes uz atsevišķām kanālu līknēm. Mono sensora gadījumā šī poga rāda uzrakstu**MONO** un ir atspējota — ir tikai viens kanāls, ko parādīt                                                                                                                                  |
+
+Histogramma tiek aprēķināta pēc **redzamajiem blokiem**, nevis pēc avota pikseļiem, kas atrodas aiz tiem: mainot GSD bloka izmēru, sadalījums tiek pārrēķināts, tādējādi histogramma, kursora marķieris un attēlotais attēls vienmēr saskan.***
+
+## GSD bloka izmērs
+
+Paneļa apakšdaļā atrodas **GSD (px)**vadības elements: skaitļu lauks, slīdnis no**1 līdz 256**un**RESET** poga.
+
+Tas padara _parādīto_ attēlu rupjāku, aprēķinot vidējo vērtību N × N avota pikseļu blokam un pārvēršot to vienā parādāmajā pikselī. `1` ir oriģinālā izšķirtspēja.
+
+* Tas ietekmē **pilnekrāna skatu, režģa sīktēlus, kursora rādījumus un abas histogrammas** — viss, kas attēlo attēlu, atbilst vienai un tai pašai pamatizšķirtspējai.
+* Tas attiecas **tikai uz attēlošanu**. Apstrāde un eksportēšana netiek ietekmētas. Vienīgais izņēmums ir apzināts: eksportēšana no [Index/LUT Sandbox](index-lut-sandbox.md) saglabā to, ko jūs redzat, tādējādi saglabājot pašreizējo bloka izmēru, un eksportēšanas panelis brīdina, ja bloka izmērs pārsniedz 1.
+* Vērtība tiek saglabāta **katram projektam atsevišķi** kā `viewer_display.gsd_bin` failā `project.json`, tādējādi tā saglabājas arī pēc programmas aizvēršanas un atkārtotas atvēršanas.
+* Kursora rādījums parāda bloka vērtību, nevis avota pikseļa vērtību, ja bloka izmērs pārsniedz 1 — parādītā vērtība ir bloka vidējā vērtība zem jūsu kursora.
+
+{% hint style="info" %}
+**Kāpēc „bloka izmērs”, nevis centimetri uz pikseli?** Lai aprēķinātu cm/px rādītāju, ir nepieciešams augstums virs zemes. Viena kadra EXIF dati satur GPS augstumu virs vidējā jūras līmeņa, nevis virs reljefa, uz kuru tā bija vērsta, tāpēc Chloros neuzrādīs attālumu līdz zemei, ko tas nevar precīzi aprēķināt. Bloka izmērs avota pikseļos ir tā pati rezerves vērtība, ko izmanto MAPIR mākoņu rīki, ja attālums līdz zemei nav zināms.
+{% endhint %}
 
 ***
 
 ## Attēlu veidi, kurus varat apskatīt
 
-### JPG
+Skatītāja labajā augšējā stūrī esošajā slāņu nolaižamajā izvēlnē ir uzskaitītas visas pašreizējā attēla versijas. Kādi ieraksti tiek parādīti, ir atkarīgs no kameras un no tā, kas ir apstrādāts — skatiet [Attēlu slāņi](image-layers.md), lai redzētu pilnu sarakstu un uzzinātu, kā darbojas izvēlne.
 
-**JPG attēli no kameras:**
+### Survey3
 
-* Parāda JPG datus tā, kā tie ir priekšskatīti
-* Parāda oriģinālās, nekoriģētās vērtības
-* Noderīgi attēla kvalitātes pārbaudei pirms apstrādes
+* **JPG** — kameras paša priekšskatījuma fails
+* **RAW (oriģināls)** — avota `.RAW`, attēla parādīšanai atbrīvots no bayera, bez korekcijām
+* **RAW (mērķis)** — kadrs, kas identificēts kā tāds, kurā ir kalibrēšanas mērķis
+* **RAW (Atstarošana)** — kalibrētais atstarošanas rezultāts (65535 = ρ 1,0)
+* **Koriģēta vinjetēšana**/**Sensora reakcija** — nekalibrētais rezerves rezultāts
+* **White Balanced** — attēls ar balansa korekciju
+* **RAW (`<INDEX>` indekss)**un**`<INDEX>` LUT** — aprēķināti indeksa attēli
 
-### RAW (oriģināls)
+### LATTICE
 
-### RAW (atstarošanās)
+LATTICE uzņēmumiem tiek izmantota tā pati nolaižamā izvēlne ar apstrādes posmu nosaukumiem:
 
-**Pēc apstrādes:**
+| Slānis                 | Kas tajā atrodas                                                        |
+| --------------------- | -------------------------------------------------------------------- |
+| **RAW (oriģināls)**    | Avota neapstrādātais kadrs tā, kā tas tika uzņemts                                     |
+| **RAW (bez bayera)**   | Lineārais attēls bez bayera                                           |
+| **RAW (Priekšskatījums)**     | Ekrāna priekšskatījums — viltus krāsu izstiepums multispektrālajām kamerām |
+| **Ar balansa korekciju**    | Ekrāna priekšskatījums RGB galvenajām kamerām (balansa korekcija + gamma)   |
+| **RAW (starojums)**    | Float32 spektrālais starojums W/m²/sr/nm                              |
+| **RAW (atstarošanās)** | uint16 atstarošanās, 32768 = ρ 1,0                                    |
 
-* Vignette korekcija
-* Kalibrēta atstarojamība
-* Daudzjoslu TIFF (Red, Green, NIR, utt.)
-* Zinātniskie dati gatavi analīzei
-
-### RAW (indekss)
-
-**NDVI, NDRE, GNDVI utt. (\_NDVI.tif faili):**
-
-* Vienkanāla pelēktoņu attēli
-* Pikseļu vērtības atspoguļo indeksa aprēķinu rezultātus
-* Normalizēto indeksu diapazons parasti ir no -1 līdz +1
-* Vizualizācijai var piemērot krāsu LUT
+Starojums un atstarošanās ir pieejami tikai multispektrālajā režīmā: RGB galvenajai kamerai nav radiometrijas pa joslām, tādēļ šie slāņi tai netiek ģenerēti.
 
 ***
 
 ## Indeksa un LUT piemērošana
 
-Piemērojiet multispektrālos indeksus un krāsu Look-Up Tables:
+Piemērojiet multispektrālos indeksus un krāsu meklēšanas tabulas (LUT) no sānu joslas:
 
-1. Atrodiet **Index/LUT Sandbox** **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sānu joslā
-2. Izvēlieties veģetācijas indeksu (NDVI, NDRE utt.)
-3. Izvēlieties multispektrālo formulu vai izveidojiet savu pielāgotu formulu (tikai Chloros+)
-4. Vizualizācijai piemērojiet krāsu LUT gradientu
-5. Pielāgojiet vērtību diapazonus un sliekšņus
+1. Atveriet **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sānu joslā
+2. Atzīmējiet **Index**
 
-Sīkākas instrukcijas skatiet [Indeksa/LUT izmēģinājumu vidē](index-lut-sandbox.md).
+3. Izvēlieties savas kameras filtru un indeksa formulu, pēc tam velciet kanālu apļus uz formulas lauciņiem
+4. Pievienojiet LUT un izvēlieties gradientu, sliekšņus un apgriešanas režīmu
+5. Nolasiet vērtības pie kursora un saglabājiet rezultātu, izmantojot **Eksportēt/Saglabāt attēlu(-us)**Pilnu pamācību skatiet [Indeksa/LUT izmēģinājumu vidē](index-lut-sandbox.md).***
 
-***
+## Problēmu novēršana
 
-## Tastatūras saīsnes
+### Attēls neatsveras
 
-### Navigācija
+**Iespējamie iemesli**: fails tika pārvietots vai dzēsts pēc importēšanas; produkts netika saglabāts; nav pietiekami daudz atmiņas ļoti lielam attēlam.**Ko darīt**:
 
-* **→** (Labā bultiņa): Nākamais attēls
-* **←** (Kreisā bultiņa): Iepriekšējais attēls
-* **Home**: Pirmais attēls sarakstā
-* **End**: Pēdējais attēls sarakstā
-
-### Tuvināšana
-
-* **+**vai**=**: Tuvināt
-* **−**: Attālināt
-* **Peles ritenītis**: Tuvināt/attālināt***
-
-### Indeksu aprēķinu pārbaude
-
-Pārbaudiet, vai indeksi ir aprēķināti pareizi:
-
-1. Atveriet NDVI vai citu indeksa attēlu
-2. Pārbaudiet veģetācijas platības:
-   * **NDVI**: Veseliem augiem jābūt 0,4–0,9
-   * **NDRE**: Spēcīgas augšanas gadījumā vērtības ir augstākas
-   * **GNDVI**: Līdzīgs NDVI, bet jutīgs pret hlorofilu
-3. Pārbaudiet neaugu segumu:
-   * **Augsne**: Tuvu 0 vai nedaudz negatīvs
-   * **Ūdens**: Negatīvas vērtības (-0,5 līdz 0)***
-
-## Problēmu novēršana attēlu skatīšanā
-
-### Attēls nevar atvērties
-
-**Iespējamie iemesli:**
-
-* Fails bojāts apstrādes laikā
-* Nepiedāvāts faila formāts
-* Nepietiekama atmiņa liela izmēra attēlam
-
-**Risinājumi:**
-
-1. Mēģiniet atvērt ārējā skatītājā, lai pārbaudītu faila integritāti
-2. Pārbaudiet, vai faila formāts atbilst paredzētajam tipam
+1. Pārbaudiet, vai slāņa fails joprojām atrodas projekta izvades struktūrā
+2. Atveriet failu ārējā skatītājā, lai pārliecinātos, ka tas ir neskarts
 3. Aizveriet citas programmas, lai atbrīvotu atmiņu
-4. Mēģiniet ar mazāku/citu attēlu
 
-### Attēls tiek parādīts melns vai balts
+### Attēls ir melns, balts vai ar neparastām krāsām
 
-**Iespējamie iemesli:**
+**Iespējamie cēloņi**: ekrāna izstiepumam nav ar ko strādāt (gandrīz nemainīgs kadrs); „float32” slānis ar neparastām vērtībām; indekss, kas neradīja derīgus datus.**Ko darīt**:
 
-* Vērtību diapazons ārpus attēlošanas iespējām
-* 32-bitu peldošā punkta attēls ar neparastām vērtībām
-* Indeksa aprēķina kļūda
+1. Nolasiet kursora vērtības — ja katrs kanāls ir nulle vai tuvu nullei, problēma ir datos, nevis attēlošanā
+2. Pārbaudiet histogrammu: viens pīķis vienā galā liecina, ka kadrs ir nogriezts vai tukšs
+3. Pārbaudiet apstrādes žurnālu par to apstrādes ciklu, kurā tika izveidots slānis
 
-**Risinājumi:**
+### Vērtības izskatās nepareizas
 
-1. Pārbaudiet pikseļu vērtības — ja visas ir ļoti zemas vai ļoti augstas, pielāgojiet attēlošanas diapazonu
-2. Mēģiniet atvērt QGIS vai līdzīgā programmā ar automātisku diapazona pielāgošanu
-3. Pārbaudiet apstrādes kļūdu žurnālu, lai atrastu kļūdas
+**Iespējamie cēloņi**: jūs atrodaties citā slānī, nekā domājat; jūs salīdzināt procentuālo vērtību ar neapstrādātu DN; jūs salīdzināt LATTICE failu ar Survey3 failu, izmantojot to pašu dalītāju.**Ko darīt**:
 
-### Pikseļu vērtības šķiet nepareizas
-
-**Iespējamie cēloņi:**
-
-* Tiek skatīts nepareizs attēls (oriģināls pret apstrādātu)
-* Kalibrēšana nav veikta pareizi
-* Ievadē nav iekļauti gaismas sensora dati
-* Nepareizi pārslēgts procentuālais režīms
-
-**Risinājumi:**
-
-1. Pārliecinieties, ka skatāt apstrādāto rezultātu (pārbaudiet faila nosaukuma paplašinājumu)
-2. Pārbaudiet procentuālā režīma pogas stāvokli
-3. Salīdziniet ar attēliem no tā paša datu kopuma, par kuriem zināt, ka tie ir pareizi
+1. Pārbaudiet izvēlēto slāni nolaižamajā izvēlnē — paneļa vienības atbilst slānim
+2. Attiecībā uz atstarošanas koeficientu izmantojiet **%** kolonnu, nevis paši daliet DN; ja jums ir jādalās, izmantojiet šī faila `Chloros:PixelScale` (32768 LATTICE gadījumā; ja nav norādīts, tad Survey3 gadījumā — 65535)
+3. Iestatiet GSD bloka izmēru atpakaļ uz 1 — ja tas pārsniedz 1, jūs lasāt bloka vidējo vērtību, nevis pikseli
+4. Pārbaudiet, vai atstarojuma kalibrēšana šim kadram tiešām ir veikta; nekalibrēts rezerves produkts (Sensor Response / Vignette Corrected) nav atstarojums
 
 ***
 
 ## Turpmākie soļi
 
-Tagad, kad varat skatīt attēlus pilnekrāna režīmā:
+* [**Attēla slāņi**](image-layers.md) — katra slāņa nosaukums (ja tāds ir) un tā vērtību nozīme
+* [**Indeksa/LUT izmēģinājumu vide**](index-lut-sandbox.md) — indeksa vizualizāciju veidošana, pielāgošana un eksportēšana
+* [**Kartes marķieri**](map-markers.md) — tas pats attēlu kopums uz kartes
+* [**Daudzspektrālo indeksu formulas**](../project-settings/multispectral-index-formulas.md) — indeksu atsauces
 
-* [**Attēlu slāņi**](image-layers.md) — uzziniet par daudzjoslu vizualizāciju
-* [**Indeksu/LUT izmēģinājumu vide**](index-lut-sandbox.md) — piemērojiet pielāgotus indeksus un krāsu kartēšanu
-* [**Daudzspektrālo indeksu formulas**](../project-settings/multispectral-index-formulas.md) — iepazīstieties ar pieejamajiem indeksiem
-
-Apstrādes darba plūsmu skatiet šeit:
-
-* [**Attēlu apstrāde (GUI)**](../processing-images-gui/adding-files-to-a-project.md) — pilnīgs apstrādes ceļvedis
+Apstrādes darba plūsmu skatiet sadaļā [Attēlu apstrāde (GUI)](../processing-images-gui/adding-files-to-a-project.md).

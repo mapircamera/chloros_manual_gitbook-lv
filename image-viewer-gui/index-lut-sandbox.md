@@ -1,375 +1,288 @@
-# Indeksu/LUT izmēģinājumu vide
+# Index/LUT Sandbox
 
-Indeksu/LUT izmēģinājumu vide ir interaktīva darba vide programmā Chloros Image Viewer, kas ļauj reāllaikā eksperimentēt ar multispektrālo indeksu aprēķiniem un krāsu vizualizācijām. Šis jaudīgais rīks palīdz pārbaudīt dažādus indeksus, precizēt vērtību diapazonus un izveidot publicēšanai gatavas vizualizācijas, nepārstrādājot visu datu kopu.
+Index/LUT Sandbox ir interaktīva darba vide Chloros attēlu skatītāja sānjoslā. Jūs izvēlaties formulu, piesaistāt tai savas kameras kanālus, iekrāsojat to ar gradientu un pielāgojat vērtību diapazonu — un attēls tiek atjaunināts reāllaikā, kamēr jūs to darāt. Sākot ar versiju 1.2.0, jūs varat arī **saglabāt to, ko esat izveidojuši**, gan vienam attēlam, gan visam projektam, neveicot atkārtotu apstrādi.
 
-## Kas ir indeksa/LUT smilšu kaste?
+## Kādam nolūkam paredzēta „Sandbox”
 
-### Mērķis
-
-Smilšu kaste nodrošina:
-
-* **Indeksa aprēķināšanu reāllaikā** — nekavējoties piemērojiet jebkuru veģetācijas indeksu
-* **Interaktīvu LUT pielāgošanu** — precīzi noregulējiet krāsu gradientus un diapazonus
-* **Darba plūsmas optimizāciju** — nosakiet labākos iestatījumus pirms partijas apstrādes
-
-### Sandbox salīdzinājumā ar projekta apstrādi
-
-**Indeksu/LUT Sandbox (interaktīvs):**
-
-* Vienu attēlu vienlaikus
-* Tūlītēja atgriezeniskā saite
-* Eksperimentāls un iteratīvs
-* Nav pastāvīgu izmaiņu failos
-* Ideāli piemērots izpētei un testēšanai
-
-**Projekta apstrāde (partija):**
-
-* Viss datu kopums vienlaikus
-* Iepriekš konfigurēti iestatījumi
-* Pastāvīgi izvades faili
-* Laikietilpīgs
-* Vislabākais, ja iestatījumi ir galīgi apstiprināti
+| „Index/LUT Sandbox” (interaktīva)        | Projekta apstrāde (partija)       |
+| -------------------------------------- | -------------------------------- |
+| Viens attēls vienlaikus, tūlītēja atgriezeniskā saite  | Viss datu kopums vienā apstrādes ciklā     |
+| Eksperimentāls un iteratīvs             | Iepriekš konfigurēti iestatījumi          |
+| Renderē reāllaikā; saglabā tikai pēc jūsu pieprasījuma  | Vienmēr raksta gala failus      |
+| Ideāli piemērots pareizo iestatījumu meklēšanai | Labākais risinājums, kad iestatījumi ir galīgi |
 
 {% hint style="success" %}
-**Labākais darba process**: Izmantojiet Sandbox, lai eksperimentētu un atrastu optimālos indeksa un LUT iestatījumus, pēc tam piemērojiet šos iestatījumus projekta apstrādes laikā visam datu kopumam.
+**Parastais darba process**: pielāgojiet iestatījumus Sandbox, līdz vizualizācija atbilst jūsu vēlmēm, pēc tam vai nu eksportējiet tieši no Sandbox, vai arī kopējiet tos pašus indeksa un LUT iestatījumus uz [Projekta iestatījumiem](../project-settings/project-settings.md), lai nākamajā apstrādes ciklā tie tiktu piemēroti katram attēlam.
 {% endhint %}
 
 ***
 
-## Darbs ar indeksa/LUT Sandbox
+## „Sandbox” atvēršana
 
-### Iepriekš aprēķināto indeksu izpratne
+1. Noklikšķiniet uz attēla režģī — tas atvērsies pilnekrāna režīmā cilnē **Attēlu skatītājs** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line">
+2. Noklikšķiniet uz **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> ikonas, lai izslīdētu kreiso sānu joslu, ja tā vēl nav atvērta
+3. Izvēlieties daudzjoslu slāni no slāņu izvēlnes augšējā labajā stūrī — parasti izvēlas **RAW (Reflectance)**, jo indeksa vērtības, kas aprēķinātas pēc kalibrētas atstarošanas, ir salīdzināmas starp attēliem
 
-Chloros indeksus var piemērot projekta apstrādes laikā. Lai noteiktu, kurus indeksa un LUT iestatījumus vēlaties piemērot eksportam, visvienkāršāk ir izmantot attēlu skatītāja Sandbox.
+Sānu joslā no augšas uz leju tiek parādīts:
 
-Sandbox ļauj jums:
+* attēla nosaukums un kameras modelis
+* poga **Eksportēt/saglabāt attēlu(-us)**— parādās, kad ir atzīmēts**Indekss**vai**LUT*** izvēles rūtiņas **Indekss**un**LUT**
+* indeksa konfigurācijas panelis
+* panelis **Kursora vērtības** ar rādījumu, histogrammu un GSD kontroli
 
-* **Piemērot jaunus indeksus un krāsu gradientus (LUT)**, lai vizualizētu datus
-* **Interaktīvi pielāgot vizualizācijas iestatījumus*** **Skatīt** jau aprēķinātus indeksu attēlus
-* **Pārbaudīt** pikseļu vērtības visos tālummaiņas līmeņos
+{% hint style="warning" %}
+**Nav pieejams mono kamerām.** Vienas joslas LATTICE M3M attēlā abi izvēles rūtiņas ir atspējotas, un parādās rīkjoslas uzvedne _&quot;Nav pieejams mono (M3M) sensoriem&quot;_ — daudzjoslu indekss vienā joslā nav definēts. Lai aprēķinātu indeksus no M3M kamerām, apvienojiet divas vai vairākas kameras vienā saskaņotā daudzjoslu attēlu kopā un izmantojiet LATTICE indeksa dzinēju.
+{% endhint %}
 
-### Sandbox atvēršana
+***
 
-Index/LUT Sandbox ir pieejams **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sānu joslā:
+## Indeksa piemērošana
 
-1. Noklikšķiniet uz attēla failu pārlūka attēlu režģī, tas atvērsies **Attēlu skatītāja** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> cilnē
-2. Noklikšķiniet uz **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> , lai atvērtu kreiso izvelkamo sānu joslu, ja tā vēl nav atvērta
+1. Atzīmējiet izvēles rūtiņu **Indekss** sānu joslas augšdaļā
+2. Izvēlieties savas kameras filtru no kreisās izvēlnes (`RGN`, `OCN`, `NGB`, `RGB`, `RE`, `NIR`)
+3. Izvēlieties indeksa formulu no labās izvēlnes — 27 iebūvētas formulas, kā arī jebkuras jūsu saglabātās pielāgotās formulas
+4. Formula tiek attēlota kā matemātiska izteiksme zemāk, ar tukšu apli katrā joslas ailē. **Pavelciet krāsainu kanāla apli uz aili**, lai to piesaistītu
+5. Kad visas formulas izmantotās ailes ir piesaistītas, attēls atjauninās un parādīs indeksa vērtības
+6. Pārvietojiet kursoru pār attēlu, lai nolasītu vērtības; panelī **Cursor Values** tiek pievienota indeksa rinda ar vērtību zem kursora
 
-### Attēla izvēle, kam piemērot indeksu/LUT
+Divkārši noklikšķiniet uz piesaistītas vietas, lai to dzēstu. Nepilnīga formula ir normāls stāvoklis, kamēr tiek vilkta formula, nevis kļūda — attēls vienkārši netiek atjaunināts, kamēr formula nav pabeigta.
 
-Lai strādātu ar indeksu attēlu skatītājā <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sandbox:
+Kanālu apļiem ir krāsu kods: sarkans = Red, zaļš = Green, zils = Blue, oranža = Orange, ciāna = Cyan, violeta = NIR, magenta = RE. Tās pašas krāsas tiek izmantotas kanālu punktiem un histogrammas līknēm panelī „Cursor Values” (Kursora vērtības).
 
-1. **Atveriet attēlu** no galvenā attēlu rāsta, uzklikšķinot uz tā
-2. Tad atvērsies **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> cilne
-3. Noklikšķiniet uz **slāņu izvēlnes** (skatītāja augšējā labajā stūrī)
-4. Izvēlieties slāni no izvēlnes:
-   * RAW (atstarošana)
-
-### Indeksa piemērošana attēlam
-
-Kad attēls ir pilnekrāna režīmā un **Attēlu skatītāja** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sānu josla ir atvērta:
-
-1. Atzīmējiet indeksa lodziņu sānu joslas augšdaļā
-2. Izvēlieties savas kameras filtru no kreisās izvēlnes
-3. Izvēlieties vēlamo indeksa formulu no labās izvēlnes
-4. Velciet filtra kanāla krāsu apļus uz vietām indeksa formulā zemāk
-5. Kad formula ir derīga, attēls atjaunināsies un parādīs indeksa vērtības
-6. Pārvietojiet peles kursoru, lai redzētu vērtības kursora atrašanās vietā
-7. Palieliniet attēlu, lai redzētu atsevišķus pikseļus un ar tiem saistītās vērtības
-
-Katram indeksam ir specifisks vērtību diapazons un nozīme:
-
-#### NDVI piemērs
+### NDVI piemērs
 
 ```
 
 Formula: (NIR - Red) / (NIR + Red)
 
-For Survey3W RGN camera:
-NIR = 850nm band
-Red = 661nm band
+For a Survey3W RGN camera:
+  NIR = 850 nm band
+  Red = 661 nm band
 
-Result range: -1.0 to +1.0
-Typical vegetation: 0.4 to 0.9
-Stressed vegetation: 0.2 to 0.4
-Bare soil: 0.0 to 0.2
-Water: -0.1 to 0.1
+Result range:          -1.0 to +1.0
+Typical vegetation:     0.4 to 0.9
+Stressed vegetation:    0.2 to 0.4
+Bare soil:              0.0 to 0.2
+Water:                 -0.1 to 0.1
 ```
 
-Pilnīga indeksa formulas dokumentācija ir pieejama sadaļā [Multispektrālo indeksu formulas](../project-settings/multispectral-index-formulas.md).
+Pilnīgu formulu atsauci — visus trīs iepriekš iestatīto sarakstu un to, kuri nosaukumi kur darbojas — skatiet [Multispektrālo indeksu formulas](../project-settings/multispectral-index-formulas.md).
 
-***
+### Ar atzīmētu indeksu, bet bez LUT
 
-## Darbs ar LUT (meklēšanas tabulām)
+Attēls tiek attēlots **pelēktoņu skalā**, izstiepts starp divām sliekšņa vērtībām. Tas ir apzināti: indeksa attēls ir skalāri dati, un pelēktoņu skala ir tā patiesā attēlošana. Pievienojiet LUT, ja vēlaties krāsu.***
 
-### Kas ir LUT?
+## Darbs ar LUT (meklēšanas tabulām)**Meklēšanas tabula** saista indeksa vērtības ar krāsām: ievadiet NDVI 0,65, rezultātā iegūsiet konkrētu zaļo krāsu. Tā nemaina datus — tā maina to, kā jūs tos interpretējat.
 
-**Meklēšanas tabula (LUT)** vizualizācijas nolūkā saista skaitliskās indeksa vērtības ar krāsām:
+### LUT pievienošana
 
-* **Ievade**: Indeksa pikseļa vērtība (piem., NDVI 0,65)
-* **Izvade**: RGB krāsa (piem., spilgti zaļa)
-* **Mērķis**: Padarīt modeļus vieglāk saskatāmus un interpretējamus**Pelēktoņu skala pret krāsu LUT:**
-
-* Pelēktoņu skala: Zinātniska un neitrāla, parāda neapstrādātus datus
-* Krāsu LUT: Intuitīva un iespaidīga, izceļ modeļus un atšķirības
-
-{% hint style="success" %}
-**Vizualizācijas spēks**: Krāsu LUT piemērošana pelēktoņu indeksa attēlam ievērojami atvieglo modeļu, anomāliju un interesējošo zonu identificēšanu ar vienu skatienu.
-{% endhint %}
-
-### LUT piemērošana indeksa attēlam
-
-Kad jums ir indeksa attēls, kas parāda
-
-1. Noklikšķiniet uz <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> &quot;+Pievienot LUT&quot; pogu
+1. Noklikšķiniet uz <img src="../.gitbook/assets/image (1) (1) (1).png" alt="" data-size="line"> **&quot;+ Pievienot LUT&quot;** pogas zem formulas
 2. Izvēlieties krāsu gradientu
-3. Pielāgojiet minimālo/maksimālo atskaites punktu
-4. Pielāgojiet atskaites režīmu
-5. Atzīmējiet indeksa lodziņu **Attēlu skatītājā** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sānu joslā, lai piemērotu LUT
+3. Iestatiet minimālo un maksimālo nogriešanas vērtību
+4. Izvēlieties nogriešanas režīmu
+5. Atzīmējiet **LUT** lodziņu sānjoslā, lai to renderētu
+
+LUT izvēles lodziņš paliek neaktīvs, kamēr LUT nav faktiski konfigurēts indeksā.
 
 ### Krāsu gradienta izvēle
 
-**Gradienta izvēle:**
+Pavelciet peles kursoru pār **gradienta joslu**, lai atvērtu iestatījumu sarakstu — Chloros piedāvā**septiņus** gradienta iestatījumus:
 
-1. LUT panelī atrodiet**krāsu gradienta joslu**
+| # | Gradients                            | Forma                                                               |
+| - | ----------------------------------- | ------------------------------------------------------------------- |
+| 1 | Red → Dzeltena → Green (**noklusējums**)  | Diverģējoša — atbilst parastajai izpratnei par veģetāciju: zaļš = veselīgs |
+| 2 | Violeta → Dzeltena → Green             | Diverģējošs, ar izteiktu zemo diapazonu                                  |
+| 3 | Brūna → Balta → Blue                | Diverģējošs ap gaišu viduspunktu                                   |
+| 4 | Melna → Violeta → Rozā → Gaiši dzeltena | Sekvenciāla, no tumšas uz gaišu                                           |
+| 5 | Red → Dzeltena → Blue                 | Atšķirīga ap gaišu viduspunktu                                   |
+| 6 | Violeta → Blue → Green → Dzeltena      | Secīga, no tumšas uz gaišu                                           |
+| 7 | Orange → Balts → Violets             | Izplešanās ap gaišu viduspunktu                                   |
 
-2. Novietojiet peles kursoru virs tās, lai apskatītu pieejamos gradienta iestatījumus
-3. Izvēlieties vēlamo gradientu
-4. Attēls **tiek nekavējoties atjaunināts** ar jaunām krāsām, kad ir atzīmēta izvēles rūtiņa „Indekss”
+**Diverģējošs**gradients novieto neitrālu krāsu loga vidū, kas ir labi saskatāms, ja viduspunkts nozīmē kaut ko konkrētu (slieksnis, atsauces datums).**Sekvenciāls** gradients vienmērīgi pāriet no tumšā uz gaišo, kas ir labi saskatāms, ja lielumam ir tikai „vairāk” un „mazāk”.
 
-{% hint style="success" %}
-**Labākā prakse**: Veģetācijas indeksiem, piemēram, NDVI, Red-Yellow-Green gradients ir visintuitīvākais, jo tas atbilst dabiskajām krāsu asociācijām (zaļš = veselīgs, dzeltens = vidējs, sarkans = stresa stāvoklī).
-{% endhint %}
+Katram iestatījumam ir septiņi krāsu posmi. Noklikšķiniet uz iestatījuma, un attēls nekavējoties atjaunināsies (ja ir atzīmēta LUT izvēles rūtiņa).
 
-### Krāsu klases pielāgošana
+### Krāsu posmu rediģēšana
 
-**Klases kontrole**nosaka, cik daudz atsevišķu krāsu pakāpju parādās jūsu gradientā:**Klasu skaita opcijas:*** **2–5 klases**: Ļoti plašas kategorijas, izteiktas zonas
-* **6–10 klases**: Līdzsvarots, piemērots klasifikācijai
-* **11–20 klases**: Gludi gradienti, nepārtraukts izskats
-* **20+ klases**: Gandrīz nepārtraukts, maksimāla gluduma**Kā pielāgot:**
+Zem gradienta joslas atrodas krāsu paraugu rinda, pa vienam paraugam katram posmam:
 
-1. LUT panelī atrodiet**krāsu paraugu kvadrātiņus zem gradienta joslas**
+* **Krāsas maiņa**: noklikšķiniet uz parauga, lai atvērtu krāsu izvēlni (krāsu ritenis, RGB/HSV slīdņi vai heksadecimālais kods, piemēram, `#FF0000`)
+* **Pievienot pārtraukumu**: noklikšķiniet uz pogas**+** rindas galā — tiek pievienots balts pārtraukums
+* **Noņemt pārtraukumu**:**divreiz noklikšķiniet** uz parauga
+* **Saglabājiet rediģēto gradiento**: noklikšķiniet uz saglabāšanas ikonas blakus gradiento joslai, lai pievienotu rediģēto gradiento iestatījumu sarakstam, lai to varētu izvēlēties atkārtoti
 
-2. Pielāgojiet klašu skaitu, pievienojot ar pogu +
-3. Samaziniet klašu skaitu, divreiz noklikšķinot uz krāsu parauga
-4. Gradients attēlā atjaunojas **reālajā laikā**
+Gradients, ko esat konfigurējis indeksā, tiek saglabāts kopā ar šo indeksu projekta iestatījumos, tādējādi tas saglabājas arī pēc projekta aizvēršanas un atkārtotas atvēršanas.
 
-**Ietekme uz vizualizāciju:*** **Mazāk klases** (3–5): rada atšķirīgas zonas, vienkāršota klasifikācija, vieglāk atšķirt kategorijas
-* **Vidējs klases skaits** (6–10): līdzsvarota pieeja, piemērota lielākajai daļai lietojumu
-* **Lielāks klases skaits** (15–20): vienmērīgi pārejas, detalizētas variācijas, fotogrāfiska izskata**Kad izmantot:*** **Maz klases (3–5)**: Prezentācijas slaidi, klasifikācijas kartes, vienkārši ziņojumi
-* **Vidējs klases skaits (6–10)**: Vispārēja analīze, līdzsvarota detalizācija, standarta ziņojumi
-* **Daudz klases (15–20)**: Zinātniskā analīze, detalizēta pārbaude, publikāciju kvalitātes rezultāti
+**Mazāks pieturpunktu skaits**rada izteiktas zonas, kas uztveramas kā klasifikācija;**lielāks pieturpunktu skaits** rada gludus, gandrīz fotoreālistiskus pārejas. Trīs līdz pieci pieturpunkti ir piemēroti prezentācijas slaidiem un klasifikācijas kartēm; seši līdz desmit — vispārējai analīzei; piecpadsmit vai vairāk — detalizētai pārbaudei un publikāciju attēliem.
 
-### Vērtību diapazonu precizēšana
+### Vērtību diapazona iestatīšana
 
-**Vērtību diapazonu vadības elementi**nosaka, kuras indeksa vērtības tiek saistītas ar kurām krāsām jūsu gradientā:**Diapazona vadības elementi LUT panelī:*** **Minimālā vērtība**: krāsu skalas apakšējā robeža
-* **Maksimālā vērtība**: krāsu skalas augšējā robeža
-* **Vidējās vērtības**: automātiski sadalītas starp minimālo un maksimālo vērtību (balstoties uz klases skaitu)
+Slēguma vadības elements ir **slīdnis ar diviem rokturiem**, kura diapazons ir no −1 līdz +1, ar rediģējamu teksta lauku katrā galā precīzu vērtību ievadīšanai un**AUTO** pogu.
 
-#### Minimālo/maksimālo vērtību pielāgošana
+* Velciet jebkuru rokturi vai ievadiet skaitli attiecīgajā lodziņā un nospiediet Enter
+* **AUTO**iestata diapazonu uz attēla derīgo indeksa vērtību**
 
-**Lai pielāgotu vērtību diapazonus:**
+2. un 98. percentili** — tas ir labs sākumpunkts, kas ignorē novirzes. Chloros rezultātu noapaļo adaptīvi: līdz 4 zīmēm aiz komata ļoti šaurā diapazonā, līdz 3 zīmēm aiz komata šaurā diapazonā un citos gadījumos līdz 2 zīmēm aiz komata
+* Jebkura manuāla korekcija ir prioritāra salīdzinājumā ar AUTO, līdz atkārtoti nospiežat AUTO
 
-1. LUT panelī atrodiet ievades laukus**Minimālā vērtība**un**Maksimālā vērtība**
+Piemērs NDVI logiem:
 
-2. Noklikšķiniet uz lauka**Minimālā vērtība**
+| Mērķis                                    | Min  | Maks |
+| --------------------------------------- | ---- | --- |
+| Rādīt visu                         | −1,0 | 1,0 |
+| Tikai veģetācija, izņemot augsni un ūdeni | 0,2  | 0,9 |
+| Tikai veselīga veģetācija                 | 0,5  | 0,9 |
+| Izcelt stresa pazīmes                        | 0,2  | 0,5 |
 
-3. Ierakstiet vēlamo minimālo vērtību (piem., `0.2`)
-4. Nospiediet **Enter** vai noklikšķiniet ārpus lauka
-5. Atkārtojiet to pašu ar **Maksimālā vērtība** lauku (piem., `0.9`)
-6. Vizualizācija **tiek atjaunināta nekavējoties**{% hint style="info" %}**Automātiskā mērogošana**: Kad pirmo reizi piemērojat LUT, Chloros automātiski iestata minimālo/maksimālo vērtību atbilstoši attēla faktiskajam datu diapazonam. Pēc tam varat sašaurināt šo diapazonu, lai koncentrētos uz konkrētiem interesējošiem vērtību diapazoniem.
-{% endhint %}
+Logu sašaurinot, palielinās kontrasts jūsu interesējošajā apgabalā, un viss pārējais tiek izstumts ārpus diapazona — tur **apgriešanas režīms** nosaka, kas ar to notiek.***
 
-**Piemērs NDVI diapazona pielāgojumiem:*** **Pilns diapazons**: no `-1.0` līdz `1.0` (parāda visas iespējamās vērtības)
-* **Koncentrēšanās uz veģetāciju**: no `0.2` līdz `0.9` (izslēdz kailu augsni un ūdeni)
-* **Tikai veselīga veģetācija**: no `0.5` līdz `0.9` (izcelt tikai spēcīgus augus)
-* **Stresa noteikšana**: no `0.2` līdz `0.5` (uzsvērt problemātiskās zonas)
-* **Pielāgots diapazons**: pielāgojiet, pamatojoties uz novērotajām pikseļu vērtībām**Kāpēc pielāgot diapazonus?*** **Palieliniet kontrastu** jūsu interesējošajā zonā
-* **Izslēdziet neatbilstošas vērtības** (piem., ūdens objektus, kailu augsni)
-* **Standartizējiet vizualizāciju** vairākos attēlos vai datumos
-* **Uzsvērtiet smalkas atšķirības** šaurā vērtību diapazonā
+## Apgriešanas režīmi
 
-### Diapazona ārpusē esošo vērtību nogriešana
+Kad pikseļa indeksa vērtība atrodas ārpus minimālā/maksimālā loga, apgriešanas režīms nosaka, kā tas tiek attēlots.
 
-Ja pikseļu vērtības atrodas ārpus jūsu definētā minimālā/maksimālā diapazona, jūs varat kontrolēt to attēlošanu, izmantojot **nogriešanas režīmus**.
+| Izvēlnes nosaukums                  | Saglabātā vērtība      | Vērtības ārpus diapazona pikseļi tiek attēloti kā                                                                                                |
+| ------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| **Minimums un maksimums** (noklusējums) | `clip`            | Tuvākā gradienta gala krāsa — vērtības zem minimuma iegūst pirmo krāsu, vērtības virs maksimuma iegūst pēdējo |
+| **Caurspīdīgs fons**      | `transparent`     | Pilnīgi caurspīdīgs (reāls alfa kanāls)                                                                                                  |
+| **Indeksa fons**| `indexColor`      | Pelēktoņu skala, izstieptas pāri attēla**pilnajam** indeksa diapazonam, tādējādi struktūra, kas atrodas ārpus diapazona, joprojām ir redzama pelēkā krāsā                |
+| **Oriģinālais fons**         | `backgroundColor` | Pats pamatattēls, tādējādi krāsu pārklājums atrodas virs reālās ainas                                                |
 
-#### **Pieejamās nogriešanas režīma opcijas:**
-
-#### 1. Minimums un maksimums
-
-* Pikseļi **zem minimuma**→ attēlojiet, izmantojot**pirmo krāsu** gradientā (piem., sarkanu)
-* Pikseļi **virs maksimuma**→ attēlo, izmantojot**pēdējo krāsu** gradientā (piem., zaļo)
-* **Lietošanas gadījums**: izcelt galējības, parādīt pilnu datu diapazonu ar piesātinātām krāsām robežās
-* **Piemērs**: NDVI vērtības zem 0,2 visas parādās sarkanas, vērtības virs 0,9 visas parādās zaļas
-
-#### 2. Caurspīdīgs fons
-
-* Pikseļi **ār diapazonu**kļūst**pilnībā caurspīdīgi*** Tikai pikseļi **diapazonā** parāda krāsu gradientu
-* **Lietošanas gadījums**: GIS pārklājums, izdalot konkrētus vērtību diapazonus, izceļot tikai interesējošās zonas
-* **Piemērs**: Parādīt krāsā tikai NDVI 0,4–0,7, pārējo atstāt caurspīdīgu
-
-{% hint style="warning" %}
-**Caurspīdīguma ierobežojums**: Caurspīdīgie pikseļi skatītājā tiks attēloti kā fona krāsa. Eksportējot apstrādes laikā, caurspīdīgums tiek saglabāts PNG formātā, bet ne JPG formātā.
-{% endhint %}
-
-#### 3. Indeksa fons
-
-* Pikseļi **ārpus diapazona**tiek attēloti**pelēktoņu skalā** (parādot neapstrādātas indeksa vērtības)
-* Pikseļi **diapazonā**parāda**krāsu gradientu*** **Lietošanas gadījums**: Diskrēta izcelšana, saglabājot kontekstu, vienlaikus izceļot interesējošās zonas
-* **Piemērs**: Izceliet krāsā stresa skarto veģetāciju (NDVI 0,3–0,5), vienlaikus attēlojot veselīgās zonas pelēkā krāsā
-
-#### 4. Orijinālais fons
-
-* Pikseļi **ārpus diapazona**attēlo**oriģinālo multispektrālo attēlu*** Pikseļi **diapazonā**attēlo**krāsu gradientu*** **Lietošanas gadījums**: Vissintuitīvākais — apvieno dabisko attēla kontekstu ar analītisku krāsu pārklājumu
-* **Piemērs**: Redziet faktisko lauka/kultūraugu izskatu ar pārklātu krāsu kodētu stresa zonu
-
-### Pareizā apgriešanas režīma izvēle
-
-| Apgriešanas režīms              | Vispiemērotākais                                   | Vizualizācijas stils          |
-| -------------------------- | ------------------------------------------ | ---------------------------- |
-| **Minimums un maksimums**    | Pilna datu attēlošana, zinātniskā analīze     | Visi pikseļi iekrāsoti           |
-| **Caurspīdīgs fons** | GIS pārklājumi, konkrētu diapazonu izdalīšana    | Krāsa diapazonā, ārpus tā tukšs |
-| **Indeksa fons**       | Diskrēta izcelšana, saglabājot datu kontekstu  | Krāsa diapazonā, pelēks ārpus tā  |
-| **Oriģinālais fons**    | Ziņojumi, prezentācijas, intuitīva analīze | Krāsa diapazonā, foto ārpus tā |
-
-### Pielāgotu LUT krāsu izveide
-
-Lai pilnībā kontrolētu vizualizāciju, varat izveidot **pielāgotus krāsu gradientus**, rediģējot atsevišķus krāsu posmus.**Lai izveidotu pielāgotu gradientu:**
-
-1. LUT panelī atrodiet**gradienta priekšskatījuma joslu**
-
-2. Meklējiet**krāsu paraugu kvadrātiņus** zem gradienta
-3. **Noklikšķiniet uz krāsu pārtraukuma**, lai to atlasītu
-4. Atveras **krāsu izvēlne**
-
-5. Izvēlieties jaunu krāsu, izmantojot:
-   * **Krāsu ratu**: vizuāla krāsu izvēle
-   * **RGB/HSV slideri**: Precīza krāsu kontrole
-   * **Hex koda ievade**: Precīza krāsu specifikācija (piem., `#FF0000` sarkanai krāsai)
-6. Noklikšķiniet ārpus krāsu izvēlnes, **lai piemērotu jauno krāsu**
-
-7. Gradients**tūlīt atjauninās** attēlā**Krāsu punktu pievienošana vai noņemšana:*** **Pievienot punktu**: Noklikšķiniet uz ikonas +, lai pievienotu jaunu krāsu paraugu beigās
-* **Noņemt punktu**: Divreiz noklikšķiniet uz krāsu kvadrāta, lai noņemtu krāsu paraugu**Pielāgošanas stratēģijas:*** **Gradienta apgriešana**: Apgrieziet krāsu secību, lai mainītu nozīmi (piem., zaļš = zems, sarkans = augsts)
-* **Zīmola krāsas**: Pielāgojiet ziņojumus jūsu organizācijas krāsu paletei
-* **Piemērots cilvēkiem ar krāsu redzes traucējumiem**: Izmantojiet oranž-zilo vai violeto-dzelteno krāsu kombinācijas
-* **Drukas optimizācija**: Izvēlieties krāsas, kas der gan krāsainai, gan pelēktoņu drukai
-* **Daudzpakāpju**: Izmantojiet atšķirīgas krāsas pie noteiktām vērtību robežvērtībām klasifikācijai
+| Režīms                       | Vispiemērotākais                               | Izskats                                      |
+| -------------------------- | -------------------------------------- | ----------------------------------------- |
+| **Minimums un maksimums**      | Pilnīgs datu attēlojums, zinātniskā analīze | Katrs pikselis ir krāsots                      |
+| **Caurspīdīgs fons** | GIS pārklājumi, vērtību diapazona izdalīšana   | Krāsa loga iekšpusē, ārpus tā nekas |
+| **Indeksa fons**       | Akcentēšana, saglabājot datu kontekstu    | Krāsa iekšpusē, pelēks ārpusē               |
+| **Oriģinālais fons**    | Ziņojumi un prezentācijas              | Krāsa iekšpusē, fotogrāfija ārpusē         |
 
 {% hint style="info" %}
-**Pielāgoto gradientu saglabāšana**: Pielāgotos gradientus var saglabāt un izmantot atkārtoti. Noklikšķiniet uz saglabāšanas ikonas LUT panelī, lai saglabātu savas pielāgotās krāsu shēmas turpmākai lietošanai.
+**Pikseļi bez datiem vienmēr ir caurspīdīgi, jebkurā režīmā.** Pikselis, kura indekss nav galīgs (dalīšana ar 0/0) vai ir tieši −1,0 vai +1,0 (saturācijas indikatori, kad vienā joslā rādītājs ir nulle, bet otrā — nē), tiek uzskatīts par pikseli bez datiem, nevis par galējo vērtību. Tādējādi pārspīlētās gaismas un pilnīgi tumšās ēnas netiek iekļautas krāsu skalā, nevis attēlotas kā visekstrēmākie rādītāji kadrā. Tas pats noteikums nosaka, kuri pikseļi tiek izmantoti AUTO sliekšņu un indeksa histogrammas aprēķināšanai, lai visi trīs rādītāji saskanētu.
 {% endhint %}
+
+Caurspīdīgums tiek saglabāts, ja eksportētais fails tiek saglabāts kā PNG. To nevar attēlot JPG formātā.
 
 ***
 
-## Interaktīva darba plūsma
+## Vērtību nolasīšana, veicot regulēšanu**Kursora vērtības** panelis zem konfigurācijas paneļa ir „Sandbox” mērīšanas instruments:
 
-### Atjauninājumi reālajā laikā
+* Pārvietojiet kursoru pār attēlu un nolasiet katra kanāla avota vērtības, kā arī indeksa vērtību atsevišķā rindā
+* Nospiediet pogu **INDEX** virs histogrammas, lai redzētu indeksa vērtību sadalījumu kadrā, kur abas klipa sliekšņa līnijas ir attēlotas kā oranžas pārtrauktas līnijas, bet kursora vērtība — kā balta līnija; tas ir ātrākais veids, kā izvēlēties logu, kurā faktiski atrodas jūsu dati
+* Ieslēdziet **CURSOR**, lai redzētu atzīmju līnijas pie vērtībām zem kursora
+* Palieliniet attēlu vairāk nekā 60× (mazāk, ja ir iestatīts GSD bloka izmērs), lai izceltu atsevišķus attēlotos pikseļus ar mainīgu vērtību
 
-Visi LUT pielāgojumi izmēģinājumu vidē atjaunina attēlu **tūlīt un interaktīvi**:
+Praktiska darbības kārtība:
 
-* **Pārslēdziet slāni** → Attēls mainās nekavējoties
-* **Izvēlieties gradientu** → Krāsas atjauninās tūlīt
-* **Pielāgojiet vērtību diapazonu** → Kontrasts mainās reālajā laikā
-* **Mainiet klases** → Gradienta gludums atjauninās nekavējoties
-* **Modificējiet apgriešanu** → Fona attēls mainās nekavējoties
-* **Rediģējiet krāsas** → Pielāgotais gradients tiek piemērots nekavējoties**Nav nepieciešama &quot;Piemērot&quot; poga** — visas izmaiņas ir redzamas tiešsaistē un interaktīvas!
-
-{% hint style="success" %}
-**Reāllaika atgriezeniskā saite**: Tūlītējā vizuālā atgriezeniskā saite ļauj ātri eksperimentēt ar dažādiem iestatījumiem, līdz atrodat optimālo vizualizāciju savām analīzes vajadzībām.
-{% endhint %}
-
-### Iteratīvās pilnveidošanas darba plūsma
-
-**Tipiska LUT optimizācijas darba plūsma:**
-
-1.**Izvēlieties indeksa slāni** (piem., RAW (atstarošanās))
-2. **Piemērojiet indeksu** — izvēlieties kameras filtru un indeksa formulu, velciet krāsainos apļus uz atbilstošo vietu indeksa formulā
-3. **Piemērojiet LUT gradientu** — sāciet ar Red-Yellow-Green iestatījumu
-4. **Pārbaudiet pikseļu vērtības** — pārvietojiet kursoru, ņemiet vērā vērtību diapazonus
-5. **Pielāgojiet minimālo/maksimālo vērtību** – sašauriniet diapazonu, lai koncentrētos uz veģetāciju (piem., no 0,2 līdz 0,9)
-6. **Izvēlieties apgriešanu** – izmēģiniet “Original Background” konteksta saglabāšanai
-7. **Precizējiet krāsas** – nepieciešamības gadījumā pielāgojiet gradientu, lai izceltu konkrētas detaļas
-8. **Pabeigt iestatījumus**– Dokumentējiet iestatījumus un kopējiet tos uz Projekta iestatījumiem eksportēšanas apstrādei
-
-### Pikseļu vērtību pārbaude
-
-Faktisko pikseļu vērtību izpratne ir būtiska, lai noteiktu efektīvus LUT diapazonus:**Kā pārbaudīt vērtības:**
-
-1. Pikseļu vērtības parādās, ja attēlam ir**atzīmētas**vai nu Index, vai gan Index, gan LUT**izvēles rūtiņas**.
-2. **Pārvietojiet kursoru** pār dažādām attēla zonām
-3. **Novērojiet pikseļu vērtības**, kas parādās leģendā, kad uzvedat kursoru
-4. Palieliniet attēlu, lai redzētu atsevišķus pikseļus, kas izcelti ar peldošu vērtību
-5. **Pierakstiet** vērtību diapazonus dažādām pazīmēm:
-   * **Veselīga veģetācija**: piemēram, NDVI 0,55–0,85
-   * **Stresa skarta veģetācija**: piemēram, NDVI 0,30–0,50
-   * **Kaila augsne**: piemēram, NDVI 0,05–0,25
-   * **Ūdens** (ja ir): piemēram, NDVI -0,05 līdz 0,10**Pikseļu vērtību izmantošana LUT diapazonu iestatīšanai:**Pēc pikseļu vērtību pārbaudes atbilstoši pielāgojiet savu LUT minimālo/maksimālo vērtību:**Piemērs:*** **Novērojums**: Augsnes vērtības = 0,05–0,25, Stresā = 0,25–0,50, Veselīgas = 0,50–0,85
-* **Mērķis**: Vizualizēt tikai augu veselību (izslēgt augsni)
-* **LUT iestatījumi**: Min = `0.25`, Max = `0.85`
-* **Apgriešana**: &quot;Oriģinālais fons&quot;, lai redzētu augsni dabīgās krāsās
-* **Rezultāts**: Krāsu gradients attiecas tikai uz veģetāciju, augsne tiek attēlota kā oriģinālajā attēlā
-
-{% hint style="info" %}
-**Dinamiskais diapazons**: Dažādiem kultūraugiem, gadalaikiem un augšanas stadijām būs atšķirīgi vērtību diapazoni. Vienmēr pārbaudiet pikseļu vērtības savā konkrētajā datu kopā, pirms iestatāt LUT diapazonus.
-{% endhint %}
+1. Pierakstiet vērtības virs veselīgas veģetācijas, stresa skartas veģetācijas, kailas augsnes un ūdens
+2. Pārbaudiet, kur šie klasteri atrodas indeksa histogrammā
+3. Iestatiet minimālo un maksimālo vērtību, lai ierobežotu jums interesējošo klasteri
+4. Izvēlieties apgriešanas režīmu — _Original Background_ saglabā redzamu ainu ap to
 
 ***
 
-## Pielāgotie indeksi (Chloros+)
+## Eksportēšana no Sandbox
 
-### Pielāgotu indeksu formulu izveide
+Viss iepriekš minētais ir reāllaika priekšskatījums, kamēr to nesaglabājat. Poga **Eksportēt/Saglabāt attēlu(-us)** sānu joslas augšdaļā atver logu, kas pārklāj sānu joslu (nevis attēlu, tādējādi jūs joprojām varat redzēt to, par ko pieņemat lēmumu).
+
+<figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>### Opcijas
+
+| Opcija                          | Efekts                                                                                                                                            |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Piemērot pašreizējam attēlam**      | Saglabā tieši redzamo attēlu ar šiem iestatījumiem                                                                                                |
+| **Piemērot visiem projekta attēliem** | Atkārto identisku konfigurāciju katram projekta attēlam. Attēli, kuros nav šim indeksam nepieciešamās joslas, tiek izlaisti un netiek uzskatīti par kļūdainiem |
+| **Indeksa/LUT gradienta josla**      | Katram eksportam tiek saglabāts arī atsevišķs leģendas attēls ar norādītu vērtību diapazonu                                                                     |
+| **Indeksa histogramma**             | Katram eksportam tiek saglabāts arī atsevišķs histogrammas attēls, kurā redzami datu minimālās un maksimālās vērtības, kā arī klipēšanas sliekšņi                                               |
+
+Ja attēla cilnē **GSD bloka izmērs** ir lielāks par 1, logā par to tiek parādīts brīdinājums pirms apstiprināšanas: eksportēšanas procesā tiek saglabāts tas, ko redzat, ieskaitot bloku vidējošanu. Ja vēlaties pilnu izšķirtspēju, vispirms iestatiet GSD kontroli atpakaļ uz 1.
+
+### Kur tiek saglabāti faili
+
+Katrs **Eksportēt**klikšķis izveido**jaunu, nekad atkārtoti neizmantotu mapi**:
+
+```
+<project folder>/Sandbox_Exports/<IndexName>_<Index|LUT>_<NNN>/
+```
+
+Piemēri: `Sandbox_Exports/NDVI_LUT_001/`, tad `Sandbox_Exports/NDVI_LUT_002/` nākamajai eksportēšanai. Numurēšana tiek veidota, pārskatot to, kas jau atrodas diskā, tādējādi tā saglabājas arī pēc sistēmas pārstartēšanas un mapju manuālas dzēšanas. Nekas netiek pārrakstīts — „Sandbox” galvenais mērķis ir salīdzināt vienu mēģinājumu ar iepriekšējo.
+
+Mapē, katram attēlam:
+
+| Fails                                                   | Saturs                                                   |
+| ------------------------------------------------------ | ---------------------------------------------------------- |
+| `<source name>_<IndexName>_<Index\|LUT>.png`           | Renderētais attēls, pikselis par pikseli tāds, kādu to parādīja skatītājs |
+| `<source name>_<IndexName>_<Index\|LUT>_legend.png`    | Gradientu joslas papildu fails, ja pieprasīts                     |
+| `<source name>_<IndexName>_<Index\|LUT>_histogram.png` | Indeksa histogrammas papildu fails, ja pieprasīts                  |
+
+Abas papildu joslas vienmēr tiek saglabātas **pilnā izšķirtspējā**, pat ja galvenajam attēlam ir piemērota blokveida vidējā vērtība: bloka izmērs atbilst ekrāna izšķirtspējai, un abas papildu joslas atspoguļo patiesās indeksa vērtības katram pikselim. Tās arī attēlo vairāk informācijas nekā ekrānā redzamās versijas — abas norāda gan izstiepšanas logu, gan patiesos datu minimālos un maksimālos vērtības, tādējādi saglabātā leģenda ir lasāma arī pēc vairākiem mēnešiem, neatraujot projektu.
+
+### Gaitas rādītāji un rezultāti
+
+Visa projekta eksportēšana aizņem dažas minūtes, tāpēc process ziņo par gaitu reāllaika kanālā, nevis bloķē sistēmu:
+
+* Gaitas josla parāda `current / total` un failu, kas tiek rakstīts
+* Kad eksportēšana ir pabeigta, logā tiek parādīts, cik attēlu tika eksportēti, cik tika izlaisti, kā arī izvades mapes ceļš
+* Izlaistie attēli tiek uzskaitīti kopā ar iemeslu (tiek parādīti līdz pieciem, pēc tam rinda „+N vairāk”). Parastais iemesls ir slānis, kurā nav kanālu, kas nepieciešami šim indeksam
+* Ja projektā **neviens** attēls nevar izmantot indeksu, darbības rezultāts tiek ziņots kā kļūda, nevis atstājot tukšu mapi
+
+Vienlaikus var darboties tikai viens eksportēšanas process izolētajā vidē. Ja tiek mēģināts sākt otro procesu, kamēr pirmais vēl noris, tiek parādīts skaidrs paziņojums, nevis ļaujot abiem procesiem cīnīties par to pašu projekta failu.
+
+### Tīkls parāda eksportēšanas rezultātus
+
+Katrs pabeigtais eksportēšanas process parādās kā atsevišķa poga [attēlu tīklā](image-grid.md) rīkjoslā ar apzīmējumu `<IndexName> <Index|LUT> <NNN>`. Tādā veidā var salīdzināt eksportēšanas procesus: veiciet eksportu divas reizes ar atšķirīgiem gradientiem vai sliekšņiem, pēc tam pārslēdzieties starp abām pogām režģī.
+
+***
+
+## Pielāgotas indeksa formulas (Chloros+)
 
 {% hint style="info" %}
-**Kur izveidot**: Pielāgotos indeksus var konfigurēt**Projekta iestatījumos** pirms apstrādes, kā arī attēlu skatītāja sandbox sānu joslā.
+**Kur tās izveidot**: „Sandbox” sānu joslā vai**Projekta iestatījumos** pirms apstrādes. Abos gadījumos tās tiek ierakstītas vienā un tajā pašā projekta līmeņa sarakstā.
 {% endhint %}
 
-**Lai izveidotu pielāgotu indeksu:**
-
-1.**Atveriet projekta iestatījumus** (pirms apstrādes) vai attēlu skatītāja sandbox sānu joslu
-2. Pārejiet uz **indeksa formulas izvēlni**
-
-3. Meklējiet opciju**&quot;Pielāgots&quot;** (jābūt pieteicies ar Chloros+ licenci)
-4. **Definējiet savu formulu**, izmantojot joslu mainīgos:
-   * Joslu nosaukumi: `NIR`, `Red`, `Green`, `Blue`, `RedEdge` utt.
-   * Operatori: `+`, `-`, `*`, `/`, `^` (eksponents)
-   * Funkcijas: `sqrt()`, `abs()` utt. (ja atbalstītas)
-   * Aizvērtnes: `()` darbību secībai
-5. **Nosauciet savu indeksu** (piem., &quot;MyIndex&quot; vai &quot;CustomNDVI&quot;)
-6. **Saglabājiet konfigurāciju**
-
-**Piemēri pielāgotām formulām:**
+1. Atveriet pielāgotās formulas kalkulatoru no indeksa formulu nolaižamā izvēlnes (nepieciešams pieteikties ar atbilstošu Chloros+ abonementu)
+2. Ierakstiet formulu, izmantojot **joslu un pozīciju simbolus** `x`, `y`, `z`, `a`, `b`, `c` — nevis joslu nosaukumus
+3. Pieejamie operatori: `+`, `-`, `*`, `/`, `^` un `()` grupēšanai
+4. Pieejamās funkcijas: `sqrt()`, `log()`, `ln()`, `abs()`, `sign()`, `log1p()`, `log2()`
+5. Nosauciet un saglabājiet to — tā parādīsies formulas nolaižamās izvēlnes apakšā, un jūs varat piesaistīt tās vietas, velkot kanālu apļus, tieši tāpat kā iebūvētajai iestatījumam
 
 ```
 
-Modified NDVI with offset:
-(NIR - Red) / (NIR + Red + 0.5)
-
-Simple ratio:
-NIR / Red
-
-Complex multi-band:
-(NIR - Red) / (NIR + Red - Blue)
-
-Exponential index:
-(NIR / Red) ^ 2
+Modified NDVI with an offset:   (y-x)/(y+x+0.5)
+Simple ratio:                   y/x
+Three-band difference:          (y-x)/(y+x-z)
+Squared ratio:                  (y/x)^2
 ```
 
 {% hint style="warning" %}
-**Formulas validācija**: Pārliecinieties, ka jūsu formula izmanto jūsu kamerā pieejamos diapazonus. Piemēram, RedEdge ir pieejams tikai kamerās ar RedEdge filtru.
+**Pielāgotās formulas ir pieejamas tikai lietotāja saskarnē.** Opcija CLI/SDK `--indices` paplašina 22 iebūvēto iestatījumu sarakstu un automātiski izlaiž visu pārējo, ieskaitot jūsu pielāgotās formulas. Lai pielietotu pielāgotu formulu vairākiem attēliem vienlaikus, konfigurējiet to projekta iestatījumos un palaidiet apstrādi, vai izmantojiet Sandbox eksporta funkciju „Piemērot visiem projekta attēliem”.
 {% endhint %}
 
 ***
 
-## Nākamie soļi
+## Problēmu novēršana
 
-Tagad, kad jūs saprotat indeksa/LUT smilšu kasti:
+### „Šim slānim nav kanālu, kas nepieciešami šim indeksam”
 
-* **Piemērojiet apstrādei**: izmantojiet atrastos iestatījumus [Projekta iestatījumos](../project-settings/project-settings.md)
-* **Partijas apstrāde**: piemērojiet optimizētus indeksus pilniem datu kopumiem
-* **Uzzināt vairāk**: izlasiet [Daudzspektrālo indeksu formulas](../project-settings/multispectral-index-formulas.md)
+Formula nolasītu kanāla pozīciju, kādas pašreizējam slānim nav — piemēram, trīs pozīciju indeksu vienkanāla vai divkanālu failā. Pārejiet uz daudzjoslu slāni (reflektances vai debayered) vai izvēlieties indeksu, kas atbilst jūsu kameras filtram.
 
-Saistītā dokumentācija:
+### „Neizdevās sazināties ar attēlu apstrādes backend”
 
-* [**Attēlu slāņi**](image-layers.md) — slāņu pārvaldība un vizualizācija
-* [**Attēla atvēršana pilnekrāna režīmā**](opening-an-image-full-screen.md) — attēlu skatītāja pamati
-* [**Attēlu apstrāde (GUI)**](../processing-images-gui/adding-files-to-a-project.md) — pilna apstrādes darba plūsma
+Backend neatbild. Pārbaudiet cilni „Log“; ja aizmugure tiek pārstartēta, „Sandbox“ atgūstas pati, tiklīdz tā atkal sāk darboties.
+
+### Attēls nemainījās, kad es vilku apli
+
+Formula vēl nav pabeigta. Nepabeigta formula tiek uzskatīta par parastu stāvokli vilkšanas laikā — nekas netiek renderēts un nekas netiek ziņots kā kļūda. Aizpildiet katru lauciņu, ko izmanto formula.
+
+### Viss attēls ir vienā krāsā
+
+Jūsu klipa logs, visticamāk, atrodas tālu ārpus datu diapazona. Nospiediet **AUTO**, lai to pielāgotu 2. vai 98. percentilam, vai ieslēdziet**INDEX** histogrammu, lai redzētu, kur faktiski atrodas dati.
+
+### Eksportētās krāsas neatbilst tam, ko redzēju
+
+Tām vajadzētu atbilst — eksporta ceļš ir apzināti veidots kā reālā priekšskatījuma spoguļattēls, ieskaitot klipēšanas režīma alfu, un bloku vidējā vērtība tiek piemērota _pēc_ krāsošanas tieši tāpat, kā to dara skatītājs. Ja tās atšķiras, pārbaudiet, vai GSD bloka izmērs nav mainījies starp apskati un eksportēšanu.
+
+***
+
+## Turpmākie soļi
+
+* [**Attēla slāņi**](image-layers.md) — uz kura slāņa veikt indeksu un ko nozīmē tā vērtības
+* [**Attēla atvēršana pilnekrāna režīmā**](opening-an-image-full-screen.md) — kursora rādījums, histogramma un GSD vadība sīkāk
+* [**Multispektrālo indeksu formulas**](../project-settings/multispectral-index-formulas.md) — katra iestatījuma paraugs uz katras virsmas
+* [**Projekta iestatījumi**](../project-settings/project-settings.md) — atrasto iestatījumu saglabāšana apstrādes ciklā
