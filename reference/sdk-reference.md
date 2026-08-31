@@ -2,9 +2,9 @@
 
 **Versija:**
 
-1.2.0**Izveidots:**2026-07-29 19:19 ·**Pārskatīts:** 2026-08-30**Pakete:** `chloros-sdk` (PyPI)**Mērķauditorija:** Optimizēts LLM lietošanai; cilvēkam saprotams.**Darbības joma:** Visas publiskās klases, funkcijas un palīgfunkcijas, ko piedāvā `import chloros_sdk`, ar piemēriem, kurus var kopēt un ielīmēt, aptverot attēlu apstrādi, vienas kameras vadību, sinhronizētus masīvus, DAQ sensorus un projekta automatizāciju.
+1.2.0**Izveidots:**2026-07-29 19:19 ·**Pārskatīts:** 2026-08-30**Pakete:** `chloros-sdk` (PyPI)**Mērķauditorija:** Optimizēts LLM izmantošanai; cilvēkam lasāms.**Darbības joma:** Visas publiskās klases, funkcijas un palīgfunkcijas, ko piedāvā `import chloros_sdk`, ar piemēriem, kurus var kopēt un ielīmēt, aptverot attēlu apstrādi, vienas kameras vadību, sinhronizētus masīvus, DAQ sensorus un projekta automatizāciju.
 
-Ja jums vajadzīgi tikai galvenie punkti, pārejiet uz:
+Ja jums nepieciešama tikai galvenā informācija, pārejiet uz:
 - [Instalācija un ātrs sākums](#installation)
 - [Smart-Connect LATTICE kameru masīviem](#smart-connect-for-lattice-cameras)
 - [DAQ sensoru sesijas](#daq-sensor-sessions)
@@ -15,34 +15,34 @@ Ja jums vajadzīgi tikai galvenie punkti, pārejiet uz:
 
 ## Arhitektūra 60 sekundēs
 
-SDK ir plāns Python slānis virs Chloros aizmugurējās sistēmas (tas pats Flask serveris, ko izmanto gan darbvirsmas GUI, gan CLI). Automatizācijas nolūkā jūs importējat `chloros_sdk` un izsaucat augsta līmeņa metodes; aizkulisēs katrs izsaukums pārvēršas par HTTP pieprasījumu vietējam backendam 5000. portā — `http://127.0.0.1:5000/api/...` (apzināti nevis `localhost`, kas vispirms tiek pārveidots par `::1` uz Windows un izmaksā apmēram 2 s uz vienu pieprasījumu, ja backend darbojas tikai ar IPv4). Backend pārvalda aparatūras resursu kopumu — kameras, DAQ sensoriem, izlīdzināšanas profiliem, kadru buferiem — tādējādi SDK skripti var darboties vienlaikus ar GUI, nekonkurējot par seriālajiem portiem vai tīkla kartes joslas platumu.
+SDKs ir plāns „Python” slānis virs „Chloros” aizmugurējās daļas (tas pats Flask serveris, ko izmanto gan darbvirsmas GUI, gan CLI). Automatizācijai importējiet `chloros_sdk` un izsauciet augsta līmeņa metodes; aizkulisēs katrs izsaukums kļūst par HTTP pieprasījumu vietējam backendam 5000. portā — `http://127.0.0.1:5000/api/...` (apzinātiiberāti nevis `localhost`, kas vispirms tiek pārveidots par `::1` vietnē Windows un izmaksā apmēram 2 s uz vienu pieprasījumu, izmantojot tikai IPv4 atbalsta sistēmu). Atbalsta sistēma pārvalda aparatūras resursu kopumu — kameras, DAQ sensorus, izlīdzināšanas profilus, kadru buferi — tādējādi skripti SDK var darboties vienlaikus ar grafisko lietotāja saskarni, nekonkurējot par seriālajiem portiem vai tīkla kartes joslas platumu.
 
 Jūs izmantosiet trīs saskarnes:
 
-1. **`ChlorosLocal` + bezmaksas funkcijas** (`process_folder`, `process_lattice_capture`) — attēlu apstrādes cauruļvads. Ar vienu Python izsaukumu varat apstrādāt visu mapi, veicot kalibrēšanu, debayerēšanu un indeksu eksportu.
-2. **Viedās savienošanas rīki** (`connect_camera`, `connect_array`, `connect_daq_sensor`) — Atver pastāvīgu aizmugures sesiju reāllaika aparatūrai. Tāds pats „smart-prep” process kā GUI: tīkla pārbaude, slāņa automātiskāizvēle, PTP, AE sēšana, GPIO trigera konfigurācija.
-3. **`ChlorosProject` / `open_project`** — Ielādē saglabātu projektu (mapes ar `cameras.json` + `sensors.json` + `project.json`), vienlaikus savieno visu un veic uztveršanu ar nosauktiem rokturiem.
+1. **`ChlorosLocal` + brīvās funkcijas** (`process_folder`, `process_lattice_capture`) — attēlu apstrādes cauruļvads. Ar vienu „Python” izsaukumu apstrādājiet visu mapi, veicot kalibrēšanu, debayeringu un indeksu eksportu.
+2. **„Smart-connect” rokturi** (`connect_camera`, `connect_array`, `connect_daq_sensor`) — Atver pastāvīgu aizmugures sesiju reāllaika aparatūrai. Tāds pats „smart-prep” process kā GUI: tīkla pārbaude, automātiska līmeņa izvēle, PTP, AE sākotnējā iestatīšana, GPIO trigera konfigurācija.
+3. **`ChlorosProject` / `open_project`** — Ielādē saglabātu projektu (mapes ar `cameras.json` + `sensors.json` + `project.json`), vienlaikus savienot visu un veikt datu uztveršanu, izmantojot nosauktus rokturus.
 
-Virsmas 1 un 2 **automātiski palaista vietējo aizmuguri**, ja tā vēl nav klausīšanās režīmā (tā pati komplektā iekļautā binārā programma, ko palaida GUI/CLI) — tādējādi vienkāršs skripts darbojas no jaunas komandrindas, bez nepieciešamības vispirms palaist aizmuguri. Lai atteiktos no šīs funkcijas, nododiet `auto_start_backend=False`, lai to atspēkotu (piemēram, ja norādāt uz attālo backend, kas nekad netiek palaists). Skatīt [Backend automātiskā palaišana](#backend-auto-start). „Surface 3” darbojas citādi: `open_project()` nepieņem `auto_start_backend` parametru, un `connect_all()` nekad nepalaiž aizmuguri — tas vienu reizi pārbauda `http://127.0.0.1:5000` vienu reizi un, ja nekas neatbild, klusi pārslēdzas uz tiešu (bez aizmugurējās sistēmas) `lattice_sdk` ierīces vadību. Tikai `proj.process()` un `stream(..., overlays=True)` lēni izveido `ChlorosLocal()` (kas veic automātiskopalaišanu).
+Virsmas 1 un 2 **automātiski palaist vietējo backend**, ja tas vēl nav klausīšanās režīmā (tā pati komplektā iekļautā binārā programma, ko palaista GUI/CLI) — tādējādi skripts darbojas no jaunas komandu rindas, bez nepieciešamības vispirms palaist backend. Lai atteiktos, nododiet `auto_start_backend=False` (piem., norādot uz attālo backend, kas nekad netiek palaists). Skatīt [Aizmugurējās sistēmas automātiska palaišana](#backend-auto-start). Surface 3 darbojas citādi: `open_project()` nepieņem `auto_start_backend` parametru, un `connect_all()` nekad nepalaiž backendu — tas vienreiz pārbauda `http://127.0.0.1:5000` un, ja nekas neatbild, klusi pārslēdzas uz tiešu (bez backenda) `lattice_sdk` ierīces vadību. Tikai `proj.process()` un `stream(..., overlays=True)` lēni izveido `ChlorosLocal()` (kas veic automātisku palaišanu).
 
-Visas trīs ir autentifikācijas ierobežotas: vienreiz palaidiet `chloros-cli login` uz datora vai piesakieties, izmantojot darbvirsmas grafisko lietotāja saskarni. SDK izsaukumi bez derīgas sesijas izraisa `ChlorosAuthenticationError`.
+Visi trīs ir auth-gated: vienreiz palaidiet `chloros-cli login` uz datora vai piesakieties, izmantojot darbvirsmas GUI. Izsaukumi SDK bez derīgas sesijas izraisa `ChlorosAuthenticationError`.
 
 Prasības:
-- Python 3.7+ (kā norādīts paketē; izstrādāts/testēts ar 3.10)
-- Vietējā datorā instalēta Chloros darbvirsma (aizmugures binārā programma ir iekļauta instalētājā)
-- Aktīva Chloros+ pieteikšanās. SDK/CLI minimālais līmenis ir **Copper**vai augstāks (Copper / Bronze / Silver / Gold); bezmaksas**Iron**līmenim nav piekļuves SDK/CLI. Tas tiek piemērots**servera pusē**: katram pieprasījumam ar SDK/CLI marķējumu ir jābūt gan aktīvai sesijai, gan apmaksātam plānam, pretējā gadījumā backend atgriež `403` ar `error_code: PLAN_UPGRADE_REQUIRED` (kas tiek parādīts kā `ChlorosLicenseError`, izmantojot `ChlorosLocal`, un kā `ChlorosConnectError`, izmantojot `connect_*` palīgfunkcijas). Izslēgts lietotājs saņem `401` / `AUTH_REQUIRED` (`ChlorosAuthenticationError`) — abas ir atšķirīgas, jo `chloros-cli login` atkārtota izpilde novērš pirmo kļūdu, bet nevar novērst otro.
-- Lietošana bezsaistē tiek atbalstīta plāna papildlaika periodā: līmenis tiek nolasīts no servera validācijas keša (5 min) vai parakstītā, ierīceisaistītajā licenču kešatmiņā (30 dienas mēneša plāniem, līdz abonementa termiņa beigām gada plāniem). Kad šis papildlaiks beidzas, plāns pāriet uz bezmaksas versiju, un piekļuve SDK/CLI tiek pārtraukta, līdz ierīce var vismaz reizi sazināties ar serveri. `chloros-cli status` (`GET /api/license-status`) paliek pieejams bezmaksas līmenī, tādējādi iemesls ir redzams — tas ir vienīgais SDK/CLI maršruts, kas ir izņēmums no līmeņa vārtiem.
-- Windows 10/11 64-bit, **Ubuntu 22.04 LTS vai jaunāka versija**, vai Jetson (JetPack 6). Ubuntu 20.04**netiek** atbalstīta: `.deb` atkarības ir atvasinātas no tā, ar ko saistās backend, ieskaitot `libc6 (>= 2.34)`, un Focal piegādā glibc 2.31.
+- Python 3.7+ (kā norādīts pakotnē; izstrādāts/testēts ar 3.10)
+- Vietējā datorā instalēta „Chloros” darbvirsma (aizmugures binārā programma ir iekļauta instalētājā)
+- Aktīva pieteikšanās vietnē Chloros+. Minimālais līmenis SDK / CLI ir **Copper**vai augstāks (Copper / Bronze / Silver / Gold); bezmaksas**Iron**līmenim nav piekļuves SDK / CLI. Tas tiek piemērots**servera pusē**: katram pieprasījumam ar atzīmi SDK / CLI ir jābūt gan aktīvai sesijai, gan apmaksātam plānam, pretējā gadījumā backend atgriež kļūdu `403` ar `error_code: PLAN_UPGRADE_REQUIRED` (kas parādās kā `ChlorosLicenseError`, ko ģenerē `ChlorosLocal`, un kā `ChlorosConnectError`, ko parāda palīgprogrammas `connect_*`). Izslēgts lietotājs saņem kļūdu `401` / `AUTH_REQUIRED` (`ChlorosAuthenticationError`) — abi ir atšķirīgi, jo, atkārtoti palaistot `chloros-cli login`, tiek novērsta pirmā kļūda, bet otrā netiek novērsta.
+- Lietošana bezsaistē tiek atbalstīta plāna papildlaika periodā: pakete tiek nolasīta no servera validācijas keša (5 min) vai parakstītās, ar ierīci saistītās licences keša (30 dienas mēneša plāniem, līdz abonementa termiņa beigām gada plāniem). Kad šis papildlaiks beidzas, plāns pāriet uz bezmaksas līmeni un piekļuve SDK / CLI tiek pārtraukta, līdz datora var vismaz reizi savienoties ar serveri. `chloros-cli status` (`GET /api/license-status`) paliek pieejams bezmaksas līmenī, tāpēc iemesls ir skaidrs — tas ir vienīgais SDK / CLI maršruts, kas ir atbrīvots no līmeņa ierobežojumiem.
+- Windows 10/11 64-bit, **Ubuntu 22.04 LTS vai jaunāka versija**, vai Jetson (JetPack 6). Ubuntu 20.04**netiek** atbalstīta: `.deb` atkarības ir atvasinātas no tā, ar ko saistās aizmugurējā sistēma, ieskaitot `libc6 (>= 2.34)`, un „focal” versijā tiek piegādāta glibc 2.31.
 
 ---
 
 ## Instalēšana
 
-Python SDK ir plāns Python slānis virs Chloros backend. Lai veiktu jebkuras darbības, kas pārsniedz dažas tikai DAQ darba plūsmas, jums ir nepieciešams **vietējā datorā instalēts Chloros darbvirsmas pakotne** (Windows instalētājs vai Linux `.deb`) — tas nodrošina backend bināro failu, Arena SDK izpildes vidi LATTICE kamerām un kalibrēšanas paketes.
+Python SDK ir plāns Python slānis virs Chloros backend. Lai izmantotu kaut ko vairāk nekā tikai dažas DAQ darbplūsmas, jums ir nepieciešams **vietēji instalēts Chloros darbvirsmas pakotne** (Windows instalētājs vai Linux `.deb`) — tas nodrošina backend bināro failu, Arena SDK izpildes vidi LATTICE kamerām un kalibrēšanas paketes.
 
 Jaunākās lejupielādes: [`https://mapir.gitbook.io/chloros/download`](https://mapir.gitbook.io/chloros/download)
 
-### 1. solis — Instalējiet Chloros platformas paketi
+### 1. solis — Instalējiet platformas paketi „Chloros”
 
 #### Windows (.exe)
 
@@ -68,33 +68,33 @@ chloros-cli --version
 chloros-cli login user@example.com 'YourPassword'
 ```
 
-### 2. solis — Python instalēšana SDK
+### 2. solis — Instalējiet „Python” SDK
 
-**Chloros instalētājs ietver atbilstošu SDK wheel failu.** Katrs Windows instalētājs un Linux .deb fails uz diska izvieto `chloros_sdk-X.Y.Z-py3-none-any.whl`, kas precīzi atbilst GUI / CLI / backend versijai. Jums nav jāseko līdzi PyPI, lai saglabātu sinhronizāciju.
+**„Chloros” instalētājs ietver atbilstošu „SDK” ratu.** Katra „Windows” instalētāja un „Linux” .deb pakete uz diska ievieto `chloros_sdk-X.Y.Z-py3-none-any.whl`, kas precīzi atbilst GUI / CLI / backend versijai. Jums nav jāseko līdzi PyPI, lai saglabātu sinhronizāciju.
 
 #### Windows
 
-Instalētājs automātiski palaista `pip install`, izmantojot komplektā iekļauto „wheel” failu un jūsu sistēmas Python (vēlams izmantot `py.exe` palaišanas programmu, citādi tiek izmantota `python -m pip`). Nav nepieciešama nekāda rīcība — `import chloros_sdk` darbojas jūsu Python vidē pēc veiksmīgas instalācijas. Ja datorā nav Python, instalētājs klusi izlaiž šo soli, un GUI + CLI turpina darboties.
+Instalētājs automātiski palaista `pip install` pret komplektā iekļauto wheel failu, izmantojot jūsu sistēmas Python (vēlams `py.exe` palaidējs, ja tas nav pieejams, tiek izmantots `python -m pip`). Nav nepieciešama nekāda rīcība — `import chloros_sdk` darbojas jūsu Python vidē pēc veiksmīgas instalācijas. Ja datorā nav Python, instalētājs klusi izlaiž šo soli, un GUI + CLI turpina darboties.
 
 #### Linux (.deb)
 
-.deb fails novieto „wheel” failu `/usr/lib/chloros/sdk/`. `postinst` izdrukā precīzu komandu — PEP 668 distribūcijas pēc noklusējuma nepieļauj globālas pip rakstīšanas darbības, tādēļ mēs neveicam automātisku instalēšanu:
+.deb fails novieto „wheel” failu `/usr/lib/chloros/sdk/`. `postinst` izdrukā precīzu komandu — PEP 668 distribūcijas pēc noklusējuma nepieļauj globālas pip rakstīšanas darbības, tādēļ mēs neveicam automātisku-instalējam:
 
 ```bash
 pip install --user /usr/lib/chloros/sdk/chloros_sdk-*.whl
 ```
 
-Jetson ierīcēm ar izolētu tīklu šis process notiek pilnīgi bezsaistē — ratiņš jau atrodas diskā.
+Jetson ierīcēm ar izolētu tīklu šis process notiek pilnīgi bezsaistē — „wheel” jau atrodas diskā.
 
 #### Publiskais PyPI
 
-Pip-tikai serveriem (nav instalēta Chloros darbvirsmas pakete; attālināta aizmugure vai tikai DAQ darba plūsmas):
+Tām sistēmām, kurās darbojas tikai pip (nav instalēta „Chloros” darbvirsmas pakete; darba plūsmas ar attālo aizmuguri vai tikai DAQ):
 
 ```bash
 pip install chloros-sdk
 ```
 
-PyPI tiek atjaunināts izlaides versijas instalētāja kompilācijās, tādējādi publicētais „wheel” atbilst jaunākajai stabilajai versijai. Dev versijas (piem., `1.1.4.dev1`) tiek piegādātas tikai kopā ar instalētāja „wheel” failu.
+PyPI tiek atjaunināts, izveidojot instalētāja versijas, tādējādi publicētais „wheel” atbilst jaunākajai stabilajai versijai. Izstrādes versijas (piem., `1.1.4.dev1`) tiek piegādātas tikai kopā ar instalētāja „wheel”.
 
 #### Pārbaudiet
 
@@ -106,29 +106,29 @@ print("DAQ_AVAILABLE    =", chloros_sdk.DAQ_AVAILABLE)
 print("PROJECT_AVAILABLE =", chloros_sdk.PROJECT_AVAILABLE)
 ```
 
-> **Nepieciešama Chloros+ abonementa.** Visiem SDK izsaukumiem ir nepieciešama aktīva Chloros+ pieteikšanās. Palaidiet `chloros-cli login user@example.com 'YourPassword'` vienu reizi katrā datorā; piekļuves dati tiek saglabāti `~/.chloros/`.
+> **Nepieciešama Chloros+ abonementa.** Visiem SDK izsaukumiem ir nepieciešama aktīva Chloros+ pieteikšanās. Izpildiet `chloros-cli login user@example.com 'YourPassword'` vienu reizi katrā datorā; pieteikšanās dati tiek saglabāti `~/.chloros/`.
 
 ### Vai man ir nepieciešama darbvirsmas pakete?
 
-Pip pakete pati par sevi **nav** pietiekams lielākajai daļai darba plūsmu. Šeit ir norādīts, kas nepieciešams katrai SDK virsmai:
+Lielākajai daļai darba plūsmu ar pip paketi vien **nepietiek**. Šeit ir norādīts, kas nepieciešams katrai SDK virsmai:
 
-| SDK virsma | Vai nepieciešams darbvirsmas pakotne? | Kāpēc |
+| SDK virsma | Vai nepieciešama darbvirsmas pakete? | Kāpēc |
 | --- | --- | --- |
-| `ChlorosLocal`, `process_folder`, `process_lattice_capture` | **Jā** | Automātiski palaista aizmugures binārā programma `/usr/lib/chloros/chloros-backend` (Linux) vai `C:\Program Files\MAPIR\Chloros\…` (Windows). |
-| `connect_camera`, `connect_array`, `connect_daq_sensor`, `analyze_array_network`, `list_*`, `discover_*` | **Jā**(vietējais)**/ Nē**(attālinātais) | Nepieciešami tīrie HTTP klienti aizmugurē. Vietējais backend → nepieciešama darbvirsmas pakete. Attālais backend → `backend_url=`**caur tuneli** (skatīt Attālinātā aizmugurējā sistēma režīmu — piegādātās aizmugurējās sistēmas piesaista tikai lokālo atgriezenisko saiti). |
-| `ChlorosProject` / `open_project` | **Jā** | Pārvalda saglabātos projektus caur backend. |
-| Tiešās LATTICE klases (`LatticeCamera`, `CameraPool`, `Calibration`, `DLS`, …) | **Jā** | Nepieciešama Arena SDK nativā izpildes vide, kas ir iekļauta darbvirsmas paketē. Pretējā gadījumā `CAMERA_AVAILABLE` importēšanas brīdī ir `False`. |
-| Tiešās DAQ klases (`DAQUSensor`, `DAQMSensor`, `DAQESensor`, `SensorFleet`, `discover_all`) | **Nē** | Tīra Python izmantošana ar pyserial/bleak/zeroconf. Vide, kurā tiek izmantots tikai pip, var vadīt DAQ no gala līdz galam. |
+| `ChlorosLocal`, `process_folder`, `process_lattice_capture` | **Jā** | Automātiski palaista aizmugurējā sistēmas binārā programma vietnē `/usr/lib/chloros/chloros-backend` (Linux) vai `C:\Program Files\MAPIR\Chloros\…` (Windows). |
+| `connect_camera`, `connect_array`, `connect_daq_sensor`, `analyze_array_network`, `list_*`, `discover_*` | **Jā**(vietējais)**/ Nē**(attālināts) | Tīrie „HTTP” klienti caur aizmuguri. Vietējai aizmugurei → nepieciešama darbvirsmas pakete. Attālinātai aizmugurei → `backend_url=`**caur tuneli** (sk. Attālinātā aizmugurējā sistēma — piegādātās aizmugurējās sistēmas veido savienojumu tikai ar lokālo atgriezenisko saiti). |
+| `ChlorosProject` / `open_project` | **Jā** | Vadīšana saglabātiem projektiem caur backend. |
+| Tiešās LATTICE klases (`LatticeCamera`, `CameraPool`, `Calibration`, `DLS`, …) | **Jā** | Nepieciešama „Arena“ SDK nativā izpildes vide, kas ir iekļauta darbvirsmas paketē. `CAMERA_AVAILABLE` citādi importēšanas brīdī ir `False`. |
+| Tiešās DAQ klases (`DAQUSensor`, `DAQMSensor`, `DAQESensor`, `SensorFleet`, `discover_all`) | **Nē** | Tīra „Python” izmantošana, izmantojot pyserial/bleak/zeroconf. Vide, kurā darbojas tikai pip, var vadīt DAQ no sākuma līdz galam. |
 
-### Attālinātais aizmugures režīms (tikai pip uzņēmējdators, izmantojot tuneli)
+### Attālinātā aizmugurējā daļa (tikai pip uzņēmējdators, izmantojot tuneli)
 
-> **Piegādātais backend nav sasniedzams pa LAN.** Ražošanas
-> versijas saistās tikai ar loopback (abas loopback ģimenes) un kategoriski noraida
-> vienīgo režīmu bez loopback (`CHLOROS_CLOUD_MODE`), tāpēc
+> **Piegādātā aizmugurējā daļa nav sasniedzama pa LAN.** Ražošanas
+> versijas saista tikai loopback (abas loopback ģimenes) un kategoriski noraida
+> vienīgo režīmu bez loopback (`CHLOROS_CLOUD_MODE`), tādēļ
 > `backend_url="http://<lan-ip>:5000"` **nevar darboties ar instalētu
 > Chloros** — šis risinājums vienmēr darbojās tikai ar source/dev
-> backend. Lai vadītu backend citā datorā, pašam jāpāradresē tā loopback
-> ports un jānorāda SDK uz tuneli:
+> backend. Lai vadītu backend citā datorā, pašam pāradresējiet tā loopback
+> portu un norādiet SDK uz tuneli:
 
 ```bash
 # on the pip-only host: forward local 5000 to the Chloros machine's loopback
@@ -145,11 +145,11 @@ chloros_sdk.connect_array(serials, backend_url=BACKEND)
 chloros_sdk.connect_daq_sensor(eth_host="daq-e-1.local", backend_url=BACKEND)
 ```
 
-Bezmonitora / CI / robotikas serveri var saglabāt vienu datoru ar pilnu darbvirsmas instalāciju kā „Chloros serveri”, bet visur citur — `pip install chloros-sdk` — taču datu pārraide starp tiem notiek, izmantojot iepriekš minēto lietotāja izveidoto tuneli, nevis tiešu LAN URL savienojumu.
+Bezmonitora / CI / robotikas serveri var vienu datoru ar pilnu darbvirsmas instalāciju paturēt kā „Chlorosa serveri”, bet visur citur izmantot `pip install chloros-sdk` — taču datu pārraide starp tiem notiek, izmantojot iepriekš minēto lietotāja izveidoto tuneli, nevis tiešu LAN URL.
 
-> **Zināms ierobežojums — `ChlorosLocal` nespēj darboties tikai ar pip.** `ChlorosLocal(backend_url=BACKEND)` pašlaik savā konstruktorā atrisina vietējo aizmugures bināro failu *pirms* pārbauda URL, un izraisa kļūdu `ChlorosBackendError` („Chloros backend nav atrasts…”) ja nav instalēts neviens darbvirsmas pakotnes — pat tad, ja attālais backend ir sasniedzams. Tikai iepriekš minētā „smart-connect” saskarne (`connect_camera` / `connect_array` / `connect_daq_sensor`, kā arī `analyze_array_network` un palīgprogrammas `list_*` / `discover_*`) darbojas no datora, kurā ir instalēts tikai pip.
+> **Zināms ierobežojums — `ChlorosLocal` neatbalsta tikai pip.** `ChlorosLocal(backend_url=BACKEND)` pašlaik savā konstruktorā atrisina vietējo aizmugures bināro failu *pirms* URL pārbaudes un izraisa kļūdu `ChlorosBackendError` („Chloros aizmugure nav atrasta…”), ja nav instalēts neviens darbvirsmas pakotnes — pat ja ir pieejama attālā aizmugure. Tikai iepriekš minētā „smart-connect” saskarne (`connect_camera` / `connect_array` / `connect_daq_sensor`, kā arī `analyze_array_network` un `list_*` / `discover_*` palīgprogrammas) darbojas no datora, kurā ir instalēts tikai pip.
 
-### Darba plūsma tikai ar DAQ (tikai „pip” serveris)
+### Darba plūsma, kurā tiek izmantota tikai DAQ (tīmekļa serveris, kurā darbojas tikai „pip” pakete)
 
 Ja jums nepieciešami tikai DAQ sensori un jūs neizmantojat LATTICE kameras vai attēlu apstrādi, „pip” pakete ir pilnībā autonoma:
 
@@ -207,7 +207,7 @@ proj.disconnect_all()
 
 ---
 
-## API augstākā līmeņa indekss
+## Augstākā līmeņa „API” indekss
 
 ```python
 import chloros_sdk
@@ -267,7 +267,7 @@ chloros_sdk.PROJECT_AVAILABLE    # True iff ChlorosProject deps available
 
 ## Attēlu apstrāde — `ChlorosLocal`
 
-Galvenā apstrādes plūsmas klase. Pirmajā lietošanas reizē palaista backend, izveido un konfigurē projektus, uzrauga gaitu, atgriež kopsavilkumus pēc izpildes.
+Galvenā apstrādes plūsmas klase. Pirmajā lietošanas reizē palaista aizmugurējo moduli, izveido un konfigurē projektus, uzrauga gaitu un atgriež kopsavilkumus pēc izpildes.
 
 ### Konstruktors
 
@@ -287,17 +287,17 @@ ChlorosLocal(
 
 | Metode | Apraksts |
 | --- | --- |
-| `create_project(project_name, camera=None)` | Izveido jaunu projektu (pēc izvēles ar kameras šablonu, piemēram, `"Survey3N_RGN"`). |
+| `create_project(project_name, camera=None)` | Izveido jaunu projektu (pēc izvēles ar kameras veidni, piemēram, `"Survey3N_RGN"`). |
 | `import_images(folder_path, recursive=False)` | Importē RAW/TIF/JPG/DNG attēlus **un `.daq` gaismas sensora ierakstus**. Atgriež `count` (attēlus) un `scan_count` (ierakstus). Brīdina tikai tad, ja mapē nav ne viena, ne otra. |
-| `export_light_sensor(daq=True, csv=True)` | Ieraksta kalibrētos `.daq` + `.csv` par katru gaismas sensora ierakstu projektā, `<project>/Light Sensor/`. Skatīt [Gaismas sensora ieraksti](#light-sensor-recordings--calibrated-daq--csv). |
-| `configure(debayer=..., vignette_correction=..., reflectance_calibration=..., indices=[...], export_format=..., ppk=..., daq_log_path=..., input_level=..., radiometric_output=..., array_alignment=..., array_alignment_crop=..., array_alignment_interpolation=..., custom_settings=None)` | Iestatīt apstrādes slēdžus. |
-| `process(mode="parallel", wait=True, progress_callback=None, poll_interval=2.0)` | Palaižiet apstrādes cauruļvadu. Atgriež `{"status": "complete", "async": False}`, kā arī `summary` atslēgu, ja aizmugurējā sistēma to nodrošina — skatiet [Kopsavilkums un padomi pēc apstrādes](#post-run-summary--hints). |
+| `export_light_sensor(daq=True, csv=True)` | Ieraksta kalibrētos `.daq` + `.csv` par katru projekta gaismas sensora ierakstu, ierakstot tos failā `<project>/Light Sensor/`. Skatīt [Gaismas sensora ieraksti](#light-sensor-recordings--calibrated-daq--csv). |
+| `configure(debayer=..., vignette_correction=..., reflectance_calibration=..., indices=[...], export_format=..., ppk=..., daq_log_path=..., input_level=..., radiometric_output=..., array_alignment=..., array_alignment_crop=..., array_alignment_interpolation=..., custom_settings=None)` | Iestatiet apstrādes parametrus. |
+| `process(mode="parallel", wait=True, progress_callback=None, poll_interval=2.0)` | Palaižiet apstrādes cauruļvadu. Atgriež `{"status": "complete", "async": False}`, kā arī `summary` atslēgu, ja aizmugurējā sistēma to nodrošina — skatīt [Kopsavilkums un padomi pēc izpildes](#post-run-summary--hints). |
 | `get_config()` / `get_status()` / `status()` | Pārbaudiet aizmugurējās sistēmas stāvokli. |
-| `logout()` | Dzēsiet kešēto autentifikācijas informāciju. |
-| `shutdown_backend()` | Pārtrauciet aizmugurējo sistēmu (ja SDK ir palaista). |
-| `discover_cameras()` | Atklāj LATTICE kameras **caur šīs instances backend** (`/api/camera/discover`). Atgriež vārdnīcu sarakstu (`serial`, `model`, `ip`, …) — ar tādu pašu struktūru, kādu redz GUI/CLI. Tukšs saraksts, ja nekas nav atrasts vai backend nav sasniedzams. |
-| `camera_capture(output_dir, format="tiff", **settings)` | Uztver vienu kadru**caur backend**(automātiski palaists ar šo rokturi), lai tas tiktu sagatavots tāpat kā GUI/CLI (noklusējumā 12 biti, pūla atkārtota izmantošana, iegultie kalibrēšanas metadati). Noteikt mērķi ar `serial=` vai `device_index=`; nodot `exposure`/`gain`/`pixel_format`/`preset` kā `**settings`. Atgriež vecā tipa metadatu vārdnīcu (`filepath`, `width`, `height`, `pixel_format`, `exposure_time`, `gain`, `timestamp`). |
-| `camera_stream(serial, *, fps=10.0, overlay=None, decode=True, connect_timeout=10.0, read_timeout=15.0)` | Izveido pārklājuma apvienotus priekšskatījuma kadrus no apvienotās kameras — viegls MJPEG klients, izmantojot aizmugurējās sistēmas `/api/camera/<serial>/stream-annotated` maršrutu (zebra / režģis / krustlīnijas / histogramma / maksimumu izcelšana / punkta iezīmēšana servera pusē). `decode=True` ģenerē BGR masīvus; `False` ģenerē neapstrādātus JPEG baitus. Pieejams arī katram projektam kā `ChlorosProject.stream(overlays=True)`. |
+| `logout()` | Dzēsiet kešēto autentifikācijas datus. |
+| `shutdown_backend()` | Pārtrauciet aizmugurējās sistēmas darbību (ja tā tika palaista ar komandu `SDK`). |
+| `discover_cameras()` | Atrodiet LATTICE kameras **caur šīs instances aizmugurējo sistēmu** (`/api/camera/discover`). Atgriež vārdnīcu sarakstu (`serial`, `model`, `ip`, …) — tādā pašā formātā, kādu redz GUI/ CLI. Tukšs saraksts, ja nekas nav atrasts vai backend nav sasniedzams. |
+| `camera_capture(output_dir, format="tiff", **settings)` | Uztver vienu kadru**caur backend**(automātiski palaists ar šo rokturi), lai tas tiktu sagatavots tāpat kā GUI/ CLI (noklusējumā 12 biti, atkārtota pūla izmantošana, iegultie kalibrēšanas metadati). Nosakiet mērķi ar `serial=` vai `device_index=`; nododiet `exposure`/`gain`/`pixel_format`/`preset` kā `**settings`. Atgriež vecā tipa metadatu vārdnīcu (`filepath`, `width`, `height`, `pixel_format`, `exposure_time`, `gain`, `timestamp`). |
+| `camera_stream(serial, *, fps=10.0, overlay=None, decode=True, connect_timeout=10.0, read_timeout=15.0)` | Izvada pārklājuma-komponēti priekšskatījuma kadri no apvienotās kameras — viegls MJPEG klients, izmantojot aizmugures sistēmas `/api/camera/<serial>/stream-annotated` maršrutu (zebra / režģis / krustlīnijas / histogramma / maksimuma rādītājs / servera pusē zīmēts punkts). `decode=True` nodrošina BGR masīvus; `False` nodrošina neapstrādātus „JPEG” baitus. Pieejams arī katram projektam atsevišķi kā `ChlorosProject.stream(overlays=True)`. |
 
 Izmantojiet kā konteksta pārvaldnieku, lai garantētu tīrīšanu:
 
@@ -317,42 +317,42 @@ print(results["summary"])
 
 ### Gaismas sensoru ieraksti — kalibrēti `.daq` + `.csv`
 
-DAQ-U / DAQ-M / DAQ-E ierakstus var veikt **bez** to kalibrēšanas paketes. Tieši to
-pēc noklusējuma dara publiskie [`chloros_scripts`](https://github.com/mapircamera/chloros_scripts)
-ierakstītāji (`record_daq.py`): tie ieraksta neapstrādātos sensoru skaitījumus un marķē
-failu, lai Chloros iegūtu šī sensora rūpnīcas kalibrāciju **pēc sērijas numura** — vispirms no vietējās kešatmiņas,
-pēc tam no MAPIR mākoņa — un piemēro to importēšanas brīdī.
+DAQ-U / DAQ-M / DAQ-E datus var ierakstīt **bez** to kalibrēšanas paketes. Tieši to
+publiskie [`chloros_scripts`](https://github.com/mapircamera/chloros_scripts)
+ierakstītāji (`record_daq.py`) dara pēc noklusējuma: tie ieraksta neapstrādātos sensoru skaitījumus un marķē
+failu tā, lai Chloros iegūtu šī sensora rūpnīcas kalibrāciju **pēc sērijas numura** — vispirms no vietējās kešatmiņas,
+pēc tam no MAPIR mākonis — un piemērotu to importēšanas brīdī.
 
-Chloros rezultātu atpakaļ ieraksta kā divus produktus katram ierakstam, zem
+Chloros rezultātu atkal izraksta kā divus produktus katram ierakstam, sadaļā
 `<project>/Light Sensor/`:
 
 | Produkts | Kas tas ir |
 | --- | --- |
-| `<name>_calibrated.daq` | Pārstrādājams arhīvs — tā pati shēma kā reāllaika ierakstam, tagad norādot paketi, kas to izveidojusi. Tā atkārtota importēšana to **nekalibrē** otrreiz. |
-| `<name>_calibrated.csv` | Spektrālā starojuma intensitāte W/m²/nm uz paša sensora viļņu garuma tīkla, viena rinda katram mērījumam, kā arī fotometriskās kolonnas (kopējā jauda, fotopiskais/skotopiskais lukss, PPFD un tā sadalījums pa zilo, zaļo un sarkano spektru, maksimālā viļņa). |
-| `<name>_raw.daq` / `<name>_raw.csv` | **Tikai sensori bez pakotnēm (DAQ-A).** Neapstrādāti spektrālie sensora skaitījumi — *ne* starojuma intensitāte. Skatīt zemāk. |
+| `<name>_calibrated.daq` | Pārstrādājams arhīvs — tā pati shēma kā reāllaika ierakstam, tagad norādot kopumu, kas to radīja. To atkārtoti importējot, to ****ne** veic tā atkārtotu kalibrēšanu. |
+| `<name>_calibrated.csv` | Spektrālā starojuma intensitāte W/m²/nm uz paša sensora viļņu garuma režģa, viena rinda katram mērījumam, kā arī fotometriskās kolonnas (kopējā jauda, fotopiskais/skotopiskais lukss, PPFD un tā sadalījums pa zilajām, zaļajām un sarkanajām krāsām, maksimālais viļņa garums). |
+| `<name>_raw.daq` / `<name>_raw.csv` | **Tikai sensori bez pakotnēm (DAQ-A).** Neapstrādāti spektrālie sensora skaitījumi — *nevis* starojuma intensitāte. Skatīt zemāk. |
 
 `process()` veic šo eksportu kā vienu no saviem posmiem. Tam **nav** nepieciešami attēli:
 atsevišķi lidojošs gaismas sensors ir pirmklasīga darba plūsma, un šādam projektam pēc būtības nav
-nekādu attēlu.
+attēlu.
 
 **DAQ-A ieraksti tiek eksportēti kā neapstrādāti skaitļi.** DAQ-A sērija ir radusies pirms sērijas
-komplektu sistēmas ieviešanas un tai nav nekāda komplekta, ko lejupielādēt — tā tiek kalibrēta laukā, izmantojot
-atstarošanas mērķi, tāpēc tai nekad nav bijis nepieciešams komplekts. Šie ieraksti tiek eksportēti
-ar `_raw` sakni, nevis `_calibrated`: ar atšķirīgu faila nosaukumu, nevis ar atzīmi
-failā, jo informācijai ir jāiztur nosūtīšana pa e-pastu kā vienkāršs nosaukums.
+pakotņu sistēmas ieviešanas un tai nav pakotnes, ko lejupielādēt — tā tiek kalibrēta laukā, izmantojot
+reflektances mērķa, tāpēc tam nekad nav bijis nepieciešams komplekts. Šie ieraksti tiek eksportēti
+ar kodu `_raw`, nevis `_calibrated`: ar atšķirīgu faila nosaukumu, nevis ar atzīmi
+failā, jo norādei ir jāiztur nosūtīšana pa e-pastu kā vienkāršs nosaukums.
 `.csv` galvenē ir norādīts `raw spectral sensor counts (NOT irradiance)` un brīdinājums, ka
 vērtības ir salīdzināmas **viena faila ietvaros** — tieši tam, kādam nolūkam tās izmanto
-mērķa balstītā kalibrēšana —, nevis starp dažādiem sensoriem. No jaudas atkarīgās fotometriskās kolonnas (kopējā jauda,
-fotopiskais/skotopiskie luksi, PPFD) tiek atgriezti kā **NULL**, nevis integrēti no skaitļiem.
+kalibrēšana, balstoties uz mērķi — un nevis starp dažādiem sensoriem. No jaudas atkarīgās fotometriskās kolonnas (kopējā jauda,
+fotopiskie/skotopiskie luks, PPFD) tiek atgriezti kā **NULL**, nevis integrēti no skaitījumiem.
 
 DAQ-U / DAQ-M / DAQ-E, kura pakete vienkārši nevarēja tikt iegūta, joprojām tiek **izlaista**,
-nevis ierakstīta neapstrādātā veidā: šajā gadījumā pakete pastāv, un “atjaunot savienojumu un pārstrādāt” ir reāls ieteikums.
+nevis ierakstīta neapstrādātā veidā: tur pakete pastāv, un „atjaunot savienojumu un pārstrādāt” ir reāls padoms.
 
-Vecākas versijas **v1.01 / v1.02** ieraksti (tos raksta DAQ-A-SD) nesatur atsevišķu laika posmu katram nolasījumam,
-tikai faila rakstīšanas laiku. Attēla↔lejupvērstās plūsmas saskaņotājs tos joprojām noraida — saskaņot
-kadru ar ierakstīšanas laiku būtu nepamanāmi nepareizi —, bet eksportētājs tos nolasa, un
-CSV izdrukā `clock=daq_created_on`, tādējādi produkts norāda, uz kādiem pulksteņiem tas balstās.
+Vecākas **v1.01 / v1.02** ierakstiem (tos raksta DAQ-A-SD) nav atsevišķas epohas katram nolasījumam,
+tikai faila ierakstīšanas laiku. Attēla↔lejupvērstās plūsmas saskaņotājs tos joprojām noraida —
+kadra saskaņošana ar ierakstīšanas laiku būtu nepamanāmi kļūdaina —, bet eksportētājs tos nolasa, un
+CSV izdrukā `clock=daq_created_on`, tādējādi produkts norāda, uz kāda pulksteņa tas balstās.
 
 ```python
 import chloros_sdk
@@ -368,10 +368,10 @@ for rec in result["skipped"]:
     print("skipped", rec["source"], "--", rec["reason"])
 ```
 
-Ieraksts, kura kalibrēšanas pakete nevar tikt lejupielādēta (bezsaistē vai sensors bez
+Ieraksts, kura kalibrēšanas pakete nevar tikt iegūta (bezsaistē vai sensors bez
 kalibrēšanas failā), tiek ziņots ar kodu `skipped` **norādot iemeslu**. Tas nekad
-netiek izrakstīts kā „kalibrēts” fails, kas satur neapstrādātus skaitījumus — izveidojiet savienojumu ar internetu un
-izpildiet to no jauna, un eksportēšana tiks pabeigta.
+netiek saglabāts kā „kalibrēts” fails, kas satur neapstrādātus skaitījumus — izveidojiet savienojumu ar internetu un
+izpildiet atkārtoti, un eksportēšana tiks pabeigta.
 
 ### Progresa atgriezeniskie izsaukumi
 
@@ -388,7 +388,7 @@ with chloros_sdk.ChlorosLocal() as cl:
 
 ### Kopsavilkums un padomi pēc izpildes
 
-Pēc pabeigšanas `process()` iegūst `GET /api/processing-summary` un pievieno galveno daļu kā `result["summary"]`. Iegūšana ir vislabāk-pūļu un nekad neblokē veiksmīgu atgriešanos — ja kopsavilkums nav pieejams, `process()` pārslēdzas uz vienkāršo `{"status": "complete", "async": False}` formātu. Katrs ieraksts `summary["hints"]` — pilni teikumi ar ieteikto risinājumu, piemēram, kāpēc izpildes rezultāts bija nulle — tiek arīizvadīts kā Python `UserWarning`, tādējādi izpildes ar nulles rezultātu ir pašdiagnosticējošas, pat ja jūs nekad nepārbaudāt vārdnīcu:
+Pēc pabeigšanas `process()` lejupielādē `GET /api/processing-summary` un pievieno galveno daļu kā `result["summary"]`. Lejupielāde notiek pēc iespējas, un tā nekad neblokē veiksmīgu atgriešanos — ja kopsavilkums nav pieejams, `process()` pārslēdzas uz vienkāršo `{"status": "complete", "async": False}` formātu. Katrs ieraksts `summary["hints"]` — pilni teikumi ar ieteikto labojumu, piemēram, kāpēc izpilde nedeva nekādu rezultātu — tiek atkārtoti nosūtīts kā Python `UserWarning`, tādējādi izpildes bez rezultāta ir pašdiagnosticējošas, pat ja jūs nekad nepārbaudāt vārdnīcu:
 
 ```python
 result = cl.process()
@@ -400,39 +400,39 @@ for hint in result.get("summary", {}).get("hints", []):
 
 `summary["totals"]` ir mašīnlasāmā daļa:
 
-| Atslēga | Ko tā uzskaita |
+| Atslēga | Ko tā skaita |
 | --- | --- |
-| `models` | Kameru grupas darbības ciklā. |
+| `models` | Kameru grupas darbā. |
 | `images_in_groups` | Avota attēli šajās grupās. |
 | `targets_found` | Atklātie atstarošanas mērķi. |
-| `images_calibrated` | Attēli, kurus kalibrēja izpildes laikā. |
-| `exported_files` | **Attēlu produktu faili, kurus izveidoja darba cikls.** |
-| `daq_recordings_exported` / `daq_recordings_skipped` | Gaismas sensoru ieraksti, kas apzināti tiek skaitīti atsevišķi — tie ir no cita posma un pastāv arī tādos ciklos, kuros nav nekādu attēlu, tāpēc to iekļaušana liktu domāt, ka ciklā, kurā tika veikta tikai datu ieguve, tika eksportēti attēli. |
+| `images_calibrated` | Attēli, ar kuriem tika veikta kalibrēšana. |
+| `exported_files` | **Attēlu rezultātu faili, ko izveidoja izpildes cikls.** |
+| `daq_recordings_exported` / `daq_recordings_skipped` | Gaismas sensoru ieraksti, kas apzināti uzskaitīti atsevišķi — tie ir iegūti citā posmā un pastāv arī izpildījumos, kuros nav nekādu attēlu, tāpēc to iekļaušana liktu izpildījumam, kurā tika veikta tikai datu ieguve, izskatīties tā, it kā ka tajā būtu eksportēti attēli. |
 
 Papildus tiem: `summary["output_dirs"]` (katrs katalogs, kurā veikta ierakstīšana),
-`summary["light_sensor_export"]`, `summary["stopped"]` (ir spēkā, ja lietotājs pārtrauca
-izpildes ciklu, tādējādi daļējie skaitļi netiek interpretēti kā pabeigta darbības sērija ar nepietiekamu rezultātu), un
+`summary["light_sensor_export"]`, `summary["stopped"]` (ir patiesība, ja lietotājs pārtrauca
+izpildi, tādējādi daļējie skaitļi netiek interpretēti kā pabeigta izpilde ar nepietiekamu rezultātu), un
 `summary["groups"]` (sadale pa grupām).
 
-`exported_files` tiek reģistrēts procesā **rakstīšanas brīdī**, nevis pēc tam skenēts no
-projekta attēlu objektiem. Paralēlās un GPU stratēģijas veido savus attēla
+`exported_files` tiek reģistrēts cauruļvadā **rakstīšanas brīdī**, nevis pēc tam izlasīts no
+projekta attēlu objektiem. Paralēlās un GPU stratēģijas veido savus attēlu
 objektus (GPU ceļu gadījumā — darba apakšprocesos), tāpēc vecā skenēšana ziņoja
-`0 file(s) written` par katru šādu izpildi un pēc tam izvadīja norādi par nulles eksportiem — izpildēs,
-kurās viss bija darbojies. Ja jūs veidojat skriptu, balstoties uz šo skaitli, tagad veiksmīga paralēla darbība
+`0 file(s) written` par katru šādu izpildes ciklu un pēc tam izvadīja norādi par nulles eksportiem — izpildes ciklos,
+kuros viss bija noritējis veiksmīgi. Ja izveidojat skriptu, balstoties uz šo skaitli, tagad veiksmīgs paralēlais izpildes cikls
 ziņo par skaitli, kas nav nulle.
 
-Izlaisto failu ziņojumi norāda iemeslu, ko lasītājs faktiski konstatējis katram failam —
-nelasāma shēma, trūkstošs pakotnes fails, rakstīšanas kļūda — **bez dublējumiem**, tādējādi divdesmit faili,
-kas izlaisti viena iemesla dēļ, tiek uzrādīti kā viens iemesls, nevis divdesmit tā atkārtojumi.
+Light-sensor izlaišanas ziņojumos tiek norādīts iemesls, ko lasītājs faktiski konstatējis katram failam —
+nelasāma shēma, trūkstošs kopums, rakstīšanas kļūda — **deduplicēts**, tādējādi divdesmit faili,
+, kas izlaisti viena iemesla dēļ, tiek uzskatīti par vienu iemeslu, nevis divdesmit tā atkārtojumiem.
 
-> **`process()` netiek izraisīts, ja izpildes laikā netiek ģenerēti attēli.** Šī ir vienīgā vieta, kur SDK un
-> CLI apzināti atšķiras: `chloros-cli process` uzskata „tika pieprasīti rezultāti, bet neviens netika
-> uzrakstīts” kā kļūdu un beidz darbu ar rezultātu, kas nav nulle, turpretim SDK atgriežas normāli un ziņo par
-> stāvokli, izmantojot `summary` / norādes. Ja jūsu apstrādes ķēdei vajadzētu apstāties tukšā izpildes reizē, pārbaudiet to
-> pats — pārbaudiet `summary` (vai saskaitiet failus projekta mapē), nevis paļaujieties uz
-> izņēmuma neesamību. Parastie iemesli ir ievades mape, kas netika atpazīta kā
-> uzņemšanas mape, un produkti, kas tika izlaisti kā nepiemēroti esošajām kamerām (piemēram, starojums no kamerām, kas atrodamas tikai RGB
->).
+> **`process()` netiek izraisīts, ja izpildes reizē netiek radīti attēli.** Šī ir vienīgā vieta, kurā „SDK” un
+> „CLI” apzināti atšķiras: `chloros-cli process` uzskata „tika pieprasīti produkti, bet neviens netika
+> uzrakstīts” par kļūdu un beidz darbu ar nenulles rezultātu, savukārt „SDK” atgriežas normāli un ziņo par
+> stāvokli, izmantojot `summary` / hints. Ja jūsu procesa ķēdei vajadzētu apstāties tukšā cikla gadījumā, pārbaudiet to
+> paši — pārbaudiet `summary` (vai saskaitiet failus projekta mapē), nevis paļaujieties uz
+> izņēmuma neesamību. Parasti iemesli ir ievades mape, kas netika atpazīta kā
+> uzņemšanas mape, un produkti, kas tika izlaisti kā nepiemēroti esošajām kamerām (piemēram, starojums no kamerām, kas darbojas tikai
+> RGB režīmā).
 
 ### Ērtības funkcijas
 
@@ -496,9 +496,9 @@ False         # export in native sensor geometry / skip the common-overlap crop
 "cubic"
 ```
 
-#### Radiometriskā izvade (LATTICE multispektrālā apstrādes ķēde)
+#### Radiometriskā izeja (LATTICE multispektrālā apstrādes ķēde)
 
-`process` apstrādes ķēdes LATTICE multispektrālā (M3C/M3M) eksporta līmenis — `reflectance` (noklusējums), `radiance`, `sensor-response` vai `all` (katrs attēlam piemērojamais režīms) — atbilst projekta **&quot;Radiometriskā izvade&quot;** apstrādes iestatījumam. `configure()` tam ir atsevišķs atslēgvārds:
+`process` apstrādes ķēdes LATTICE multispektrālā (M3C/M3M) eksporta līmenis — `reflectance` (noklusējums), `radiance`, `sensor-response`, vai `all` (katrs attēlam piemērojamais režīms) — atbilst projekta **&quot;Radiometriskā izvade&quot;** apstrādes iestatījumam. `configure()` tam ir atsevišķs atslēgvārds:
 
 ```python
 with chloros_sdk.ChlorosLocal() as cl:
@@ -511,7 +511,7 @@ with chloros_sdk.ChlorosLocal() as cl:
     cl.process()
 ```
 
-Papildu izejas iespēja — projekta `"Radiometric output"` atslēgvārda rakstīšana caur `custom_settings` — joprojām darbojas, bet atcerieties, ka tas aizstāj visu iestatījumu bloku (skatiet brīdinājumu zemāk):
+Papildu izejas iespēja — projekta `"Radiometric output"` atslēgas rakstīšana caur `custom_settings` — joprojām darbojas, bet atcerieties, ka tā aizstāj visu iestatījumu bloku (skatiet brīdinājumu zemāk):
 
 ```python
 cl.configure(custom_settings={
@@ -522,15 +522,15 @@ cl.configure(custom_settings={
 })
 ```
 
-`reflectance` (noklusējuma iestatījums) sadala kameras starojuma intensitāti ar **laika zīmogam atbilstošo DAQ lejupvērsto starojumu**, kas automātiski tiek noteikts no ierakstītā `.daq` (DAQ-U/M/E)**vai DAQ-M nativā `.csv`**, kas atrasts kopā ar attēliem; jebkurškamera vai DAQ kalibrēšanas pakete, kas lokāli trūkst, tiek**automātiski lejupielādēta no AWS** pirmajā lietošanas reizē. CLI parāda to saskaņā ar-tipa produktu slēdžiem `chloros-cli process`: `--radiance`/`--no-radiance`, `--reflectance`/`--no-reflectance`, `--debayered`, `--preview`.
+`reflectance` (noklusējuma iestatījums) sadala kameras starojuma intensitāti ar **laika zīmogam atbilstošo DAQ lejupvērsto plūsmu**, kas automātiski tiek noteikts no ierakstītā `.daq` (DAQ-U/M/E)**vai DAQ-M nativā `.csv`**, kas atrodas kopā ar attēliem; jebkurš kameras vai DAQ kalibrēšanas komplekts, kas lokāli trūkst, tiek**automātiski lejupielādēts no AWS** pirmajā lietošanas reizē. „CLI” to parāda kā katra veida produkta slēdžus `chloros-cli process`: `--radiance`/`--no-radiance`, `--reflectance`/`--no-reflectance`, `--debayered`, `--preview`.
 
-> `custom_settings` **aizstāj** visu aprēķināto iestatījumu bloku (tas pēc dizaina apiet `configure()` pārējos atslēgvārdus un validāciju). Kad to izmantojat, iekļaujiet katru `Project Settings` atslēgvārdu, kas jums ir svarīgs, kā redzams iepriekšējā piemērā.
+> `custom_settings` **aizstāj** visu aprēķināto iestatījumu bloku (tas pēc dizaina apiet `configure()` pārējās atslēgvārdus un validāciju). Kad to izmantojat, iekļaujiet katru `Project Settings` atslēgvārdu, kas jums ir svarīgs, kā redzams iepriekšējā piemērā.
 
 ---
 
-## Smart-Connect LATTICE kamerām
+## „Smart-Connect” LATTICE kamerām
 
-Pastāvīgas aizmugures sesijas reāllaika aparatūrai. Tiek izmantoti tie paši galapunkti, ko izmanto GUI, tādējādi darbība ir identiska visās SDK / CLI / GUI vidēs.
+Pastāvīgas aizmugures sesijas reāllaika aparatūrai. Tiek izmantoti tie paši galapunkti, ko izmanto grafiskā lietotāja saskarne (GUI), tādējādi darbība ir identiskSDK, CLI un GUI.
 
 ### Viena kamera — `CameraSession`
 
@@ -570,25 +570,25 @@ connect_camera(
 | --- | --- |
 | `read_nodes(names, enum_names=(), timeout=30.0)` | Izlasa GenICam mezglus; atgriež `{nodes, errors, enums, device}`. |
 | `set_settings(**kwargs)` | Raksta mezglus pēc draudzīgā nosaukuma (`exposure_time`, `gain`, `pixel_format`, `width`, `height`, `target_brightness`, `ae_damping`, `ae_upper_limit`, `trigger_mode`, `trigger_source`, …). |
-| `capture(output_dir="output", ext=".tiff", jpeg_quality=95, processing=None, levels=None, force_daq=None, settings=None, timeout=None)` | Uztver **vienu** kadru. Atgriež viena elementa sarakstu ar kadra metadatu vārdnīcām. (Sērijveida/vairāku kadru uzņemšana tika noņemta — ja nepieciešama sērija, izsauciet `capture()` cilpā.) |
+| `capture(output_dir="output", ext=".tiff", jpeg_quality=95, processing=None, levels=None, force_daq=None, settings=None, timeout=None)` | Uztver **vienu** kadru. Atgriež vienelementu sarakstu ar kadru metadatu vārdnīcām. (Sērijveida/vairāku kadru uzņemšana tika noņemta — ja nepieciešama sērija, izsauciet `capture()` ciklā.) |
 | `disconnect()` | Atbrīvo no pūla. Neveic nekādu darbību, ja esam pievienojušies jau atvērtai sesijai. |
 
 `capture()` eksporta kontroles (tāds pats modelis kā masīvam + GUI):
 
 - `processing` / `levels` — `processing="all"` saglabā visus piemērojamos eksporta veidus; `levels=["raw","radiance"]` saglabā tikai tos (pārraksta `processing`). Lai izmantotu aizmugurējās sistēmas noklusējumu, izlaidiet abus.
-- `force_daq=True` — saglabā piešķirto DAQ/DLS rādījumu kā `.daq` papildu failu pat tad, ja tiek veikta tikai neapstrādātu datu ieguve, lai rāmi vēlāk varētu pārstrādāt par atstarošanas koeficientu/indeksu. Neveic darbību, ja nav saistīts DAQ.
+- `force_daq=True` — saglabā piešķirto DAQ/DLS rādījumu kā `.daq` papildu failu pat tad, ja tiek veikta tikai neapstrādātu datu ieguve, lai kadru vēlāk varētu pārstrādāt atstarojumā/indeksā. Ja nav piesaistīts neviens DAQ, šī darbība netiek veikta.
 
 ### Sinhronizētais masīvs — `ArraySession` (Smart-Prep)
 
-`connect_array` ir **ieteicamais sākuma punkts** daudzkameru konfigurācijām. Tas aizkulisēs palaida pilnu GUI smart-prep darbplūsmu:
+`connect_array` ir **ieteicamais sākuma punkts** daudzkameru konfigurācijām. Tas fonā izpilda pilnu GUI „smart-prep” darbību secību:
 
-1. **Tīkla analīze** (`/api/camera/array/recommend`) — nosaka lielāko kadru izmēru, kas atbilst sim-emit līmenim, nezaudējot kadrus.
-2. **Līmeņa automātiskā izvēle** — `sim-capture-sim-emit`, ja vads to spēj apstrādāt; citādi `sim-capture-ftd-stagger` vai `slip-emit-and-capture`.
-3. **Automātiska samazināšana**— klusi samazina rāmja izmēru / palielina binningu, ja vads nespēj uzturēt pieprasīto izšķirtspēju.**Šis drošības tīkls neattiecas uz kopējo pārsubskripciju**: pārāk daudz kameru vadiem nevar atrisināt, samazinot kadrus — skatīt [Pārslogotība](#over-subscription-the-per-cam-floor).
-4. **PTP ir ieslēgts** pēc noklusējuma — laika zīmogi starp kamerām ir salīdzināmi ar precizitāti līdz mikrosekundēm.
-5. **Automātiska pikseļu formāta izvēle katrai kamerai** — RGB kameras → `BayerRG8`, multispec → `BayerRG12`.
-6. **AE sākotnējā iestatīšana** — tiek saglabāts katras kameras pašreizējais AE stāvoklis, lai savienojums neatsāktu ekspozīcijas iestatīšanu darbības laikā.
-7. **GPIO trigera konfigurācija** — `connect_array` aktivizē visas kameras (`TriggerMode=On`, `TriggerSource=Line2`), lai galvenās kameras impulsi vadītu pakļautās kameras pa M8 kabeli. Šis solis attiecas tikai uz masīvu: ja tiek atvērta viena kamera ar `LatticeCamera`, tā darbojas brīvā režīmā.
+1. **Tīkla analīze** (`/api/camera/array/recommend`) — nosaka lielāko kadra izmēru, kas atbilst sim-emit līmenim, nezaudējot kadrus.
+2. **Līmeņa automātiskā izvēle** — `sim-capture-sim-emit`, ja vads to spēj apstrādāt; pretējā gadījumā `sim-capture-ftd-stagger` vai `slip-emit-and-capture`.
+3. **Automātiska samazināšana**— klusi samazina rāmja izmēru / palielina grupēšanu, ja vads nespēj uzturēt pieprasīto izšķirtspēju.**Šis drošības tīkls neattiecas uz kopējo pārsubskripciju**: ja vadu pārslodze ir pārāk liela, to nevar novērst, samazinot kadru izmēru — skatīt [Pārslodze](#over-subscription-the-per-cam-floor).
+4. **PTP ir ieslēgts**pēc noklusējuma — dažādu kameru laika zīmogi tiek sinhronizēti ar vienu kopīgu pulksteni ar precizitāti**~1 ms**. Vienlaicīga ekspozīcija tiek nodrošināta ar M8 aparatūras trigeri (**&lt; 100 µs** starp moduļiem), nevis ar PTP: PTP sinhronizē *laika zīmogus*, nevis ekspozīcijas.
+5. **Automātiska pikseļu formāta izvēle katrai kamerai** — RGB kameras → `BayerRG8`, multispektrālās → `BayerRG12`.
+6. **AE sākotnējā iestatīšana** — tiek saglabāts katras kameras pašreizējais AE stāvoklis, lai savienojums neatsāktu ekspozīciju no jauna darbības laikā.
+7. **GPIO trigera konfigurācija** — `connect_array` aktivizē visas kameras (`TriggerMode=On`, `TriggerSource=Line2`), lai galvenās kameras impulss vadītu pakļautās kameras pa M8 kabeli. Šis solis ir paredzēts tikai masīvam: ja tiek atvērta viena kamera ar `LatticeCamera`,darbojas.
 
 ```python
 import chloros_sdk
@@ -624,51 +624,51 @@ connect_array(
 
 `force_tier` vērtības:
 - `"sim-capture-sim-emit"` — patiesa vienlaicība (visas kameras izšauj vienā un tajā pašā takts malā).
-- `"sim-capture-ftd-stagger"` — elastīga laika domēna nobīde (kameras raidīšanas laiki ir nedaudz nobīdīti, tādējādi paketes tiek sērijveidā pārraidītas pa vadu).
-- `"slip-emit-and-capture"` — secīga uzņemšana katrai kamerai atsevišķi (nav laika sinhronizācijas; vienīgā iespēja, ja neviens rāmja izmērs neatbilst simulācijai).
+- `"sim-capture-ftd-stagger"` — elastīga laika domēna nobīde (kameras raidīšanas brīži ir nedaudz nobīdīti, tādējādi paketes tiek sērijveidā pārraidītas pa vadu).
+- `"slip-emit-and-capture"` — secīga uztveršana katram kameras modulim atsevišķi (bez laika sinhronizācijas; vienīgā iespēja, ja neviens rāmja izmērs neatbilst vienlaicīgajai darbībai).
 
-`wire_ceiling_mbps` pārraksta **uzņēmējdatora ilgstošo vadu budžetu** MB/s — vienīgais
-skaitlis, no kura ir atkarīgs visa masīva resursu sadalījums. Atstājiet to kā `None`, lai izmantotu automātiski noteikto
-vērtību. Samaziniet to, ja masīvs ziņo par GVSP bojātiem rāmjiem: automātiskā vērtība tiek aprēķināta
-pēc tīkla kartes paziņotā savienojuma ātruma, kasneatspoguļo USB adapterus, vājas PCIe joslas un
-noslogotas koplietošanas struktūras — un šī pārvērtēšana izpaužas kā bojāti rāmji, nevis kā
-redzami lēns savienojums. Vērtība tiek saglabāta projekta masīva reģistrācijas blokā, tādējādi,
+`wire_ceiling_mbps` pārraksta **uzņēmējdatora ilgstošo vadu joslas platumu** MB/s — šis viens
+skaitlis, no kura atkarīgs visa masīva resursu sadalījums. Atstājiet to `None`, lai izmantotu automātiski noteikto
+vērtību. Samaziniet to, ja masīvs ziņo par GVSP bojātiem rāmjiem: automātiski noteiktā vērtība tiek aprēķināta
+pēc tīkla kartes paziņotā savienojuma ātruma, kas pārvērtē USB adapterus, vājos PCIe kanālus un
+noslogotās koplietošanas struktūras — un šī pārvērtēšana izpaužas kā bojāti kadri, nevis kā
+redzami lēns savienojums. Vērtība tiek saglabāta projekta masīva ierakstīšanas blokā, tādēļ,
 atverot to no jauna vai vēlāk izmantojot `connect_array`, tā tiek atjaunota tāpat kā jebkurš cits masīva iestatījums.
 Skatīt [Masīva stāvoklis](#array-health--which-subsystem-is-losing-frames).
 
-#### Pārslogotība (minimālā robeža katrai kamerai)
+#### Pārslogošana (minimālais limits katrai kamerai)
 
-Sim-emit pacing katrai kamerai piešķir daļu no sadursmju drošā vadu budžeta, kura minimālā robeža ir **8 MB/s katrai kamerai**(`per_cam_floor_bps`). Tiklīdz `N × floor` pārsniedz sadursmju drošo maksimālo robežu, masīvs**pārsniedz vadu kapacitāti**— kļūdas režīms ir GVSP pakešu zudums, nevis zemāks kadru ātrums — un nav nekāda risinājuma attiecībā uz kadru izmēru:**apvienošana un ROI samazina baitu skaitu kadrā, nevis regulēto baitu skaitu sekundē**, ko salīdzina kopējā pārbaude. Praktiskie maksimālie ierobežojumi pilnā izšķirtspējā uz 1 GbE resursa:**6 kameras ar 1500 MTU, 9 ar jumbo rāmjiem** (`max_cams_collision_safe` analīzes atbildē norāda jūsu vadu maksimālo robežu). Risinājumi: mazāk kameru, jumbo rāmji no gala līdz galam, vai ātrāks tīkla interfeiss.
+Sim-emit pacing katrai kamerai piešķir daļu no sadursmju drošā vadu budžeta, kura minimālais limits ir **8 MB/s katrai kamerai**(`per_cam_floor_bps`). Tiklīdz `N × floor` pārsniedz sadursmju drošo maksimālo robežu, masīvs**pārsniedz vadu kapacitāti**— kļūmes režīms ir GVSP paketes zudums, nevis zemāks kadru ātrums — un nav iespējams to novērst, mainot kadra izmēru:**kopējā pārbaude salīdzina kadrā apvienotos un ROI zemākos baitus, nevis regulētos baitus sekundē**. Praktiskie maksimālie ierobežojumi pilnā izšķirtspējā uz 1 GbE resursdatora:**6 kameras ar 1500 MTU, 9 ar jumbo kadriem** (`max_cams_collision_safe` analīzes atbildē norāda jūsu vadu maksimālo robežu). Risinājumi: mazāk kameru, jumbo rāmji no gala līdz galam, vai ātrāks tīkla interfeiss.
 
-- Atbildēs `analyze_array_network()` un `/api/camera/array/connect` ir iekļauti `oversubscribed`, `aggregate_demand_bps`, `collision_safe_ceiling_bps`, `max_cams_collision_safe` un `per_cam_floor_bps`. Ja `oversubscribed` ir patiesa, prognoze **nullej fps laukus** (`achievable_fps_max` / `fps_bright` / `fps_dark`), nevis ziņo par maldinošu, lēnu, bet darbojošos ātrumu.
-- `POST /api/camera/array/connect` pieņem `pin_resolution` ķermeņa parametru (**tikai HTTP — nav SDK kwarg**; `connect_array` to neizpauž). Fiksēšana noņem binninga pakāpeniskās samazināšanas drošības tīklu, tādējādi pārslogots savienojums ar iestatītu `pin_resolution` tiek**kategoriski noraidīts**, norādot kļūdu, kurā minēti visi risinājumi. Bez fiksēšanas savienošana turpinās ar pakāpenisko samazināšanu, bet brīdina, ka samazināšana nevar atbrīvot kopējo resursu.
-- Darba vides avārijas izeja: iestatiet `CHLOROS_ARRAY_ALLOW_OVERSUBSCRIBED=1` aizmugurējās vides iestatījumos, lai pazeminātu atteikuma līmeni līdz skaļam brīdinājumam — jūs tomēr izveidojat savienojumu un pieņemat pakešu zudumu.
+- Atbildēs `analyze_array_network()` un `/api/camera/array/connect` ir iekļautas atbildes `oversubscribed`, `aggregate_demand_bps`, `collision_safe_ceiling_bps`, `max_cams_collision_safe` un `per_cam_floor_bps`. Ja `oversubscribed` ir patiesa vērtība, prognoze **nullej fps laukus** (`achievable_fps_max` / `fps_bright` / `fps_dark`), nevis ziņo par maldinošu lēnu, bet tomēr funkcionējošu ātrumu.
+- `POST /api/camera/array/connect` pieņem `pin_resolution` ķermeņa parametru (**tikai HTTP — nav SDK kwarg**; `connect_array` to neizpauž). Fiksēšana noņem binninga pakāpeniskās samazināšanas drošības tīklu, tādēļ pārslodzēts savienojums ar iestatītu `pin_resolution` tiek**kategoriski noraidīts**, norādot kļūdu, kurā minēti visi risinājumi. Bez fiksēšanas savienošana turpinās ar pakāpenisku samazināšanu, bet brīdina, ka samazināšana nevar iztīrīt kopējo apjomu.
+- Testēšanasizkļūšanas iespēja: iestatiet `CHLOROS_ARRAY_ALLOW_OVERSUBSCRIBED=1` aizmugures vides iestatījumos, lai atteikumu pazeminātu līdz skaļam brīdinājumam — jūs tomēr izveidojat savienojumu un pieņemat paketes zudumu.
 
-#### Masīva stāvoklis — kura apakšsistēma zaudē rāmjus
+#### Masīva stāvoklis — kura apakšsistēma zaudē kadrus
 
-`GET /api/camera/array/<array_id>/capability` rāda reāllaika `health` bloku
+`GET /api/camera/array/<array_id>/capability` rāda aktīvu `health` bloku
 savienotajā masīvā, kas tiek pārvērtēts **10 sekunžu** ilgā logā. Tas sadala rāmju zudumu
-divos cēloņos, kuriem nepieciešami pretēji risinājumi, nevis vienā „nepilnīgā” rādītājā, kas
+divos cēloņos, kuriem nepieciešami pretēji risinājumi, nevis kā vienu „nepilnīgu” rādītāju, kas
 nenorāda ne vienu, ne otru:
 
 | Lauks | Kas tas nozīmē | Kura apakšsistēma |
 | --- | --- | --- |
-| `gvsp_corrupt_rate_pct` (uz katru seriālo interfeisu) | Rāmis **ieradās, bet bija strukturāli bojāts**— GVSP paketes zudums. |**Tīkls**: vadu jauda, sinhronizācija, NIC RX gredzens, MTU |
-| `never_arrived_rate_pct` (katram sērijas numuram) | Kadrs **vispār neieradās**— kamera neizšāva vai no tās nekas neizgāja. |**Izraisītājs / sinhronizācija**: M8 kabelis, `line=`, `TriggerMode` |
-| `worst_gvsp_corrupt_pct` / `worst_never_arrived_pct` | Sliktākais kameras rādītājs katram. | — |
-| `per_cam_rate_pct` | Kombinētais nepilnīgo rādītāju īpatsvars uz vienu kameru (abi iemesli kopā). | — |
+| `gvsp_corrupt_rate_pct` (uz katru seriālo portu) | Kadrs **ieradās, bet bija strukturāli bojāts**— GVSP paketes zudums. |**Tīkls**: vadu jauda, sinhronizācija, NIC RX gredzens, MTU |
+| `never_arrived_rate_pct` (uz katru seriālo portu) | Kadrs **vispār neieradās**— kameraneizšāva vai no tās nekas neizgāja. |**Trigers / sinhronizācija**: M8 kabelis, `line=`, `TriggerMode` |
+| `worst_gvsp_corrupt_pct` / `worst_never_arrived_pct` | Sliktākais kameras pārraides ātrums katrā gadījumā. | — |
+| `per_cam_rate_pct` | Kopējais nepilnīguma rādītājs katrai kamerai (abi iemesli kopā). | — |
 | `stable_for_seconds` | Cik ilgi katra kamera ir palikusi zem 0,01 %. | — |
 
-Līdzās `health` tajā pašā ierakstā ir norādīts skaitlis, no kura atkarīgs viss piešķīrums:
+Līdzās `health` šajā pašā ierakstā ir norādīts arī skaitlis, no kā atkarīgs kopējais piešķīrums:
 
-| Lauks | Kas tas nozīmē |
+| Lauks | Ko tas nozīmē |
 | --- | --- |
-| `wire_ceiling_mbps` | Spēkā esošais uzņēmēja ilgstošais vadu budžets, MB/s. |
+| `wire_ceiling_mbps` | Hostamspēkā esošais ilgtermiņa vadu budžets, MB/s. |
 | `wire_ceiling_source` | No kurienes šis skaitlis ir iegūts, vārdos — piemēram, `USB-capped 200 MB/s (was theoretical 1062; …)` vai `user override 120 MB/s (auto said 200)`. |
-| `wire_ceiling_is_user_set` | `true`, ja to iestatīja `wire_ceiling_mbps=` to iestatīja. |
+| `wire_ceiling_is_user_set` | `true`, kad `wire_ceiling_mbps=` to iestatīja. |
 | `nic_is_usb` | `true` USB Ethernet adapterim. |
 
-Šim galapunktam nav SDK apvalka — lasiet to tieši:
+Šim galapunktam nav SDK ietvara — nolasiet to tieši:
 
 ```python
 import requests, chloros_sdk
@@ -689,54 +689,54 @@ if (health.get("worst_gvsp_corrupt_pct") or 0) > 1.0:
     arr = chloros_sdk.connect_array(serials, wire_ceiling_mbps=120)
 ```
 
-**Lasot to:** `gvsp_corrupt_rate_pct`, kas nav nulle, ar `never_arrived_rate_pct` vērtību 0 nozīmē, ka
-izraisīšana un kabeļa sinhronizācija ir ideālas, un 100 % zudumu rada tīkla ceļš — samaziniet
+**Nolasīšana:** `gvsp_corrupt_rate_pct`, kas nav nulle, ar `never_arrived_rate_pct` vērtību 0 nozīmē, ka
+izraisīšana un kabeļa sinhronizācija ir ideāla un 100 % zudumu rada tīkla ceļš — samaziniet
 `wire_ceiling_mbps` un atkārtoti izveidojiet savienojumu. Pretējais modelis norāda uz sinhronizācijas kabeli vai
 izraisītāja līniju.
 
 > **`target_fps` nav rādītājs bojātiem rāmjiem.** GevSCPD ritms tiek iestatīts vienreiz
-> savienošanās brīdī, tādēļ trigera frekvences samazināšana maina darba ciklu, nevis
-> vienlaicīgās pārraides pārsūtīšanas ātrumu. Izvērtētais 5× pieprasījuma samazinājums nedeva uzlabojumus, savukārt
-> vadu maksimālās ātruma robežas pazemināšana no 240 līdz 200 MB/s samazināja bojāto rāmju īpatsvaru tajā pašā iekārtā no 10,4 % bojāto rāmju skaitu līdz
+> savienojuma izveides brīdī, tādēļ izraisītāja ātruma samazināšana maina darba ciklu, nevis
+> vienlaicīgoizstarošanas pārraides ātrumu. Izmērītais 5× pieprasījuma samazinājums nedeva uzlabojumus, savukārt
+> vadu maksimālā ātruma samazināšana no 240 līdz 200 MB/s samazināja bojāto rāmju īpatsvaru tajā pašā iekārtā no 10,4 % līdz
 > 0,00 %.
 
 > **TRI032S programmaparatūras versijā nav pieejama automātiskā samazināšana datu plūsmas vidū.** Darbojošs masīvs nevar
-> to novērst pats; atvienojiet un atkārtoti pievienojiet, lai savienošanās laika izvēlne veiktu atkārtotu plānošanu, ņemot vērā
-> jauno maksimālo ātrumu.
+> to izlabot pats; atvienojiet un atkārtoti pievienojiet, lai savienošanas laika izvēlne pārplānotu atbilstoši
+> jaunajam maksimālajam ātrumam.
 
 **USB Ethernet adapterim zonde nosaka 200 MB/s ierobežojumu** neatkarīgi no tā
-nominālajiem parametriem: efektivitātes tabula, kas pārvērš savienojuma ātrumu ilgstošā rādītājā, ir
-atvasināta no PCIe, un USB tīkla karte paziņo savu Ethernet savienojuma ātrumu, vienlaikus būdama ierobežota ar
-USB šķiedru un tās draiveri. Ierobežojums ir absolūts, nevis daļa — USB 1 GbE adapteris
-nodrošina ~80 MB/s, un tas netiek ietekmēts.
+nosaukuma: efektivitātes tabula, kas pārvērš savienojuma ātrumu ilgtspējīgā rādītājā, ir
+balstīta uz PCIe, un USB tīkla karte paziņo savu Ethernet savienojuma ātrumu, vienlaikus esot ierobežota ar
+USB šķiedru un tās draiveri. Ierobežojums ir absolūts, nevis relatīvs — USB 1 GbE adapteris
+sasniedz ~80 MB/un tas netiek ietekmēts.
 
 #### `ArraySession` metodes
 
 | Metode | Apraksts |
 | --- | --- |
-| `status(timeout=10.0)` | Darbojas ar `{fps, ptp, frame_count, last_error, …}`. |
-| `capture(output_dir="output", format="tiff", processing="debayered", levels=None, aligned=None, render_index=None, force_daq=None, smart=False, timeout=300.0)` | Viena sinhronizēta ierakstīšanas grupa. Atgriež `CaptureResult` (kadru vārdnīcu saraksts + `.skipped`). Eksportēšanas vadības elementi zemāk. |
-| `capture(..., smart=True)` | **Vieds uzņemšanas režīms** — gaida, līdz AE stabilizējas visās kamerās, un tad aktivizējas. |
-| `capture_fastest(output_dir="output", force_daq=True, render_index=True, timeout=120.0)` | Ātrākā uzņemšana: tikai neapstrādāti dati + piešķirtais DAQ rādījums (+ brīvais kombinētais indekss). Atbilst GUI pogai „Ātrākā uzņemšana”. |
-| `capture_repeated(output_dir="output", count=None, duration_s=None, interval_s=0.0, on_capture=None, **capture_kwargs)` | Vienreizēja / Nepārtraukta / intervāls vienā ierobežotā ciklā. Atgriež `list[CaptureResult]`.**Nepieciešams `count` un/vai `duration_s`**, lai tas beigtos (SDK nav Ctrl+C). |
-| `record(output_dir="output", fps=10.0, duration_s=None, video=True, gif=False, timeout=30.0)` | Sāk ierakstīt kombinētā indeksa skatu reāllaikā video/GIF formātā → `RecorderHandle`. Viens kompozīta ierakstītājs uz vienu masīvu. |
+| `status(timeout=10.0)` | Live `{fps, ptp, frame_count, last_error, …}`. |
+| `capture(output_dir="output", format="tiff", processing="debayered", levels=None, aligned=None, render_index=None, force_daq=None, smart=False, timeout=300.0)` | Viena sinhronizēta uzņemšanas grupa. Atgriež `CaptureResult` (kadru vārdnīcu saraksts + `.skipped`). Eksportēšanas kontrole ir aprakstīta zemāk. |
+| `capture(..., smart=True)` | **Vieds uzņemšanas režīms** — gaida, kamēr AE stabilizējas visās kamerās, un tad sāk uzņemšanu. |
+| `capture_fastest(output_dir="output", force_daq=True, render_index=True, timeout=120.0)` | Ātrākā uzņemšana: tikai neapstrādāti dati + piešķirtais DAQ rādījums (+ brīvais kombinētais indekss). Atbilst GUI poga „Ātrākā uzņemšana”. |
+| `capture_repeated(output_dir="output", count=None, duration_s=None, interval_s=0.0, on_capture=None, **capture_kwargs)` | Vienreizēja / Nepārtraukta / Intervāla uzņemšana vienā ierobežotā ciklā. Atgriež `list[CaptureResult]`.**Nepieciešams `count` un/vai `duration_s`**, lai to pārtrauktu (SDKā nav Ctrl+C). |
+| `record(output_dir="output", fps=10.0, duration_s=None, video=True, gif=False, timeout=30.0)` | Sāk ierakstīt kombinētā indeksa skatu reāllaikā video/GIF formātā → `RecorderHandle`. Viens kompozīcijas ierakstītājs uz vienu masīvu. |
 | `burst(output_dir="output", duration_s=None, max_frames=None, index_config=None, serial_index_config=None, timeout=30.0)` | Sākt augstas kadru frekvences neapstrādātu Bayer sērijas uzņemšanu → `RecorderHandle`. Veiciet atkārtotu apstrādi bezsaistē ar `build_video()`. |
-| `build_video(burst_dir, products=None, fps=10.0, video=True, gif=False, save_tiffs=False, wait=True, poll_s=2.0, timeout=1800.0)` | Veiciet saglabātās neapstrādāto attēlu sērijas atkārtotu apstrādi bezsaistē, lai iegūtu kalibrētus video. Bloķējas, līdz process ir pabeigts (`wait=True`) un atgriež `{outputs, errors, combined}`. |
+| `build_video(burst_dir, products=None, fps=10.0, video=True, gif=False, save_tiffs=False, wait=True, poll_s=2.0, timeout=1800.0)` | Veiciet saglabātās neapstrādātās sērijas atkārtotu apstrādi bezsaistē, lai iegūtu kalibrētu(-us) video. Bloķējas, līdz process ir pabeigts (`wait=True`) un atgriež `{outputs, errors, combined}`. |
 | `build_video_status(job_id, timeout=15.0)` | Pārbauda bezsaistes izveides uzdevumu: `{running, result, error, burst_dir}`. |
 | `disconnect()` | Atbrīvo visu masīvu. |
 
-`capture()` eksporta kontroles (tāds pats galapunkts, kādu izmanto GUI/CLI):
+`capture()` eksporta kontrole (tāds pats galapunkts, kādu izmanto GUI/CLI):
 
 - `processing` / `levels` — `processing="all"` (vai `levels=["raw","radiance",…]`) saglabā katru piemērojamo eksporta tipu katrai kamerai; viena `processing` vērtība saglabā tikai šo līmeni.
-- `aligned=True` — deformē katra elementa neapstrādāto eksportu atbilstoši masīva [izlīdzināšanas profilam](#array-alignment) (kopīgi reģistrēts); neapstrādātie dati paliek neizkropļoti, bet transformācija tiek ietverta metadatos. Ja masīvam nav profila, tiek izmantota neizlīdzināta versija (ar brīdinājumu, kas parādās rezultāta `alignment`).
-- `render_index=False` — izlaiž uz katru kameru attiecināto veģetācijas indeksa pārklājumu; pēc noklusējuma to renderē tur, kur tas ir konfigurēts.
+- `aligned=True` — deformē katra elementa ne-neapstrādāto eksportu atbilstoši masīva [izlīdzināšanas profilu](#array-alignment) (kopīgi reģistrēts); neapstrādātie dati paliek neizlīdzināti, bet transformācija tiek iekļauta metadatos. Ja masīvam nav profila, tiek izmantota neizlīdzināta (ar brīdinājumu, kas parādās rezultāta `alignment`), ja masīvam nav profila.
+- `render_index=False` — izlaiž katras kameras veģetācijas indeksa pārklājumu; pēc noklusējuma to renderē tur, kur tas ir konfigurēts.
 - `force_daq=True` — saglabā piešķirto DAQ/DLS rādījumu kā `.daq` papildu failu, pat ja nevienam izvēlētajam līmenim tas nav nepieciešams.
 
-**TIFF saspiešana (tikai HTTP regulētājs):**`ArraySession.capture()` nenosūta `compression` atslēgu, tādēļ tiek piemērots aizmugurējās sistēmas noklusējums — `POST /api/camera/array/capture` nolasa `compression` ķermeņa parametru, `"deflate"` pēc noklusējuma (bezzaudējumu zlib L1 + horizontālais prediktors, ~4,1 MB uz vienu pilnas izšķirtspējas kadru). `"none"` raksta nesaspiestu datu plūsmu (~6,3 MB/kadrs) ar**~5 reizes ātrāku rakstīšanu** — abi formāti ir bezzaudējuma un tiek nolasīti identiski importēšanas brīdī. SDK neizvada nekādu kwarg šim nolūkam; izvairīšanās iespēja ir `chloros-cli lattice array-capture --compression none` vai neapstrādātais HTTP. DEFLATE arī patur Python GIL, tāpēc saspiestā rakstīšana netiek paralizēta starp katras kameras rakstīšanas pavedieniem — ilgstošai 8 kameru pilnas izšķirtspējas uzņemšanai ar sensora ātrumu ir nepieciešams `compression: "none"`. Sīkāka informācija: [CLI Atsauce → masīva uzņemšana](cli-reference.md).**Eksporta pārrakstīšana katram elementam (tikai HTTP):**tas pats galapunkts pieņem arī `exclude_serials` (saraksts — izslēdz elementus no saglabātā kopuma; masīvs joprojām darbojas kā viena sinhronizēta grupa, un izslēgtie elementi tiek atgriezti `excluded`), `serial_levels` (`{serial: [level tokens]}` pārrakstījumi katrai kamerai) un `serial_index` (`{serial: bool}` indeksa pārklājuma pārrakstījumi katrai kamerai). Tie ir GUI-paritātes ķermeņa parametri un**vēl nav SDK kwargi**; locekļi, kas nav iekļauti kartēs, tiek aizstāti ar masīvu`levels` / `render_index`.
+**„TIFF” kompresija (tikai HTTP):**`ArraySession.capture()` nenosūta `compression` atslēgu, tādēļ tiek piemērots aizmugurējās sistēmas noklusējums — `POST /api/camera/array/capture` nolasa `compression` ķermeņa parametru, `"deflate"` pēc noklusējuma (bezzudumu zlib L1 + horizontālais prognozētājs, ~4,1 MB uz vienu pilnas izšķirtspējas kadru). `"none"` raksta nesaspiestu (~6,3 MB/kadrs) ar**~5× ātrāku ierakstīšanu** — abi formāti ir bezzuduma un importēšanas laikā tiek nolasīti identiski. Funkcijā `SDK` tam nav pieejams nekāds argumentu pāris; izejas ceļš ir `chloros-cli lattice array-capture --compression none` vai neapstrādāts `HTTP`. DEFLATE arī aiztur „Python” GIL, tādēļ saspiestā rakstīšana netiek paralizēta starp katras kameras rakstīšanas pavedieniem — ilgstošai 8 kameru pilnā-res uzņemšanai ar sensora ātrumu ir nepieciešams `compression: "none"`. Sīkāka informācija: [CLI Atsauce → array-capture](cli-reference.md).**Eksporta pārrakstīšana katram elementam (tikai HTTP):**tas pats galapunkts pieņem arī `exclude_serials` (saraksts — izslēdz elementus no saglabātās kopas; masīvs joprojām darbojas kā viena sinhronizēta grupa, un izslēgtie elementi tiek atgriezti `excluded`), `serial_levels` (`{serial: [level tokens]}` pārrakstījumi katrai kamerai atsevišķi) un `serial_index` (`{serial: bool}` indeksa pārklājuma pārrakstīšana katrai kamerai). Tie ir GUI-paritātes ķermeņa parametri un**vēl nav SDK kwargs**; elementi, kas nav iekļauti kartēs, tiek aizstāti ar masīva līmeņa `levels` / `render_index`.
 
 ##### Izlaisto kameru pārbaude — `CaptureResult.skipped`
 
-`ArraySession.capture()` atgriež `CaptureResult`, kas ir `list` apakšklase: to var iterēt, indeksēt, `len()` — visi esošie modeļi turpina darboties. Jaunais kods var pārbaudīt `.skipped` atribūtu, lai redzētu, kuras kameras tika izslēgtas un kāpēc. Visbiežāk sastopamais gadījums ir RGB kameras jauktajāfiltru masīvā, ja tiek pieprasīts `processing="radiance"` vai `"reflectance"` — starojuma intensitāte uz vienu Bayer elementu platjoslas sensoram nav nozīmīga, tāpēc aizmugurējā sistēma izlaiž šos kameru elementus, nevis ģenerē bezjēdzīgus rezultātus.
+`ArraySession.capture()` atgriež `CaptureResult`, kas ir `list` apakšklase: atkārtojiet to, indeksējiet to, veikt ar to „`len()`” — visi esošie modeļi turpina darboties. Jaunais kods var pārbaudīt `.skipped` atribūtu, lai redzētu, kuras kameras tika izslēgtas un kāpēc. Visbiežāk sastopamais gadījums ir „RGB” kameras jaukta filtra masīvā, ja tiek pieprasīts `processing="radiance"` vai `"reflectance"` — starojums uz vienu Bayer pikseli platjoslas sensoram nav nozīmīgs, tāpēc aizmugurējā sistēma izlaiž šos kameru elementus, nevis ģenerē bezjēdzīgus rezultātus.
 
 ```python
 with chloros_sdk.connect_array(serials) as arr:
@@ -754,24 +754,24 @@ with chloros_sdk.connect_array(serials) as arr:
         #       'filter': 'RGB'}
 ```
 
-Iemesla simboli atbilst šādam paraugam: `<level>-not-applicable-to-rgb-cam` (viens ieraksts par katru izlaisto līmeni, katrs satur `level`). Atstarošanasspecifiskie izlaišanas iemesli ir `reflectance-skipped-no-fresh-dls` (nav pieejams jauns lejupvērstais mērījums), `reflectance-skipped-bound-daq-unavailable (…)` (neizdevās sasniegt piesaistīto datu ieguves ierīci) un `dls-uncalibrated-band-<nm>` — josla galvenokārt atrodas ārpus DAQ gaismas sensoraradiometriski kalibrētā diapazona (~374–974 nm), tāpēc absolūtā, uz DAQ balstītā atstarojuma sadalīšana tiek noraidīta, un kadrs tiek strauji pazemināts līdz sensora reakcijas līmenim. No piegādātajiem SKU to izraisa tikai F988; šīs kameras atbalstītā darbplūsma ir atstarojuma paneļa darbplūsma.
+Iemesla simboli atbilst šādam paraugam: `<level>-not-applicable-to-rgb-cam` (viens ieraksts par katru izlaisto līmeni, katrā norādot `level`). Izlaišanas iemesli, kas saistīti ar atstarošanas koeficientu, ir `reflectance-skipped-no-fresh-dls` (nav pieejams jauns lejupvērstais rādījums), `reflectance-skipped-bound-daq-unavailable (…)` (neizdevās sasniegt piesaistīto DAQ), un `dls-uncalibrated-band-<nm>` — josla galvenokārt atrodas ārpus DAQ gaismas sensora radiometriski kalibrētā diapazona (~374–974 nm), tādēļ tiek noraidīta absolūtā, uz DAQ balstītā atstarošanas sadale, un kadrs tiek pārveidots, balstoties uz sensora reakciju. No piegādātajiem SKU to izraisa tikai F988; šīs kameras atbalstītais darbības veids ir darba plūsma ar atstarošanas paneli.
 
 `processing` līmeņi:
 
 | Līmenis | Izeja |
 | --- | --- |
-| `"raw"` | Vienkanāla Bayer (mono kameras: viens diapazons) tieši no sensora. |
-| `"debayered"` *(SDK noklusējums)* | 3-kanālu BGR, izmantojot bilineāro demosaiku (monohronās kameras: 1-kanāla pelēktoņu skala). |
+| `"raw"` | Vienkanāla Bayer (mono kameras: viena josla) tieši no sensora. |
+| `"debayered"` *(SDK noklusējums)* | 3 kanālu BGR, izmantojot bilineāro demosaiku (mono kameras: 1 kanāla pelēktoņu skala). |
 | `"radiance"` | float32 W/m²/sr/nm, izmantojot pilnu radiometrisko ķēdi. Tikai multispektrālais režīms — RGB kameras tiek izlaistas. |
-| `"reflectance"` | uint16 0..32768 (Pix4D-saderīgs); absolūtas atsauces nodrošināšanai nepieciešama reāllaika DAQ savienošana. Tikai multispektrālais režīms. |
-| `"display"` | Pilna ķēde, kas atbilst GUI priekšskatījumam (CCM + WB + gamma saskaņā ar kameras profilu). |
-| `"all"` | **Viens fails katram piemērojamajam līmenim** katrai kamerai (atbilstoši GUI opcijai „Capture All“ / CLI noklusējumam). Atgrieztajā `CaptureResult` failā katrā `(cam, level)` ietilpst viens kadra vārdnīca, kurā norādīts līmenis; nepiemērojamie līmeņi parādās `.skipped` failā. DAQ rādījums, kas izmantots jebkuram atstarošanas kadram, tiek saglabāts kā `.daq` papildu fails. |
+| `"reflectance"` | uint16 0..32768 (Pix4D-ready); absolūtas atsauces nodrošināšanai nepieciešama tiešsaistes DAQ savienošana. Tikai multispektrālais režīms. |
+| `"display"` | Pilnā ķēde, kas atbilst GUI priekšskatījumam (CCM + WB + gamma saskaņā ar kameras profilu). |
+| `"all"` | **Viens fails katram piemērojamajam līmenim** katrai kamerai (atbilstoši GUI iestatījumam „Capture All” / CLI noklusējumam). Atgrieztais `CaptureResult` tad satur vienu kadra diktu katram `(cam, level)`, kur katrā vārdnīcā ir norādīts līmenis; nepiemērojamie līmeņi parādās `.skipped`. Jebkuram atstarošanas kadram izmantotais DAQ rādījums tiek saglabāts kā `.daq` papildu fails. |
 
-> **Piezīme — noklusējuma vērtība atšķiras no CLI.** `ArraySession.capture()` noklusējuma vērtība ir `processing="debayered"`; komandas `chloros-cli lattice array-capture` noklusējuma vērtība ir `processing="all"`. Lai atspoguļotu CLI/GUI daudzlīmeņu saglabāšanu, `processing="all"` ir eksplicīti jāpārsūta no SDK.
+> **Piezīme — noklusējuma vērtība atšķiras no „CLI”.** `ArraySession.capture()` noklusējuma vērtība ir `processing="debayered"`; komandas `chloros-cli lattice array-capture` noklusējuma vērtība ir `processing="all"`. Lai atspoguļotu CLI /GUI daudzlīmeņu saglabāšanu, eksplicīti nododiet `processing="all"` no SDK.
 
 ### Uztveršanas režīmi un ierakstītāji
 
-Masīva virsma atspoguļo GUI ierakstīšanas paneli: vienreizējais / nepārtrauktais / intervāla / ātrākais aizslēga režīms, kā arī divas ierakstīšanas ierīces (tiešraides kompozītvideo un neapstrādāta sērija → pārstrāde bezsaistē).
+Masīva virsma atspoguļo GUI ierakstīšanas paneli: režīmi „Single” (Vienreizējs), „Continuous” (Nepārtraukts), „Interval” (Intervāls) un „Fastest shutter” (Ātrākais aizslēgs), kā arī divi ierakstītāji (tiešraides kompozītvideo un neapstrādāta sērija → pārstrāde bezsaistē).
 
 ```python
 import time, chloros_sdk
@@ -802,9 +802,9 @@ with chloros_sdk.connect_array(serials) as arr:
     print(out["outputs"])
 ```
 
-- **`capture_repeated`**ir SDK nepārtrauktas/intervāla cilpa. Tā kā nav `Ctrl+C`, lai to pārtrauktu no skripta, jums**jā** nodot `count` un/vai `duration_s` (tas apstājas, kad tiek sasniegts kāds no tiem). `interval_s` tiek mērīts no katras cikla sākuma (atbilstoši GUI). Pārējie kwargi tiek nodoti tieši uz `capture()`.
-- **`record`** ir *uzraudzības līmeņa*: tas fiksē reāllaika kombinētā indeksa kompozītu tā, kā tas tiek parādīts, tādēļ kombinētajai straumei jābūt atvērtai, lai kadri tiktu ierakstīti. Viens kompozīta ierakstītājs uz katru masīvu (izraisa kļūdu, ja kāds jau darbojas).
-- **`burst` → `build_video`** ir *analīzes līmeņa*: `burst` raksta neapstrādātus kadrus + katra kadra manifestu + vienu `.daq` katram atsevišķam DLS nolasījumam zem `<output>/bursts/<base>/` ar uzņemšanas cikla pilnu ātrumu (bez ķēdes, bez exiftool, bez tiešraides). `build_video` sinhronizē katru kadru ar tuvāko `.daq` un atkārtoti palaista importēšanas procesa starojuma/reflektances/indeksa ķēdi. `products` ir `{"kind": "per_cam"|"combined", "level": "radiance"|"reflectance"|"index"}` saraksts (noklusējums: apvienotais indekss). `burst().stop()` arī automātiski uzsāk apvienotā indeksa veidošanu pēc labākās iespējas, kas tiek atgriezts kā `build_job` pārtraukšanas rezultātā.
+- **`capture_repeated`**ir „SDK” nepārtrauktais/intervāla cikls. Tā kā nav `Ctrl+C`, lai to pārtrauktu no skripta, jums**jā** nodod `count` un/vai `duration_s` (cilpa apstājas, kad tiek sasniegts kāds no tiem). `interval_s` tiek mērīts no katra cikla sākuma (atbilstoši GUI). Pārējie kwargi tiek nodoti tieši uz `capture()`.
+- **`record`** ir *uzraudzības līmeņa*: tas uztver reāllaika kombinēto indeksu kompozīciju, kā-tiek parādīts, tādēļ kombinētajai plūsmai jābūt atvērtai, lai tajā varētu ienākt kadri. Viens kompozīta ierakstītājs uz vienu masīvu (izraisa kļūdu, ja kāds jau darbojas).
+- **`burst` → `build_video`** ir *analīzes līmeņa*: `burst` raksta neapstrādātus kadrus + katra kadra manifestu + vienu `.daq` par katru atšķirīgu DLS nolasījumu zem `<output>/bursts/<base>/` ar saglabāšanas cikla pilnu ātrumu (bez ķēdes, bez exiftool, nav tiešraides). `build_video` sinhronizē katru kadru ar tuvāko `.daq` un atkārtoti izpilda importēšanas procesa starojuma/reflektances/indeksa ķēdi. `products` ir `{"kind": "per_cam"|"combined", "level": "radiance"|"reflectance"|"index"}` saraksts (noklusējums: apvienotais indekss). `burst().stop()` arī automātiski uzsāk apvienotā indeksa izveidi pēc labākās iespējas, kas tiek atgriezta kā `build_job` pārtraukšanas rezultātā.
 
 #### `RecorderHandle`
 
@@ -815,9 +815,9 @@ To atgriež `ArraySession.record()` un `ArraySession.burst()`. Izmantojiet to k�
 | `job_id` | Aizmugures uzdevuma identifikators (str). |
 | `kind` | `"composite"` (no `record`) vai `"raw"` (no `burst`). |
 | `start_stats` | Vārdnīca, ko atgriež `start` izsaukums. |
-| `result` | `None` darbības laikā; galīgā apstāšanās rezultāta vārdnīca pēc apstāšanās. |
-| `stats(timeout=10.0)` | Darba statistika reāllaikā (ierakstītie kadri, sasniegtais kadrskaitlis sekundē, pagājušais laiks). |
-| `stop(timeout=60.0)` | Pārtrauc ierakstīšanu; atgriež un saglabā kešatmiņā galīgo rezultātu. Idempotents (otrais izsaukums atgriež kešēto rezultātu). |
+| `result` | `None` darbības laikā; galīgais apstāšanās rezultāta vārdnīca pēc apstāšanās. |
+| `stats(timeout=10.0)` | Darba statistika reāllaikā (ierakstītie kadri, sasniegtais kadrskaitis sekundē, pagājušais laiks). |
+| `stop(timeout=60.0)` | Pārtrauc ierakstīšanu; atgriež un saglabā cache galīgo rezultātu. Idempotents (otrais izsaukums atgriež rezultātu no cache). |
 
 ```python
 rec = arr.burst("capture/")
@@ -829,7 +829,7 @@ print(result["out_dir"], result.get("build_job"))
 
 ### Pievienošanās jau savienotam masīvam — `attach_array`
 
-Ja masīvs jau darbojas (to atvēra GUI vai iepriekšējā SDK sesija izsauca `connect_array`), izmantojiet `attach_array`, lai iegūtu tā rīku, nevis veikt atkārtotu savienošanos. Šādā situācijā `connect_array` vienmēr izdod kļūdu „Kamera <sn>jau atrodas masīvā<id>”, jo `/array/connect` nosūtīšana uz masīva elementu nav idempotenta; `attach_array` nolasa `/api/camera/array/list` un salīdzina vai nu pēc array_id, vai pēc serials.
+Ja masīvs jau darbojas (to atvēra GUI vai iepriekšējā „SDK” sesija izsauca `connect_array`), izmantojiet `attach_array`, lai iegūtu piekļuves rīku, nevis veikt atkārtotu savienošanos. <sn><id>Šādā situācijā</id></sn> `connect_array` vienmēr izraisa kļūdu „Kamera <sn>jau </sn>atrodas <sn>masīvā<id>”, jo `/array/connect` nosūtīšana loceklimnav idempotenta; `attach_array` nolasa `/api/camera/array/list` un veic saskaņošanu pēc array_id vai serials.
 
 ```python
 import chloros_sdk
@@ -845,7 +845,7 @@ arr = chloros_sdk.attach_array("array-1779862544497")
 arr.capture("output/", processing="reflectance")
 ```
 
-Paraugs: skriptiem SDK, kas darbojas kopā ar darbvirsmas grafisko lietotāja saskarni, vispirms jāmēģina `attach_array` un jāpāriet uz `connect_array`, ja pūlā vēl nav neviena masīva.
+Paraugs: skriptiem SDK, kas darbojas kopā ar darbvirsmas GUI, vispirms jāmēģina izmantot `attach_array` un jāpāriet uz `connect_array`, ja pūlā vēl nav neviena masīva.
 
 ```python
 import chloros_sdk
@@ -856,7 +856,7 @@ except chloros_sdk.ChlorosConnectError:
     arr = chloros_sdk.connect_array(serials)
 ```
 
-> **Svarīgi — context-manager iziešana PĀRTRAUC savienojumu.**`ArraySession.disconnect()` vienmēr veic POST pieprasījumu uz `/array/disconnect`; šeit nav pievienota-nepiederīga aizsargmehānisma, kāds ir `CameraSession` / `DAQSensorSession` gadījumā. Ja izmantojat kopīgu nomu ar GUI un nevēlaties nojaukt masīvu, izbeidzot darbības jomu,**nelietojiet `with` bloku** — saglabājiet rādītāju parastā mainīgajā un izlaidiet eksplicīto `disconnect()`:
+> **Svarīgi — context-manager iziešana PATIEŠĀM pārtrauc savienojumu.**`ArraySession.disconnect()` vienmēr veic POST pieprasījumu uz `/array/disconnect`; nav tāda pievienota aizsardzības mehānismakā tas ir `CameraSession` / `DAQSensorSession` gadījumā. Ja izmantojat kopīgu resursu ar GUI un nevēlaties nojaukt masīvu, izbeidzot darbības jomu,**nelietojiet `with` bloku** — saglabājiet rādītāju parastajā mainīgajā un izlaidiet eksplicīto `disconnect()`:
 >
 > ```python
 > arr = chloros_sdk.attach_array(serials)
@@ -889,14 +889,14 @@ elif result["status"] == "needs_force_slip":
     print("Sim-sync impossible on this wire; force_tier='slip-emit-and-capture' required")
 ```
 
-`status` ir viens no `ok` / `auto_capped_fps` / `auto_shrunk` / `needs_force_slip` (citādi — `error`). `auto_capped_fps` nozīmē, ka pieprasītā izšķirtspēja atbilst RX gredzenam tikai pie ierobežota trigera ātruma — saglabājiet izšķirtspēju un pārejiet no `target_fps=result["recommended"]["recommended_target_fps"]` uz `connect_array` (skatīt [6. piemēru](#6-capability-probe-before-connecting-a-4-cam-array)).
+`status` ir viens no `ok` / `auto_capped_fps` / `auto_shrunk` / `needs_force_slip` (citādi `error`). `auto_capped_fps` nozīmē, ka pieprasītā izšķirtspēja atbilst RX gredzenam tikai pie ierobežotas trigera frekvences — saglabājiet izšķirtspēju un pārejiet no `target_fps=result["recommended"]["recommended_target_fps"]` uz `connect_array` (skatīt [6. piemēru](#6-capability-probe-before-connecting-a-4-cam-array)).
 
-**Kā izlasīt projekciju** (tāds pats modelis kā GUI paneļa „Array Settings”):
+**Kā izlasīt projekciju** (tāds pats modelis kā GUI paneļā „Array Settings”):
 
-- **Sērija (`frame_bytes_total`) tiek summēta katrai kamerai atsevišķi, izmantojot katras kameras reālo pikseļu formātu.**Mono**M3M**kameras pārraida Mono12 (2 B/px) neatkarīgi no tā, kādu `pixel_format` vērtību jūs norādāt, tādējādi 4 kameru pilnas izšķirtspējas kadrs ir**~25 MB** ar trim mono kamerām, nevis ~12,6 MB, kā to paredz pieņēmums par pilnībā 8 bitu formātu. Aizmugurējā sistēma nosaka katras kameras formātu pēc tās modeļa.
-- **Admittance (`burst_fits_nic_ring`) ņem vērā datu plūsmas iztukšošanu**, nevis visu sēriju-pretstatā gredzenam: sim-emit darbojas, ja hosts iztukšo RX gredzenu ātrāk, nekā kameras to piepilda. 10G hosts + 1 GbE kameras**pieņem** pilnas izšķirtspējas datus pat tad, ja datu plūsma pārsniedz gredzena kapacitāti; 1 GbE hosts bloķē (`needs_force_slip` / `auto_shrunk`).
-- **`achievable_fps_max` ir konservatīvs sērijas izguves maksimums** — `max(readout+emit, N×emit)` ar katraskatras kameras datu pārraides ātrums ir ierobežots līdz 1 GbE kameru savienojumam, neatkarīgi no ekspozīcijas. Piemēram, ~2,8 kadri sekundē 4 kameru pilnas izšķirtspējas 12 bitu masīvam (atbilst izpildes laikā izmērītajiem ~2,7–3,0). Pilnais modelis: [CLI Atsauce → Masīva kadru skaits sekundē un sērijas uzņemšanas modelis](cli-reference.md#array-fps--burst-model).
-- **Pārslogotība (`oversubscribed: true`) nozīmē, ka N × minimālais rādītājs katrai kamerai pārsniedz sadursmju drošo maksimālo robežu** — fps lauki (`achievable_fps_max` / `fps_bright` / `fps_dark`) rāda 0, un automātiskā samazināšana/apvienošana to nevar novērst (tās samazina baitu skaitu kadrā, nevis regulēto baitu skaitu sekundē). Risinājumi ir mazāks kameru skaits, jumbo rāmji vai ātrāks tīkla interfeiss; `max_cams_collision_safe` ziņo par maksimālo robežu (6 kameras ar pilnu izšķirtspēju uz 1 GbE ar 1500 MTU, 9 — ar jumbo rāmjiem). Atbildē ir iekļauti arī `aggregate_demand_bps`, `collision_safe_ceiling_bps` un `per_cam_floor_bps` (8 MB/s). Skatīt [Pārslogošana](#over-subscription-the-per-cam-floor).
+- **Burst (`frame_bytes_total`) tiek summēts katrai kamerai atsevišķi, izmantojot katras kameras reālo pikseļu formātu.**Mono**M3M**kameras pārraida Mono12 (2 B/px) neatkarīgi no tā, kādu `pixel_format` vērtību jūs norādāt, tādējādi 4 kameru pilnas izšķirtspējas kadrs ir**~25 MB** ar trim mono kamerām, nevis ~12,6 MB, kā to paredz pieņēmums par-8 bitu pieņēmums. Aizmugurējā sistēma nosaka katras kameras formātu pēc tās modeļa.
+- **Pieņemamība (`burst_fits_nic_ring`) ņem vērā iztukšošanas ātrumu**, nevis salīdzina pilnu datu plūsmu ar gredzenu: sim-emit darbojas, ja hosts iztukšo RX gredzenu ātrāk, nekā kameras to piepilda. 10G hosts + 1 GbE kameras**pieņem** pilnas izšķirtspējas kadrus pat tad, ja burst pārsniedz gredzena kapacitāti; 1 GbE hosts bloķē (`needs_force_slip` / `auto_shrunk`).
+- **`achievable_fps_max` ir konservatīvs sērijas izgūšanas maksimums** — `max(readout+emit, N×emit)` ar katraskameras datu pārraides ierobežots līdz 1 GbE kameras savienojumam, neatkarīgi no ekspozīcijas. Piemēram, ~2,8 fps 4 kameru pilnas izšķirtspējas 12 bitu masīvam (atbilst izpildes laikā izmērītajiem ~2,7–3,0). Pilnais modelis: [CLI Atsauce → Masīva kadrus sekundē un sērijas uzņemšanas modelis](cli-reference.md#array-fps--burst-model).
+- **Pārslogotība (`oversubscribed: true`) nozīmē, ka N × minimālā vērtība katrai kamerai pārsniedz sadursmjudrošības augšējo robežu** — fps lauki (`achievable_fps_max` / `fps_bright` / `fps_dark`) rāda 0, un automātiskā samazināšana/apvienošana to nevar novērst (tie samazina baitu skaitu kadrā, nevis baitu plūsmu sekundē). Risinājumi ir mazāks kameru skaits, jumbo rāmji vai ātrāks tīkla interfeiss; `max_cams_collision_safe` ziņo par maksimālo robežu (6 pilnas izšķirtspējas kameras 1 GbE tīklā ar 1500 MTU, 9 — izmantojot jumbo rāmjus). Atbildē ir iekļauti arī kodi `aggregate_demand_bps`, `collision_safe_ceiling_bps`, un `per_cam_floor_bps` (8 MB/s). Skatīt [Pārslogotība](#over-subscription-the-per-cam-floor).
 
 ### Atklāšana un uzskaitīšana
 
@@ -910,7 +910,7 @@ chloros_sdk.list_arrays()                # active arrays in the pool
 
 ## Smart-AE / Smart-Capture
 
-LATTICE masīvi, tiklīdz tie ir pieslēgti, fonā nepārtraukti veic AE, taču nesen iestatītai ainai ir nepieciešams brīdis, lai konverģētu. **Smart-capture** ir ērta funkcija: tā pārbauda katras kameras ekspozīciju, pagaida, līdz masīvs visā logā ir stabils, un tad uzsāk uzņemšanu. Tas atbilst GUI darbībai: darbvirsmas lietotnes „viedās” uzņemšanas poga izsauc to pašu aizmugures galapunktu.
+LATTICE masīvi, tiklīdz tie ir pieslēgti, fonā nepārtraukti veic AE, taču nesen iestatītai ainai ir nepieciešams brīdis, lai konverģētu. **Smart-capture** ir ērta funkcija: tā noskaidro katras kameras ekspozīciju, gaida, līdz masīvs ir stabils visā logā, un tad aktivizē uzņemšanu. Tā darbojas tāpat kā grafiskajā lietotāja saskarnē: darbvirsmas lietotnes „viedās” uzņemšanas poga izsauc to pašu aizmugures galapunktu.
 
 ```python
 import chloros_sdk
@@ -936,15 +936,15 @@ proj.arrays["main_rig"].capture_smart(
 )
 ```
 
-Viedā-AE politika pēc noklusējuma ir konservatīva. Padariet `exposure_tolerance_pct` stingrāku, ja veicat precīzu radiometrisko darbu; padariet to plašāku strauji mainīgām ainām, kurās vēlaties vienkārši „pietiekami tuvu”.
+Viedās AE politika pēc noklusējuma ir konservatīva. Padariet `exposure_tolerance_pct` stingrāku, ja veicat precīzu radiometrisko darbu; padariet to plašāku strauji mainīgās ainās, kurās vēlaties vienkārši „pietiekami tuvu”.
 
 ---
 
 ## DAQ sensoru sesijas
 
-Pastāvīgs aizmugures resursu kopums spektrālajiem sensoriem (DAQ-U caur USB, DAQ-M caur BLE, DAQ-E caur Ethernet). Atspoguļo kameras darbību: viedā atpazīšana, resursu kopuma atkārtota izmantošana, idempotenta pievienošana.
+Pastāvīgs aizmugures resursu kopums spektrālajiem sensoriem (DAQ-U caur USB, DAQ-M caur BLE, DAQ-E caur Ethernet). Atspoguļo kameras darbību: viedā atpazīšana, kopuma atkārtota izmantošana, idempotenta pievienošana.
 
-### Viedā atpazīšana (bez konfigurācijas)
+### Viedā atpazīšana (Zero-Config)
 
 ```python
 import chloros_sdk
@@ -960,7 +960,7 @@ with chloros_sdk.connect_daq_sensor() as daq:
 
 Prioritāte: Ethernet → BLE → USB. Norādiet jebkuru konkrētu norādi, lai fiksētu pārraides veidu.
 
-### Fiksēts transporta veids
+### Fiksēts pārraides veids
 
 ```python
 # DAQ-U on a specific serial port
@@ -986,18 +986,18 @@ daq = chloros_sdk.connect_daq_sensor(
 
 | Metode | Apraksts |
 | --- | --- |
-| `status(timeout=10.0)` | Pūla ieraksta kopsavilkums (straumēšanas/ierakstīšanas stāvoklis, viļņu garuma diapazons, kalibrēšanas SHA, integrācijas laiks, frame_avg, AE stāvoklis). |
+| `status(timeout=10.0)` | Pūla ieraksta kopsavilkums (straumēšanas/ierakstīšanas stāvoklis, viļņa garuma diapazons, kalibrēšanas SHA, integrācijas laiks, frame_avg, AE stāvoklis). |
 | `latest(n=1, timeout=10.0)` | Atgriež līdz N pēdējiem spektra kadriem. |
 | `stream_start()` / `stream_stop()` | Turpināt / apturēt straumēšanu (rokturis paliek atvērts). |
-| `record_start(output_dir=None, device_name=None)` | Sākt .daq faila ierakstīšanu. Atgriež faila ceļu. Neizpilda DAQ-U/M bez AWS kalibrēšanas paketes (izņemot DAQ-E). |
+| `record_start(output_dir=None, device_name=None)` | Sāk ierakstīt .daq failu. Atgriež faila ceļu. Neizpilda DAQ-U/M bez AWS kalibrēšanas komplekta (izņemot DAQ-E). |
 | `record_stop()` | Pārtrauc ierakstīšanu. Atgriež `{path, rows}`. |
-| `disconnect()` | Atbrīvo no pūla. Neveic darbību, ja rokturis ir pievienots, bet nepieder. |
+| `disconnect()` | Atbrīvo no pūla. Neveic darbību, ja rokturi ir pievienoti, bet nepieder lietotājam. |
 
-> **Kapacitātes korekcijas profili (`cap_id`) nav SDK regulētājs.** `connect_daq_sensor()` / `DAQSensorSession` neizpauž `cap_id` parametru vai `set_cap` metodi. Izvēlieties flotes ierobežojumakorekcijas profilu, izmantojot CLI (`chloros-cli daq pool-connect --cap-id …` / `chloros-cli daq pool-set-cap …`) vai aizmugurējās sistēmas `/api/daq` HTTP maršrutiem (`/api/daq/connect` un `/api/daq/<id>/cap-id` pieņem `cap_id`).
+> **Kapacitātes korekcijas profili (`cap_id`) nav „SDK” regulētājs.** `connect_daq_sensor()` / `DAQSensorSession` neizpauž nevienu `cap_id` parametru vai `set_cap` metodi. Izvēlieties flotes ierobežojuma korekcijas profilu, izmantojot CLI (`chloros-cli daq pool-connect --cap-id …` / `chloros-cli daq pool-set-cap …`) vai izmantojot aizmugurējās sistēmas `/api/daq` maršrutus „HTTP” (`/api/daq/connect` un `/api/daq/<id>/cap-id` pieņem `cap_id`).
 
-### Atklāšana — adreses meklēšana savienojuma izveidei
+### Atklāšana — adreses atrašana savienojuma izveidei
 
-`discover_daq_sensors()` skenē USB / BLE / ETH, meklējot sensorus, kurus *varētu* atvērt. Tas ir DAQ ekvivalents `discover_lattice_cameras()`, un vienīgais veids, kā iegūt **DAQ-M BLE MAC** — DAQ-E ierīcei ir uzņēmuma nosaukums, bet DAQ-U — COM ports, taču MAC nav ne uzrakstīts uz ierīces, ne uzskaitīts operētājsistēmā.
+`discover_daq_sensors()` skenē USB / BLE / ETH, meklējot sensorus, kurus *varētu* atvērt. Tas ir DAQ ekvivalents `discover_lattice_cameras()`, un vienīgais veids, kā iegūt **DAQ-M BLE MAC** — DAQ-E ierīcei ir uzņēmuma nosaukums, bet DAQ-U — COM ports, taču MAC adrese nav ne uzrakstīta uz ierīces, ne uzrādīta operētājsistēmā.
 
 ```python
 for s in chloros_sdk.discover_daq_sensors():
@@ -1014,19 +1014,19 @@ for s in chloros_sdk.discover_daq_sensors(transports=["ble"]):
 | Lauks | Apraksts |
 | --- | --- |
 | `transport` | `usb` \| `ble` \| `eth`. |
-| `address` | COM ports / BLE MAC / datorvārds — nodod `connect_daq_sensor` kā `port=` / `mac=` / `eth_host=`. |
-| `display` | Cilvēkam saprotams nosaukums. |
-| `model` | `DAQ-U` \| `DAQ-M` \| `DAQ-E` vai `None` portam, kuru skenēšana nevar identificēt (USB seriālie adapteri bez zondes nav atšķirami, tādēļ nezināmie tiek parādīti, nevis slēpti). |
-| `extra` | Informācija par katru pārraides veidu (BLE paziņotais nosaukums, USB ražotājs, DAQ-E ip/fw/…). Tukšas vērtības tiek izlaistas. |
+| `address` | COM ports / BLE MAC / uzņēmuma nosaukums — nodod `connect_daq_sensor` kā `port=` / `mac=` / `eth_host=`. |
+| `display` | Cilvēkamlasāms nosaukums. |
+| `model` | `DAQ-U` \| `DAQ-M` \| `DAQ-E` vai `None` — ports, kuru skenēšana nevar identificēt (USB seriālie adapteri bez zondes nav atšķirami, tādēļ nezināmie tiek parādīti, nevis slēpti). |
+| `extra` | Informācija par katru pārraides veidu (BLE paziņotais nosaukums, USB ražotājs, DAQ-E IP/fw/…). Tukšas vērtības tiek izlaistas. |
 
 | Parametrs | Noklusējums | Apraksts |
 | --- | --- | --- |
 | `transports` | visi trīs | Sekvence (vai CSV virkne), kas ierobežo skenēšanu. Vērts norādīt, ja zināt, ko vēlaties — BLE ir lēnākais posms. |
-| `scan_timeout` | 5 | Skenēšanas logs katram pārraides veidam sekundēs; backend ierobežo to līdz 1–20. |
-| `timeout` | 60,0 | HTTP maksimālais laiks visam izsaukumam (kā arī citur SDK). |
+| `scan_timeout` | 5 | Skenēšanas logs katram transporta veidam sekundēs; aizmugurējā sistēma ierobežo to līdz 1–20. |
+| `timeout` | 60,0 | „HTTP” maksimālais laiks visam izsaukumam (tāpat kā citviet „SDK” dokumentā). |
 | `auto_start_backend` | `True` | Izveido vietējo backend, ja neviens nedarbojas. Nekad neizveido attālinātu `backend_url`. |
 
-> **Sensori, kas jau ir atvērti pūlā, netiek parādīti.** Savienota BLE perifērija pārtrauc reklāmēšanu, un atvērtu COM portu nevar pārbaudīt, tādēļ atklāšanas sarakstā tiek uzskaitīts tas, kas ir *pieejams savienošanai*. Tiek sagaidīts tukšs rezultāts tieši pēc tam, kad esat kaut ko pieslēdzis — izmantojiet `list_daq_sensors()`, lai redzētu to, kas jums jau ir. Transporti, kuru skenēšana nevar tikt izpildīta (nav instalēts bleak / zeroconf), tiek izlaisti, nevis izraisa kļūdu, tādējādi ierīce bez Bluetooth joprojām saņem savus USB un ETH atbildes.
+> **Sensori, kas jau ir atvērti pūlā, netiek parādīti.** Savienotai BLE perifērijai tiek pārtraukta reklāma, un atvērtu COM portu nevar pārbaudīt, tāpēc atklāšanas saraksts uzrāda to, kas ir *pieejams savienošanai*. Tūlīt pēc savienošanās ir sagaidāms tukšs rezultāts — izmantojiet `list_daq_sensors()`, lai iegūtu informāciju par to, kas jums jau ir. Transporti, kuru skenēšana nevar tikt veikta (nav instalēts bleak / zeroconf), tiek izlaisti, nevis parādīti kā kļūda, tādējādi ierīce bez Bluetooth joprojām saņem atbildes par USB un ETH.
 
 ### Saraksts
 
@@ -1035,15 +1035,15 @@ for s in chloros_sdk.list_daq_sensors():
     print(s["sensor_id"], s["model"], s["transport"], s["wavelength_range"])
 ```
 
-### Co-Lietošana kopā ar GUI / CLI
+### Koplietošana ar GUI / CLI
 
-Ja GUI jau ir atvērts sensors, izsaucot `connect_daq_sensor(port="COM3")` no Python, tiek atgriezts rokturis ar atzīmi `already_connected=True`. Tādējādi sesijas `disconnect()` ir bezdarbības operācija, tādējādi jūsu SDK skripts neizrauj sensoru no GUI, izietot no skopas.
+Ja GUI jau ir atvērts sensors, izsaucot `connect_daq_sensor(port="COM3")` no Python, tiek atgriezts rīks ar apzīmējumu `already_connected=True`. Sesijas`disconnect()` ir bezdarbības operācija, tādējādi jūsu skripts „SDK” neizrauj sensoru no GUI, izietot no skopas.
 
 ### Tiešās aparatūras klases (bez aizmugures)
 
-`daq_sdk` tiek-eksportēts ar `chloros_sdk`, tādējādi jūs varat vadīt sensorus no gala līdz galam procesa ietvaros bez aizmugures:
+`daq_sdk` tiek atkārtoti eksportēts ar `chloros_sdk`, tādējādi jūs varat vadīt sensorus no sākuma līdz galam procesa ietvaros bez aizmugurējās sistēmas:
 
-> **Pieejamība:**`daq_sdk` tiek piegādāts kopā ar Chloros datora instalācijā,**nevis** kopā ar PyPI pakotni — `pip install chloros-sdk` nodrošina `lattice_sdk`, bet atstāj `chloros_sdk.DAQ_AVAILABLE == False`. Pirms šo klašu izmantošanas pārbaudiet šo iestatījumu; sistēmā, kurā darbojas tikai pip, vadiet sensoru, izmantojot [`connect_daq_sensor()`](#daq-sensor-sessions), kam nav nepieciešamas lokālās transporta bibliotēkas.
+> **Pieejamība:**`daq_sdk` ir iekļauts „Chloros” darbvirsmas instalācijā,**bet nav** iekļauts PyPI paketē — `pip install chloros-sdk` nodrošina `lattice_sdk`, taču atstāj `chloros_sdk.DAQ_AVAILABLE == False`. Pirms šo klašu izmantošanas pārbaudiet šo atzīmi; datorā, kurā darbojas tikai pip, sensoru vadiet caur [`connect_daq_sensor()`](#daq-sensor-sessions), kam nav nepieciešamas lokālās transporta bibliotēkas.
 
 ```python
 from chloros_sdk import DAQUSensor, DAQMSensor, DAQESensor, discover_all
@@ -1066,9 +1066,9 @@ Ieteicams izmantot „smart-connect” ceļu (`connect_daq_sensor`), ja vēlatie
 
 ## Projekta automatizācija — `ChlorosProject`
 
-Saglabāts Chloros projekts ir mape, kas satur `cameras.json` + `sensors.json` + `project.json`. `open_project` ielādē manifestu, un `connect_all` pieslēdz visas saglabātās ierīces ar to saglabātajiem iestatījumiem — tādā pašā aparatūras stāvoklī, kādu radītu grafiskā lietotāja saskarne.
+Saglabāts „Chloros” projekts ir mape, kas satur `cameras.json` + `sensors.json` + `project.json`. `open_project` ielādē manifestu, un `connect_all` katru saglabāto ierīci tiešsaistē ar tās saglabātajiem iestatījumiem — tādā pašā aparatūras stāvoklī, kādu radītu grafiskā lietotāja saskarne.
 
-### Vienkāršs piemērs
+### Minimāls piemērs
 
 ```python
 import chloros_sdk
@@ -1093,7 +1093,7 @@ proj.capture_all("./out")
 proj.disconnect_all()
 ```
 
-Vai arī kā konteksta pārvaldnieks:
+Vai kā konteksta pārvaldnieks:
 
 ```python
 with chloros_sdk.open_project("/path/to/proj") as proj:
@@ -1105,17 +1105,17 @@ with chloros_sdk.open_project("/path/to/proj") as proj:
 
 | Metode | Apraksts |
 | --- | --- |
-| `connect_all(cameras=True, arrays=True, sensors=True, verbose=False, align=None)` | Atrod un savieno katru saglabāto ierīci. Atgriež savienošanas ziņojumu par katru klasi. Izmanto darbojošos aizmuguri, ja tā klausās uz `127.0.0.1:5000`; pretējā gadījumā klusi pāriet uz tiešu (bez aizmugures) `lattice_sdk` ierīču vadību — tā nekad neizveido aizmuguri. |
-| `disconnect_all()` | Pārtrauc visas savienojumus. |
+| `connect_all(cameras=True, arrays=True, sensors=True, verbose=False, align=None)` | Atklāj un savieno katru saglabāto ierīci. Atgriež savienojuma ziņojumu par katru klasi. Izmanto darbojošos aizmuguri, ja tā klausās uz `127.0.0.1:5000`; pretējā gadījumā klusi pārslēdzas uz tiešu (bez aizmugures) `lattice_sdk` ierīču vadību — tā nekad neizveido aizmuguri. |
+| `disconnect_all()` | Pārtrauc visu. |
 | `capture_all(output_dir=".")` | Viens kadrs no katras kameras + masīvs + spektrs no katra sensora. |
-| `stream(camera, overlays=False, fps=10.0)` | Ģenerators, kas ģenerē BGR `numpy` kadrus no nosauktas kameras (vai masīva). `overlays=False` ir tiešs `lattice_sdk` attēlu ieguves cikls (matricas ģenerē `{serial: frame}` vārdnīcas). `overlays=True` maršrutē caur `ChlorosLocal.camera_stream()` → aizmugurējās sistēmas`/api/camera/<serial>/stream-annotated` MJPEG plūsmu, kur kameras saglabātais `ui.overlay` bloks tiek nodots kā vaicājuma parametri. Nepieciešams aizmugurējās sistēmas režīms un **autonomā kamera**: tiešā režīma kamera izraisa `RuntimeError` (backend nevar iegūt kameru, kas pieder šim procesam), bet masīvs izraisa `NotImplementedError` (uzliek kompozīciju katrai kamerai — straumē elementu pēc nosaukuma). Vienreizējās darbības ekvivalents: `CameraHandle.capture(annotated=True)`. |
-| `align_arrays(align=True, verbose=False)` | Veic izlīdzināšanu katram pašlaik pieslēgtajam masīvam. |
-| `process(mode="parallel", wait=True, progress_callback=None, poll_interval=2.0)` | Izpilda kalibrēšanas/indeksēšanas procesu projekta attēliem (ietver `ChlorosLocal.process`; šīs četras ir **vienīgās** pieņemamās kwargs — `indices=` utt. izraisa `TypeError`; indeksus iestata ar `ChlorosLocal.configure()`). Lēni veido `ChlorosLocal()`, kas automātiski palaista aizmuguri. |
+| `stream(camera, overlays=False, fps=10.0)` | Ģenerators, kas ģenerē BGR `numpy` kadrus no nosauktas kameras (vai masīva). `overlays=False` ir tieša `lattice_sdk` satveršanas cilpa (masīvi ģenerē `{serial: frame}` vārdnīcas). `overlays=True` maršruts caur `ChlorosLocal.camera_stream()` → aizmugurējās daļas `/api/camera/<serial>/stream-annotated` MJPEG plūsmu, kur kamerassaglabātais `ui.overlay` bloks tiek nodots kā vaicājuma parametri. Nepieciešams aizmugures režīms un **autonomā kamera**: tiešā režīma kamera izraisa `RuntimeError` (aizmugures sistēma nevar iegūt kameru, kas pieder šim procesam), bet masīvs izraisa `NotImplementedError` (uzliek kompozīcijas uzlikumus katrai kamerai — straumē elementu pēc nosaukuma). Vienavienas darbības ekvivalents: `CameraHandle.capture(annotated=True)`. |
+| `align_arrays(align=True, verbose=False)` | Veic izlīdzināšanu katram pašlaik pieslēgtam masīvam. |
+| `process(mode="parallel", wait=True, progress_callback=None, poll_interval=2.0)` | Veic kalibrēšanu / indeksēšanas cauruļvadu uz projekta attēliem (ietver `ChlorosLocal.process`; šie četri ir **vienīgie** pieņemamie kwargi — `indices=` utt. izraisa `TypeError`; indeksus iestata ar `ChlorosLocal.configure()`). Lēni veido `ChlorosLocal()`, kas automātiski palaida aizmuguri. |
 
 Atribūti:
 - `proj.cameras` — `Dict[str, CameraHandle]`, indeksēts pēc nosaukuma UN sērijas numura.
 - `proj.arrays` — `Dict[str, ArrayHandle]`, indeksēts pēc nosaukuma UN array_id.
-- `proj.sensors` — `Dict[str, SensorHandle]`, kuras atslēgas vārds ir nosaukums UN slot_id.
+- `proj.sensors` — `Dict[str, SensorHandle]`, indeksēti pēc nosaukuma UN slot_id.
 - `proj.config` — `project.json["config"]` vārdnīca.
 
 ### `CameraHandle`
@@ -1143,50 +1143,50 @@ for arr in cam.frame_stream(processing="debayered", fps=5, count=100):
     my_analysis(arr)
 ```
 
-**Apstrādes līmeņi.** `capture()`, `grab()` un `frame_stream()` visiem ir viens un tas pats `processing`
-tokenu, un ķēde ir kumulatīva — katrs līmenis izpilda visu, kas atrodas virs tā:
+**Apstrādes līmeņi.** `capture()`, `grab()` un `frame_stream()` visiem tiek izmantots viens un tas pats `processing`
+token, un ķēde ir kumulatīva — katrs līmenis izpilda visu, kas atrodas virs tā:
 
-| Līmenis | Izeja | Piezīmes |
+| Līmenis | Izvade | Piezīmes |
 | --- | --- | --- |
-| `raw` | 1-kanālu Bayer, sensora nativais | Nav demosaika. Šajā līmenī pārklājumi nav pieejami. |
-| `debayered` | 3-kanālu BGR (**noklusējums**) | Bilineāra demosaika. Vienīgais līmenis, kas darbojas bez aizmugures režīma. |
-| `radiance` | float32, W/m²/sr/nm | Pilna radiometriskā ķēde: demosaika + 3×3 atdalīšana (multispektrāla) + DSNU + līdzenā lauka korekcija + NIST skala, kur ekspozīcija × pastiprinājums ir izdalīts, lai vērtības būtu absolūtas. |
+| `raw` | 1-kanālu Bayer, sensora nativais | Bez demosaika. Šajā līmenī pārklājumi nav pieejami. |
+| `debayered` | 3-kanālu BGR (**noklusējums**) | Bilineārā demosaika. Vienīgais līmenis, kas darbojas bez aizmugures režīma. |
+| `radiance` | float32, W/m²/sr/nm | Pilna radiometriskā ķēde: demosaika + 3×3 atdalīšana (multispektrāla) + DSNU + līdzenumalauks + NIST skala, kur ekspozīcija × pastiprinājums ir izdalīts, lai vērtības būtu absolūtas. |
 | `reflectance` | uint16, 32768 = 1,0 | Starojuma intensitāte, dalīta ar lejupvērsto starojuma intensitāti (ρ = π·L/E). Nepieciešams DLS/DAQ rādījums — skatīt piezīmi zemāk. |
-| `display` | 8-bitu sRGB-līdzīgs | GUI ekvivalents attēls: CCM + baltā balanss + gamma, izmantojot kameras aktīvo krāsu profilu. |
+| `display` | 8 bitu sRGB-līdzīgs | GUI ekvivalents attēls: CCM + balansa korekcija + gamma, izmantojot kameras aktīvo krāsu profilu. |
 
-Jebkurš cits rādītājs, izņemot `debayered`, prasa backend režīmu; tiešā režīma kamera izraisa
-`NotImplementedError`. `reflectance` ir nepieciešams izmantojams lejupvērstais starojuma rādījums — kadra beigu punkts automātiski ievada
-apkopotos DAQ datus automātiski kameras DLS slotā, taču, ja nav piesaistīts DAQ, ķēde noraida
-reflektances izvadi un godīgi atzīmē pazeminājumu atgrieztos metadatos, nevis klusi
+Jebkurš cits, izņemot `debayered`, prasa backend režīmu; tiešā režīma kamera izraisa
+`NotImplementedError`. `reflectance` ir nepieciešams izmantojams lejupvērstais rādījums — kadra beigu punkts automātiski ievieto
+apkopoto DAQ kameras DLS slotā, taču, ja DAQ nav piesaistīts, ķēde noraida
+reflektances izeju un atklāti atzīmē pazeminājumu atgrieztos metadatos, nevis klusi
 atdod zemākas kvalitātes rezultātu.
 
-> **Reflektances DN skala — to nedrīkst ieprogrammēt cietā kodā.** LATTICE atstarojums izmanto `32768` = ρ 1,0 un atzīmē
-> XMP `Chloros:PixelScale=32768`; Survey3 atstarojums izmanto `65535` = ρ 1,0 un nesatur
-> `Chloros:*` tagus. Izlasiet tagu un daliet ar to. Tas ir definēts uint16 domēnā, tādēļ tas paliek
-> `32768` visos formātos, kas veic pārskalēšanu (16 bitu TIFF, 8 bitu PNG/JPG, 32 bitu procenti) — vispirms normalizējiet
+> **Reflektances DN skala — to nedrīkst ieprogrammēt fiksēti.** LATTICE reflektance izmanto `32768` = ρ 1,0 un atzīmē
+> XMP `Chloros:PixelScale=32768`; Survey3 reflektance izmanto `65535` = ρ 1.0 un nesatur
+> `Chloros:*` marķierus. Izlasiet marķieri un daliet ar to. Tas ir definēts uint16 domēnā, tādēļ tas paliek
+> `32768` visos formātos, kuros tiek veikta mēroga maiņa (16 bitu TIFF, 8 bitu PNG /JPG, 32 bitu procentos) — vispirms normalizējiet
 > saglabāto datu tipu atpakaļ uz uint16 (×257 no 8 bitu, ×65535 no float). Vienīgais izņēmums:
-> 8 bitu avota ieraksts, kas rakstīts kā 8 bitu TIFF, tiek *nogriezts*, nevis pārskalots, tāpēc to neapraksta nekāda skala
-> — Chloros šajā gadījumā pilnībā izlaiž `PixelScale` un MicaSense tuplu. Trūkstošu
-> tagu LATTICE atstarošanas failā uzskatiet par „nav derīga mēroga”, nevis kā noklusējumu.
+> 8-bitu avota ieraksts, kas rakstīts kā 8-bitu TIFF, tiek *apgriezts*, nevis pārskalots, tāpēc to neapraksta neviens mērogs
+> to — Chloros šajā gadījumā pilnībā izlaiž `PixelScale` un MicaSense tuplu. Trūkstošu
+> tagu LATTICE atstarošanas failā uzskatiet par „nav derīga mēroga”, nevis par noklusējumu.
 
-> **EXIF tiek pārnests uz eksportu.** `process()` kopē avota uzņēmuma GPS bloku
-> **un tā ExifIFD** uz katru produktu, tādējādi eksportētajās failos ir `FocalLength`, `FNumber`,
+> **EXIF dati tiek pārnesti uz eksportēto failu.** `process()` uz katru produktu kopē avota uzņēmuma GPS bloku
+> **un tā ExifIFD** uz katru produktu, tādējādi eksporta faili satur `FocalLength`, `FNumber`,
 > `ExposureTime`, `ISO`, `DateTimeOriginal` un `CameraSerialNumber`, kā arī
-> ģeoreferencēšanu. `FocalLength` ir tas, no kā Pix4D aprēķina zemes paraugu attālumu — bez tā
-> rekonstrukcija tiek veikta pilnīgi nepareizā mērogā (vienā izmērītajā gadījumā 411 m liela teritorija
-> tika pārvērsta par 47,8 km lielu). Kopija apzināti nav `-all:all`: IFD0 strukturālās birkas sabojā
+> ģeoreferencēšanu. `FocalLength` ir tas, no kā Pix4D aprēķina zemes parauga attālumu — bez tā
+> rekonstrukcija atgriežas ļoti nepareizā mērogā (izmērītajā gadījumā 411 m liela teritorija
+> 47,8 km platu). Kopija apzināti nav `-all:all`: IFD0 strukturālās birkas sabojā
 > LATTICE izvadi, un `ExifImageWidth`/`Height` ir izslēgti, jo tie apraksta avota
-> uzņemšanu, nevis eksportēto rastra attēlu.
+> uztveršanu, nevis eksportēto rastra attēlu.
 
-Uzņemšanas posma apakškarodziņi (attiecas uz radiometriskajiem līmeņiem — `radiance`, `reflectance`, `display`):
+Uztveršanasposma apakškarodziņi (attiecas uz radiometriskajiem līmeņiem — `radiance`, `reflectance`, `display`):
 
 | Karodziņš | Noklusējums | Nozīme |
 | --- | --- | --- |
 | `apply_calibration` | `True` | DSNU + vienmērīgais lauks + 3x3 atdalīšana + NIST radiometriskā skala. |
-| `apply_white_balance` | `True` | WB LUT. DLS atbalsts, ja DAQ ir piesaistīts kamerai. |
+| `apply_white_balance` | `True` | WB LUT. Ņem vērā DLS, ja DAQ ir piesaistīts kamerai. |
 | `apply_index` | `False` | Veģetācijas indeksa novērtēšana. |
-| `index_expression` | `None` | Formulas pārrakstīšana. Ja nav tukšs → indekss tiek automātiski aktivizēts. |
-| `annotated` | `False` | GUI dekorāciju (zebra/tīkls/pīķi) pārklāšana. Nav pieejams `raw`. |
+| `index_expression` | `None` | Formulas pārrakstīšana. Ja lauks nav tukšs → automātiskiindeksa aktivizēšana. |
+| `annotated` | `False` | GUI dekorāciju pārklāšana (zebra/tīkls/smaile). Nav pieejams `raw`. |
 
 ### `ArrayHandle`
 
@@ -1229,12 +1229,12 @@ print(counts)  # frames written per serial
 
 > **Atgriešanas tips ir `CapturePathMap`, nevis `Dict[str, str]`.**
 > `chloros_sdk.CapturePathMap` ir `Dict[str, Union[str, List[str]]]`: vienlīmeņa
-> `processing` katram sērijas numuram piešķir vienu ceļu, savukārt daudzlīmeņu (`"all"` vai
-> eksplicīts `levels` saraksts) piešķir tam **sakārtotu sarakstu** ar visiem produktiem, kas saglabāti šai
-> kamerai. Kombinēts tiešraides kompozīts, ja tāds tiek straumēts, ierodas zem papildu
-> `"combined"` atslēgas, nevis zem sērijas numura. Kods, kas pieņem `str`, nedarbojas
-> saraksta formā, un neviens tipa pārbaudītājs tam neiebilst — anotācijā kādu laiku pēc saraksta formas ieviešanas bija norādīts `Dict[str, str]`,
-> tāpēc šis aliass pastāv. Normalizējiet,
+> `processing` katram sērijas elementam piešķir vienu ceļu, savukārt daudzlīmeņalīmeņa (`"all"` vai
+> eksplicīts `levels` saraksts) piešķir tai **sakārtotu sarakstu** ar visiem produktiem, kas saglabāti šai
+> kamerai. Kombinēts tiešraides kompozīts, ja tāds tiek pārraidīts, nonāk zem papildu
+> `"combined"` atslēgai, nevis zem sērijas numura. Kods, kas pieņem, ka `str` darbojas ar
+> saraksta formātu, neizraisot tipa pārbaudītāja iebildumus — anotācijā kādu laiku pēc saraksta formāta ieviešanas bija norādīts `Dict[str, str]`,
+> tāpēc šis aliasis pastāv. Normalizējiet
 > ja vēlaties plakanu formu:
 >
 > ```python
@@ -1245,7 +1245,7 @@ print(counts)  # frames written per serial
 
 ### Masīva izlīdzināšana
 
-`ArrayHandle` atklāj pilnu izlīdzināšanas virsmu. Profili pēc noklusējuma ir pieejami tikai sesijas laikā — lai tos saglabātu, eksplicīti izsauciet `export_alignment()`.
+`ArrayHandle` atklāj pilnu izlīdzināšanas virsmu. Profili pēc noklusējuma ir pieejami tikai sesijas laikā — izsauciet `export_alignment()` eksplicīti, lai saglabātu.
 
 ```python
 from chloros_sdk import AlignmentSpec
@@ -1310,7 +1310,7 @@ spectrum = proj.sensors["Sky"].read()
 
 ## Tieša aparatūra (bez aizmugures sistēmas)
 
-Ja vēlaties pilnīgi izvairīties no atkarības no backend (CI, bezgalvas roboti, iegultās sistēmas), importējiet `lattice_sdk` un `daq_sdk` tieši — abus atkārtoti eksportē `chloros_sdk`. Aizsardzība uz `CAMERA_AVAILABLE` / `DAQ_AVAILABLE`: `lattice_sdk` atrodas PyPI paketē (bet tam ir nepieciešama Arena SDK darblaika vide), savukārt `daq_sdk` tiek piegādāts tikai kopā ar datora instalāciju.
+Ja vēlaties pilnīgu neatkarību no aizmugures sistēmas (CI, bezgalvas roboti, iegultās sistēmas), importējiet `lattice_sdk` un `daq_sdk` tieši — abus atkārtoti eksportē `chloros_sdk`. Uzmanību attiecībā uz `CAMERA_AVAILABLE` / `DAQ_AVAILABLE`: `lattice_sdk` atrodas PyPI paketē (bet tam ir nepieciešama „Arena” SDK izpildes vide), savukārt `daq_sdk` tiek piegādāts tikai kopā ar datora instalācijas versiju.
 
 ```python
 from chloros_sdk import (
@@ -1337,23 +1337,23 @@ with LatticeCamera(serial="213800234", settings=settings) as cam:
 
 ##### Iestatījumi un izraisītājs
 
-Trīs no četriem iestatījumiem darbojas **brīvā režīmā**: kamera nepārtraukti eksponē, un
+Trīs no četriem iestatījumiem ir **brīvā režīmā**: kamera nepārtraukti eksponē, un
 `capture()` atgriež nākamo kadru. `triggered` ir izņēmums — tas aktivizē
-kameru, lai tā reaģētu uz aparatūras signālu 2. līnijā, tādēļ tā neko neuzņem, kamēr šāds signāls nav saņemts.
+kameru, gaidot aparatūras signālu 2. līnijā, tāpēc tā neko neuzņem, kamēr tāds neierodas.
 
-| Iestatījums | Izraisītājs | Lietot, ja |
+| Iestatījums | Izraisītājs | Lieto, kad |
 | --- | --- | --- |
 | `default` | brīvā darbība | vispārējai lietošanai |
-| `high_speed` | brīvā darbība | 8 bitu, 60 fps ierobežojums, īsa ekspozīcija |
-| `high_quality` | brīvā režīma | 12 bitu, bez kadru skaita ierobežojuma — parastā izvēle fotogrāfijām |
-| `triggered` | **gatavs darbam, 2. līnija** | kamera ir pieslēgta ar M8 sinhronizācijas kabeli, un to iedarbina kāds cits signāls |
+| `high_speed` | brīvā darbība | 8 biti, 60 fps ierobežojums, īsa ekspozīcija |
+| `high_quality` | brīvā darbība | 12bitu, bez kadru skaita ierobežojuma — parastā izvēle fotogrāfijām |
+| `triggered` | **ieslēgts, 2. līnija** | kamera ir pieslēgta ar M8 sinhronizācijas kabeli un to iedarbina kāds cits avots |
 
 Ja izvēlaties `triggered` (vai paši iestatāt `trigger_mode="On"`), kad nekas
-nedarbina 2. līniju, katrs `capture()` beigsies ar laika limitu — pareizi, jo jūs lūdzāt
-kamerai gaidīt. SDK to paskaidro, kad tas notiek; skatiet
+nedarbina 2. līniju, katram `capture()` beigsies gaidīšanas laiks — pareizi, jo jūs esat lūguši
+kamerai gaidīt. „SDK” to izskaidro, kad tas notiek; skatiet
 [SC_ERR_TIMEOUT uzņemšanas laikā](#direct-hardware-backend-free).
 
-> **Piezīme — „GVSP probe” / `SC_ERR_TIMEOUT -1011` ziņojumi savienojuma izveides brīdī nav kļūdas.**&gt; Izveidojot savienojumu, SDK mēģina vienoties par**jumbo rāmjiem** (9000 baitu GVSP paketes), lai nodrošinātu lielāku caurlaidspēju. Tiešā punkts-punkts tīkla kartes savienojumā (piem., savienojumā-vietējā `169.254.x.x` adrese) tīkls parasti nespēj pārraidīt jumbo rāmjus, tāpēc šī pārbaude beidzas ar laika limitu un protokolā tiek reģistrētas šādas rindas:
+> **Piezīme — „GVSP probe” / `SC_ERR_TIMEOUT -1011` ziņojumi savienojuma izveides brīdī nav kļūdas.**&gt; Izveidojot savienojumu, „SDK” mēģina vienoties par**jumbo rāmjiem** (9000 baitu GVSP paketes), lai nodrošinātu lielāku caurlaidspēju. Tiešā punkts-punkts tīkla kartes savienojumā (piem., lokālā `169.254.x.x` adrese) tīkls parasti nespēj pārraidīt jumbo rāmjus, tāpēc šī pārbaude beidzas ar laika limitu un reģistrē tādus ierakstus kā:
 >
 > ```
 > [Network] GVSP probe: unexpected error (TimeoutError: ... SC_ERR_TIMEOUT -1011)
@@ -1361,15 +1361,15 @@ kamerai gaidīt. SDK to paskaidro, kad tas notiek; skatiet
 > [Network] GVSP packet size: 1500 bytes (standard)
 > ```
 >
-> Tas ir **paredzētais rezerves risinājums**: SDK automātiski atgriežas pie standarta 1500 baitu pakešiem, un kamera turpina savienoties kā parasti (sekojošās `[chunk-enable …]` rindas ir daļa no parastās savienošanās secības). Attēlu uzņemšana joprojām darbojas.
+> Šī ir **paredzētā rezerves rīcība**: „SDK” automātiski atgriežas pie standarta 1500 baitu pakešiem, un kamera turpina savienoties kā parasti (sekojošās `[chunk-enable …]` rindas ir daļa no parastās savienošanās secības). Attēlu uzņemšana joprojām darbojas.
 >
-> Jūs varat izlaist šo pārbaudi, bet **tā nav tikai žurnāla ierakstu slāpētājs — tā atslēdz jumbo rāmjus.** Kamera atbild uz „Don&#x27;t-Fragment” pingiem tikai līdz 1500 baitiem neatkarīgi no tā, cik labs ir jūsu tīkls, tādēļ, izmantojot tikai ping testu, nekad nevar atrast jumbo rāmjus; šī pārbaude ir vienīgais veids, kā to izdarīt. Atspējojiet to, un kamera jebkurā tīklā uz visiem laikiem darbosies ar standarta 1500 baitu pakešiem:
+> Jūs varat izlaist šo pārbaudi, bet **tā nav tikai žurnāla ierakstu klusinātājs — tā atslēdz jumbo rāmjus.** Kamera atbild uz „Don&#x27;t-Fragment” pingiem tikai līdz 1500 baitiem, neatkarīgi no tā, cik labs ir jūsu tīkls, tāpēc ar ping testu vien nekad nevar atrast jumbo rāmjus; šī pārbaude ir vienīgā, kas to spēj. Atspējojiet to, un kamera jebkurā tīklā uz visiem laikiem darbosies ar standarta 1500 baitu pakešiem:
 >
 > ```bash
 > CHLOROS_GVSP_PROBE_FALLBACK=0   # gives up jumbo — see the warning it prints
 > ```
 >
-> Tas ir vērts tikai tādā tīklā, par kuru *zināt*, ka tas nespēj pārraidīt jumbo rāmjus, kur tas ietaupa aptuveni vienu sekundi savienošanās laika katrai kamerai. Tā kā tas ir reāls kompromiss, nevis tikai kosmētisks, SDK tagad to norāda, kad jūs to izmantojat:
+> Tas ir vērts tikai tādā tīklā, par kuru jūs *zināt*, ka tas nespēj pārraidīt jumbo rāmjus, jo šādā gadījumā tas ietaupa aptuveni vienu sekundi savienošanās laika katrai kamerai. Tā kā tas ir reāls kompromiss, nevis tikai kosmētisks, tagad, izmantojot šo funkciju, par to informē arī „SDK”:
 >
 > ```
 > [Network] ⚠️ GVSP probe disabled (CHLOROS_GVSP_PROBE_FALLBACK=0) — staying at
@@ -1377,11 +1377,11 @@ kamerai gaidīt. SDK to paskaidro, kad tas notiek; skatiet
 > up ~1.45x wire ceiling. Unset the variable to test for jumbo.
 > ```
 >
-> **Neaiztiekiet to, ja vien jums nav iemesla.** Ja funkcija paliek ieslēgta, katrs savienojums no jauna izmēra jūsu faktisko tīklu: pieslēdzieties komutatoram, kas atbalsta jumbo paketes, un nākamais savienojums pats automātiski sāks izmantot jumbo paketes, bez nepieciešamības veikt konfigurāciju vai pārstartēt sistēmu.
+> **Neaiztiekiet to, ja vien jums nav iemesla.** Ja funkcija paliek ieslēgta, katrs savienojums no jauna izmēra jūsu faktisko tīklu: pieslēdzieties komutatoram, kas atbalsta jumbo paketes, un nākamais savienojums pats automātiski sāks izmantot jumbo paketes, bez jebkādas konfigurācijas un bez pārstartēšanas.
 >
-> Ja *vēlaties* jumbo datu caurlaidspēju, aktivizējiet jumbo no gala līdz galam (NIC MTU 9000 + komutators, kas tos caurlaida), vai arī fiksējiet to ar `CHLOROS_GVSP_PACKET_SIZE_FORCE=9000`, ja zināt, ka savienojums to atbalsta — tomēr ieteicams izmantot `CHLOROS_GVSP_PACKET_SIZE_FORCE=9000 python …` katrai komandai atsevišķi, nevis iestatīt to pastāvīgi, jo fiksētais izmērs izlaiž pārbaudi un pārtrauc pielāgošanos tīklam, kas atrodas tā priekšā. **Katrai** ierīcei ceļā ir jāpārraida jumbo paketes — ieskaitot jebkuru PoE sadalītāju vai injektoru, kas parasti ir iemesls, kāpēc citādi jumbo paketes atbalstoša konfigurācija nespēj tās pārraidīt.
+> Ja *vēlaties* izmantot „jumbo” caurlaidspēju, aktivizējiet „jumbo” no gala līdz-end (NIC MTU 9000 + komutators, kas tos caurlaida), vai fiksējiet to ar `CHLOROS_GVSP_PACKET_SIZE_FORCE=9000`, ja zināt, ka savienojums to atbalsta — tomēr priekšroku dodiet komandas līmeņa `CHLOROS_GVSP_PACKET_SIZE_FORCE=9000 python …`, nevis pastāvīgai iestatīšanai, jo fiksētais izmērs izlaiž pārbaudi un pārtrauc pielāgoties tīklam, kas atrodas pirms tā. **Katrai** ierīcei ceļā ir jāpārraida jumbo paketes — ieskaitot jebkuru PoE sadalītāju vai injektoru, kas parasti ir iemesls, kāpēc citādi jumbo atbalstoša konfigurācija nespēj tās pārraidīt.
 
-> **`SC_ERR_TIMEOUT -1011` laikā, kad darbojas `capture()` / `grab*()`, ir atšķirīga problēma — tā ir reāla kļūda.**&gt; Iepriekš minētā piezīme attiecas tikai uz `-1011`, ko reģistrējis**savienojuma laika zondes**. Tāda pati kļūda, kas parādās**uzņemšanas** laikā, nozīmē, ka kamera ir veiksmīgi savienota, bet nesūta nekādus attēlus:
+> **`SC_ERR_TIMEOUT -1011`, kas rodas `capture()` / `grab*()` laikā, ir atšķirīga problēma — tā ir reāla kļūda.**&gt; Iepriekš minētā piezīme attiecas tikai uz `-1011`, ko reģistrējis**connect-time probe**. Ja tāda pati kļūda parādās**capture** rezultātā, tas nozīmē, ka kamera ir veiksmīgi pieslēgusies, bet nesūta attēlus:
 >
 > ```
 > File ".../lattice_sdk/camera.py", line ..., in grab_frame_with_metadata
@@ -1389,11 +1389,11 @@ kamerai gaidīt. SDK to paskaidro, kad tas notiek; skatiet
 > lattice_sdk.exceptions.CaptureError: Capture failed: ... SC_ERR_TIMEOUT -1011
 > ```
 >
-> To var atpazīt pēc kameras, kuras *vadības* kanāls darbojas pareizi — atklāšana notiek, iestatījumi un `[chunk-enable …]` ieraksti ir veiksmīgi —, bet *katrs* kadrs pārsniedz laika limitu.
+> To var atpazīt pēc kameras, kuras *vadības* kanāls darbojas pareizi — atklāšana notiek, iestatījumi un `[chunk-enable …]` ieraksti tiek veikti veiksmīgi —, bet *katrs* kadrs pārsniedz laika limitu.
 >
-> **Parastais iemesls ir tas, ka kamera ir iestatīta uz aparatūras trigeri.** Ar `trigger_mode="On"` un `trigger_source="Line2"` kamera neko neizsūta, kamēr M8 sinhronizācijas kabelī neparādās elektriskais signāls. Ja šai līnijai nav pievienots kabelis, katrs attēla uzņemšanas mēģinājums gaida bezgalīgi. Kamera nav bojāta un tīkls darbojas pareizi — tā rīkojas tieši tā, kā tai ir norādīts.
+> **Parastais iemesls ir tas, ka kamera ir iestatīta uz aparatūras trigeri.** Ar `trigger_mode="On"` un `trigger_source="Line2"` kamera neizraida nekādu signālu, kamēr M8 sinhronizācijas kabelī neparādās elektriskais impulss. Ja šai līnijai nav pievienots kabelis, katrs attēla uztveršanas mēģinājums gaida bezgalīgi. Kamera nav bojāta un tīkls darbojas pareizi — tā dara tieši to, kas tai ir norādīts.
 >
-> `CameraSettings()` un `default` / `high_speed` / `high_quality` iestatījumi darbojas brīvā režīmā, un uzņemšana, kurai beidzas laika limits , kamēr ir ieslēgta, sniedz skaidrojumu, nevis vienkārši izdrukā `-1011`. `PRESETS["triggered"]` ieslēdz Line2, kā paredzēts.
+> `CameraSettings()` un `default` / `high_speed` / `high_quality` iestatījumi darbojas brīvidarbību, un attēla uzņemšana, kas beidzas ar laika limitu, kad kamera ir ieslēgta, par to informē, nevis vienkārši izdrukā `-1011`. `PRESETS["triggered"]` ieslēdz Line2, kā paredzēts.
 >
 > Lai piespiestu jebkuru kameru darboties brīvā režīmā:
 >
@@ -1402,21 +1402,21 @@ kamerai gaidīt. SDK to paskaidro, kad tas notiek; skatiet
 > settings.trigger_mode = "Off"        # free-run; don't wait for an M8 edge
 > ```
 >
-> Ja ar `trigger_mode="Off"` joprojām beidzas laiks, kamera patiešām nenodod datus — nosūtiet mums žurnālu un `ip link show`.
+> Ja ar `trigger_mode="Off"` joprojām notiek laika izbeigšanās, kamera patiešām nenodod datus — nosūtiet mums žurnālu un `ip link show`.
 
-#### Krāsu profili (RGB tiešraides priekšskatījums) — `set_color_profile`
+#### Krāsu profili (reāllaika priekšskatījums RGB) — `set_color_profile`
 
-`LatticeCamera.set_color_profile(profile, custom_cct_k=None)` izvēlas displeja krāsu profilu **reāllaika priekšskatīšanai** RGB kamerās (daudzspektrālās kameras ignorē šo iestatījumu):
+`LatticeCamera.set_color_profile(profile, custom_cct_k=None)` izvēlas displeja krāsu profilu **reāllaika priekšskatīšanai** kamerās ar RGB (multispec kameras ignorē šo iestatījumu):
 
 | Profils | Nozīme |
 | --- | --- |
 | `raw` | Pilnībā apiet radiometrisko ķēdi. |
 | `linear` | DSNU + flat + WB, bez CCM, bez gamma. |
-| `natural` | Lineārs + izmērīts CCM + sRGB gamma, tikai ar vienkāršu apdari (krāsu izlīdzināšana + spilgtumu desaturācija) — reālistiskais noklusējums. |
-| `enhanced` | `natural` plus pilnīga hub-parity apdare (malu izlīdzināšana, vibrance, CLAHE lokālais kontrasts). Bagātāks izskats, aptuveni **divkāršojot apstrādes izmaksas uz vienu kadru**, tādējādi samazinot LIVE kadru ātrumu. |
-| `custom_temp` | `natural`, bet baltā balanss fiksēts uz `custom_cct_k` Kelvina (DLS ignorēts; ierobežots līdz 2000–10000 K aizmugurējā procesa pusē). |
+| `natural` | Lineārs + izmērīts CCM + sRGB gamma, tikai ar vienkāršu apdari (krāsu izlīdzināšana + spilgtāko toņu desaturācija) — reālistiskais noklusējums. |
+| `enhanced` | `natural` plus pilnīga „hub-parity” apdare (malu izlīdzināšana, dzīvīgums, CLAHE lokālais kontrasts). Bagātāks izskats, aptuveni **divkāršām apstrādes izmaksām uz vienu kadru**, tādējādi samazinot reāllaika kadru ātrumu. |
+| `custom_temp` | `natural`, bet balansa iestatījums fiksēts uz `custom_cct_k` Kelvina (DLS tiek ignorēts; fiksēts uz 2000–10000 K aizmugurējā procesa pusē). |
 
-Profils ir **tikai tiešraides priekšskatīšanai** paredzēts ātruma/izskata regulētājs: saglabātajiem kadriem vienmēr tiek nodrošināta pilnībā bagātīga apdare neatkarīgi no izvēlētā profila, tādēļ `natural` izvēle, lai atgūtu kadru apstrādes laiku, nesamazina uz diska saglabātā materiāla kvalitāti. Nezināms profils palielina `ValueError`; ja ir pieejams chloros backend, izmaiņas tiek nosūtītas arī uz to, lai nākamais priekšskatījuma kadrs tās atspoguļotu (tiešie SDK lietotāji bez backenda joprojām saņem iestatījumu izmaiņas).
+Profils ir **tikai reāllaika priekšskatīšanai paredzēts** ātruma/izskata regulētājs: saglabātajiem kadriem vienmēr tiek nodrošināts pilnīgs un bagātīgs apdares efekts neatkarīgi no izvēlētā profila, tādēļ `natural` izvēle, lai atgūtu kadru laiku, nesamazina diska ieraksta kvalitāti. Nezināms profils palielina `ValueError`; ja chloros backend ir pieejams, izmaiņas tiek nosūtītas arī uz to, lai nākamais priekšskatījuma kadrs tās atspoguļotu (lietotāji, kas izmanto tiešo SDK bez backend, joprojām saņem iestatījumu izmaiņas).
 
 ```python
 with LatticeCamera(serial="214701292") as cam:   # RGB cam
@@ -1426,7 +1426,7 @@ with LatticeCamera(serial="214701292") as cam:   # RGB cam
 
 #### Mono (M3M) kameras un `Calibration`
 
-Mono **M3M** kamera (`M3M-<lens>-F<wavelength>`) ir vienjoslas: viena pelēkto toņu plakne, bez Bayer mozaīkas, nav 3×3 spektrālās pārklāšanās matricas. `Calibration` to atpazīst un parāda `is_mono` karodziņu. Atstarošanās joprojām tiek piemērota kā radiometriska karte katrai joslai (atdalīšanas matrica ir identitātes matrica), taču daudzjoslu aprēķini, izmantojot vienu kameru, rada jēgpilnus rezultātus, nevis bezjēdzīgus:
+Mono **M3M** kamera (`M3M-<lens>-F<wavelength>`) ir vienjoslas: viena pelēkto toņu plakne, bez Bayer mozaīkas, bez 3×3 spektrālās pārrāvuma matricas. `Calibration` to atpazīst un parāda `is_mono` karodziņu. Atstarošanās joprojām tiek piemērota kā radiometriska karte katram diapazonam (atdalīšana ir identitātes matrica), taču daudzjoslu aprēķini ar vienu kameru rada drīzāk jēgpilnus rezultātus, nevis bezjēdzīgus:
 
 ```python
 from chloros_sdk import Calibration, CalibrationError
@@ -1442,7 +1442,7 @@ except CalibrationError as e:
     print(e)   # "...single-band mono (M3M) camera. Combine multiple..."
 ```
 
-Lai izveidotu veģetācijas indeksu, izmantojot mono kameru aparatūru, apvienojiet vairākas M3M kameras ar dažādiem viļņu garumiem vienā saskaņotā daudzjoslu kopā (skatīt [Masīva saskaņošana](#array-alignment)) un aprēķiniet indeksu visai šai kopai, nevis tikai vienai kamerai.
+Lai izveidotu veģetācijas indeksu, izmantojot monoaparatūru, apvienojiet vairākas M3M kameras ar dažādiem viļņu garumiem vienā saskaņotā daudzjoslu kopā (skatīt [Masīva saskaņošana](#array-alignment)) un aprēķiniet indeksu visam kopumam, nevis atsevišķai kamerai.
 
 DAQ tiešais režīms:
 
@@ -1464,9 +1464,9 @@ sensor.start_streaming()
 sensor.stop()
 ```
 
-> **`apply_sensor_settings` pieņemamās atslēgas**— tieši `integration_time_ms`, `frame_avg`, `ae_enabled`, `sunshine_diffuser_installed` (DAQ-E; vairs netiek izmantots, tā vietā izmanto `cap_id`), `filter_model` (DAQ-M) un `cap_id` (visi DAQ veidi; `None`/`""`/`"none"` = sensoru bez vāka, bez vāka korekcijas). Nezināmas atslēgas tiek**klusi ignorētas** — piemēram, `{"integration_time": 64}` neko nedara (tam jābūt `integration_time_ms`). Atgriež `{"applied": [...], "errors": {...}}` un nekad neizraisa kļūdu.
+> **`apply_sensor_settings` pieņemamās atslēgas**— tieši `integration_time_ms`, `frame_avg`, `ae_enabled`, `sunshine_diffuser_installed` (DAQ-E; vairs netiek izmantots, jo priekšroka tiek dota `cap_id`), `filter_model` (DAQ-M) un `cap_id` (visi DAQ veidi; `None`/`""`/`"none"` = neapstrādāts sensors, bez vāka korekcijas). Nezināmas atslēgas tiek**klusi ignorētas** — piemēram, `{"integration_time": 64}` neko nedara (tai jābūt `integration_time_ms`). Atgriež `{"applied": [...], "errors": {...}}` un nekad neizraisa kļūdu.
 
-`chloros_sdk` atkārtoti eksportē tikai iepriekš izmantoto kodola virsmu. Pilnā `daq_sdk` publiskā API (22 nosaukumi) pievieno šādus elementus — importējiet tos tieši no `daq_sdk`:
+`chloros_sdk` atkārtoti eksportē tikai iepriekš izmantoto pamatvirsmu. Pilnā `daq_sdk` publiskā „API” (22 nosaukumi) pievieno šādus elementus — importējiet tos tieši no `daq_sdk`:
 
 ```python
 from daq_sdk import (
@@ -1484,7 +1484,7 @@ from daq_sdk import (
 
 ## Izņēmumi
 
-Uztveriet bāzes klasi, lai apstrādātu „visas kļūdas, kas radušās Chloros”:
+Uztveriet bāzes klasi, lai apstrādātu „visus gadījumus, kad kaut kas „Chloros” ir nogājis greizi”:
 
 ```python
 import chloros_sdk
@@ -1556,7 +1556,7 @@ with ChlorosLocal() as cl:
 print()
 ```
 
-### 2. Reāllaika LATTICE masīvs → atstarošanās + DAQ atsauce
+### 2. Reāllaika LATTICE masīvs → atstarojums + DAQ atsauce
 
 ```python
 import chloros_sdk
@@ -1577,7 +1577,7 @@ with chloros_sdk.connect_daq_sensor() as daq:
         print(info["path"], info["rows"])
 ```
 
-### 3. Projektvadīta datu ieguves kampaņa
+### 3. Projektorientēta datu ieguves kampaņa
 
 ```python
 import time, chloros_sdk
@@ -1629,7 +1629,7 @@ with chloros_sdk.open_project("/path/to/proj") as proj:
             print(serial, frame.shape, frame.dtype, frame.mean())
 ```
 
-### 5. Bezgalvas tiešās aparatūras (bez aizmugures) ierakstīšanas skripts
+### 5. Bezinterfeisa tiešās aparatūras (bez aizmugures) uzņemšanas skripts
 
 ```python
 from chloros_sdk import LatticeCamera, PRESETS, discover_cameras
@@ -1684,9 +1684,9 @@ else:
     raise RuntimeError(f"Probe error: {probe.get('error')}")
 ```
 
-### 7. Ierakstīšanas receptes ekvivalents (tīrs Python)
+### 7. Ierakstīšanas receptes ekvivalents (tīrs „Python”)
 
-CLI receptes DSL ir tiešs Python ekvivalents:
+„CLI” receptes DSL ir tiešs „Python” ekvivalents:
 
 ```python
 import time, chloros_sdk
@@ -1718,15 +1718,15 @@ with chloros_sdk.open_project("/path/to/proj") as proj:
 
 ---
 
-## Backend automātiskā palaišana
+## Aizmugures automātiskā palaišana
 
-Viedās savienošanas ieejas punkti — `connect_camera`, `connect_array`, `connect_daq_sensor` un `discover_lattice_cameras` — ir vieglie HTTP klienti, kas pieņem, ka aizmugurējā sistēma klausās uz `127.0.0.1:5000` (viedā savienojuma saskarnes noklusējuma URL). Ja GUI vai CLI jau darbojas, viens no tiem darbojas. Ja tiek palaists tikai skripts, tas var nebūt — tādēļ šīs funkcijas **automātiski palaista komplektā iekļauto aizmugurējā procesa bināro failu** (bez loga, tāpat kā to dara `ChlorosLocal`) pirms to pirmā izsaukuma, pēc tam gaida līdz `backend_startup_timeout`, kamēr tas sāk darboties.
+Smart-Connect ieejas punkti — `connect_camera`, `connect_array`, `connect_daq_sensor` un `discover_lattice_cameras` — ir vieglie „HTTP” klienti, kas pieņem, ka backend klausās uz `127.0.0.1:5000` (viedās savienošanas saskarnes noklusējuma URL). Ja GUI vai CLI jau darbojas, tāds jau ir. Ja tiek palaists tikai skripts, tā var nebūt — tādēļ šīs funkcijas **automātiski palaista komplektā iekļauto aizmugurējā servera bināro failu** (bez logabez loga, tāpat kā to dara `ChlorosLocal`) pirms to pirmā izsaukuma, pēc tam gaida līdz pat `backend_startup_timeout`, kamēr tas sāk darboties.
 
 Noteikumi:
 
-- **Tiek palaists tikai lokāls URL.** `backend_url`, kas norāda uz `localhost` / `127.0.0.1` / `[::1]` ir atbilstošs; jebkurš cits hosts tiek uzskatīts par cita lietotāja datoru un nekad netiek izveidots.
-- **Aizmugurējā sistēma paliek darbojošā stāvoklī, lai to varētu atkārtoti izmantot** (tāpat kā CLI) — skripta izbeigšanās brīdī netiek veikta automātiska aizvēršana. Skripta atkārtota izpilde izmanto jau darbojošos aizmugurējo procesu.
-- **Atteikties, izmantojot `auto_start_backend=False`** jebkurā no šiem izsaukumiem (piemēram, ja esat norādījis uz attālo backend vai pats pārvaldāt backend dzīves ciklu).
+- **Tiek palaists tikai lokālais URL.** `backend_url`, kas norāda uz `localhost` / `127.0.0.1` / `[::1]` ir pieņemams; jebkurš cits hosts tiek uzskatīts par cita lietotāja datoru un netiek palaists.
+- **Aizmugurējais serviss tiek atstāts darbojoties, lai to varētu atkārtoti izmantot** (tāpat kā „CLI”) — skriptam beidzoties, netiek veikta automātiska izslēgšana. Atkārtoti palaistot skriptu, tiek izmantots jau darbojošais aizmugurējais serviss.
+- **Atteikties no `auto_start_backend=False`** jebkurā no šiem izsaukumiem (piem., ja esat norādījis uz attālo backend vai pats pārvaldāt backend dzīves ciklu).
 
 ```python
 import chloros_sdk
@@ -1741,17 +1741,17 @@ arr = chloros_sdk.connect_array(serials,
                                 auto_start_backend=False)
 ```
 
-Ja komplektā iekļauto bināro failu nevar atrast vai palaist, nākamais HTTP izsaukums izraisa rīcībai piemērotu, **platformai pielāgotu** `ChlorosConnectError`, nevis vienkāršu paziņojumu par atteiktu savienojumu — Windows gadījumā tas norāda uz galda lietotni vai `chloros-cli` komandu; Linux (bez grafiskās saskarnes) tas norāda uz `chloros-cli` komandu vai `.deb`.
+Ja komplektā iekļautais binārais fails nav atrodams vai to nevar palaist, nākamais izsaukums „HTTP” izraisa rīcībai piemērotu, **platformasatbilstošu** kļūdu `ChlorosConnectError`, nevis vienkāršu traci par atteiktu savienojumu — sistēmā „Windows” tā norāda uz galda lietojumprogrammu vai komandu `chloros-cli`; Linux (bez grafiskās saskarnes) tas norāda uz komandu `chloros-cli` vai `.deb`.
 
 ---
 
 ## Vide un galvenes
 
-SDK katru aizmugurējās sistēmas HTTP izsaukumu atzīmē ar `X-Chloros-Client: sdk`. Aizmugurējā sistēma piemēro SDK/CLI licencēšanas noteikumus (nepieciešama pieteikšanās **un** maksas Chloros+ plāns) , nevis GUI bezmaksas līmeņa ceļu. Tas tiek iestatīts automātiski importēšanas brīdī — jums nekas nav jādara.
+SDKs katru aizmugurējās sistēmas HTTP izsaukumu atzīmē ar `X-Chloros-Client: sdk`. Aizmugurējā sistēma piemēro SDK / CLI licencēšanas noteikumus (nepieciešama pieteikšanās **un** maksas Chloros+ plāns), nevis bezmaksas līmeņa ceļu, kāds ir GUI. Tas tiek iestatīts automātiski importēšanas brīdī — jums nav nekas jādara.
 
-`http://localhost` un `http://127.0.0.1` tiek atpazīti kā vietējais backend. Aicinājumi uz citiem serveriem (piem., jūsu paša analītikas pakalpojums) netiek mainīti.
+`http://localhost` un `http://127.0.0.1` tiek atpazīti kā vietējais backend. Aicinājumi uz citiem serveriem (piemēram, jūsu paša analītikas pakalpojumu) netiek mainīti.
 
-Aizstājiet aizmuguri URL, norādot `backend_url=` (vai `api_url=` uz `ChlorosLocal`):
+Pārrakstiet aizmugurējos serverus URL, norādot `backend_url=` (vai `api_url=` uz `ChlorosLocal`):
 
 ```python
 chloros_sdk.connect_camera("213800234", backend_url="http://127.0.0.1:5000")
@@ -1761,33 +1761,33 @@ chloros_sdk.connect_daq_sensor(eth_host="daq-e-1.local",
 chloros_sdk.ChlorosLocal(backend_url="http://127.0.0.1:5000")
 ```
 
-(`backend_url`, kas nav loopback, sasniedz tikai avota/ierīces backend — piegādātie backendi piesaistās tikai loopback; skatiet sadaļu „Attālinātā backenda režīms”, lai uzzinātu par tuneļa modeli.)
+(`backend_url`, kas nav loopback, sasniedz tikai avota/ierīces backend — piegādātie backendi piesaistās tikai loopback; skatiet sadaļu „Tālbackend režīms”, lai uzzinātu par tuneļa modeli.)
 
 ---
 
 ## Versiju pārvaldība un savietojamība
 
-- SDK versija tiek eksponēta kā `chloros_sdk.__version__`.
-- SDK pinu darbība ir atkarīga no komplektā iekļautās backend versijas. Vecākas versijas SDK apvienošana ar jaunāku backend parasti darbojas (uz priekšu saderīgi galapunkti), bet jaunākas SDK versijas apvienošana ar vecāku backend var izraisīt `404` kļūdas jaunajos galapunktos — atjauniniet darbvirsmas lietotni, lai tā atbilstu.
-- Smart-connect saskarne (`connect_camera` / `connect_array` / `connect_daq_sensor`) un tīkla analīzes galapunkts atgriež stabilas JSON shēmas; jaunie lauki tiek pievienoti.
+- „SDK” versija tiek eksponēta kā `chloros_sdk.__version__`.
+- „SDK” piesaista darbību komplektā iekļautajai backend versijai. Vecākas „SDK” versijas apvienošana ar jaunāku backend parasti darbojas (uz priekšu saderīgi galapunkti), taču jaunākas „SDK” versijas apvienošana ar vecāku backend var izraisīt `404` kļūdas jaunajos galapunktos — atjauniniet datora lietotni atbilstoši.
+- „Smart-connect” saskarne (`connect_camera` / `connect_array` / `connect_daq_sensor`) un tīkla analīzes galapunkts atgriež stabilas JSON shēmas; jaunie lauki tiek pievienoti.
 
 ---
 
 ## Problēmu novēršanas norādes
 
-- **`ChlorosAuthenticationError: Login required`** → Vienreiz palaidiet `chloros-cli login EMAIL PASSWORD` šajā datorā, vai pieteikties, izmantojot Chloros darbvirsmas lietotni.
-- **`ChlorosConnectError: No Chloros backend is running …`** → „Smart-connect” automātiski palaista vietējo aizmugurējo sistēmu, tādēļ šis ziņojums parādās tikai tad, ja komplektā iekļautais binārais fails nav atrodams vai nevar tikt palaists (piemēram, ja datorā ir tikai pip, bet nav darbvirsmas pakotnes). Ziņojums ir atkarīgs no platformas: uz Windows atveriet darbvirsmas lietotni vai izpildiet jebkuru `chloros-cli` komandu; uz Linux izpildiet `chloros-cli` komandu (nav GUI) vai instalējiet `.deb`. Attālinātajam backendam nododiet `backend_url=` (un `auto_start_backend=False`).
-- **`CAMERA_AVAILABLE == False`** importēšanas laikā → `lattice_sdk` neizdevās ielādēt (parasti nav instalētas Arena SDK darbības laika DLL). Virsma bez kameras joprojām darbojas.
-- **Masīva savienojums atgriež zemāku izšķirtspēju nekā nativā**→ Aizmugures sistēmas “smart-prep” funkcija automātiski samazina kadra izmēru, lai tas iederētos vadā. Izmantojiet `analyze_array_network()`, lai noskaidrotu iemeslu, pēc tam vai nu uzlabojiet savienojumu, pieņemiet samazinājumu vai izmantojiet `force_tier="slip-emit-and-capture"` secīgai uzņemšanai. Samazinājuma drošības tīkls**ne** aptver kopējo pārslodzi (`oversubscribed: true`, fps lauki 0): pārāk liels kameru skaits vadam nevar tikt novērsts ar binningu/ROI — samaziniet kameru skaitu, aktivizējiet jumbo rāmjus vai pārejiet uz ātrāku tīkla karti (skatiet [Pārslogotība](#over-subscription-the-per-cam-floor)).
-- **`analyze_array_network()` ziņo, ka tīkla kartes (NIC) RX gredzens ir ļoti mazs (~0,26 MB) / savienojuma vārti ar brīdinājumu „FRAMES WILL DROP“** → Host NIC uztveršanas gredzens ir iestatīts uz noklusējuma vērtību (bieži tiek atiestatīts uz 32 pēc NIC draivera atjaunināšanas). Realtek USB 10GbE adapterī iestatiet `ReceiveBufferLen=256` un `PendingReceives=64` (paaugstināts), pēc tam pārstartējiet backend, lai tas atkārtoti nolasītu gredzenu. Pilnā procedūra: [CLI Atsauce → Galvenā NIC konfigurācija un optimizācija](cli-reference.md#host-nic-setup--tuning-lattice-arrays).
-- **Hosts „iekārtojas” pārstartēšanas/izslēgšanas laikā, vēlāk rodas WMI `Invalid class` kļūdas / tīkla karte neaktivizējas** → Novecojis USB 10GbE draiveris, kas izraisa `DRIVER_POWER_STATE_FAILURE` (BSOD `0x9F`). Atjauniniet adaptera draiveri uz aktuālo versiju (≥ 2026) un atkārtoti piemērojiet uztveršanas gredzena iestatījumus. Skatiet [CLI Atsauce → Host NIC Setup &amp; Tuning](cli-reference.md#host-nic-setup--tuning-lattice-arrays).
-- **Atstarošanas koeficients noraidīts** → Lai iegūtu absolūtās skalas atstarošanas koeficientu, kamerai (vai matricai) jābūt saistītai ar aktīvu DAQ. Veiciet saistīšanu, izmantojot grafisko lietotāja saskarni, vai izmantojiet `processing="radiance"` (W/m²/sr/nm), kam nav nepieciešams pāri savienots sensors.
-- **`smart=True` uzņemšana ilgst ilgāk nekā gaidīts** → AE konverģence ir atkarīga no ainas dinamikas; ja vēlaties ātrāku (mazāk stabilu) trigeri, palieliniet `exposure_tolerance_pct` vai saīsiniet `stability_window_s`.
+- **`ChlorosAuthenticationError: Login required`** → Vienreiz palaidiet `chloros-cli login EMAIL PASSWORD` šajā datorā vai piesakieties, izmantojot darbvirsmas lietotni „Chloros”.
+- **`ChlorosConnectError: No Chloros backend is running …`** → „Smart-Connect“ izsaukumi automātiski palaista vietējo backend, tādēļ šis paziņojums parādās tikai tad, ja nevar atrast/palaist komplektā iekļauto bināro failu (piemēram, uz datoru, kurā ir tikai pip un nav darbvirsmas pakotnes). Ziņojums ir atkarīgs no platformas: sistēmā „Windows” atveriet darbvirsmas lietotni vai izpildiet jebkuru `chloros-cli` komandu; Linux vidē palaidiet komandu `chloros-cli` (GUI nav pieejams) vai instalējiet `.deb`. Attālinātajam backendam izmantojiet `backend_url=` (un `auto_start_backend=False`).
+- **`CAMERA_AVAILABLE == False`** importēšanas laikā → `lattice_sdk` neizdevās ielādēt (parasti nav instalētas Arena „SDK” darbības laika DLL). Virsma bez kameras joprojām darbojas.
+- **„Array connect” atgriež zemāku izšķirtspēju nekā sistēmai raksturīga**→ Aizmugurējās sistēmas „smart-prep” automātiski samazina kadra izmēru, lai tas iederētos vadā. Izmantojiet `analyze_array_network()`, lai noskaidrotu iemeslu, pēc tam vai nu uzlabojiet savienojumu, pieņemiet izmēra samazināšanu vai izmantojiet `force_tier="slip-emit-and-capture"` secīgai uzņemšanai. Samazināšanas drošības tīkls**neaptver** kopējo pārslogojumu (`oversubscribed: true`, fps lauki 0): pārāk liels kameru skaits vadam nevar tikt novērsts ar binning/ROI — samaziniet kameru skaitu, ieslēdziet jumbo rāmjus vai pārejiet uz ātrāku tīkla karti (skatiet [Pārslogojums](#over-subscription-the-per-cam-floor)).
+- **`analyze_array_network()` ziņo, ka tīkla kartes RX gredzens ir ļoti mazs (~0,26 MB) / savienojuma vārti ar &quot;FRAMES WILL DROP&quot;** → Galvenā tīkla kartes uztveršanas gredzens ir nokonfigurēts pēc noklusējuma (bieži vien pēc tīkla kartes draivera atjaunināšanas tiek atiestatīts uz 32). Realtek USB 10GbE adapterī iestatiet `ReceiveBufferLen=256` un `PendingReceives=64` (ar paaugstinātām tiesībām), pēc tam pārstartējiet backend, lai tas atkārtoti nolasītu gredzenu. Pilnā procedūra: [CLI Atsauce → Galvenā NIC konfigurēšana un optimizēšana](cli-reference.md#host-nic-setup--tuning-lattice-arrays).
+- **Hosts iesaldējas atkārtotas palaišanas/izslēgšanas laikā, vēlāk rodas WMI kļūdas `Invalid class` / tīkla karte neaktivizējas** → Novecojis USB 10GbE draiveris izraisa `DRIVER_POWER_STATE_FAILURE` (BSOD `0x9F`). Atjauniniet adaptera draiveri uz aktuālo versiju (≥ 2026) un atkārtoti piemērojiet saņemšanas gredzena iestatījumus. Skatīt [CLI Atsauce → Host NIC Setup &amp; Tuning](cli-reference.md#host-nic-setup--tuning-lattice-arrays).
+- **Atstarošanās noraidīta** → Lai iegūtu atstarošanos absolūtajā skalā, kamerai (vai matricai) ir jāpiesaista aktīvs DAQ. Piesaistiet to, izmantojot grafisko lietotāja saskarni, vai izmantojiet `processing="radiance"` (W/m²/sr/nm), kam nav nepieciešams pāra sensors.
+- **`smart=True` datu ieguve ilgst ilgāk nekā gaidīts** → AE konverģence ir atkarīga no ainas dinamikas; samaziniet `exposure_tolerance_pct` vai saīsiniet `stability_window_s`, ja vēlaties ātrāku (mazāk stabilu) izraisītāju.
 
 ---
 
 ## Skatīt arī
 
-- [CLI atsauces materiāls](cli-reference.md) — katra CLI apakškommanda atbilst SDK izsaukumam.
-- [DAQ sensoru rokasgrāmata](../daq/README.md) — sensoru specifiskie vadu savienojumi, kalibrēšana un reģistrēšanas noteikumi.
+- [CLI Atsauce](cli-reference.md) — katra „CLI” apakškommanda atspoguļo „SDK” izsaukumu.
+- [DAQ sensoru rokasgrāmata](../daq/README.md) — sensoru specifiskie vadu savienojumi, kalibrēšana un ierakstīšanas noteikumi.
 - Tiešsaistes dokumentācija: `https://mapir.gitbook.io/chloros/api-python-sdk`</id></sn>
