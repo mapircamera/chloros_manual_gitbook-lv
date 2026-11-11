@@ -232,7 +232,7 @@ print("PROJECT_AVAILABLE =", chloros_sdk.PROJECT_AVAILABLE)  # True iff ChlorosP
 Uz servera, kurā ir **tikai** `pip install chloros-sdk` un nav Chloros darbvirsmas paketes:
 
 * `ChlorosLocal`, `process_folder` un `process_lattice_capture` **nedarbojas** — tiem ir nepieciešama aizmugures binārā programma, kas ir iekļauta darbvirsmas instalētājā.
-* „Smart-connect” palīgrīki (`connect_camera`, `connect_array`, `connect_daq_sensor`) ir tīri HTTP-klienti, tādēļ tie darbojas ar backend, kas atrodas citā datorā — taču piegādātie backend&#x27;i ir saistīti tikai ar loopback, tāpēc jums pašiem ir jāpāradresē ports (piem., `ssh -N -L 5000:127.0.0.1:5000 user@chloros-host`) un jāpārsūta `backend_url="http://127.0.0.1:5000"` kopā ar `auto_start_backend=False`. Skatīt [Attālinātā aizmugurējā servera režīms](reference/sdk-reference.md#remote-backend-mode-pip-only-host-via-tunnel).
+* „Smart-connect” palīgrīki (`connect_camera`, `connect_array`, `connect_daq_sensor`) ir tīri HTTP-klienti, tādēļ tie darbojas ar backend, kas atrodas citā datorā — taču piegādātie backend'i ir saistīti tikai ar loopback, tāpēc jums pašiem ir jāpāradresē ports (piem., `ssh -N -L 5000:127.0.0.1:5000 user@chloros-host`) un jāpārsūta `backend_url="http://127.0.0.1:5000"` kopā ar `auto_start_backend=False`. Skatīt [Attālinātā aizmugurējā servera režīms](reference/sdk-reference.md#remote-backend-mode-pip-only-host-via-tunnel).
 * Tiešās aparatūras LATTICE klases (`LatticeCamera`, `CameraPool`, …) tiek importētas, taču tām ir nepieciešama Arena SDK izpildes vide no darbvirsmas paketes — bez tās `CAMERA_AVAILABLE` ir `False`.
 * DAQ sensori tiek vadīti tikai caur (tunelētu) backend — `connect_daq_sensor()` vai projekta `proj.sensors`; backend atver sensoru savā datorā.
 

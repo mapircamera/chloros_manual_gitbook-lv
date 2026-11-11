@@ -12,7 +12,7 @@ Zemāk minētajās indeksu formulās tiek izmantota Survey3 filtru vidējās cau
 
 <table><thead><tr><th align="center">Survey3 filtra krāsa</th><th width="196.199951171875" align="center">Survey3 filtra nosaukums</th><th width="159.800048828125" align="center">Transmisijas diapazons (FWHM)</th><th align="center">Vidējā caurlaidība</th></tr></thead><tbody><tr><td align="center">Blue</td><td align="center">NGB - Blue</td><td align="center">468–483 nm</td><td align="center">475 nm</td></tr><tr><td align="center">Cyan</td><td align="center">OCN- Cyan</td><td align="center">476–512 nm</td><td align="center">494 nm</td></tr><tr><td align="center">Green</td><td align="center">RGN | NGB - Green</td><td align="center">543–558 nm</td><td align="center">547 nm</td></tr><tr><td align="center">Orange</td><td align="center">OCN - Orange</td><td align="center">598–640 nm</td><td align="center">619 nm</td></tr><tr><td align="center">Red</td><td align="center">RGN - Red</td><td align="center">653–668 nm</td><td align="center">661 nm</td></tr><tr><td align="center">RedEdge</td><td align="center">Re-RedEdge</td><td align="center">712–735 nm</td><td align="center">724 nm</td></tr><tr><td align="center">NIR1</td><td align="center">OCN - NIR1</td><td align="center">798–848 nm</td><td align="center">823 nm</td></tr><tr><td align="center">NIR2</td><td align="center">RGN | NGB | NIR - NIR2</td><td align="center">835–865 nm</td><td align="center">850 nm</td></tr></tbody></table>
 
-Izmantojot šīs formulas, nosaukums var beigties ar &quot;\_1&quot; vai &quot;\_2&quot;, kas atbilst tam, kurš NIR filtrs — NIR1 vai NIR2 — tika izmantots.
+Izmantojot šīs formulas, nosaukums var beigties ar "\_1" vai "\_2", kas atbilst tam, kurš NIR filtrs — NIR1 vai NIR2 — tika izmantots.
 
 LATTICE M3C (Bayer trīskāršās joslas) kamerām tas pats indeksa dzinējs izmanto M3C filtra joslas:
 
@@ -165,7 +165,7 @@ $$
 
 GUI un CLI/SDK iestatījumu sarakstā tā simbola formula ir `(z/y)*(x/y)`, kur x=Red, y=Green, z=NIR (RGN kameras spektrālās joslas); LATTICE indeksa dzinēja iestatījums ir `nir * red / green**2`. Katrs virsmas laukums aprēķina vienādu indeksu.
 
-_Atsauce: Vincini, M., E. Frazzi un P. D&#x27;Alessio. „Plaša spektra lapu hlorofila veģetācijas indekss lapotnes mērogā.” Precision Agriculture 9 (2008): 303–319._
+_Atsauce: Vincini, M., E. Frazzi un P. D'Alessio. „Plaša spektra lapu hlorofila veģetācijas indekss lapotnes mērogā.” Precision Agriculture 9 (2008): 303–319._
 
 ***
 
@@ -207,7 +207,7 @@ $$
 
 Mežainajām teritorijām būs zemākas FCI1 vērtības, jo kokiem ir zemāka atstarojamība un lapotnē ir ēnas.
 
-_Atsauce: Becker, Sarah J., Craig S.T. Daughtry un Andrew L. Russ. „Robust forest cover indices for multispectral images.” Photogrammetric Engineering &amp; Remote Sensing 84.8 (2018): 505–512._
+_Atsauce: Becker, Sarah J., Craig S.T. Daughtry un Andrew L. Russ. „Robust forest cover indices for multispectral images.” Photogrammetric Engineering & Remote Sensing 84.8 (2018): 505–512._
 
 ***
 
@@ -223,7 +223,7 @@ $$
 
 Mežainajām teritorijām būs zemākas FCI2 vērtības, jo kokiem ir zemāka atstarojamība un lapotnē ir ēnas.
 
-_Atsauce: Becker, Sarah J., Craig S.T. Daughtry un Andrew L. Russ. „Robust forest cover indices for multispectral images.” Photogrammetric Engineering &amp; Remote Sensing 84.8 (2018): 505–512._
+_Atsauce: Becker, Sarah J., Craig S.T. Daughtry un Andrew L. Russ. „Robust forest cover indices for multispectral images.” Photogrammetric Engineering & Remote Sensing 84.8 (2018): 505–512._
 
 ***
 
@@ -489,7 +489,7 @@ $$
 TDVI = 1.5 * {(NIR- Red) \over \sqrt{NIR^{2} + Red + 0.5}  }
 $$
 
-_Atsauce: Bannari, A., H. Asalhi un P. Teillet. „Transformētais veģetācijas indekss (TDVI) veģetācijas seguma kartēšanai” In „Geoscience and Remote Sensing Symposium, IGARSS &#x27;02” konferences materiāli, IEEE International, 5. sējums (2002)._
+_Atsauce: Bannari, A., H. Asalhi un P. Teillet. „Transformētais veģetācijas indekss (TDVI) veģetācijas seguma kartēšanai” In „Geoscience and Remote Sensing Symposium, IGARSS '02” konferences materiāli, IEEE International, 5. sējums (2002)._
 
 ***
 

@@ -4,11 +4,7 @@
 
 ## Kas ir attēla slāņi?
 
-„Slānis” programmā Chloros
-
-ir viens **produkta fails**, kas reģistrēts saistībā ar vienu avota attēlu. Importēšana nodrošina avota failus; apstrāde pievieno slāni katram produktam, ko izveidojusi apstrādes kārta. Eksportētajos failos tiek saglabāts avota faila nosaukums — produktu identificē**mape**, un slāņa nosaukums ir Chloros
-
-piešķirtais nosaukums šai mapei.
+„Slānis” programmā Chloros ir viens **produkta fails**, kas reģistrēts saistībā ar vienu avota attēlu. Importēšana nodrošina avota failus; apstrāde pievieno slāni katram produktam, ko izveidojusi apstrādes kārta. Eksportētajos failos tiek saglabāts avota faila nosaukums — produktu identificē**mape**, un slāņa nosaukums ir Chloros piešķirtais nosaukums šai mapei.
 
 <!-- SCREENSHOT-NEEDED: Image Viewer full screen with the layer dropdown open on a processed LATTICE multispectral image, showing the full list: TIFF base, RAW (Original), RAW (Debayered), RAW (Preview), RAW (Radiance), RAW (Reflectance), and one RAW (NDVI Index) entry. -->
 
@@ -20,24 +16,12 @@ piešķirtais nosaukums šai mapei.
 
 | Slānis | Kas tas ir |
 | --- | --- |
-| **JPG**(vai**PNG
-
-**/**TIFF
-
-**) | Pamata fails, kas tika iegūts kopā ar uzņemto attēlu. Survey3
-
-importē failu „`.JPG`” blakus katram „`.RAW`”; „LATTICE” uzņemumi nodrošina PNG
-
-vai TIFF
-
-attēla priekšskatījumu. Nosaukts atbilstoši tam, kas faktiski tika importēts |
+| **JPG**(vai**PNG**/**TIFF**) | Pamata fails, kas tika iegūts kopā ar uzņemto attēlu. Survey3 importē failu „`.JPG`” blakus katram „`.RAW`”; „LATTICE” uzņemumi nodrošina PNG vai TIFF attēla priekšskatījumu. Nosaukts atbilstoši tam, kas faktiski tika importēts |
 | **RAW (oriģināls)** | Avota neapstrādātais kadrs, kas attēlošanai ir atbrīvots no bayera filtra, bez jebkādām korekcijām. Pieejams jau no importēšanas brīža — tam nav nepieciešama apstrāde |
 
 LATTICE uzņemumam, kura pamatfails **ir** tā neapstrādātais kadrs, nav atsevišķa pamata ieraksta: to jau aptver `RAW (Original)`.
 
-### Survey3
-
-apstrādes rezultāti
+### Survey3 apstrādes rezultāti
 
 | Slānis | Ierakstīts | Pastāv, ja |
 | --- | --- | --- |
@@ -57,31 +41,19 @@ LATTICE vienā apstrādes ciklā sadala datus šajos līmeņos. To, kuri no tiem
 
 | Slānis | Rakstīts uz | Attiecas uz |
 | --- | --- | --- |
-| **RAW (Debayered)** | `Debayered_Images/` | RGB
-
-un multispektrālais |
+| **RAW (Debayered)** | `Debayered_Images/` | RGB un multispektrālais |
 | **RAW (priekšskatījums)** | `Preview_Images/` | Multispektrālais (viltus krāsu izstiepums) |
-| **Ar balansa korekciju** | `Preview_Images/` | RGB
-
-galvenās kameras — RGB
-
-priekšskatījums tiek reģistrēts ar šo nosaukumu, lai tas saskanētu ar tāda paša nosaukuma Survey3
-
-slāni |
+| **Ar balansa korekciju** | `Preview_Images/` | RGB galvenās kameras — RGB priekšskatījums tiek reģistrēts ar šo nosaukumu, lai tas saskanētu ar tāda paša nosaukuma Survey3 slāni |
 | **RAW (starojums)** | `Radiance_Images/` | Tikai multispektrāls |
 | **RAW (atstarošana)** | `Reflectance_Calibrated_Images/` | Tikai multispektrāls, un tikai tad, ja attēlu aptver atbilstošs `.daq` lejupvērstais ieraksts vai kvalitātes pārbaudi izturējis mērķis kadrā |
 
-RGB
-
-galvenajām kamerām nav radiometrijas pa joslām, tāpēc tām starojuma intensitāte un atstarojums tiek izlaisti kā **nepiemērojami** — žurnālā tas tiek norādīts, nevis klusi ignorēts.
+RGB galvenajām kamerām nav radiometrijas pa joslām, tāpēc tām starojuma intensitāte un atstarojums tiek izlaisti kā **nepiemērojami** — žurnālā tas tiek norādīts, nevis klusi ignorēts.
 
 {% hint style="info" %}
 **Neapstrādātie un debayered slāņi tiek saskaņoti ar produktiem (jaunums versijā 1.3.0).**LATTICE neapstrādātie un debayered faili tiek saglabāti sensora sākotnējā orientācijā, un XMP ierakstā tiek norādīta tiem piemītošā orientācija; pārējie produkti tiek saglabāti ar jau piemērotu orientāciju. Skatītājs un attēlu režģis parādīšanai pārslēdz**RAW (oriģināls)**un**RAW (bez bayera)** atbilstoši šim ierakstam, tādējādi kadrs vairs neapgriežas, pārslēdzoties starp produkta slāni un neapstrādātu slāni. Tas attiecas tikai uz attēlošanu — faili nekad netiek pārrakstīti. Faili bez orientācijas ieraksta (uzņemti pirms versijas 1.3.0 vai sagatavoti ar citu programmatūru) tiek parādīti tā, kā tie ir saglabāti. Skatīt [Izvades attēlu formāti](../output-image-formats.md#orientation).
 {% endhint %}
 
-Fiksēšanas maskas (`*_clampmask.tif` mapē `clamp_masks/`) nav slāņi: programma Chloros
-
-tās ignorē importēšanas laikā. Skatīt [Izvades attēlu formāti](../output-image-formats.md#clamp-masks).
+Fiksēšanas maskas (`*_clampmask.tif` mapē `clamp_masks/`) nav slāņi: programma Chloros tās ignorē importēšanas laikā. Skatīt [Izvades attēlu formāti](../output-image-formats.md#clamp-masks).
 
 ### Indeksa, LUT un smilšu kastes slāņi
 
@@ -124,87 +96,41 @@ Tuvināšana un panoramēšana darbojas arī starp attēliem, kas atvieglo viena
 
 | Slānis | Parādītās vienības | Piezīmes |
 | --- | --- | --- |
-| Pamats (JPG / PNG
-
-/ TIFF
-
-priekšskatījums) | DN, 0–255 | Ekrāna vērtības, ar gamma korekciju RGB
-
-. Tikai vizuālai pārbaudei |
+| Pamats (JPG / PNG / TIFF priekšskatījums) | DN, 0–255 | Ekrāna vērtības, ar gamma korekciju RGB. Tikai vizuālai pārbaudei |
 | RAW (oriģināls) | DN | Neapstrādāti sensora digitālie skaitļi. Histogrammas ass norāda dziļumu: 255 (8 biti), 4095 (12 biti) vai 65535 (16 biti) |
 | RAW (bez bayera filtra) | DN | Lineārs, bez attēla izstiepšanas |
 | RAW (priekšskatījums) / ar balansa korekciju | DN | Attēla rezultāts — izstiepts vai ar gamma korekciju. Nav paredzēts mērījumiem |
 | RAW (starojums) | **W/m²/sr/nm** | Float32 fiziskais starojums. Nav DN kolonnas |
 | RAW (atstarošana) | DN **un %** | Procentuālā vērtība aprēķināta, izmantojot šī faila paša mērogu — skatīt zemāk |
-| Indekss / LUT / eksporti uz sandbox | Indeksa vērtība vai RGB
-
-komponenti | Vienkanāla indeksa fails norāda indeksa vērtību; krāsu kartēts LUT fails norāda Red
-
-/Green
-
-/Blue
-
-komponentes |
+| Indekss / LUT / eksporti uz sandbox | Indeksa vērtība vai RGB komponenti | Vienkanāla indeksa fails norāda indeksa vērtību; krāsu kartēts LUT fails norāda Red /Green /Blue komponentes |
 
 ### Atstarošana: skala ir katram failam atsevišķi
 
 {% hint style="warning" %}
-**&quot;Dalīt ar 65 535&quot; ir pareizi tikai attiecībā uz Survey3
-
-.** LATTICE atstarošanas koeficients tiek saglabāts citā mērogā, un abu dalītāju sajaukšana ir visbiežāk sastopamais veids, kā iegūt atstarošanas koeficienta vērtības, kas ir tieši puse no tām, kādām tām vajadzētu būt.
+**"Dalīt ar 65 535" ir pareizi tikai attiecībā uz Survey3.** LATTICE atstarošanas koeficients tiek saglabāts citā mērogā, un abu dalītāju sajaukšana ir visbiežāk sastopamais veids, kā iegūt atstarošanas koeficienta vērtības, kas ir tieši puse no tām, kādām tām vajadzētu būt.
 {% endhint %}
 
 | Avots | DN, kas atbilst atstarojumam 1,0 | Identificēts pēc |
 | --- | --- | --- |
 | **LATTICE**(M3C / M3M) |**32768** | XMP birka `Chloros:PixelScale=32768`, kas iekļauta katrā LATTICE atstarojuma eksportā. 2× rezerves diapazons nozīmē, ka ρ virs 1,0 ir attēlojams, nevis nogriezts |
-| **Survey3**| **65535** | Nav Chloros
+| **Survey3**| **65535** | Nav Chloros XMP mēroga tag — Survey3 kalibrēšana ieraksta ρ × dtype-max un nogriež pie 1,0 |
 
-XMP mēroga tag — Survey3
-
-kalibrēšana ieraksta ρ × dtype-max un nogriež pie 1,0 |
-
-ĢIS un skriptu vajadzībām: nolasiet `Chloros:PixelScale` no faila un daliet ar to. Ja marķējums nav, fails ir Survey3
-
-mērogā (65535). Skatītājs, indeksa/LUT izmēģinājumu vide un indeksa eksports visi nosaka mērogu šādā pašā veidā, tādēļ skaitlis, ko redzat pie kursora, ir tas pats skaitlis, ko izmanto indeksa aprēķini.
+ĢIS un skriptu vajadzībām: nolasiet `Chloros:PixelScale` no faila un daliet ar to. Ja marķējums nav, fails ir Survey3 mērogā (65535). Skatītājs, indeksa/LUT izmēģinājumu vide un indeksa eksports visi nosaka mērogu šādā pašā veidā, tādēļ skaitlis, ko redzat pie kursora, ir tas pats skaitlis, ko izmanto indeksa aprēķini.
 
 Papildus šim mērogam — formātam specifiska uzglabāšana:
 
-* **TIFF
-
-s (32 bitu, procentos)** uzglabā DN / 65535 kā peldošā punkta skaitli
-* **PNG
-
-(8 bitu)**un**JPG (8 bitu)** uzglabā DN × 255 / 65535
+* **TIFFs (32 bitu, procentos)** uzglabā DN / 65535 kā peldošā punkta skaitli
+* **PNG (8 bitu)**un**JPG (8 bitu)** uzglabā DN × 255 / 65535
 * **8 bitu DN, kas iegūts no 8 bitu uzņemšanas**, vai atstarojuma fails, kas izveidots pirms versijas 1.3.0, tiek ierobežots diapazonā no 0 līdz 255 un tam nav mēroga atzīmes. Panelī šiem failiem tiek parādīts tikai DN, bez procentu kolonnas
 
 ### Indeksu vērtību diapazoni
 
 | Indeksu grupa | Tipisks diapazons | Rādījums |
 | --- | --- | --- |
-| Normalizētā starpība (NDVI
-
-, GNDVI
-
-, NDRE
-
-, ENDVI…) | no −1 līdz +1 | Veselīgai veģetācijai parasti 0,4–0,9; kailai augsnei tuvu 0; ūdenim negatīvs |
-| Pēc augsnes koriģēti (SAVI
-
-, OSAVI
-
-, MSAVI2…) | aptuveni no −1 līdz +1,5 | Rādījums līdzīgs NDVI
-
-, bet ar nomāktu augsnes fonu |
-| Attiecība (GRVI
-
-, GCI
-
-, MSR, CIRE…) | bez augšējās robežas | Attiecības pieaug bez ierobežojuma, jo saucēja josla tuvojas nullei |
-| EVI
-
-/ LAI
-
-| no 0 līdz ~1, no 0 līdz ~3,5 | Mākoņi un citi piesātināti pikseļi abas vērtības izspiež ārpus diapazona — vispirms tos jāmaskē |
+| Normalizētā starpība (NDVI, GNDVI, NDRE, ENDVI…) | no −1 līdz +1 | Veselīgai veģetācijai parasti 0,4–0,9; kailai augsnei tuvu 0; ūdenim negatīvs |
+| Pēc augsnes koriģēti (SAVI, OSAVI, MSAVI2…) | aptuveni no −1 līdz +1,5 | Rādījums līdzīgs NDVI, bet ar nomāktu augsnes fonu |
+| Attiecība (GRVI, GCI, MSR, CIRE…) | bez augšējās robežas | Attiecības pieaug bez ierobežojuma, jo saucēja josla tuvojas nullei |
+| EVI / LAI | no 0 līdz ~1, no 0 līdz ~3,5 | Mākoņi un citi piesātināti pikseļi abas vērtības izspiež ārpus diapazona — vispirms tos jāmaskē |
 
 Skatīt [Daudzspektrālo indeksu formulas](../project-settings/multispectral-index-formulas.md), lai uzzinātu precīzo formulu, kas ir katras iestatījuma pamatā.
 
@@ -236,9 +162,7 @@ Skatīt [Daudzspektrālo indeksu formulas](../project-settings/multispectral-ind
 1. Izvēlieties **RAW (Atstarojums)**
 
 2. Nolasiet**%** kolonnu panelī „Cursor Values” — tā jau ir pareizi mērogota šim failam
-3. Veiciet loģiskas pārbaudes, salīdzinot ar kadra zināmajiem materiāliem: veselīgai veģetācijai ir augsts NIR
-
-līmenis un zems sarkanais līmenis; kalibrēšanas mērķim jāuzrāda vērtība, kas ir tuvu tā publicētajai atstarojuma vērtībai
+3. Veiciet loģiskas pārbaudes, salīdzinot ar kadra zināmajiem materiāliem: veselīgai veģetācijai ir augsts NIR līmenis un zems sarkanais līmenis; kalibrēšanas mērķim jāuzrāda vērtība, kas ir tuvu tā publicētajai atstarojuma vērtībai
 
 ***
 
@@ -250,25 +174,19 @@ līmenis un zems sarkanais līmenis; kalibrēšanas mērķim jāuzrāda vērtīb
 
 * Attēls nekad nav apstrādāts — pastāv tikai bāzes slānis un `RAW (Original)`
 * Projekta iestatījumos nav atzīmēta produkta eksportēšanas opcija
-* Produkts neattiecas uz šo kameru (starojums un atstarojums uz RGB
-
--galvenā attēla; jebkurš indekss uz vienkanāla M3M mono kameras)
+* Produkts neattiecas uz šo kameru (starojums un atstarojums uz RGB-galvenā attēla; jebkurš indekss uz vienkanāla M3M mono kameras)
 * Atstarošanas kalibrēšanai nebija ar ko strādāt — nebija `.daq` lejupvērstā seguma un nebija kvalitātes pārbaudi izturējuša mērķa kadrā — tādēļ kadrs tika pārveidots uz „Vignette Corrected” vai „Sensor Response”
 
 **Ko darīt**
 
-1. Pārbaudiet izpildes žurnālu: Chloros
-
-norāda, kad pieprasītais eksporta produkts nebija iespējams un kāpēc
+1. Pārbaudiet izpildes žurnālu: Chloros norāda, kad pieprasītais eksporta produkts nebija iespējams un kāpēc
 2. Pārbaudiet eksporta izvēles slēdžus katram produktam atsevišķi [Projekta iestatījumos](../project-settings/project-settings.md)
 3. Pārliecinieties, ka produkta mape atrodas projekta izvades struktūrā
 4. Veiciet atkārtotu apstrādi, aktivizējot šo produktu
 
 ### Slāņu saraksts izskatās novecojis
 
-Chloros
-
-atkārtoti skenē projekta produktu mapes, kamēr norit apstrāde, un izlabo trūkstošās slāņu reģistrācijas, balstoties uz to, kas faktiski atrodas diskā, tāpēc slānis, kura eksportēšana ir pabeigta, parasti parādās pats no sevis aptaujā. Pāreja prom no attēla un atpakaļ piespiež veikt jaunu izšķirtspējas aprēķinu.
+Chloros atkārtoti skenē projekta produktu mapes, kamēr norit apstrāde, un izlabo trūkstošās slāņu reģistrācijas, balstoties uz to, kas faktiski atrodas diskā, tāpēc slānis, kura eksportēšana ir pabeigta, parasti parādās pats no sevis aptaujā. Pāreja prom no attēla un atpakaļ piespiež veikt jaunu izšķirtspējas aprēķinu.
 
 ### Reflektances vērtības šķiet divreiz mazākas nekā vajadzētu
 

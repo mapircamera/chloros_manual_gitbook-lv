@@ -31,7 +31,7 @@ Sānu joslā no augšas uz leju tiek parādīts:
 * panelis **Kursora vērtības** ar rādījumu, histogrammu un GSD kontroli
 
 {% hint style="warning" %}
-**Nav pieejams mono kamerām.** Vienas joslas LATTICE M3M attēlā abi izvēles rūtiņas ir atspējotas, un parādās rīkjoslas uzvedne _&quot;Nav pieejams mono (M3M) sensoriem&quot;_ — daudzjoslu indekss vienā joslā nav definēts. Lai aprēķinātu indeksus no M3M kamerām, apvienojiet divas vai vairākas kameras vienā saskaņotā daudzjoslu attēlu kopā un izmantojiet LATTICE indeksa dzinēju.
+**Nav pieejams mono kamerām.** Vienas joslas LATTICE M3M attēlā abi izvēles rūtiņas ir atspējotas, un parādās rīkjoslas uzvedne _"Nav pieejams mono (M3M) sensoriem"_ — daudzjoslu indekss vienā joslā nav definēts. Lai aprēķinātu indeksus no M3M kamerām, apvienojiet divas vai vairākas kameras vienā saskaņotā daudzjoslu attēlu kopā un izmantojiet LATTICE indeksa dzinēju.
 {% endhint %}
 
 ***
@@ -76,7 +76,7 @@ Attēls tiek attēlots **pelēktoņu skalā**, izstiepts starp divām sliekšņa
 
 ### LUT pievienošana
 
-1. Noklikšķiniet uz <img src="../.gitbook/assets/image (1) (1) (1).png" alt="" data-size="line"> **&quot;+ Pievienot LUT&quot;** pogas zem formulas
+1. Noklikšķiniet uz <img src="../.gitbook/assets/image (1) (1) (1).png" alt="" data-size="line"> **"+ Pievienot LUT"** pogas zem formulas
 2. Izvēlieties krāsu gradientu
 3. Iestatiet minimālo un maksimālo nogriešanas vērtību
 4. Izvēlieties nogriešanas režīmu

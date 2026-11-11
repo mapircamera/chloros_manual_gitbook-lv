@@ -27,15 +27,9 @@ Jā. Chloros 1.3.0 versija pilnībā atbalsta „LATTICE M3C“ un „M3M“ kam
 
 <summary>Vai es varu kalibrēt savus attēlus atstarojuma mērījumiem bez kalibrēšanas mērķa?</summary>
 
-**Survey3
+**Survey3:** Nē. Ja, uzņemot attēlus bez kalibrēšanas mērķa, netiek uzņemts arī kalibrēšanas mērķa attēls, jūs nevarēsiet attēla pikseļu vērtības saistīt ar zināmu atstarojuma procentu. Ja jūs neiekļausiet arī MAPIR gaismas sensora reģistrācijas datus, tad netiks izmērīts vides gaismas spektrs, un atstarojuma rezultāti nebūs precīzi.
 
-:** Nē. Ja, uzņemot attēlus bez kalibrēšanas mērķa, netiek uzņemts arī kalibrēšanas mērķa attēls, jūs nevarēsiet attēla pikseļu vērtības saistīt ar zināmu atstarojuma procentu. Ja jūs neiekļausiet arī MAPIR
-
-gaismas sensora reģistrācijas datus, tad netiks izmērīts vides gaismas spektrs, un atstarojuma rezultāti nebūs precīzi.
-
-**LATTICE:** Jā. Atstarošanas koeficientu var saistīt ar lejupvērsto starojuma intensitāti, ko mēra DAQ gaismas sensors, nevis panelis (ρ = π·L/E). Ja kadrā *ir* klāt mērķis, kas izturējis kvalitātes kontroli (QA), tas pēc noklusējuma kļūst par absolūto atsauci (`--reflectance-source auto`), izņemot gadījumus, kad tas iztur pārbaudi ar atzīmi — tad mērķis un DAQ ķēdes sacenšas pēc izmērītā rezultāta. Viens izņēmums: „F988 atstarojums tiek kalibrēts, izmantojot kadrā esošu atstarojuma paneli: josla atrodas ārpus DAQ gaismas sensora kalibrētā diapazona, tāpēc Chloros
-
-izmanto jūsu pēdējo paneļa uzņemumu un saglabā to starp paneļa novērojumiem.” Skatīt [Kalibrēšanas mērķus](calibration-targets.md).
+**LATTICE:** Jā. Atstarošanas koeficientu var saistīt ar lejupvērsto starojuma intensitāti, ko mēra DAQ gaismas sensors, nevis panelis (ρ = π·L/E). Ja kadrā *ir* klāt mērķis, kas izturējis kvalitātes kontroli (QA), tas pēc noklusējuma kļūst par absolūto atsauci (`--reflectance-source auto`), izņemot gadījumus, kad tas iztur pārbaudi ar atzīmi — tad mērķis un DAQ ķēdes sacenšas pēc izmērītā rezultāta. Viens izņēmums: „F988 atstarojums tiek kalibrēts, izmantojot kadrā esošu atstarojuma paneli: josla atrodas ārpus DAQ gaismas sensora kalibrētā diapazona, tāpēc Chloros izmanto jūsu pēdējo paneļa uzņemumu un saglabā to starp paneļa novērojumiem.” Skatīt [Kalibrēšanas mērķus](calibration-targets.md).
 
 </details>
 
@@ -43,9 +37,7 @@ izmanto jūsu pēdējo paneļa uzņemumu un saglabā to starp paneļa novērojum
 
 <summary>Vai man ir nepieciešams DAQ gaismas sensors?</summary>
 
-Ne, ja runa ir par starojuma intensitāti: LATTICE starojuma intensitātes eksportētie dati tiek iegūti no katras kameras rūpnīcas radiometriskās kalibrācijas, un tiem nav nepieciešams ne DAQ sensors, ne mērķis. **Reflektances**gadījumā jums ir nepieciešams vides gaismas etalons — vai nu DAQ gaismas sensora lejupvērstais mērījums, vai arī kadrā esošs kalibrācijas mērķis. DAQ sensors ļauj iegūt kalibrētu atstarošanas koeficientu,**neievietojot ainas kadrā nekādus paneļus**. Ierakstītie `.daq` faili tiek automātiski saskaņoti ar jūsu attēliem pēc laika zīmoga. Skatīt [Kalibrēšanas mērķus](calibration-targets.md) un [CLI
-
-atsauci](reference/cli-reference.md).
+Ne, ja runa ir par starojuma intensitāti: LATTICE starojuma intensitātes eksportētie dati tiek iegūti no katras kameras rūpnīcas radiometriskās kalibrācijas, un tiem nav nepieciešams ne DAQ sensors, ne mērķis. **Reflektances**gadījumā jums ir nepieciešams vides gaismas etalons — vai nu DAQ gaismas sensora lejupvērstais mērījums, vai arī kadrā esošs kalibrācijas mērķis. DAQ sensors ļauj iegūt kalibrētu atstarošanas koeficientu,**neievietojot ainas kadrā nekādus paneļus**. Ierakstītie `.daq` faili tiek automātiski saskaņoti ar jūsu attēliem pēc laika zīmoga. Skatīt [Kalibrēšanas mērķus](calibration-targets.md) un [CLI atsauci](reference/cli-reference.md).
 
 </details>
 
@@ -143,9 +135,7 @@ Failu pārlūka tabulā, iepriekš atlasot mērķa attēlus labajā ailē, tiks 
 
 <summary>Ja es augšupielādēšu savus attēlus uz „<a href="https://www.mapir.camera/collections/software/products/mapir-cloud-subscription">MAPIR Cloud”,</a> vai man tie ir jāapstrādā programmā Chloros pirms augšupielādes?</summary>
 
-Ja plānojat augšupielādēt attēlus mūsu tiešsaistes apstrādes platformā [MAPIR
-
-Cloud](https://www.mapir.camera/collections/software/products/mapir-cloud-subscription), neapstrādājiet attēlus pirms augšupielādes. Cloud veiks visu to pašu apstrādi un vēl vairāk.
+Ja plānojat augšupielādēt attēlus mūsu tiešsaistes apstrādes platformā [MAPIR Cloud](https://www.mapir.camera/collections/software/products/mapir-cloud-subscription), neapstrādājiet attēlus pirms augšupielādes. Cloud veiks visu to pašu apstrādi un vēl vairāk.
 
 </details>
 
@@ -185,9 +175,7 @@ Jā! Chloros ietver [dinamisko aprēķinu pielāgošanu](processing-architecture
 
 <summary>Kas ir 4-diegu apstrādes cauruļvads?</summary>
 
-Chloros
-izmanto 4-pavedienu cauruļvadu arhitektūru Chloros
-+ lietotājiem: 1. pavediens (detekcija) ielādē attēlus un atpazīst kalibrēšanas mērķus, 2. pavediens (kalibrēšana) aprēķina atstarošanas kalibrēšanu, 3. pavediens (apstrāde) veic ar GPU paātrinātu debayeringu un indeksa aprēķinu, un 4. pavediens (eksportēšana) raksta izejas failus. Lai nodrošinātu maksimālu caurlaidspēju, vienlaikus dažādos pavedienos var atrasties vairāki attēli. Sīkāku informāciju skatiet sadaļā [Apstrādes cauruļvads](processing-architecture/processing-pipeline.md).
+Chloros izmanto 4-pavedienu cauruļvadu arhitektūru Chloros+ lietotājiem: 1. pavediens (detekcija) ielādē attēlus un atpazīst kalibrēšanas mērķus, 2. pavediens (kalibrēšana) aprēķina atstarošanas kalibrēšanu, 3. pavediens (apstrāde) veic ar GPU paātrinātu debayeringu un indeksa aprēķinu, un 4. pavediens (eksportēšana) raksta izejas failus. Lai nodrošinātu maksimālu caurlaidspēju, vienlaikus dažādos pavedienos var atrasties vairāki attēli. Sīkāku informāciju skatiet sadaļā [Apstrādes cauruļvads](processing-architecture/processing-pipeline.md).
 
 </details>
 

@@ -16,49 +16,21 @@ Pēc pieteikšanās tiks parādīta jūsu konta informācija:
 | Pakalpojums | `plan_id` | Tips |
 | --- | --- | --- |
 | Iron | `0` | Bezmaksas |
-| Copper | `1` | Maksas (Chloros
-
-+) |
-| Bronze | `2` | Maksas (Chloros
-
-+) |
-| Silver | `3` | Maksas (Chloros
-
-+) |
-| Zelts | `4` | Maksas (Chloros
-
-+) |
+| Copper | `1` | Maksas (Chloros+) |
+| Bronze | `2` | Maksas (Chloros+) |
+| Silver | `3` | Maksas (Chloros+) |
+| Zelts | `4` | Maksas (Chloros+) |
 
 Lai uzzinātu, ko ietver katrs maksas līmenis, skatiet [plānus un cenas](https://cloud.mapir.camera/pricing).
 
-### Lai piekļūtu CLI
+### Lai piekļūtu CLI/SDK, ir nepieciešams maksas līmenis
 
-/SDK
+CLI un Python SDK piekļuvei ir nepieciešams **jebkurš maksas Chloros+ līmenis (Copper vai augstāks)**. Tas tiek nodrošināts**servera pusē** — katram CLI/SDK pieprasījumam ir jābūt gan aktīvai sesijai, gan maksas plānam:
 
-, ir nepieciešams maksas līmenis
-
-CLI
-
-un Python
-
-SDK
-
-piekļuvei ir nepieciešams **jebkurš maksas Chloros
-
-+ līmenis (Copper vai augstāks)**. Tas tiek nodrošināts**servera pusē** — katram CLI
-
-/SDK
-
-pieprasījumam ir jābūt gan aktīvai sesijai, gan maksas plānam:
-
-| HTTP
-
-statuss | `error_code` | Nozīme | Risinājums |
+| HTTP statuss | `error_code` | Nozīme | Risinājums |
 | --- | --- | --- | --- |
 | `401` | `AUTH_REQUIRED` | Nav pieteicies šajā ierīcē | `chloros-cli login <email> <password>` |
-| `403` | `PLAN_UPGRADE_REQUIRED` | Esat pieteicies, bet plāna līmenis ir pārāk zems (bezmaksas „Iron” līmenis) | Pārejiet uz jebkuru maksas „Chloros
-
-+” plānu |
+| `403` | `PLAN_UPGRADE_REQUIRED` | Esat pieteicies, bet plāna līmenis ir pārāk zems (bezmaksas „Iron” līmenis) | Pārejiet uz jebkuru maksas „Chloros+” plānu |
 
 `chloros-cli status` joprojām ir pieejams bezmaksas līmenī, tādēļ jūs vienmēr varat redzēt savu pašreizējo plānu un iemeslu, kāpēc piekļuve ir atteikta.
 
@@ -77,13 +49,7 @@ Katram plānam ir noteikts maksimālais skaits LATTICE kameru un DAQ gaismas sen
 
 
 
-Piesakieties ar savām Chloros
-
-+ piekļuves datiem, lai aktivizētu CLI
-
-apstrādi. Linux
-
-ā (bez grafiskās saskarnes) tas ir vienīgais veids, kā aktivizēt savu licenci.
+Piesakieties ar savām Chloros+ piekļuves datiem, lai aktivizētu CLI apstrādi. Linuxā (bez grafiskās saskarnes) tas ir vienīgais veids, kā aktivizēt savu licenci.
 
 **Sintakse:**
 
@@ -92,15 +58,7 @@ chloros-cli login <email> <password>
 ```
 
 {% hint style="info" %}
-**SDK
-
-lietotāji**: Python
-
-SDK
-
-piedāvā arī programmatisku metodi `logout()`, lai dzēstu kešatmiņā saglabātās piekļuves datus. Sīkāku informāciju skatiet [SDK
-
-atsauces materiālā](reference/sdk-reference.md).
+**SDK lietotāji**: Python SDK piedāvā arī programmatisku metodi `logout()`, lai dzēstu kešatmiņā saglabātās piekļuves datus. Sīkāku informāciju skatiet [SDK atsauces materiālā](reference/sdk-reference.md).
 {% endhint %}
 
 **Piemērs:**
@@ -127,23 +85,13 @@ Cache atmiņā saglabātie piekļuves dati un konfigurācija **visās platformā
 | **Windows** | `%USERPROFILE%\.chloros\` |
 | **Linux** | `~/.chloros/` |
 
-Ja uzstādat jaunāku versiju virs esošās, jūsu pieteikšanās dati tiek saglabāti gan Windows
-
-(uzstādīšanas programmā), gan Linux
-
-(mapē `.deb`, ieskaitot `chloros-cli update`). Chloros
-
-atinstalēšana — vai Linux
-
-pakotnes noņemšana — dzēš kešēto pieteikšanos, tādēļ pēc jaunas instalācijas jums būs jāpiesakās no jauna.
+Ja uzstādat jaunāku versiju virs esošās, jūsu pieteikšanās dati tiek saglabāti gan Windows (uzstādīšanas programmā), gan Linux (mapē `.deb`, ieskaitot `chloros-cli update`). Chloros atinstalēšana — vai Linux pakotnes noņemšana — dzēš kešēto pieteikšanos, tādēļ pēc jaunas instalācijas jums būs jāpiesakās no jauna.
 
 ### Plāna derīguma termiņš un bezsaistes papildlaiks
 
 Plāna derīguma termiņš lietotāja saskarnē parāda, kad jūsu licence vairs nebūs derīga. Atkārtotajiem ikmēneša abonementiem derīguma termiņš beidzas mēneša beigās; gada abonementiem — gadu pēc abonementa sākuma.
 
-Chloros
-
-pārbauda jūsu licenci tiešsaistē, taču darbs bezsaistē tiek atbalstīts pārejas perioda laikā:
+Chloros pārbauda jūsu licenci tiešsaistē, taču darbs bezsaistē tiek atbalstīts pārejas perioda laikā:
 
 * Veiksmīgas servera pārbaudes tiek saglabātas kešatmiņā **5 minūtes**, tādēļ normālas lietošanas gadījumā tiek veikti ļoti nedaudzi licences pieprasījumi.
 * Parakstīta, ar konkrētu datoru saistīta licences kešatmiņa nodrošina ilgākus bezsaistes darbības periodus: **30 dienas ikmēneša plāniem**un**līdz jūsu abonementa derīguma termiņa beigām (ne vairāk kā 365 dienas) gada plāniem**.
@@ -151,13 +99,7 @@ pārbauda jūsu licenci tiešsaistē, taču darbs bezsaistē tiek atbalstīts p�
 
 ### Ierīču skaita ierobežojums
 
-Katrs „Chloros
-
-+“ plāns piedāvā atšķirīgu reģistrēto ierīču skaitu. Katra ierīce, kurā jūs piesakāties ar „Chloros
-
-+“ kontu, tiek ieskaitīta jūsu reģistrēto ierīču skaitā. Jūs varat pārdēvēt un dzēst ierīci savā „MAPIR
-
-Cloud“ konta lapā.
+Katrs „Chloros+“ plāns piedāvā atšķirīgu reģistrēto ierīču skaitu. Katra ierīce, kurā jūs piesakāties ar „Chloros+“ kontu, tiek ieskaitīta jūsu reģistrēto ierīču skaitā. Jūs varat pārdēvēt un dzēst ierīci savā „MAPIR Cloud“ konta lapā.
 
 <table><thead><tr><th width="168.5999755859375" align="right">Chloros+ plāns</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">GOLD</th></tr></thead><tbody><tr><td align="right">Atbalstītās ierīces</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
 

@@ -20,16 +20,12 @@ Pirms attēlu apstrādes ir svarīgi konfigurēt projekta iestatījumus atbilsto
 
 ### Noklusējuma iestatījumi (ieteicami lielākajai daļai lietotāju)
 
-Noklusējuma iestatījumi labi darbojas tipiskiem Survey3
-un „LATTICE” darba procesiem:
+Noklusējuma iestatījumi labi darbojas tipiskiem Survey3 un „LATTICE” darba procesiem:
 
 * ✅ **Vignette korekcija**: Iespējota
-* ✅ **Atstarošanas kalibrēšana / baltā balanss**: ieslēgts (izmanto MAPIR
-mērķus un/vai DAQ gaismas sensora datus)
+* ✅ **Atstarošanas kalibrēšana / baltā balanss**: ieslēgts (izmanto MAPIR mērķus un/vai DAQ gaismas sensora datus)
 * ✅ **Debayer metode**: standarta (ātra, vidēja kvalitāte)
-* ✅ **Eksporta formāts**: TIFF
-(16 bitu) (TIFF
-(8 bitu) projektiem, kas ir pilnībā 8 bitu)
+* ✅ **Eksporta formāts**: TIFF (16 bitu) (TIFF (8 bitu) projektiem, kas ir pilnībā 8 bitu)
 * ✅ **Visi eksporta rezultāti**: ieslēgts (LATTICE automātiski saglabā attēlus, kas sadalīti pēc Debayera metodes, priekšskatījumu, starojuma un atstarošanas)
 
 Vienkārši importējiet savus attēlus un sāciet apstrādi, izmantojot šos noklusējumus.
@@ -46,8 +42,7 @@ Projekta iestatījumu panelis ir sadalīts zemāk minētajās sadaļās. Divas p
 
 ### Mērķa atpazīšana
 
-Nosaka, kā Chloros
-identificē kalibrēšanas mērķus jūsu attēlos.
+Nosaka, kā Chloros identificē kalibrēšanas mērķus jūsu attēlos.
 
 **Galvenie iestatījumi:*** **Minimālā kalibrēšanas parauga platība (px)**: Mērķa atpazīšanas izmēra slieksnis (noklusējums:**25**, diapazons 0–10000)
 * **Minimālā mērķu grupēšana (0–100)**: Līdzības slieksnis mērķu reģionu grupēšanai (noklusējums:**60**)**Kad pielāgot:**
@@ -65,19 +60,15 @@ identificē kalibrēšanas mērķus jūsu attēlos.
 Galvenās attēlu apstrādes un kalibrēšanas opcijas.
 
 **Galvenie iestatījumi:*** **Vignēšanas korekcija**: kompensē objektīva tumšošanos malās ✅ Ieteicams
-* **Atstarošanas kalibrēšana / baltā balanss**: kalibrē attēlus, izmantojot atklātos mērķus (Survey3
-) un/vai DAQ gaismas sensora datus (LATTICE) ✅ Ieteicams
+* **Atstarošanas kalibrēšana / baltā balanss**: kalibrē attēlus, izmantojot atklātos mērķus (Survey3) un/vai DAQ gaismas sensora datus (LATTICE) ✅ Ieteicams
 * **Debayer metode**: Algoritms RAW failu konvertēšanai 3-kanālu multispektrālos attēlos
 * **Minimālais atkārtotās kalibrēšanas intervāls**: Minimālais laiks sekundēs starp kalibrēšanas mērķa izmantošanu (noklusējums:**0** = izmantot visus, diapazons 0–3600)**Nekalibrēti rezerves produkti:**Ja attēla rāmi nav iespējams kalibrēt pēc atstarojuma (nav pieejams mērķis vai kalibrēšana ir atspējota), tas tiek eksportēts kā viens no diviem rezerves produktiem —**katrā darbības ciklā pastāv tieši viens no šiem diviem**, ko izvēlas ar Vignette korekcijas slēdzi:
 
 * **Eksportēt sensora reakciju**: ieraksta `Sensor_Response_Images` — izmanto, ja „Vignette” korekcija ir**izslēgta*** **Eksportēt ar vignetēšanas korekciju**: ieraksta `Vignette_Corrected_Images` — izmanto, ja vignetēšanas korekcija ir**ieslēgta**Izvēles rūtiņa, kas nav aktīva, ir izdzēsta. Atceļot atzīmi no aktīvās rūtiņas, šī faila ierakstīšana tiek pilnībā apturēta.**LATTICE eksporta produkti** (parādās katram projektam; tie attiecas uz LATTICE uzņēmumiem):
 
-* **Eksportēt bez demosaicēšanas**: lineārs attēls bez mozaīkas (`Debayered_Images`): no kalibrēšanas paketes ir noņemts tumšais nobīdes kompensācijas slānis, pēc tam veikta demosaicēšana bez līdzena lauka vai krāsu atdalīšanas — tas pats fails, ko uzņemums saglabā bez mozaīkas līmenī — sensora oriģinālajā orientācijā. Attiecas uz RGB
-un multispektrālajiem moduļiem.
-* **Eksportēt priekšskatījumu**: ekrāna priekšskatījums (`Preview_Images`). RGB
-= baltā balanss (DAQ apgaismojums, ja pieejams, citādi pelēkā pasaule) + gamma; multispektrālais = viltus krāsu izstiepums.
-* **Eksportēt starojuma intensitāti**: float32 spektrālā starojuma intensitāte (`Radiance_Images`, W/m²/sr/nm). Tikai multispektrālie moduļi — neattiecas uz RGB
-oriģināliem.
+* **Eksportēt bez demosaicēšanas**: lineārs attēls bez mozaīkas (`Debayered_Images`): no kalibrēšanas paketes ir noņemts tumšais nobīdes kompensācijas slānis, pēc tam veikta demosaicēšana bez līdzena lauka vai krāsu atdalīšanas — tas pats fails, ko uzņemums saglabā bez mozaīkas līmenī — sensora oriģinālajā orientācijā. Attiecas uz RGB un multispektrālajiem moduļiem.
+* **Eksportēt priekšskatījumu**: ekrāna priekšskatījums (`Preview_Images`). RGB = baltā balanss (DAQ apgaismojums, ja pieejams, citādi pelēkā pasaule) + gamma; multispektrālais = viltus krāsu izstiepums.
+* **Eksportēt starojuma intensitāti**: float32 spektrālā starojuma intensitāte (`Radiance_Images`, W/m²/sr/nm). Tikai multispektrālie moduļi — neattiecas uz RGB oriģināliem.
 * **Eksportēt atstarošanu**: uint16 atstarošana (`Reflectance_Calibrated_Images`, DN 32768 = ρ 1,0), ja `.daq` lejupvērstais rādījums vai kadrā esošais mērķis aptver kadru. Tikai multispektrālie moduļi.
 
 Visi četri ir **pēc noklusējuma ieslēgti**— viens importēts LATTICE neapstrādāts kadrs tiek sadalīts pa visiem iespējotajiem un piemērojamajiem produktiem vienā apstrādes ciklā. Izvēles rūtiņa**Eksportēt atstarojumu** ir nedzēšama, ja atstarojuma kalibrēšana ir izslēgta. Iestatījumi, kurus neļauj izmantot augstāk esošais slēdzis, vienmēr ir izslēgti ar pelēku fonu, un parādās rīkjosla, kurā norādīts, kuru slēdzi jāmaina.**Papildu iestatījumi:*** **Gaismas sensora laika zonas nobīde**: Stundas no UTC gaismas sensora laika saskaņošanai (noklusējums: 0, diapazons no −12 līdz +12)
@@ -85,28 +76,23 @@ Visi četri ir **pēc noklusējuma ieslēgti**— viens importēts LATTICE neaps
 * **Ekspozīcijas pini 1/2**: piešķir kameras ekspozīcijas piniem divkameru konfigurācijām
 
 {% hint style="info" %}
-**LATTICE ieejas līmenis ir automātisks.** LATTICE uzņēmumos apstrādes līmenis tiek saglabāts XMP metadatos, un apstrāde vienmēr sākas no neapstrādāta kadra — lietotāja saskarnē nav nekas jākonfigurē. (CLI
-karodziņš `--input-level` ir paredzēts pieredzējušiem lietotājiem, lai pārrakstītu iestatījumus attēliem ar zaudētiem metadatiem; skatiet [CLI
-atsauci](../reference/cli-reference.md).)
+**LATTICE ieejas līmenis ir automātisks.** LATTICE uzņēmumos apstrādes līmenis tiek saglabāts XMP metadatos, un apstrāde vienmēr sākas no neapstrādāta kadra — lietotāja saskarnē nav nekas jākonfigurē. (CLI karodziņš `--input-level` ir paredzēts pieredzējušiem lietotājiem, lai pārrakstītu iestatījumus attēliem ar zaudētiem metadatiem; skatiet [CLI atsauci](../reference/cli-reference.md).)
 {% endhint %}
 
 ### Debayeringa metode
 
-Pašlaik Chloros
-piedāvā 2 debayeringa metodes:
+Pašlaik Chloros piedāvā 2 debayeringa metodes:
 
 #### Standarta (ātra, vidēja kvalitāte)
 
 Standarta debayeringa metode darbojas ātri, taču rada krāsu troksni, kā rezultātā attēli ir mazāk precīzi un trokšņaināki.
 
-#### Tekstūras ņemšana vērā (lēna, visaugstākā kvalitāte) \[Tikai Chloros
-+]
+#### Tekstūras ņemšana vērā (lēna, visaugstākā kvalitāte) \[Tikai Chloros+]
 
 Metode „Tekstūras ņemšana vērā” izmanto augstas kvalitātes, malu ņemšanu vērā ņemošu debayeringu, kas apvienots ar AI/ML trokšņu noņemšanas modeli, kurš novērš gandrīz visus debayeringa radītos trokšņus. Lai modelis darbotos, ir nepieciešama GPU atmiņa (VRAM): ja **VRAM ir 7 GB vai vairāk**, tas var vienlaikus apstrādāt vairākus attēlus; ja VRAM ir mazāk par 7 GB, tas apstrādā vienu attēlu pēc otra (ievērojami lēnāk). Skatīt [Dinamiskā aprēķinu pielāgošana](../processing-architecture/dynamic-compute-adaptation.md).
 
 {% hint style="info" %}
-**LATTICE uzņēmumos vienmēr tiek izmantota standarta demosaic metode.** Nav LATTICE apmācīta „Texture Aware” modeļa, tāpēc šī opcija netiek piedāvāta LATTICE attēliem — tomēr to joprojām var izmantot Survey3
-attēliem tajā pašā projektā.
+**LATTICE uzņēmumos vienmēr tiek izmantota standarta demosaic metode.** Nav LATTICE apmācīta „Texture Aware” modeļa, tāpēc šī opcija netiek piedāvāta LATTICE attēliem — tomēr to joprojām var izmantot Survey3 attēliem tajā pašā projektā.
 {% endhint %}
 
 ### Indekss (daudzspektrālie indeksi)
@@ -115,67 +101,48 @@ Konfigurējiet, kurus veģetācijas indeksus aprēķināt un eksportēt. Grafisk
 
 1. Noklikšķiniet uz pogas**„Pievienot indeksu””**
 
-2. Izvēlieties indeksu no nolaižamās izvēlnes (NDVI
-, NDRE
-, GNDVI
-utt.)
+2. Izvēlieties indeksu no nolaižamās izvēlnes (NDVI, NDRE, GNDVI utt.)
 3. Konfigurējiet vizualizācijas iestatījumus (LUT krāsas, vērtību diapazoni)
 4. Pēc nepieciešamības pievienojiet vairākus indeksus
 
 **Populāri indeksi:*** **NDVI**: Vispārējais veģetācijas veselības stāvoklis (visbiežāk izmantotais)
-* **NDRE**: RedEdge
-izmantošana agrīnai stresa noteikšanai* **GNDVI**: jutīgs pret hlorofila koncentrāciju
+* **NDRE**: RedEdge izmantošana agrīnai stresa noteikšanai* **GNDVI**: jutīgs pret hlorofila koncentrāciju
 * **OSAVI**: labi darbojas ar redzamu augsni
-* **EVI**: reģioni ar augstu lapu platības indeksu (LAI
-)
+* **EVI**: reģioni ar augstu lapu platības indeksu (LAI)
 
 **Pielāgotas formulas:**
 
 * Izveidojiet pielāgotas multispektrālo indeksu formulas, izmantojot joslu aprēķinus visos attēla kanālos
 * Saglabājiet pielāgotās formulas atkārtotai izmantošanai
-* Pielāgotās formulas ir „Chloros
-+” funkcija; to pieejamība ir atkarīga no jūsu plāna līmeņa
+* Pielāgotās formulas ir „Chloros+” funkcija; to pieejamība ir atkarīga no jūsu plāna līmeņa
 
-Lai apskatītu visus pieejamos indeksus un formulas — tostarp to, kuri nosaukumi ir pieejami tikai grafiskajā lietotāja saskarnē (GUI) un kuri darbojas arī CLI
-vai SDK
-— skatiet [Multispektrālo indeksu formulas](../project-settings/multispectral-index-formulas.md).
+Lai apskatītu visus pieejamos indeksus un formulas — tostarp to, kuri nosaukumi ir pieejami tikai grafiskajā lietotāja saskarnē (GUI) un kuri darbojas arī CLI vai SDK — skatiet [Multispektrālo indeksu formulas](../project-settings/multispectral-index-formulas.md).
 
 ### Eksportēšana
 
 Nosaka izejas faila formātu.
 
-**Pieejamie formāti**(iestatījums:**Kalibrēts attēla formāts**, noklusējums**TIFF
-(16 bitu)**):
+**Pieejamie formāti**(iestatījums:**Kalibrēts attēla formāts**, noklusējums**TIFF (16 bitu)**):
 
-* **TIFF
-(16 bitu)**: Ieteicams ģeogrāfiskās informācijas sistēmām (GIS) un zinātniskajai analīzei
-* **TIFF
-(8-bit)**: 8-bitu TIFF
-* **TIFF
-(32-bit, Percent)**: Peldošā punkta vērtības
-* **PNG
-(8-bit)**: Bezzaudējumu saspiešana vizualizācijai
+* **TIFF (16 bitu)**: Ieteicams ģeogrāfiskās informācijas sistēmām (GIS) un zinātniskajai analīzei
+* **TIFF (8-bit)**: 8-bitu TIFF
+* **TIFF (32-bit, Percent)**: Peldošā punkta vērtības
+* **PNG (8-bit)**: Bezzaudējumu saspiešana vizualizācijai
 * **JPG (8-bit)**: Vismazākie faili, saspiešana ar zaudējumiem
 
-Saraksts parāda, kādus attēlus projekts var ietvert: Chloros
-nepalielina bitu dziļumu. Attēliem, kas ir pilnībā 8-bitu, ir pieejami tikai formāti TIFF
-(8-bitu), PNG
-(8-bitu) un JPG (8-bitu), un noklusējuma formāts ir TIFF
-(8-bitu). Jauktā projektā katrs uzņēmums tiek eksportēts ar savu dziļumu vai zemāku. Radiance paliek 32 bitu peldošā komata formātā.
+Saraksts parāda, kādus attēlus projekts var ietvert: Chloros nepalielina bitu dziļumu. Attēliem, kas ir pilnībā 8-bitu, ir pieejami tikai formāti TIFF (8-bitu), PNG (8-bitu) un JPG (8-bitu), un noklusējuma formāts ir TIFF (8-bitu). Jauktā projektā katrs uzņēmums tiek eksportēts ar savu dziļumu vai zemāku. Radiance paliek 32 bitu peldošā komata formātā.
 
 Izvades faili tiek saglabāti projekta mapē, grupēti pēc kameras un formāta: `<project>/<camera>/<format>/<Product>_Images/`. Radiance **vienmēr** tiek saglabāts kā float32 mapē `tiff32` neatkarīgi no šī iestatījuma. Eksportētie faili saglabā avota faila nosaukumu — mape identificē produktu. LATTICE multispektrālie eksporti var arī ierakstīt pikseļu fiksēšanas maskas `clamp_masks/` mapē blakus produktu mapēm. Pilnu izvades struktūru skatiet sadaļā [Apstrādes pabeigšana](finishing-the-processing.md).
 
 {% hint style="warning" %}
-**Atstarošanas koeficientu nolasīšana**: DN vērtība, kas atbilst ρ = 1,0, ir atkarīga no avota kameras — LATTICE izmanto 32768 (atzīmēts kā XMP `Chloros:PixelScale`), savukārt Survey3
-izmanto 65535. Lasiet tagu, nevis pieņemiet, ka vērtība ir nemainīga. Skatīt [Izvades attēlu formāti](../output-image-formats.md).
+**Atstarošanas koeficientu nolasīšana**: DN vērtība, kas atbilst ρ = 1,0, ir atkarīga no avota kameras — LATTICE izmanto 32768 (atzīmēts kā XMP `Chloros:PixelScale`), savukārt Survey3 izmanto 65535. Lasiet tagu, nevis pieņemiet, ka vērtība ir nemainīga. Skatīt [Izvades attēlu formāti](../output-image-formats.md).
 {% endhint %}
 
 ### DAQ gaismas sensors
 
 Šajā sadaļā ir uzskaitīti visi jūsu projektā esošie DAQ lejupvērstās gaismas faili (`.daq` / `.csv`), pa vienai rindai katram failam, norādot sensora modeli, faila nosaukumu un difuzora **vāciņa** korekciju, kas ir spēkā šim failam.
 
-* **Vāka pārrakstīšana (visi faili)**: viens izvēles saraksts visam projektam.**Auto** (noklusējums) izmanto katra faila reģistrēto ierobežojumu — ja nekas nav reģistrēts, tiek pieņemts, ka ir saules gaisma, taču DAQ-U, DAQ-M un DAQ-E tiek piegādāti bez ierobežojuma, un programma Chloros
-nevar redzēt, kas ir piemērots, tāpēc apstrādes laikā tiek parādīts brīdinājums par pieņemto ierobežojumu: izvēlieties to ierobežojumu, kas tika piemērots. Ierobežojuma izvēle pārraksta visus failus, izņemot DAQ-E-S failus, kuru difuzors ir daļa no tā kalibrācijas: neapstrādātie ieraksti tiek koriģēti ar to, un ierakstiem, kuriem jau ir piemērots ierobežojums, tiek veikta atkārtota atsauces noteikšana (ierakstītā korekcija tiek atcelta, tiek piemērots izvēlētais ierobežojums).
+* **Vāka pārrakstīšana (visi faili)**: viens izvēles saraksts visam projektam.**Auto** (noklusējums) izmanto katra faila reģistrēto ierobežojumu — ja nekas nav reģistrēts, tiek pieņemts, ka ir saules gaisma, taču DAQ-U, DAQ-M un DAQ-E tiek piegādāti bez ierobežojuma, un programma Chloros nevar redzēt, kas ir piemērots, tāpēc apstrādes laikā tiek parādīts brīdinājums par pieņemto ierobežojumu: izvēlieties to ierobežojumu, kas tika piemērots. Ierobežojuma izvēle pārraksta visus failus, izņemot DAQ-E-S failus, kuru difuzors ir daļa no tā kalibrācijas: neapstrādātie ieraksti tiek koriģēti ar to, un ierakstiem, kuriem jau ir piemērots ierobežojums, tiek veikta atkārtota atsauces noteikšana (ierakstītā korekcija tiek atcelta, tiek piemērots izvēlētais ierobežojums).
 * Rindās tiek parādīti brīdinājumi, ja reģistrētais vāciņš bija sadales mezgla pieņemtā noklusējuma vērtība, nevis operatora apstiprināta, kā arī tad, ja izvēlētajam vāciņam nav profila šim ierīces modelim (šim failam pārrakstīšana tiek noraidīta).
 
 „Light Sensors” cilnē veiktie DAQ ieraksti tiek automātiski pievienoti atvērtam projektam, un importētie `.daq` / `.csv` faili parādās šeit, tiklīdz tie tiek pievienoti.
@@ -196,9 +163,7 @@ Izveidojiet atkārtoti izmantojamas veidnes, lai nodrošinātu vienotu darba pl�
 
 1. Konfigurējiet visus vēlamos iestatījumus paneļā „Projekta iestatījumi”
 2. Pārvietojieties uz sadaļu **„Saglabāt projekta veidni”** apakšā
-3. Ievadiet aprakstošu veidnes nosaukumu (piem., „Survey3N
-
-\_RGN\_Agriculture”)
+3. Ievadiet aprakstošu veidnes nosaukumu (piem., „Survey3N\_RGN\_Agriculture”)
 4. Noklikšķiniet uz saglabāšanas ikonas
 
 **Priekšrocības:**
@@ -218,18 +183,12 @@ Izveidojot jaunu projektu:
 
 ### Darba katalogs
 
-Iestatījums **&quot;Darba katalogs&quot;** nosaka, kur pēc noklusējuma tiek izveidoti jauni projekti:
+Iestatījums **"Darba katalogs"** nosaka, kur pēc noklusējuma tiek izveidoti jauni projekti:
 
-* **Noklusējuma atrašanās vieta**: `Documents\MAPIR\Chloros Projects` jūsu Windows
-
-mapē „Dokumenti” (parasti `C:\Users\[Username]\Documents\MAPIR\Chloros Projects`; tā seko mapes „Dokumenti” atrašanās vietai, ja OneDrive vai klīstošais profils to pārvieto)
+* **Noklusējuma atrašanās vieta**: `Documents\MAPIR\Chloros Projects` jūsu Windows mapē „Dokumenti” (parasti `C:\Users\[Username]\Documents\MAPIR\Chloros Projects`; tā seko mapes „Dokumenti” atrašanās vietai, ja OneDrive vai klīstošais profils to pārvieto)
 * **Mainīt atrašanās vietu**: noklikšķiniet uz rediģēšanas ikonas un izvēlieties jaunu mapi
 * **Koplietošana ar CLI**: `chloros-cli` izmanto to pašu noklusējuma projekta mapes iestatījumu
-* **Windows
-
-sistēmā izmantojiet īsu nosaukumu**: ja vien nav ieslēgti Windows
-
-garie ceļi, projekta mape, kuras nosaukums pārsniedz aptuveni 130 rakstzīmes, tiek noraidīta pirms apstrādes — skatiet [Apstrādes uzsākšana](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer)
+* **Windows sistēmā izmantojiet īsu nosaukumu**: ja vien nav ieslēgti Windows garie ceļi, projekta mape, kuras nosaukums pārsniedz aptuveni 130 rakstzīmes, tiek noraidīta pirms apstrādes — skatiet [Apstrādes uzsākšana](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer)
 * **Kad mainīt**:
   * Tīkla disks komandas sadarbībai
   * Cits disks ar lielāku uzglabāšanas vietu
@@ -239,15 +198,11 @@ garie ceļi, projekta mape, kuras nosaukums pārsniedz aptuveni 130 rakstzīmes,
 
 ## PPK (pēcapstrādātā kinemātika) iestatīšana
 
-Ja izmantojat MAPIR
-
-DAQ reģistratorus ar GPS precīzai ģeolokācijai:
+Ja izmantojat MAPIR DAQ reģistratorus ar GPS precīzai ģeolokācijai:
 
 ### Priekšnosacījumi
 
-* MAPIR
-
-DAQ ar GPS (GNSS) moduli
+* MAPIR DAQ ar GPS (GNSS) moduli
 * .daq žurnāla fails ar ekspozīcijas kontaktu ierakstiem
 * Kamera, kas uzņemšanas sesijas laikā ir pieslēgta DAQ ekspozīcijas kontaktiem
 
@@ -273,32 +228,14 @@ DAQ ar GPS (GNSS) moduli
 
 ### Projekti ar vairākām kamerām
 
-Apstrādājot attēlus no vairākām MAPIR
+Apstrādājot attēlus no vairākām MAPIR kamerām vienā projektā:
 
-kamerām vienā projektā:
-
-1. Chloros
-
-automātiski atpazīst katra kameras modeli (gan Survey3
-
-, gan LATTICE)
+1. Chloros automātiski atpazīst katra kameras modeli (gan Survey3, gan LATTICE)
 2. Katrai kamerai tiek piešķirti atbilstoši apstrādes profili, un katrai kamerai tiek izveidota sava izvades mapju struktūra
-3. PPK: katru Survey3
-
-kameru manuāli piešķiriet pareizajam ekspozīcijas kontaktam
+3. PPK: katru Survey3 kameru manuāli piešķiriet pareizajam ekspozīcijas kontaktam
 4. Visas kameras izmanto vienādu eksporta formātu un indeksus
 
-**Piemēri**: divkameru sistēma Survey3W
-
-RGN
-
-+ Survey3N
-
-OCN
-
-, vai LATTICE sistēma, kurā RGB
-
-galvenā kamera tiek kombinēta ar šaurjoslas moduļiem
+**Piemēri**: divkameru sistēma Survey3W RGN + Survey3N OCN, vai LATTICE sistēma, kurā RGB galvenā kamera tiek kombinēta ar šaurjoslas moduļiem
 
 ### Laika nobīdes vai vairāku datumu uzmērījumi
 
@@ -315,14 +252,8 @@ Veicot atkārtotus uzmērījumus vienā un tajā pašā teritorijā laika gaitā
 Projektiem ar lielu attēlu skaitu (500+):
 
 * Apsvērt sadalīšanu mazākos projektos pēc datuma vai teritorijas
-* Lai iegūtu ātrākus rezultātus, izmantojiet „Chloros
-
-+“ paralēlo apstrādi
-* Apdomājiet iespēju izmantot CLI
-
-vai API
-
-, lai automatizētu partiju apstrādi
+* Lai iegūtu ātrākus rezultātus, izmantojiet „Chloros+“ paralēlo apstrādi
+* Apdomājiet iespēju izmantot CLI vai API, lai automatizētu partiju apstrādi
 * Pielāgojiet minimālo atkārtotās kalibrēšanas intervālu, lai samazinātu mērķa noteikšanas laiku
 
 ***
@@ -334,9 +265,7 @@ Pirms apstrādes sākšanas pārbaudiet šos galvenos iestatījumus:
 * [ ] Kameras modelis ir pareizi atpazīts failu pārlūkā
 * [ ] Vignēšanas korekcija ir ieslēgta
 * [ ] Atstarošanas kalibrēšana ir ieslēgta
-* [ ] Programmai Survey3
-
-: ir importēts un pārbaudīts vismaz viens kalibrēšanas mērķa attēls; programmai „LATTICE”: ir pieejams mērķis un/vai `.daq` lejupvērstais ieraksts
+* [ ] Programmai Survey3: ir importēts un pārbaudīts vismaz viens kalibrēšanas mērķa attēls; programmai „LATTICE”: ir pieejams mērķis un/vai `.daq` lejupvērstais ieraksts
 * [ ] Pievienoti vēlamie multispektrālie indeksi
 * [ ] Eksporta formāts atbilst jūsu darba plūsmai
 * [ ] PPK iestatījumi konfigurēti (ja izmantojat .daq failus ar ekspozīcijas notikumiem)

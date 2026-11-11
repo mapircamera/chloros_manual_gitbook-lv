@@ -161,7 +161,7 @@ Ja programma „Chloros” neatkopj jūsu mērķus pareizi, pielāgojiet šos ie
 **Iespējamie iemesli:**
 
 * Mērķa attēli nav atzīmēti failu pārlūkā
-* Mērķis kadrā ir pārāk mazs (&lt; 30 % no attēla)
+* Mērķis kadrā ir pārāk mazs (< 30 % no attēla)
 * Nepietiekams apgaismojums (ēnas, atspīdumi)
 * Pārāk stingri mērķa atklāšanas iestatījumi
 

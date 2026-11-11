@@ -1,17 +1,14 @@
 # Dinamiskā aprēķinu pielāgošana
 
-Chloros
-1.3.0 izmanto aparatūras atpazīšanu un automātisku apstrādes stratēģijas izvēli. Apstrādes dzinējs pielāgojas jūsu aparatūrai — sākot no „Jetson Orin Nano“ līdz darbstacijai ar vairākiem GPU — bez jebkādas manuālas konfigurācijas.
+Chloros 1.3.0 izmanto aparatūras atpazīšanu un automātisku apstrādes stratēģijas izvēli. Apstrādes dzinējs pielāgojas jūsu aparatūrai — sākot no „Jetson Orin Nano“ līdz darbstacijai ar vairākiem GPU — bez jebkādas manuālas konfigurācijas.
 
 ***
 
 ## Kā tas darbojas
 
-Kad Chloros
-tiek palaists, tas veic jūsu sistēmas profilēšanu:
+Kad Chloros tiek palaists, tas veic jūsu sistēmas profilēšanu:
 
-1. **Atpazīst operētājsistēmu** — Windows
-vai Linux
+1. **Atpazīst operētājsistēmu** — Windows vai Linux
 2. **Identificē procesora kodolus un kopējo RAM**
 
 3.**Atpazīst GPU klātbūtni** — NVIDIA CUDA atbalsts, VRAM, modelis
@@ -24,19 +21,16 @@ Atklātais profils tiek saglabāts sesijas cache atmiņā un uz diska, tādējā
 
 | Platforma | Cache profils |
 | --- | --- |
-| **Linux
-/ Jetson** | `~/.config/chloros/system_config.json` (ņem vērā `XDG_CONFIG_HOME`) |
+| **Linux / Jetson** | `~/.config/chloros/system_config.json` (ņem vērā `XDG_CONFIG_HOME`) |
 | **Windows** | `%LOCALAPPDATA%\Chloros\config\system_config.json` |
 
-Dzēsiet šo failu, lai piespiestu veikt jaunu atklāšanu — tas ir noderīgi pēc GPU vai papildu RAM pievienošanas. Chloros
-automātiski veic atkārtotu atklāšanu arī tad, ja kešatmiņa ir rakstīta ar nesaderīgu vecāku versiju.
+Dzēsiet šo failu, lai piespiestu veikt jaunu atklāšanu — tas ir noderīgi pēc GPU vai papildu RAM pievienošanas. Chloros automātiski veic atkārtotu atklāšanu arī tad, ja kešatmiņa ir rakstīta ar nesaderīgu vecāku versiju.
 
 ***
 
 ## Aprēķinu stratēģijas
 
-Chloros
-izvēlas vienu no trim aprēķinu stratēģijām atkarībā no jūsu aparatūras:
+Chloros izvēlas vienu no trim aprēķinu stratēģijām atkarībā no jūsu aparatūras:
 
 | Stratēģija | Izvēlas, ja | Darbinieki | Izpildītājs | Apstrādes ceļš |
 | --- | --- | --- | --- | --- |
@@ -50,11 +44,7 @@ izvēlas vienu no trim aprēķinu stratēģijām atkarībā no jūsu aparatūras
 **GPU stratēģijām ir nepieciešams PyTorch, kas spēj izmantot CUDA.** Ierīce, kuras PyTorch nav izmantojamas CUDA ierīces, saņem `CPU_PARALLEL`, neatkarīgi no tās GPU. 1.3.0 Jetson pakete izmanto JetPack 6 CUDA versiju PyTorch, tādēļ Jetson atbilst prasībām, tiklīdz ir instalētas JetPack CUDA un cuDNN bibliotēkas. Jetson ar mazāk nekā 12 GB RAM vienmēr apstrādā vienu attēlu vienlaikus, procesa laikā (reģistrēts kā `GPU_SINGLE`).
 {% endhint %}
 
-GPU stratēģijas izmanto darba procesu kopu, kur katrs process ir atsevišķs operētājsistēmas process ar savu CUDA kontekstu, ko Chloros
-sāk, atkārtoti palaistot savu instalēto aizmugurējo programmu (nevis izmantojot Python
-`multiprocessing`, kura darba procesu palaišana nedarbojas iepakotajā lietojumprogrammā). CPU stratēģija izmanto pavedienu kopu (Python
-`ThreadPoolExecutor`). Chloros
-neizmanto nekādu trešo pušu izstrādātu izkliedēto sistēmu (piemēram, Ray).
+GPU stratēģijas izmanto darba procesu kopu, kur katrs process ir atsevišķs operētājsistēmas process ar savu CUDA kontekstu, ko Chloros sāk, atkārtoti palaistot savu instalēto aizmugurējo programmu (nevis izmantojot Python `multiprocessing`, kura darba procesu palaišana nedarbojas iepakotajā lietojumprogrammā). CPU stratēģija izmanto pavedienu kopu (Python `ThreadPoolExecutor`). Chloros neizmanto nekādu trešo pušu izstrādātu izkliedēto sistēmu (piemēram, Ray).
 
 ### Apstrādes ceļu veidi
 
@@ -75,8 +65,7 @@ Iestatiet vides mainīgo `CHLOROS_STRATEGY`, lai piespiedu kārtā piemērotu ko
 CHLOROS_STRATEGY=CPU_PARALLEL chloros-cli process ~/datasets/flight001
 ```
 
-Mainīgais tiek salīdzināts, neņemot vērā lielos un mazos burtus; viss, kas nav viens no trim nosaukumiem, tiek ignorēts, un automātiskā noteikšana turpinās kā parasti. Pārrakstīšanas gadījumā Chloros
-joprojām izvēlas darba procesoru skaitu jūsu vietā:
+Mainīgais tiek salīdzināts, neņemot vērā lielos un mazos burtus; viss, kas nav viens no trim nosaukumiem, tiek ignorēts, un automātiskā noteikšana turpinās kā parasti. Pārrakstīšanas gadījumā Chloros joprojām izvēlas darba procesoru skaitu jūsu vietā:
 
 | Pārrakstīšana | Izmantotais darba procesoru skaits |
 | --- | --- |
@@ -124,8 +113,7 @@ Diskrētie GPU sistēmai rezervē tikai 0,5 GB, jo tie neizmanto sistēmas RAM. 
 
 ## Dinamiska GPU atmiņas sadale
 
-Chloros
-izmanto [4 pavedienu apstrādes cauruļvadu](processing-pipeline.md):
+Chloros izmanto [4 pavedienu apstrādes cauruļvadu](processing-pipeline.md):
 
 * **
 
@@ -160,26 +148,23 @@ Vērtība, kas faktiski tiek izmantota darbības laikā, ir **mazāka** no platf
 
 ## Tekstūru apzināta apstrāde
 
-„Texture Aware“ debayer (**tikai Chloros
-+** — `--debayer texture-aware`) izmanto AI/ML trokšņu noņemšanas modeli, kam vienai kopijai nepieciešami aptuveni 1,75 GB VRAM FP16 formātā, tādējādi tas izmanto daudz vairāk GPU atmiņas nekā standarta metode:
+„Texture Aware“ debayer (**tikai Chloros+** — `--debayer texture-aware`) izmanto AI/ML trokšņu noņemšanas modeli, kam vienai kopijai nepieciešami aptuveni 1,75 GB VRAM FP16 formātā, tādējādi tas izmanto daudz vairāk GPU atmiņas nekā standarta metode:
 
 * Sistēmas ar **mazāk nekā 7 GB VRAM**apstrādā tekstūru ņemšanu vērā**sinhronā ciklā, vienu attēlu pēc otra** — tajās nevar ietilpt vairākas modeļa kopijas, un darba grupu izmantošana tikai palielinātu konkurenci
 * Sistēmas ar **7 GB un vairāk VRAM** var apstrādāt „Texture Aware” vienlaicīgi, lai gan ar mazāku darba vienību skaitu salīdzinājumā ar standarta metodi
 * Uz **Jetson** „Texture Aware” vienmēr tiek piesaistīts vienam darba procesam
 * Ja **nav izmantojama CUDA GPU**, izpilde izmanto standarta debayeru, un aizmugurējā sistēma reģistrē vienu `[DEBAYER] … needs a CUDA GPU …` rindu, kurā norādīts iemesls
-* Zema enerģijas patēriņa „Jetson” ierīcēs (Nano, Orin Nano) CLI
-piemēro GPU frekvences ierobežojumu, ja tiek pieprasīta „Texture Aware” funkcija — skatiet [NVIDIA Jetson rokasgrāmatu](../linux/nvidia-jetson-guide.md#gpu-frequency-cap-for-texture-aware-on-nano-and-orin-nano)
+* Zema enerģijas patēriņa „Jetson” ierīcēs (Nano, Orin Nano) CLI piemēro GPU frekvences ierobežojumu, ja tiek pieprasīta „Texture Aware” funkcija — skatiet [NVIDIA Jetson rokasgrāmatu](../linux/nvidia-jetson-guide.md#gpu-frequency-cap-for-texture-aware-on-nano-and-orin-nano)
 
 ***
 
 ## Siltuma vadība (Jetson)
 
-Jetson ierīcēm ir siltuma ierobežojumi, it īpaši slēgtās telpās vai gaisā. Chloros
-uzrauga Jetson iebūvētos temperatūras sensorus un automātiski pielāgo partiju izmērus:
+Jetson ierīcēm ir siltuma ierobežojumi, it īpaši slēgtās telpās vai gaisā. Chloros uzrauga Jetson iebūvētos temperatūras sensorus un automātiski pielāgo partiju izmērus:
 
 | Temperatūra | Reakcija |
 | --- | --- |
-| **&lt; 70 °C** | Normāla darbība — pilna ātruma režīms |
+| **< 70 °C** | Normāla darbība — pilna ātruma režīms |
 | **70 °C** (brīdinājums) | Partijas lielums pakāpeniski samazinās (no 100 % līdz 50 % temperatūras diapazonā no 70 °C līdz 80 °C) |
 | **80 °C** (Kritiska) | Agresīva jaudas ierobežošana (no 50 % līdz 0 % diapazonā no 80 °C līdz 90 °C) |
 | **90 °C** (Izslēgšanās) | Pilnībā pārtrauc GPU apstrādi |
@@ -190,11 +175,9 @@ Datoros ar atbilstošu dzesēšanu termiskā jaudas ierobežošana tiek aktiviz�
 
 ## Atmiņas slodzes pārvaldība
 
-Programma Chloros
-apstrādes laikā nepārtraukti uzrauga GPU atmiņu un reaģē trīs līmeņos.
+Programma Chloros apstrādes laikā nepārtraukti uzrauga GPU atmiņu un reaģē trīs līmeņos.
 
-**Partijas lieluma noteikšana.** Partija sākas ar 8 attēliem, reizinātiem ar platformas koeficientu no iepriekšējām tabulām. Pēc tam Chloros
-pārbauda brīvo VRAM, rezervē 20 % no tās PyTorch paša pārvaldības vajadzībām un pieņem, ka uz vienu 12 MP attēlu nepieciešami aptuveni 100 MB GPU atmiņas — partijas lielums ir mazākais no diviem: no atmiņas atvasinātais limits vai platformas bāzes vērtība. Tas nekad nenokrīt zem 1.
+**Partijas lieluma noteikšana.** Partija sākas ar 8 attēliem, reizinātiem ar platformas koeficientu no iepriekšējām tabulām. Pēc tam Chloros pārbauda brīvo VRAM, rezervē 20 % no tās PyTorch paša pārvaldības vajadzībām un pieņem, ka uz vienu 12 MP attēlu nepieciešami aptuveni 100 MB GPU atmiņas — partijas lielums ir mazākais no diviem: no atmiņas atvasinātais limits vai platformas bāzes vērtība. Tas nekad nenokrīt zem 1.
 
 **Preventīva samazināšana.**Pārsniedzot**85 % VRAM izmantojumu**, partiju izmēri tiek samazināti, pirms rodas kāda kļūme.**Piešķīruma samazināšana katram pavedienam.** Palielinoties reālajai izmantošanai, katra pavediena GPU budžets tiek samazināts: ×0,75, ja izmantošana pārsniedz 80 %, ×0,5, ja pārsniedz 90 %. Monitoringa sliekšņi ir 70 % (konservatīvs), 85 % (normālais darbības limits) un 95 % (atmiņas izsmelšanas risks).**Atmiņas izsmelšanas (OOM) atkāpšanās un atgūšanās.** Ja tomēr notiek atmiņas izsmelšanas gadījums:
 
@@ -202,8 +185,7 @@ pārbauda brīvo VRAM, rezervē 20 % no tās PyTorch paša pārvaldības vajadz�
 * aktīvo pavedienu piešķīrumi tiek samazināti līdz 70 % no to pašreizējās vērtības, un piešķīrējs pārslēdzas uz konservatīvo stratēģiju, atkal atvieglojot ierobežojumus pēc virknes veiksmīgu piešķīrumu
 * lielas slodzes apstākļos cauruļvads pāriet no `fused_gpu` uz `tiled_gpu` un, kā pēdējais līdzeklis, uz `cpu_fallback`
 
-**Virtuālās mašīnas RAM (Jetson).** Pirms apstrādes CLI
-, pamatojoties uz attēlu skaitu un debayer režīmu, aprēķina maksimālo uzņēmējdatora atmiņas apjomu un brīdina, ja RAM un failu atbalstītā apmaiņas atmiņa, visticamāk, būs nepietiekama, izvadot precīzas komandas apmaiņas atmiņas pievienošanai — skatiet [NVIDIA Jetson rokasgrāmatu](../linux/nvidia-jetson-guide.md#swap-warning-and-recommendations).
+**Virtuālās mašīnas RAM (Jetson).** Pirms apstrādes CLI, pamatojoties uz attēlu skaitu un debayer režīmu, aprēķina maksimālo uzņēmējdatora atmiņas apjomu un brīdina, ja RAM un failu atbalstītā apmaiņas atmiņa, visticamāk, būs nepietiekama, izvadot precīzas komandas apmaiņas atmiņas pievienošanai — skatiet [NVIDIA Jetson rokasgrāmatu](../linux/nvidia-jetson-guide.md#swap-warning-and-recommendations).
 
 ***
 
@@ -227,22 +209,17 @@ Tās 7 pārbaudes aptver versiju, porta pieejamību, aizmugures sistēmas palai�
 
 ### Aizmugures moduļa žurnāli
 
-Stratēģija un darba procesu skaits tiek izvēlēts backendā katras darbības sākumā — nav nekāda CLI
-banner, kas tos paziņotu. Ja kaut kas darbojas negaidīti (GPU ceļa atgriešanās, OOM, trokšņu slāpētājs, kas neiekraujas), tas parādās šīs sesijas backend žurnālā:
+Stratēģija un darba procesu skaits tiek izvēlēts backendā katras darbības sākumā — nav nekāda CLI banner, kas tos paziņotu. Ja kaut kas darbojas negaidīti (GPU ceļa atgriešanās, OOM, trokšņu slāpētājs, kas neiekraujas), tas parādās šīs sesijas backend žurnālā:
 
 | Platforma | Žurnāla atrašanās vieta |
 | --- | --- |
-| **Linux
-/ Jetson** | `~/.cache/chloros/logs/backend_<YYYYMMDD_HHMMSS>.log` (viens fails katram palaišanas reizē) |
-| **Linux
-, ar CLI
-palaists backend** | arī `~/.chloros/backend.log` |
+| **Linux / Jetson** | `~/.cache/chloros/logs/backend_<YYYYMMDD_HHMMSS>.log` (viens fails katram palaišanas reizē) |
+| **Linux, ar CLI palaists backend** | arī `~/.chloros/backend.log` |
 | **Windows** | `%LOCALAPPDATA%\Chloros\logs\` |
 
 ### Reāllaika progresa rādītāji
 
-Darbības laikā CLI
-parāda reāllaika progresu katram pavedienam (detektēšana, analīze, apstrāde, eksportēšana), kas tiek pārraidīts, izmantojot Server-Sent Events — tas ir praktisks rādītājs, lai noteiktu, vai 3. pavediens ir šaurā vieta. Skatīt [Apstrādes cauruļvadu](processing-pipeline.md).
+Darbības laikā CLI parāda reāllaika progresu katram pavedienam (detektēšana, analīze, apstrāde, eksportēšana), kas tiek pārraidīts, izmantojot Server-Sent Events — tas ir praktisks rādītājs, lai noteiktu, vai 3. pavediens ir šaurā vieta. Skatīt [Apstrādes cauruļvadu](processing-pipeline.md).
 
 ***
 
@@ -250,8 +227,5 @@ parāda reāllaika progresu katram pavedienam (detektēšana, analīze, apstrād
 
 * [Apstrādes cauruļvads](processing-pipeline.md) — 4 pavedienu cauruļvada arhitektūras izpratne
 * [NVIDIA Jetson rokasgrāmata](../linux/nvidia-jetson-guide.md) — Jetson-specifiska ieviešana un optimizācija
-* [CLI
-: komandrinda](../CLI.md) — CLI
-rokasgrāmata
-* [CLI
-atsauces materiāls](../reference/cli-reference.md) — Izsmeļošs komandu saraksts versijai 1.3.0
+* [CLI: komandrinda](../CLI.md) — CLI rokasgrāmata
+* [CLI atsauces materiāls](../reference/cli-reference.md) — Izsmeļošs komandu saraksts versijai 1.3.0

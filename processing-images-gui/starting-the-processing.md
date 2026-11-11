@@ -62,7 +62,7 @@ Chloros darbojas divos dažādos apstrādes režīmos:
 2. **Apstrāde** — kalibrēšanas piemērošana un attēlu eksportēšana**Apstrādes laiks:**
 
 * Daudz lēnāks nekā „Chloros+“ paralēlais režīms
-* Piemērots maziem un vidējiem datu kopumiem (&lt; 200 attēli)
+* Piemērots maziem un vidējiem datu kopumiem (< 200 attēli)
 
 ### „Chloros+“ režīms (paralēla apstrāde)
 
@@ -305,7 +305,7 @@ Pilnu semantiku skatiet [CLI atsauces dokumentā](../reference/cli-reference.md#
 **Risinājumi:**
 
 1. Glabājiet projektus īsākā mapē — mainiet**Darba direktoriju** sadaļā [Projekta iestatījumi](../project-settings/project-settings.md) un izveidojiet projektu no jauna, vai
-2. Ieslēdziet garos Windows ceļus un pārstartējiet Chloros: atkārtoti palaidiet Chloros instalētāju, atzīmējot opciju **Iespējot garos Windows ceļus** (tā ir atzīmēta pēc noklusējuma), vai izmantojiet grupas politiku: *Datoru konfigurācija &gt; Administratīvie šabloni &gt; Sistēma &gt; Failu sistēma &gt; Iespējot garos Win32 ceļus*.
+2. Ieslēdziet garos Windows ceļus un pārstartējiet Chloros: atkārtoti palaidiet Chloros instalētāju, atzīmējot opciju **Iespējot garos Windows ceļus** (tā ir atzīmēta pēc noklusējuma), vai izmantojiet grupas politiku: *Datoru konfigurācija > Administratīvie šabloni > Sistēma > Failu sistēma > Iespējot garos Win32 ceļus*.
 
 ### Brīdinājums „Nav atrasti mērķi”
 

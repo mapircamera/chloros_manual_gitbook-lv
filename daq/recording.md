@@ -1,8 +1,6 @@
 # Ierakstīšana un .daq formāts
 
-`.daq` fails ir „Chloros
-
-” gaismas sensora ierakstīšanas formāts: **SQLite datu bāze**, kas satur kalibrētus spektrālos kadrus no viena DAQ sensora. Ierakstiet vienu failu uzņemšanas sesijas laikā, un atstarojuma apstrādes sistēma vēlāk varēs katru attēlu dalīt ar lejupvērsto starojuma intensitāti, kas izmērīta tieši tajā brīdī.
+`.daq` fails ir „Chloros” gaismas sensora ierakstīšanas formāts: **SQLite datu bāze**, kas satur kalibrētus spektrālos kadrus no viena DAQ sensora. Ierakstiet vienu failu uzņemšanas sesijas laikā, un atstarojuma apstrādes sistēma vēlāk varēs katru attēlu dalīt ar lejupvērsto starojuma intensitāti, kas izmērīta tieši tajā brīdī.
 
 ## Kas ir iekļauts .daq failā
 
@@ -16,15 +14,11 @@
 
 Formāts ir identisks visiem DAQ-U, DAQ-M, DAQ-E un DAQ-E-S modeļiem, tādēļ turpmākajai apstrādei nav nozīmes, kurš transportlīdzeklis to ir ierakstījis. DAQ-E-S ierakstā blakus katram spektram tiek saglabāts arī ierīces sānsvārstības, griešanās un slīpuma leņķis.
 
-**Ieraksti saglabājas arī strāvas padeves pārtraukuma gadījumā (1.3.0).**Reāllaika ieraksts tiek rakstīts, izmantojot žurnālu un veicot pilnu diska sinhronizāciju pēc katras izmaiņu saglabāšanas, tādējādi strāvas padeves pārtraukums vai pārtraukts process izraisīs pēdējo apmēram 3 sekunžu datu zudumu, nevis visa faila zudumu. Ieraksts, kas pārtraukts rakstīšanas vidū, var atstāt failu `<name>.daq-journal` blakus failam `.daq`:**saglabājiet un kopējiet abus kopā.** Chloros
-
-atgriež žurnālu atpakaļ, pirmoreiz lasot failu. Aizņemts disks aizkavē faila ierakstīšanu, nekad ne sensora rādījumus.
+**Ieraksti saglabājas arī strāvas padeves pārtraukuma gadījumā (1.3.0).**Reāllaika ieraksts tiek rakstīts, izmantojot žurnālu un veicot pilnu diska sinhronizāciju pēc katras izmaiņu saglabāšanas, tādējādi strāvas padeves pārtraukums vai pārtraukts process izraisīs pēdējo apmēram 3 sekunžu datu zudumu, nevis visa faila zudumu. Ieraksts, kas pārtraukts rakstīšanas vidū, var atstāt failu `<name>.daq-journal` blakus failam `.daq`:**saglabājiet un kopējiet abus kopā.** Chloros atgriež žurnālu atpakaļ, pirmoreiz lasot failu. Aizņemts disks aizkavē faila ierakstīšanu, nekad ne sensora rādījumus.
 
 **DAQ-E, kas pārtrauc datu nosūtīšanu, tiek atkārtoti pieslēgts (1.3.0).** Kad DAQ-E datu plūsma apklust (tika pārstartēts tā komutators vai pārtrūka savienojums), backend to atkārtoti pieslēdz ar iepriekšējiem iestatījumiem, un ierakstīšana turpinās tajā pašā `.daq` failā, kurā ir atzīmēts pārtraukums.
 
-Kalibrētai ierakstīšanai ir nepieciešams sensora rūpnīcas kalibrēšanas komplekts. DAQ-U un DAQ-M gadījumā backend lejupielādē komplektu no MAPIR
-
-mākoņa pēc sensora ID (ja tas nav iespējams, ierakstīšana tiek atteikta); DAQ-E vienības ir izņēmums, jo tās glabā kalibrēšanas datus pašā ierīcē.
+Kalibrētai ierakstīšanai ir nepieciešams sensora rūpnīcas kalibrēšanas komplekts. DAQ-U un DAQ-M gadījumā backend lejupielādē komplektu no MAPIR mākoņa pēc sensora ID (ja tas nav iespējams, ierakstīšana tiek atteikta); DAQ-E vienības ir izņēmums, jo tās glabā kalibrēšanas datus pašā ierīcē.
 
 ## Ierakstīšana no GUI
 
@@ -45,11 +39,7 @@ Faili tiek saglabāti `<project>/light_sensor/`, un, kad ierakstīšana tiek apt
 
 
 
-CLI
-
-veic ierakstīšanu, izmantojot backend sensoru kopu (backendam jābūt darbojošam — šīs komandas ir vienkārši HTTP
-
-klienti):
+CLI veic ierakstīšanu, izmantojot backend sensoru kopu (backendam jābūt darbojošam — šīs komandas ir vienkārši HTTP klienti):
 
 ```bash
 # Connect the sensor into the backend pool
@@ -69,40 +59,22 @@ Iegūst `--sensor-id` vērtību no `chloros-cli daq pool-list`. Divas noderīgas
 | Opcija | Noklusējums |
 | --- | --- |
 | `--duration` | `0` — ierakstīt līdz `pool-record --stop` |
-| `--output` / `-o` | `~/Documents/DAQ Live View/` atrodas **backend** failu sistēmā, nevis CLI
+| `--output` / `-o` | `~/Documents/DAQ Live View/` atrodas **backend** failu sistēmā, nevis CLI |
 
-|
-
-Atšķirība starp izvades direktorijiem ir svarīga, ja CLI
-
-ir vērsta uz backend, kas atrodas citā datorā: fails nonāk tur, kur darbojas backend. Ja backend atrodas tajā pašā datorā, relatīvais `-o` (piemēram, iepriekš minētais `./out`) tiek atrisināts, ņemot vērā mapi, kurā tika palaista komanda.
+Atšķirība starp izvades direktorijiem ir svarīga, ja CLI ir vērsta uz backend, kas atrodas citā datorā: fails nonāk tur, kur darbojas backend. Ja backend atrodas tajā pašā datorā, relatīvais `-o` (piemēram, iepriekš minētais `./out`) tiek atrisināts, ņemot vērā mapi, kurā tika palaista komanda.
 
 ## Ierakstīšana no Python
 
-`DAQSensorSession` (ko atgriež `chloros_sdk.connect_daq_sensor()`) atklāj to pašu apvienoto ierakstu: `record_start(output_dir=None, device_name=None)` atgriež faila ceļu, `record_stop()` atgriež `{path, rows}`. Pilnu sesijas API
-
-skatiet [SDK
-
-atsauces materiālā](../reference/sdk-reference.md). SDK
-
-tiešās aparatūras klases (tikai datoru instalācijām) pēc noklusējuma ierakstus raksta uz `~/Documents/DAQ/`; izlaistajās versijās tiek atbalstīts iepriekš minētais apvienotais ceļš.
+`DAQSensorSession` (ko atgriež `chloros_sdk.connect_daq_sensor()`) atklāj to pašu apvienoto ierakstu: `record_start(output_dir=None, device_name=None)` atgriež faila ceļu, `record_stop()` atgriež `{path, rows}`. Pilnu sesijas API skatiet [SDK atsauces materiālā](../reference/sdk-reference.md). SDK tiešās aparatūras klases (tikai datoru instalācijām) pēc noklusējuma ierakstus raksta uz `~/Documents/DAQ/`; izlaistajās versijās tiek atbalstīts iepriekš minētais apvienotais ceļš.
 
 ## .daq faila izmantošana apstrādes laikā
 
-Lai no attēliem iegūtu atstarojumu, programmai Chloros
-
-ir nepieciešams katrai ekspozīcijai atbilstošs lejupvērstais starojuma intensitātes lielums:
+Lai no attēliem iegūtu atstarojumu, programmai Chloros ir nepieciešams katrai ekspozīcijai atbilstošs lejupvērstais starojuma intensitātes lielums:
 
 * **Saglabājiet failu `.daq` kopā ar attēliem.**Apstrādes laikā apstrādes ķēde automātiski nosaka**laika zīmogam atbilstošo lejupvērsto starojuma intensitāti** no ierakstītā `.daq` (jebkura DAQ modeļa) — vai no DAQ-M nativā `.csv` — kas atrodas kopā ar attēliem. GUI ieraksti šo nosacījumu izpilda automātiski, jo tie tiek pievienoti projektam brīdī, kad tiek pārtraukta to ierakstīšana.
-* **Kalibrēšana tiek lejupielādēta pēc pieprasījuma.** Ja kamerai vai DAQ ierīcei paredzētais rūpnīcas kalibrēšanas komplekts vēl nav saglabāts vietējā kešatmiņā, Chloros
-
-to pirmajā lietošanas reizē automātiski lejupielādē no „MAPIR
-
-” mākoņa (vienreiz nepieciešams interneta savienojums; saglabāts `~/.chloros/` failā).
+* **Kalibrēšana tiek lejupielādēta pēc pieprasījuma.** Ja kamerai vai DAQ ierīcei paredzētais rūpnīcas kalibrēšanas komplekts vēl nav saglabāts vietējā kešatmiņā, Chloros to pirmajā lietošanas reizē automātiski lejupielādē no „MAPIR” mākoņa (vienreiz nepieciešams interneta savienojums; saglabāts `~/.chloros/` failā).
 * **Reāllaika uzņēmumi raksta savu papildu failu.** Jebkuram reāllaikā uzņemtam atstarošanas kadram faktiski izmantotais DAQ rādījums tiek saglabāts kā `.daq` fails uzņemumu mapē `daq/`, tādējādi uzņemumu vēlāk var pārstrādāt bez sākotnējā ieraksta.
-* **Ieraksti no `chloros_scripts` ierakstītājiem (1.3.0).**`.daq`, ko izveidojuši publiskie [`chloros_scripts`](https://github.com/mapircamera/chloros_scripts) reģistratori, tiek norādīts kā DAQ modelis, kas to izveidojis, un tā ierobežojumu var iestatīt**Projekta iestatījumi → DAQ gaismas sensors** tāpat kā jebkuram citam ierakstam. Šie ierakstītāji ieraksta neapstrādātus sensora skaitījumus; Chloros
-
-iegūst sensora rūpnīcas kalibrāciju pēc sērijas numura un to piemēro.
+* **Ieraksti no `chloros_scripts` ierakstītājiem (1.3.0).**`.daq`, ko izveidojuši publiskie [`chloros_scripts`](https://github.com/mapircamera/chloros_scripts) reģistratori, tiek norādīts kā DAQ modelis, kas to izveidojis, un tā ierobežojumu var iestatīt**Projekta iestatījumi → DAQ gaismas sensors** tāpat kā jebkuram citam ierakstam. Šie ierakstītāji ieraksta neapstrādātus sensora skaitījumus; Chloros iegūst sensora rūpnīcas kalibrāciju pēc sērijas numura un to piemēro.
 * **Kam pieder šis rādījums (1.3.0).**Blakus katram ierakstam `.daq` ir norādīts `.daq.cameras.json`, kas nosauc kameru(-as), kuras kadrus šis rādījums apraksta, un apstrāde to saskaņo**tikai ar attēliem no šīm kamerām**. Tādējādi atsevišķa kamera bez sava gaismas sensora vairs neizmanto citas kameras rādījumu — tai ir jāpiesaista sensors vai jāreģistrē savs. Ieraksts, kas veikts ar pašu DAQ (GUI Record, `daq pool-record`), un jebkurš `.daq` bez šī faila (ieskaitot vecākus ierakstus), joprojām darbojas ar visām kamerām.
 
 ## Starojuma intensitātes atgūšana
@@ -111,9 +83,7 @@ Projekta apstrāde eksportē arī visus tajā esošos gaismas sensoru ierakstus 
 `Light Sensor/` mapi blakus attēlu produktiem. Tam **nav** nepieciešami attēli:
 atsevišķi ierakstīts gaismas sensora ieraksts ir pilnīgs ieraksts, un mape, kurā atrodas tikai `.daq`
 faili, ir derīga ievade. Projekts, kurā ir tikai gaismas sensoru ieraksti, tos uzskaita un
-apstrādā gan lietotnē, gan CLI
-
-, un tie paliek sarakstā arī pēc apstrādes. Apstrādes
+apstrādā gan lietotnē, gan CLI, un tie paliek sarakstā arī pēc apstrādes. Apstrādes
 ziņojumā tiek norādīts, cik daudz gaismas sensoru produktu tika izveidoti.
 
 | Produkts | Kas tas ir |
@@ -132,9 +102,7 @@ vietējā cache nav saglabāts nekas.
 **DAQ-A** ir izstrādāts pirms sērijas kalibrēšanas pakotņu sistēmas ieviešanas un tam nav pakotnes, ko
 lejupielādēt. Tas nav pārskatīšanās: DAQ-A tiek kalibrēts uz vietas, izmantojot
 atstarošanas mērķi, un mērķa balstītai kalibrēšanai nepieciešama tikai sensora *relatīvā*
-reakcija — kas ir tieši tas, ko atspoguļo tā neapstrādātie skaitļi. Chloros
-
-šodien veic kalibrēšanu, izmantojot šos datus.
+reakcija — kas ir tieši tas, ko atspoguļo tā neapstrādātie skaitļi. Chloros šodien veic kalibrēšanu, izmantojot šos datus.
 
 Tātad DAQ-A ieraksts tiek eksportēts, taču ar citu nosaukumu:
 
@@ -153,12 +121,8 @@ attiecībā uz reālo starojuma intensitāti — kopējā jauda, lukss, PPFD —
 aprēķinātas no skaitļiem.
 
 Vecākie DAQ-A-SD ieraksti (shēma v1.01 / v1.02) reģistrē tikai faila ierakstīšanas laiku, nevis
-laika zīmogu katram nolasījumam. Chloros
-
-nesalīdzinās attēlus ar šiem datiem — kadra sasaistīšana ar
+laika zīmogu katram nolasījumam. Chloros nesalīdzinās attēlus ar šiem datiem — kadra sasaistīšana ar
 ierakstīšanas laiku būtu nepareiza, lai gan vizuāli nekas neliecinātu par kļūdu —, taču eksportētais fails tos nolasī bez problēmām, un
-CSV
-
-failā ir norādīts, uz kura pulksteņa tas balstās.
+CSV failā ir norādīts, uz kura pulksteņa tas balstās.
 
 Pilnīgu informāciju par atstarošanas mērījumiem — ar vienu sensoru kopā ar kameru un diviem sensoriem (apkārtējā vide/objekts) — skatiet [Atstarošanas darba plūsmas](reflectance.md).

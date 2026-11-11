@@ -26,10 +26,10 @@ Ir divi galvenie veidi, kā pievienot attēlus projektam:
 
 Izmantojiet šo opciju, lai importētu atsevišķus attēlu failus vai nelielu failu izlasi.
 
-1. Noklikšķiniet uz pogas **&quot;Pievienot failus&quot;** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> failu pārlūka paneļa augšdaļā
+1. Noklikšķiniet uz pogas **"Pievienot failus"** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> failu pārlūka paneļa augšdaļā
 2. Atveriet mapi, kurā atrodas jūsu attēli
 3. Izvēlieties vienu vai vairākus attēlu failus (turiet nospiestu **Ctrl**, lai atlasītu vairākus failus)
-4. Noklikšķiniet uz **&quot;Atvērt&quot;**, lai importētu atlasītos failus
+4. Noklikšķiniet uz **"Atvērt"**, lai importētu atlasītos failus
 
 ### 2. metode: mapes pievienošana
 
@@ -112,7 +112,7 @@ Noklikšķinot uz pārslēgšanas pogas tabulas augšējā labajā stūrī, izv�
 Lai no projekta noņemtu nevajadzīgos attēlus:
 
 1. Izvēlieties vienu vai vairākus attēlus failu pārlūka tabulā
-2. Noklikšķiniet uz pogas **&quot;Noņemt atlasītos&quot;** <img src="../.gitbook/assets/image (2) (1).png" alt="" data-size="line">
+2. Noklikšķiniet uz pogas **"Noņemt atlasītos"** <img src="../.gitbook/assets/image (2) (1).png" alt="" data-size="line">
 3. Apstipriniet noņemšanu (faili netiek dzēsti no diska, tie tiek tikai noņemti no projekta)
 
 ### Šķirošana un filtrēšana

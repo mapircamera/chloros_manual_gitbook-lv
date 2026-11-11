@@ -84,7 +84,7 @@ Katram attēlam ar GPS datiem tiek piešķirts marķieris tā koordinātās.
 
 Izvēlieties kartes slāņa veidu, izmantojot pogas (no kreisās puses uz labo):
 
-![](&lt;../.gitbook/assets/image (14).png&gt;)
+![](<../.gitbook/assets/image (14).png>)
 
 | Veids                 | Rāda                                                                |
 | -------------------- | -------------------------------------------------------------------- |

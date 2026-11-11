@@ -1,7 +1,6 @@
 # Apstrādes pabeigšana
 
-Kad Chloros
-ir pabeidzis apstrādi, ir pienācis laiks pārskatīt rezultātus, pārbaudīt izvades kvalitāti un sagatavot apstrādātos attēlus izmantošanai jūsu darba plūsmā. Šī lapa palīdzēs jums iziet pēdējos soļus un veikt turpmākās darbības.
+Kad Chloros ir pabeidzis apstrādi, ir pienācis laiks pārskatīt rezultātus, pārbaudīt izvades kvalitāti un sagatavot apstrādātos attēlus izmantošanai jūsu darba plūsmā. Šī lapa palīdzēs jums iziet pēdējos soļus un veikt turpmākās darbības.
 
 ## Apstrādes pabeigšanas indikatori
 
@@ -13,10 +12,7 @@ Kad apstrāde ir veiksmīgi pabeigta, jūs redzēsiet vairākus indikatorus:
 * ✅ **Izvades faili**: visi apstrādātie attēli ir saglabāti projekta izvades struktūrā (zemāk)
 
 {% hint style="warning" %}
-**Apstrādes cikls, kurā netiek saglabāti attēli, tiek uzskatīts par neveiksmīgu.** Ja esat pieprasījis attēlu produktus, bet apstrādes cikls neierakstīja nevienu, Chloros
-to ziņo kā kļūdu — `[RUN-SUMMARY]` norāda uz iespējamo cēloni žurnāla nosaukumā (nekas nav importēts, nav atklāts mērķis vai visi pieprasītie produkti ir izlaisti kā nepiemēroti). CLI
-ekvivalents beidzas ar rezultātu, kas nav nulle. Apzināts izpildes cikls, kurā tiek apstrādāti tikai metadati (visi eksporta produkti ir atspējoti, nav indeksu), joprojām tiek uzskatīts par veiksmīgu. Skatīt [CLI
-atsauci](../reference/cli-reference.md#a-run-that-writes-no-images-fails).
+**Apstrādes cikls, kurā netiek saglabāti attēli, tiek uzskatīts par neveiksmīgu.** Ja esat pieprasījis attēlu produktus, bet apstrādes cikls neierakstīja nevienu, Chloros to ziņo kā kļūdu — `[RUN-SUMMARY]` norāda uz iespējamo cēloni žurnāla nosaukumā (nekas nav importēts, nav atklāts mērķis vai visi pieprasītie produkti ir izlaisti kā nepiemēroti). CLI ekvivalents beidzas ar rezultātu, kas nav nulle. Apzināts izpildes cikls, kurā tiek apstrādāti tikai metadati (visi eksporta produkti ir atspējoti, nav indeksu), joprojām tiek uzskatīts par veiksmīgu. Skatīt [CLI atsauci](../reference/cli-reference.md#a-run-that-writes-no-images-fails).
 {% endhint %}
 
 ***
@@ -27,7 +23,7 @@ atsauci](../reference/cli-reference.md#a-run-that-writes-no-images-fails).
 
 1. Noklikšķiniet uz **Galvenās izvēlnes** ikonas <img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" data-size="line">
 (kreisajā augšējā stūrī)
-2. Izvēlieties **&quot;Atvērt projekta mapi&quot;**
+2. Izvēlieties **"Atvērt projekta mapi"**
 
 3. Atvērsies failu pārlūks, kurā būs redzama projekta mape
 4. Atrodiet savu projektu pēc nosaukuma
@@ -48,10 +44,8 @@ Produkti tiek saglabāti **projekta mapē, grupēti pēc kameras un pēc tam pē
         └── Radiance_Images/             # float32 radiance always lands here
 ```
 
-* **Kameras mape**: `LATT-<sensor>-<lens>-F<filter>` kamerai LATTICE (atbilstoši uzņēmuma EXIF datiem `Model`), `<model>_<filter>` — Survey3
-(piem., `Survey3N_RGN`). Divām kamerām, kurām ir viens sensors un filtrs, bet atšķirīgs objektīvs, tiek izveidotas atsevišķas mapes — atšķiras vinjetēšana, redzes lauks un izkliede.
-* **Formāta mape**: atbilst jūsu eksporta formāta iestatījumiem — `tiff16`, `tiff8`, `png8`, `jpg8`, vai `tiff32` TIFF
-formātam (32 bitu, procentos). Spilgtums vienmēr ir float32 formātā un vienmēr atrodas mapē `tiff32`.
+* **Kameras mape**: `LATT-<sensor>-<lens>-F<filter>` kamerai LATTICE (atbilstoši uzņēmuma EXIF datiem `Model`), `<model>_<filter>` — Survey3 (piem., `Survey3N_RGN`). Divām kamerām, kurām ir viens sensors un filtrs, bet atšķirīgs objektīvs, tiek izveidotas atsevišķas mapes — atšķiras vinjetēšana, redzes lauks un izkliede.
+* **Formāta mape**: atbilst jūsu eksporta formāta iestatījumiem — `tiff16`, `tiff8`, `png8`, `jpg8`, vai `tiff32` TIFF formātam (32 bitu, procentos). Spilgtums vienmēr ir float32 formātā un vienmēr atrodas mapē `tiff32`.
 * **Produkta mapes**:
   * `Reflectance_Calibrated_Images/` — kalibrēta atstarošanās
   * `Debayered_Images/` — lineāri debayered (LATTICE): noņemts tumšais nobīdes līmenis un veikta demosaicēšana, bez flat field vai unmix, sensora sākotnējā orientācijā
@@ -70,8 +64,7 @@ formātam (32 bitu, procentos). Spilgtums vienmēr ir float32 formātā un vienm
 
 ### Cik daudz failu vajadzētu būt?
 
-Neskaitiet pēc formulas — izvades failu skaits ir atkarīgs no tā, kuri produkti tika aktivizēti un kuri attiecas uz katru kameru (piemēram, RGB
-kamerām netiek aprēķināts starojums/atstarošanās). Oficiālais skaits ir norādīts žurnālā: pēdējā `[RUN-SUMMARY]` rinda precīzi norāda, cik daudz failu tika ierakstīti, un paskaidrojumu rindas izskaidro visu, kas tika izlaists.
+Neskaitiet pēc formulas — izvades failu skaits ir atkarīgs no tā, kuri produkti tika aktivizēti un kuri attiecas uz katru kameru (piemēram, RGB kamerām netiek aprēķināts starojums/atstarošanās). Oficiālais skaits ir norādīts žurnālā: pēdējā `[RUN-SUMMARY]` rinda precīzi norāda, cik daudz failu tika ierakstīti, un paskaidrojumu rindas izskaidro visu, kas tika izlaists.
 
 ***
 
@@ -79,32 +72,24 @@ kamerām netiek aprēķināts starojums/atstarošanās). Oficiālais skaits ir n
 
 ### Ātra priekšskatīšana failu pārlūkā
 
-**Iebūvēta priekšskatīšana Windows
-:**
+**Iebūvēta priekšskatīšana Windows:**
 
 1. Atveriet produkta mapi (piem., `tiff16/Reflectance_Calibrated_Images/`)
 2. Izvēlieties attēla failu
-3. Priekšskatījums parādās Windows
-pārlūka priekšskatījuma logā
+3. Priekšskatījums parādās Windows pārlūka priekšskatījuma logā
 4. Izmantojiet bultu taustiņus, lai pārlūkotu attēlus
 
 ### Priekšskatījums ārējās attēlu skatītājprogrammās
 
 **Ieteicamās skatītājprogrammas:*** **QGIS** — bezmaksas ĢIS programmatūra (vislabāk piemērota ģeoreferencētai multispektrālajai analīzei)
-* **IrfanView** — ātra, viegla attēlu skatītāja programma (atbalsta TIFF
-formātu)
-* **Adobe Photoshop** — profesionāla rediģēšana (TIFF
-atbalsts)
+* **IrfanView** — ātra, viegla attēlu skatītāja programma (atbalsta TIFF formātu)
+* **Adobe Photoshop** — profesionāla rediģēšana (TIFF atbalsts)
 * **GIMP** — bezmaksas alternatīva programma Photoshop
-* **Windows
-Photos** — pamata skatīšana (var neatbalstīt 16 bitu TIFF
-)
+* **Windows Photos** — pamata skatīšana (var neatbalstīt 16 bitu TIFF)
 
-### Priekšskatīšana Chloros
-attēlu skatītājā
+### Priekšskatīšana Chloros attēlu skatītājā
 
-Izmantojiet „Chloros
-“ iebūvēto attēlu skatītāju, lai veiktu padziļinātu vizualizāciju:
+Izmantojiet „Chloros “ iebūvēto attēlu skatītāju, lai veiktu padziļinātu vizualizāciju:
 
 1. Noklikšķiniet uz attēla sīktēla failu pārlūkā
 2. Attēls atveras galvenajā priekšskatīšanas zonā
@@ -123,9 +108,7 @@ Atstarošanas koeficients tiek saglabāts kā vesels skaitlis DN, un **DN, kas a
 | Avots          | ρ = 1,0 ir | Kā noteikt                                        |
 | --------------- | ---------- | -------------------------------------------------- |
 | LATTICE (M3C/M3M) | **32768** (rezerves diapazons līdz ρ 2,0) | Failā ir iezīmēta XMP birka `Chloros:PixelScale=32768` |
-| Survey3
-         | **65535** (nogriezts pie ρ 1,0)     | Nav `Chloros:PixelScale` tag — šī trūkums ir pazīme (Survey3
-produktiem ir citi `Chloros:*` apstrādes tagi) |
+| Survey3          | **65535** (nogriezts pie ρ 1,0)     | Nav `Chloros:PixelScale` tag — šī trūkums ir pazīme (Survey3 produktiem ir citi `Chloros:*` apstrādes tagi) |
 
 **Nolasiet `Chloros:PixelScale` marķējumu un daliet ar to**, nevis pieņemiet, ka visur ir 65535 — dalot LATTICE atstarojumu ar 65535, katra vērtība tiek nemanāmi samazināta uz pusi. Atstarošanas fails, kas izveidots pirms versijas 1.3.0 un ierakstīts kā 8 bitu, tika apgriezts, nevis pārskalots, un tam nav mēroga tagu: to vajadzētu eksportēt atkārtoti 16 bitu vai 32 bitu formātā, nevis dalīt. Pilnu informāciju skatiet sadaļā [Izvades attēlu formāti](../output-image-formats.md).***
 
@@ -153,15 +136,12 @@ bojā LATTICE izvadi), un `ExifImageWidth` / `ExifImageHeight` tiek izslēgtas,
 jo tās apraksta sākotnējo uzņemumu — eksportam, kura izmērs tika mainīts, citādi
 tiktu piešķirti izmēri, kas ir pretrunā ar paša rastra izmēriem.
 
-Chloros
-arī raksta savas `Chloros:*` XMP tagus, kas apraksta, kas tika veikts ar katru produktu
+Chloros arī raksta savas `Chloros:*` XMP tagus, kas apraksta, kas tika veikts ar katru produktu
 (piemēram, `Chloros:ProcessingLevel`, `Chloros:CalibrationApplied`,
-`Chloros:VignetteCorrected`). Sākot ar versiju 1.3.0, Survey3
-produkti tos iekļauj katrā apstrādes
+`Chloros:VignetteCorrected`). Sākot ar versiju 1.3.0, Survey3 produkti tos iekļauj katrā apstrādes
 režīmā; indeksa produkti apraksta pašu indeksu (`Chloros:ProcessingLevel=index`,
 formulu un to, vai tā tika aprēķināta, izmantojot atstarojumu vai starojumu), nevis atkārto
-avota neapstrādāto datu tagus; turklāt produkti mapēs, kuru nosaukumi ir garāki par 260 rakstzīmēm, saglabā arī savus metadatus
-. Skatīt [Izvades attēlu formāti](../output-image-formats.md#index-products).
+avota neapstrādāto datu tagus; turklāt produkti mapēs, kuru nosaukumi ir garāki par 260 rakstzīmēm, saglabā arī savus metadatus. Skatīt [Izvades attēlu formāti](../output-image-formats.md#index-products).
 
 ***
 
@@ -174,23 +154,19 @@ avota neapstrādāto datu tagus; turklāt produkti mapēs, kuru nosaukumi ir gar
 2. Pārskatiet ziņojumus
 3. Meklējiet dzeltenos brīdinājumus vai sarkanās kļūdas
 4. Izlasiet `[RUN-SUMMARY]` rindas un jebkādus padomus
-5. Sazinieties ar MAPIR
-atbalsta dienestu, lai saņemtu palīdzību
+5. Sazinieties ar MAPIR atbalsta dienestu, lai saņemtu palīdzību
 
 ### Žurnāla saglabāšana
 
-Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR
-atbalsta dienestam:
+Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 
-1. Noklikšķiniet uz pogas **&quot;Kopēt&quot;**vai**&quot;Lejupielādēt&quot;**
+1. Noklikšķiniet uz pogas **"Kopēt"**vai**"Lejupielādēt"**
 
 2. Saglabājiet kā teksta failu projekta mapē
 3. Pievienojiet projekta dokumentācijai
-4. Ja rodas problēmas, nosūtiet to MAPIR
-atbalsta dienestam
+4. Ja rodas problēmas, nosūtiet to MAPIR atbalsta dienestam
 
-Lai problēmu nosūtītu tieši MAPIR
-, izmantojiet kļūdas ikonu (**Ziņot par kļūdu**) cilnes „Debug Log” augšdaļā — skatiet [Kļūdas ziņošana no cilnes „Log”](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
+Lai problēmu nosūtītu tieši MAPIR, izmantojiet kļūdas ikonu (**Ziņot par kļūdu**) cilnes „Debug Log” augšdaļā — skatiet [Kļūdas ziņošana no cilnes „Log”](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
 
 ## Bieži sastopamas izvades problēmas un to risinājumi
 
@@ -198,8 +174,7 @@ Lai problēmu nosūtītu tieši MAPIR
 
 **Iespējamie cēloņi:**
 
-* Produkts nav piemērots šai kamerai (piem., starojuma intensitāte/atstarošanās RGB
--kamerām — tas ir norādīts žurnālā)
+* Produkts nav piemērots šai kamerai (piem., starojuma intensitāte/atstarošanās RGB-kamerām — tas ir norādīts žurnālā)
 * Trūka nepieciešamā atsauce (piem., atstarošanas rādītāji bez mērķa un bez `.daq` lejupvērstā starojuma)
 * Projekta iestatījumos bija atspējota produkta eksportēšanas izvēles rūtiņa
 * Eksportēšanas laikā beidzās diska vieta
@@ -216,16 +191,14 @@ Lai problēmu nosūtītu tieši MAPIR
 **Iespējamie cēloņi:**
 
 * Vignēšanas korekcija ir atspējota
-* Kamera/objektīvs nav iekļauts Chloros
-profilu datu bāzē
+* Kamera/objektīvs nav iekļauts Chloros profilu datu bāzē
 * Pārmērīga vignēšana, kas pārsniedz korekcijas iespējas
 
 **Risinājumi:**
 
 1. Pārbaudiet, vai projekta iestatījumos ir ieslēgta vignēšanas korekcija
 2. Pārbaudiet, vai kameras modelis ir pareizi atpazīts
-3. Ja vignēšana joprojām pastāv, sazinieties ar MAPIR
-atbalsta dienestu
+3. Ja vignēšana joprojām pastāv, sazinieties ar MAPIR atbalsta dienestu
 
 ### Problēma: Nepareizas krāsas vai vērtības
 
@@ -243,11 +216,9 @@ atbalsta dienestu
 3. Pārbaudiet mērķa attēla kvalitāti
 4. Veiciet atkārtotu apstrādi, atzīmējot pareizos mērķus
 
-### Problēma: NDVI
-vērtības šķiet nepareizas
+### Problēma: NDVI vērtības šķiet nepareizas
 
-**Paredzamie NDVI
-diapazoni:*** **Ūdens, akmeņi, augsne**: no -0,1 līdz 0,2
+**Paredzamie NDVI diapazoni:*** **Ūdens, akmeņi, augsne**: no -0,1 līdz 0,2
 * **Reta/neveselīga veģetācija**: no 0,2 līdz 0,4
 * **Vidēja veģetācija**: no 0,4 līdz 0,6
 * **Veselīga, blīva veģetācija**: no 0,6 līdz 0,9**Ja vērtības atrodas ārpus šiem diapazoniem:**
@@ -274,10 +245,8 @@ diapazoni:*** **Ūdens, akmeņi, augsne**: no -0,1 līdz 0,2
    * WebODM
 2. **Saglabājiet EXIF metadatus**: nodrošiniet, ka GPS dati tiek saglabāti ģeotagēšanai
 3. **Kalibrētas darba plūsmas**: izmantojiet atstarojuma attēlus zinātniskai precizitātei — LATTICE atstarojuma attēlos ir iekļautas XMP kalibrēšanas birkas, kuras nolasa Pix4D
-4. **Apstrādājiet indeksa mozaīkas**: izveidojiet NDVI
-ortomozaīkas no atsevišķiem indeksa attēliem
-5. **Eksportējiet ģeoreferencētus GeoTIFF
-failus**: izmantošanai ĢIS lietojumprogrammās
+4. **Apstrādājiet indeksa mozaīkas**: izveidojiet NDVI ortomozaīkas no atsevišķiem indeksa attēliem
+5. **Eksportējiet ģeoreferencētus GeoTIFF failus**: izmantošanai ĢIS lietojumprogrammās
 
 ### ĢIS analīzei
 
@@ -285,11 +254,8 @@ failus**: izmantošanai ĢIS lietojumprogrammās
 
 1.**Ielādējiet QGIS, ArcGIS vai līdzīgā programmā**
 
-2.**Izmantojiet 16 bitu TIFF
-** atstarojuma attēlus daudzjoslu analīzei (daliet ar faila `Chloros:PixelScale`)
-3. **Izmantojiet indeksa attēlus** (NDVI
-, NDRE
-) kā gatavus izmantošanai veģetācijas slāņus
+2.**Izmantojiet 16 bitu TIFF** atstarojuma attēlus daudzjoslu analīzei (daliet ar faila `Chloros:PixelScale`)
+3. **Izmantojiet indeksa attēlus** (NDVI, NDRE) kā gatavus izmantošanai veģetācijas slāņus
 4. **Rastra kalkulators**: apvienojiet joslas pielāgotai analīzei
 5. **Eksportējiet**: izveidojiet klasifikācijas kartes, izmaiņu noteikšanu, veģetācijas veselības kartes
 
@@ -298,8 +264,7 @@ failus**: izmantošanai ĢIS lietojumprogrammās
 **Ieteicamā darba kārtība:**
 
 1.**Izmantojiet indeksa attēlus ar LUT krāsām** vizuāliem ziņojumiem
-2. **Iegūstiet statistiku**: vidējais NDVI
-rādītājs katram laukam/parcelim
+2. **Iegūstiet statistiku**: vidējais NDVI rādītājs katram laukam/parcelim
 3. **Laika rindas**: salīdziniet indeksus starp vairākām sesijām
 4. **Izveidojiet pārskatus**: iekļaujiet kartes, statistiku un vizualizācijas***
 
@@ -340,29 +305,19 @@ Vairākām sesijām/datu kopām:**
 
 **
 
-2. variants: Chloros
-CLI
-(tikai Chloros
-+)**
+2. variants: Chloros CLI (tikai Chloros+)**
 
 * Automatizējiet partiju apstrādi
 * Apstrādājiet vairākas mapes, izmantojot skriptus
-* Skatiet [CLI
-dokumentāciju](../CLI.md) un [CLI
-atsauci](../reference/cli-reference.md)
+* Skatiet [CLI dokumentāciju](../CLI.md) un [CLI atsauci](../reference/cli-reference.md)
 
 **
 
-3. variants: Python
-SDK
-(tikai Chloros
-+)**
+3. variants: Python SDK (tikai Chloros+)**
 
 * Programmatiska kontrole
 * Integrācija ar analīzes procesiem
-* Skatīt [API
-dokumentāciju](../api-python-sdk.md) un [SDK
-atsauci](../reference/sdk-reference.md)
+* Skatīt [API dokumentāciju](../api-python-sdk.md) un [SDK atsauci](../reference/sdk-reference.md)
 
 ***
 
@@ -393,15 +348,13 @@ Ja rodas problēmas:
 * 📧 **E-pasts**: info@mapir.camera (pievienojiet atkļūdošanas žurnālu)
 * 🌐 **Atbalsts**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **FAQ**: [Bieži uzdotie jautājumi](../faq.md)
-* 📖 **Dokumentācija**: [Chloros
-rokasgrāmata](../)
+* 📖 **Dokumentācija**: [Chloros rokasgrāmata](../)
 
 ***
 
 ## Kopsavilkums: pilnīga darba plūsma
 
-Tagad esat pabeiguši pilnu Chloros
-apstrādes darba plūsmu:
+Tagad esat pabeiguši pilnu Chloros apstrādes darba plūsmu:
 
 1. ✅ **Izveidots projekts** — skatiet [Projekti](../projects.md)
 2. ✅ **Pievienoti faili** — skatiet [Failu pievienošana](adding-files-to-a-project.md)
@@ -423,13 +376,9 @@ apstrādes darba plūsmu:
 
 ### Automatizācija un integrācija
 
-* [**CLI
-dokumentācija**](../CLI.md) — apstrāde pa daļām, izmantojot komandrindu
-* [**Python
-SDK
-**](../api-python-sdk.md) — automatizācija, izmantojot programmēšanu
-* [**„Chloros
-+“ funkcijas**](../#chloros) — papildu apstrādes iespējas
+* [**CLI dokumentācija**](../CLI.md) — apstrāde pa daļām, izmantojot komandrindu
+* [**Python SDK**](../api-python-sdk.md) — automatizācija, izmantojot programmēšanu
+* [**„Chloros+“ funkcijas**](../#chloros) — papildu apstrādes iespējas
 
 ### Atbalsts un apmācība
 

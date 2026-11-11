@@ -21,7 +21,7 @@ Noklikšķiniet uz **Pieslēgt sensoru** sānu joslas augšdaļā. Pieslēgšan�
 | **↻ Atjaunināt** | Nekavējoties atkārtoti skenē izvēlēto pārraides veidu (atspējots BLE/Ethernet skenēšanas laikā). |
 | **Savienot sensoru** | Kļūst pieejams, tiklīdz ir izvēlēta ierīce; savienojuma izveides laikā nosaukums mainās uz `Connecting...`. |
 
-Meklēšana darbojas tikai **kamēr ekrānā ir redzams savienošanas dialoglodziņš** un atkārtojas ik pēc 15 sekundēm tikai izvēlētajam transportam — vienkārša cilnes atvēršana neveic skenēšanu. Ja rodas kļūda, dialoglodziņā parādās: *&quot;Savienošanai neizdevās. Mēģiniet atvienot un atkārtoti pievienot sensoru, pēc tam noklikšķiniet uz &quot;Savienot&quot; vēlreiz.&quot;*
+Meklēšana darbojas tikai **kamēr ekrānā ir redzams savienošanas dialoglodziņš** un atkārtojas ik pēc 15 sekundēm tikai izvēlētajam transportam — vienkārša cilnes atvēršana neveic skenēšanu. Ja rodas kļūda, dialoglodziņā parādās: *"Savienošanai neizdevās. Mēģiniet atvienot un atkārtoti pievienot sensoru, pēc tam noklikšķiniet uz "Savienot" vēlreiz."*
 
 Sānu josla atveras automātiski, kad izveidojas savienojums ar pirmo sensoru.
 
@@ -43,9 +43,7 @@ Katram pieslēgtam sensoram tiek piešķirta viena rinda (plus viena rinda katra
 | Transporta ikona | `DAQ-U` / `DAQ-M` / `DAQ-E` vai zaļa `REF` zīme „Ambient+Object“ atstarošanas grupai. |
 | Ierīces nosaukums | Noklusējumā ir sensora sērijas numurs (tā stabilā identifikācija kalibrēšanai, `.daq` failu nosaukumiem un importēšanas saskaņošanai); pielāgotie nosaukumi saglabājas katram projektam atsevišķi. |
 | **Kalibrēts** ikona (zaļa) | Parādās, kad ir ielādēts sensora rūpnīcas kalibrēšanas komplekts, t. i., spektri ir izteikti W/m²/nm. |
-| **Pieejams atjauninājums** (dzintara krāsā, tikai DAQ-E) | Pašreizējā programmaparatūras versija ir vecāka par attēlu, kas iekļauts šajā Chloros
-
-versijā. Atjaunināšanas laikā tiek parādīts reāllaika progresa rādītājs (`Flashing… N%`, `Restarting sensor…`, tad `Updated X → Y` vai `Failed`). |
+| **Pieejams atjauninājums** (dzintara krāsā, tikai DAQ-E) | Pašreizējā programmaparatūras versija ir vecāka par attēlu, kas iekļauts šajā Chloros versijā. Atjaunināšanas laikā tiek parādīts reāllaika progresa rādītājs (`Flashing… N%`, `Restarting sensor…`, tad `Updated X → Y` vai `Failed`). |
 | Acs | Pārslēdz šī sensora redzamību diagrammā. |
 | Rīks | Atver sensora iestatījumu logu (zemāk). |
 | ✕ (sarkans) | Atvieno sensoru vai noņem „Ambient+Object” grupu. |
@@ -84,15 +82,9 @@ Atveriet, noklikšķinot uz rīkzīmes ikonas sensora rindā. Saturs secībā:
 
 pogu</version\>
 
-**Atjaunināt uz \<version\>** parādās, ja šajā Chloros
-
-versijā ir iekļauts jaunāks DAQ-E programmatūras attēls. Atjauninājums tiek nosūtīts pa tīklu aptuveni 30 sekundēs; sensors automātiski pārstartējas un atkārtoti izveido savienojumu, un pārtraukta pārsūtīšana atstāj pašreizējo programmatūru nemainīgu. Progresa dati tiek pārraidīti reāllaikā (`Flashing… N%` → `Restarting sensor…` → `Updated X → Y`), un šūnā tiek parādīts `Up to date`, ja tas ir aktuāls.
-* **PTP sinhronizācija** — reāllaika PTP stāvoklis (pāriet uz `unknown`). DAQ-E programmaparatūras versija v1.2.0+ darbojas IEEE 1588 PTPv2 standartā kā tikai pakļautais pulkstenis; Chloros
-
-a servera backend ir PTP grandmaster, un katra DAQ-E un LATTICE kamera lokālajā tīklā (LAN) darbojas kā tā pakļautais pulkstenis domēnā 0, uzturot laika zīmogus ar precizitāti aptuveni 1 ms.
-* **Tīkls**— adrese, ar kuru ierīce darbojas, un kā tā to ieguvusi (DHCP, lokālā saite vai statiska), kā arī saglabāts iestatījums, kas tiek piemērots pēc pārstartēšanas.**Mainīt…**atver veidlapu:**Automātiski (DHCP)**vai**Statiska IP**ar IP adresi, apakštīkla masku un neobligātu vārteju.**Piemērot un pārstartēt** to saglabā, pārstartē sensoru un atkārtoti to pieslēdz. Statiska adrese ārpus šī datora tīkla tiek noraidīta, jo Chloros
-
-pēc pārstartēšanas nevarēja sazināties ar sensoru; tad parādās lodziņš, kas ļauj to tomēr atļaut, ja dators tiks pāradresēts vai maršrutēts uz šo tīklu. **Datu plūsma ieslēgšanas brīdī**nosaka, vai sensors sāk datu plūsmu, tiklīdz tiek ieslēgts, pirms kāda programmatūra izveido savienojumu.**Restart sensor** (Pārstartēt sensoru) to pārstartē un atkārtoti savieno ar pašreizējiem iestatījumiem. Pārstartēšana tiek noraidīta, kamēr sensors veic ierakstīšanu. Jaunums versijā 1.3.0.
+**Atjaunināt uz \<version\>** parādās, ja šajā Chloros versijā ir iekļauts jaunāks DAQ-E programmatūras attēls. Atjauninājums tiek nosūtīts pa tīklu aptuveni 30 sekundēs; sensors automātiski pārstartējas un atkārtoti izveido savienojumu, un pārtraukta pārsūtīšana atstāj pašreizējo programmatūru nemainīgu. Progresa dati tiek pārraidīti reāllaikā (`Flashing… N%` → `Restarting sensor…` → `Updated X → Y`), un šūnā tiek parādīts `Up to date`, ja tas ir aktuāls.
+* **PTP sinhronizācija** — reāllaika PTP stāvoklis (pāriet uz `unknown`). DAQ-E programmaparatūras versija v1.2.0+ darbojas IEEE 1588 PTPv2 standartā kā tikai pakļautais pulkstenis; Chloros a servera backend ir PTP grandmaster, un katra DAQ-E un LATTICE kamera lokālajā tīklā (LAN) darbojas kā tā pakļautais pulkstenis domēnā 0, uzturot laika zīmogus ar precizitāti aptuveni 1 ms.
+* **Tīkls**— adrese, ar kuru ierīce darbojas, un kā tā to ieguvusi (DHCP, lokālā saite vai statiska), kā arī saglabāts iestatījums, kas tiek piemērots pēc pārstartēšanas.**Mainīt…**atver veidlapu:**Automātiski (DHCP)**vai**Statiska IP**ar IP adresi, apakštīkla masku un neobligātu vārteju.**Piemērot un pārstartēt** to saglabā, pārstartē sensoru un atkārtoti to pieslēdz. Statiska adrese ārpus šī datora tīkla tiek noraidīta, jo Chloros pēc pārstartēšanas nevarēja sazināties ar sensoru; tad parādās lodziņš, kas ļauj to tomēr atļaut, ja dators tiks pāradresēts vai maršrutēts uz šo tīklu. **Datu plūsma ieslēgšanas brīdī**nosaka, vai sensors sāk datu plūsmu, tiklīdz tiek ieslēgts, pirms kāda programmatūra izveido savienojumu.**Restart sensor** (Pārstartēt sensoru) to pārstartē un atkārtoti savieno ar pašreizējiem iestatījumiem. Pārstartēšana tiek noraidīta, kamēr sensors veic ierakstīšanu. Jaunums versijā 1.3.0.
 
 Ambient+Object grupai rīkzobu logā tiek parādīti tikai grupas avota sensori, ierīces nosaukums un grafika līnijas krāsa.
 
@@ -102,9 +94,7 @@ Ambient+Object grupai rīkzobu logā tiek parādīti tikai grupas avota sensori,
 
 ### Vāciņa
 
-Nolaižamajā izvēlnē **Vāciņa** tiek norādīts programmai Chloros
-
-, kāda fiziskā vāciņa ir uzlikta uz sensora difuzora, un katram spektram tiek piemērots šīs vāciņas rūpnīcā izmērītais korekcijas profils. Izvēles iespējas atkarīgas no modeļa:
+Nolaižamajā izvēlnē **Vāciņa** tiek norādīts programmai Chloros, kāda fiziskā vāciņa ir uzlikta uz sensora difuzora, un katram spektram tiek piemērots šīs vāciņas rūpnīcā izmērītais korekcijas profils. Izvēles iespējas atkarīgas no modeļa:
 
 | Modelis | Vāciņu izvēles |
 | --- | --- |
@@ -112,12 +102,10 @@ Nolaižamajā izvēlnē **Vāciņa** tiek norādīts programmai Chloros
 | DAQ-M | Nav (atklāts sensors), „Sunshine” (kosinusa korektors) |
 | DAQ-E | Nav (atklāts sensors), FOV 15°, FOV 45°, FOV 90°, „Sunshine” (kosinusa korektors) |
 
-**Visiem modeļiem noklusējuma iestatījums ir „Saules gaisma” (kosinusa korektors)** — MAPIR
-
-piegādā katru DAQ ar uzstādītu „Saules gaismas” vāciņu, un tā ir standarta konfigurācija lietošanai ārpus telpām: 180° puslodes skats ar kosinusa kļūdu ≤ ±4 % līdz 60° un ≤ ±4,5 % līdz 70° (nav ieteicams, ja saules augstums ir zemāks par ~15°), ar konstrukcijā paredzētu vājinājumu (~12×). Jūsu izvēle tiek saglabāta projektā.
+**Visiem modeļiem noklusējuma iestatījums ir „Saules gaisma” (kosinusa korektors)** — MAPIR piegādā katru DAQ ar uzstādītu „Saules gaismas” vāciņu, un tā ir standarta konfigurācija lietošanai ārpus telpām: 180° puslodes skats ar kosinusa kļūdu ≤ ±4 % līdz 60° un ≤ ±4,5 % līdz 70° (nav ieteicams, ja saules augstums ir zemāks par ~15°), ar konstrukcijā paredzētu vājinājumu (~12×). Jūsu izvēle tiek saglabāta projektā.
 
 {% hint style="warning" %}
-**Vāciņa jāizvēlas atbilstoši fiziski uzstādītajai vāciņai.**Ne sensors, ne programmatūra nespēj noteikt, kura vāciņa ir uzstādīta. Izvēle nosaka gan reāllaika korekciju, gan zīmogu, kas tiek ierakstīts katrā `.daq` failā — ņemot vērā „Sunshine” vāciņas ~12× vājinājumu, nedeklarēta vāciņa spektrus nepareizi koriģē aptuveni par šo koeficientu. (Tā paša vāciņa noņemšana un atkārtota uzstādīšana atkārtojas līdz aptuveni 1,5 %.) Izvēlieties**&quot;None&quot; (kails sensors)** tikai tad, ja vāciņa ir fiziski noņemta; DAQ-E gadījumā opcija „None” joprojām piemēro rūpnīcas ģeometrijas profilu tā iebūvētajam stikla difuzoram — tā nav bezdarbības opcija —, un DAQ-E bez difuzora ir laboratorijas konfigurācija, nevis atbalstīta lauka konfigurācija.
+**Vāciņa jāizvēlas atbilstoši fiziski uzstādītajai vāciņai.**Ne sensors, ne programmatūra nespēj noteikt, kura vāciņa ir uzstādīta. Izvēle nosaka gan reāllaika korekciju, gan zīmogu, kas tiek ierakstīts katrā `.daq` failā — ņemot vērā „Sunshine” vāciņas ~12× vājinājumu, nedeklarēta vāciņa spektrus nepareizi koriģē aptuveni par šo koeficientu. (Tā paša vāciņa noņemšana un atkārtota uzstādīšana atkārtojas līdz aptuveni 1,5 %.) Izvēlieties**"None" (kails sensors)** tikai tad, ja vāciņa ir fiziski noņemta; DAQ-E gadījumā opcija „None” joprojām piemēro rūpnīcas ģeometrijas profilu tā iebūvētajam stikla difuzoram — tā nav bezdarbības opcija —, un DAQ-E bez difuzora ir laboratorijas konfigurācija, nevis atbalstīta lauka konfigurācija.
 {% endhint %}
 
 {% hint style="info" %}
@@ -152,13 +140,7 @@ Katram sensoram **spektra diagramma** parāda:
 Zem diagrammas saraksta skatā, kas atjaunojas ik pēc 500 ms:
 
 * **Visi modeļi**: Gaismas krāsas paraugs (sRGB no CIE XYZ), Piesātināts (Jā/Nē), CIE 1931 X/Y/Z, Hromatiskums x/y, CIE u′/v′, CCT (K), CRI (Ra), dominējošais viļņa garums (nm), maksimālais viļņa garums (nm), ekscitācijas tīrība, Duv, CIE L\*/a\*/b\* un Munsell H/V/C.
-* **Tikai kalibrēti sensori**(jebkurš no DAQ-U / DAQ-M / DAQ-E, ja ir ielādēts tā rūpnīcas kalibrēšanas komplekts — to norāda zaļā**Kalibrēts** zīme sensora rindā): Kopējā jauda (W/m²), fotopiskais lukss (lx), skotopiskais lukss (lx), S/P attiecība, PPFD un PPFD Red
-
-/Green
-
-/Blue
-
-(µmol/m²/s), kā arī opiskie starojuma blīvumi — S-konuss, melanopiskais, rodopiskais, M-konuss, L-konuss (visi W/m²).
+* **Tikai kalibrēti sensori**(jebkurš no DAQ-U / DAQ-M / DAQ-E, ja ir ielādēts tā rūpnīcas kalibrēšanas komplekts — to norāda zaļā**Kalibrēts** zīme sensora rindā): Kopējā jauda (W/m²), fotopiskais lukss (lx), skotopiskais lukss (lx), S/P attiecība, PPFD un PPFD Red /Green /Blue (µmol/m²/s), kā arī opiskie starojuma blīvumi — S-konuss, melanopiskais, rodopiskais, M-konuss, L-konuss (visi W/m²).
 
 <!-- SCREENSHOT-NEEDED: list view live data table for a DAQ-E showing both the colorimetric rows and the power-calibrated rows (Total Power, Photopic/Scotopic Lux, PPFD, opic irradiances) -->
 
@@ -171,12 +153,10 @@ Divi savienoti sensori var tikt apvienoti reāllaika atstarojuma attēlojumā �
 1. Tīkla skatā noklikšķiniet uz **+**diagrammas lauciņā un izvēlieties**Apvienot vides + objekta**.
 2. Izvēlieties **Vides gaismas avota**sensoru un**Objekta skenera**sensoru (divus atšķirīgus sensorus), pēc tam**Izveidot**.
 
-Chloros
-
-aprēķina R(λ) = objekts(λ) / vide(λ) katram viļņa garumam, izmantojot abus reāllaika datu plūsmas (0, ja vides apstākļi ≤ 0). Grupas nosaukums atbilst sensoru kalibrēšanas klasei:
+Chloros aprēķina R(λ) = objekts(λ) / vide(λ) katram viļņa garumam, izmantojot abus reāllaika datu plūsmas (0, ja vides apstākļi ≤ 0). Grupas nosaukums atbilst sensoru kalibrēšanas klasei:
 
 * Abi sensori kalibrēti (komplekts ielādēts) → **„Šķietamā atstarojamība”**.
-* Ja kāds no sensoriem nav kalibrēts → **&quot;Relatīvā atstarojamība&quot;**.
+* Ja kāds no sensoriem nav kalibrēts → **"Relatīvā atstarojamība"**.
 
 Grupa parādās kā zaļa `REF` rinda sānjoslā un savā diagrammā (varavīksnes krāsojums, vērtības pēc peles uzvedšanas līdz 4 zīmēm aiz komata, palielināšana ar velšanu).
 
@@ -188,34 +168,10 @@ Izvēlnē **+**ir pieejama arī opcija**Pievienot jaunu sensoru** ar trim izviet
 
 ### Veģetācijas indeksu tabula
 
-Saraksta skatā zem atstarojuma grupas diagrammas atrodas veģetācijas indeksu tabula, kas aprēķināta, izmantojot reāllaika atstarojuma datus joslu centros **zils 450 / zaļš 550 / sarkans 670 / NIR
+Saraksta skatā zem atstarojuma grupas diagrammas atrodas veģetācijas indeksu tabula, kas aprēķināta, izmantojot reāllaika atstarojuma datus joslu centros **zils 450 / zaļš 550 / sarkans 670 / NIR 800 nm** (vērtības ar 4 zīmēm aiz komata, `---`, ja nav aprēķināmas; uzvediet kursoru uz indeksa nosaukuma, lai redzētu pilno nosaukumu):
 
-800 nm** (vērtības ar 4 zīmēm aiz komata, `---`, ja nav aprēķināmas; uzvediet kursoru uz indeksa nosaukuma, lai redzētu pilno nosaukumu):
-
-* **Vienmēr tiek parādīts** (neskarot mērogu, jebkura sensoru kombinācija): NDVI
-
-, GNDVI
-
-, ENDVI, WDRVI
-
-, GRVI
-
-, CVI
-
-, GCI
-
-, MSR.
-* **Tikai tad, ja abi sensori ir kalibrēti pēc jaudas** (abi sensoru komplekti ielādēti): EVI
-
-, SAVI
-
-, OSAVI
-
-, GSAVI, GOSAVI, MSAVI2, RDVI, TDVI, LAI
-
-, NLI, MNLI, FCI, GEMI
-
-.
+* **Vienmēr tiek parādīts** (neskarot mērogu, jebkura sensoru kombinācija): NDVI, GNDVI, ENDVI, WDRVI, GRVI, CVI, GCI, MSR.
+* **Tikai tad, ja abi sensori ir kalibrēti pēc jaudas** (abi sensoru komplekti ielādēti): EVI, SAVI, OSAVI, GSAVI, GOSAVI, MSAVI2, RDVI, TDVI, LAI, NLI, MNLI, FCI, GEMI.
 
 <!-- SCREENSHOT-NEEDED: an Ambient+Object reflectance group in list view — reflectance chart labeled "Apparent Reflectance" with the vegetation index table below it showing live NDVI etc. -->
 
@@ -239,13 +195,9 @@ Lai iegūtu kvantitatīvus starojuma intensitātes rādītājus, aprēķiniet vi
 ## Daudzsensoru izkārtojumi un projekta saglabāšana
 
 * Apvienojiet vairākus sensorus vienā diagrammā (kopīgas ass), saglabājiet atsevišķas diagrammas (automātisks režģa izkārtojums), pārvietojiet sensorus starp diagrammām, pārvelciet un pārkārtojiet rindas/flīzes, kā arī paslēpiet atsevišķus sensorus, izmantojot acs ikonu.
-* Katram projektam Chloros
-
-saglabā: ierīču nosaukumus, diagrammu krāsas, diagrammas izmēru, skatīšanas režīmu un katra sensora iestatījumus (integrācijas laiku, kadru vidējošanu, AE stāvokli, vāciņa izvēli).
+* Katram projektam Chloros saglabā: ierīču nosaukumus, diagrammu krāsas, diagrammas izmēru, skatīšanas režīmu un katra sensora iestatījumus (integrācijas laiku, kadru vidējošanu, AE stāvokli, vāciņa izvēli).
 * **Atverot projektu no jauna, tā sensori automātiski atkal savienojas** pēc adreses — COM ports DAQ-U gadījumā, BLE ierīce DAQ-M gadījumā, mDNS uzņēmuma nosaukums DAQ-E gadījumā (tiek atrisināts pat tad, ja ierīces IP adrese ir mainījusies) — un atkārtoti piemēro katra sensora saglabāto vāciņa profilu, kadru vidējošanu, AE stāvokli un manuālo integrācijas laiku.***
 
 ## Kameras pārošana (DLS)
 
-Nav nekas, ko pārot. Atšķirībā no dronu DLS darba plūsmām, kurās gaismas sensors tiek saistīts ar kameru jau sākumā, Chloros
-
-saskaņo DAQ datus ar attēliem vēlāk: importēšanas/apstrādes brīdī `.daq` rādījumi tiek interpolēti uz katra uzņēmuma ekspozīcijas laika zīmogu. Veiciet ierakstu ar jebkuru pieslēgtu sensoru (`.daq` automātiski nonāk projektā), un atstarojuma apstrāde atrod pareizos rādījumus pēc laika — skatiet [DAQ gaismas sensori](README.md), lai uzzinātu, kā tiek izmantoti lejupvērstie dati. **Reāllaika**LATTICE uzņēmumiem izvēlieties sensoru cilnē „Cameras” (Kameras) izvēlnē**Light Sensor** (Gaismas sensors); tad katrs uzņēmums saglabā izmantoto rādījumu, kas atbilst tikai šī uzņēmuma kamerām (skatiet [Atstarošanas darba plūsmas](reflectance.md)).</version\>
+Nav nekas, ko pārot. Atšķirībā no dronu DLS darba plūsmām, kurās gaismas sensors tiek saistīts ar kameru jau sākumā, Chloros saskaņo DAQ datus ar attēliem vēlāk: importēšanas/apstrādes brīdī `.daq` rādījumi tiek interpolēti uz katra uzņēmuma ekspozīcijas laika zīmogu. Veiciet ierakstu ar jebkuru pieslēgtu sensoru (`.daq` automātiski nonāk projektā), un atstarojuma apstrāde atrod pareizos rādījumus pēc laika — skatiet [DAQ gaismas sensori](README.md), lai uzzinātu, kā tiek izmantoti lejupvērstie dati. **Reāllaika**LATTICE uzņēmumiem izvēlieties sensoru cilnē „Cameras” (Kameras) izvēlnē**Light Sensor** (Gaismas sensors); tad katrs uzņēmums saglabā izmantoto rādījumu, kas atbilst tikai šī uzņēmuma kamerām (skatiet [Atstarošanas darba plūsmas](reflectance.md)).</version\>

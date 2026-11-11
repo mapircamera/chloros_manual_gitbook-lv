@@ -26,28 +26,10 @@ Trīs režīmu pogas paneļa augšdaļā:
 | **Nepārtraukta**| Uzņemšana secīgi, līdz tiek sasniegts apturēšanas nosacījums. | Pārtraukšana pēc**uzņemto attēlu skaita** (noklusējums 1) *vai* **uzņemšanas ilguma** (noklusējums 10 s; vienības: sekundes / minūtes / stundas / dienas). |
 | **Intervāls**(laika nobīde) | Sērijveida uzņemšana pēc taimera. |**Uzņemto attēlu skaits / intervāls**(noklusējums 1) ·**Ik pēc**N vienībām (noklusējums 5 s) ·**Ilgst** N vienības (noklusējums 1 m). |
 
-Nepārtrauktajā vai Intervāla režīmā pogai „Uztvert visu” darbības laikā mainās nosaukums uz **Pārtraukt (N)**, skaitot uzņēmumus, tiklīdz tie tiek veikti. Pilna diska piepildīšanās aptur darbību (skatīt [„Capture All” darbības gaitu](#the-capture-all-flow)).**Nepārtrauktais režīms masīvos darbojas backendā (jaunums versijā 1.3.0).** Ja visas sarakstā iekļautās kameras pieder masīvam (atsevišķās kameras ir paslēptas vai izslēgtas), nepārtrauktais režīms vairs nesūta vienu pieprasījumu par katru uzņemšanu: Chloros
-
-aizmugurējā sistēma pati izpilda uzņemšanas ciklu, ierakstot vienu sinhronizētu grupu, kamēr izvēlas nākamo, un poga noskaidro to skaitu. Ja sarakstā ir atsevišķas kameras, Chloros
-
-veic uzņemšanu pa posmiem, kā iepriekš.
+Nepārtrauktajā vai Intervāla režīmā pogai „Uztvert visu” darbības laikā mainās nosaukums uz **Pārtraukt (N)**, skaitot uzņēmumus, tiklīdz tie tiek veikti. Pilna diska piepildīšanās aptur darbību (skatīt [„Capture All” darbības gaitu](#the-capture-all-flow)).**Nepārtrauktais režīms masīvos darbojas backendā (jaunums versijā 1.3.0).** Ja visas sarakstā iekļautās kameras pieder masīvam (atsevišķās kameras ir paslēptas vai izslēgtas), nepārtrauktais režīms vairs nesūta vienu pieprasījumu par katru uzņemšanu: Chloros aizmugurējā sistēma pati izpilda uzņemšanas ciklu, ierakstot vienu sinhronizētu grupu, kamēr izvēlas nākamo, un poga noskaidro to skaitu. Ja sarakstā ir atsevišķas kameras, Chloros veic uzņemšanu pa posmiem, kā iepriekš.
 
 {% hint style="warning" %}
-**Ātra uzņemšana Windows
-
-vidē: izslēdziet Chloros
-
-a backend no Microsoft Defender skenēšanas.** Reāllaika skenēšana katram failam, ko raksta ātrdarbīga uzņemšana, MAPIR
-
-testos aizņem apmēram 30 % no uzņemšanas ātruma (simtiem failu sekundē nelielā ROI). Windows
-
-instalētājs piedāvā opciju **„Izslēgt Chloros
-
-backend no „Microsoft Defender” skenēšanas (daudz ātrāka kameras uzņemšana; ieteicams)”**, kas pēc noklusējuma ir atzīmēta, un atinstalēšanas laikā šo izslēgšanu atceļ. Ja esat atspējojis šo opciju, palaidiet instalētāju no jauna ar to atzīmētu vai pievienojiet Defender procesa izņēmumu `chloros-backend.exe` (Chloros
-
-instalācijas mapes `backend` mapē). Kad „Defender” izmanto vienu vai vairākus procesora kodolus masīva nepārtrauktas uzņemšanas laikā, Chloros
-
-backend to vienreiz atzīmē savā žurnālā, norādot šos pašus divus risinājumus.
+**Ātra uzņemšana Windows vidē: izslēdziet Chloros a backend no Microsoft Defender skenēšanas.** Reāllaika skenēšana katram failam, ko raksta ātrdarbīga uzņemšana, MAPIR testos aizņem apmēram 30 % no uzņemšanas ātruma (simtiem failu sekundē nelielā ROI). Windows instalētājs piedāvā opciju **„Izslēgt Chloros backend no „Microsoft Defender” skenēšanas (daudz ātrāka kameras uzņemšana; ieteicams)”**, kas pēc noklusējuma ir atzīmēta, un atinstalēšanas laikā šo izslēgšanu atceļ. Ja esat atspējojis šo opciju, palaidiet instalētāju no jauna ar to atzīmētu vai pievienojiet Defender procesa izņēmumu `chloros-backend.exe` (Chloros instalācijas mapes `backend` mapē). Kad „Defender” izmanto vienu vai vairākus procesora kodolus masīva nepārtrauktas uzņemšanas laikā, Chloros backend to vienreiz atzīmē savā žurnālā, norādot šos pašus divus risinājumus.
 {% endhint %}
 
 <!-- SCREENSHOT-NEEDED: the capture-mode area of Capture Settings with Interval selected — showing the "Captures / interval", "Every N (unit)" and "For N (unit)" rows with their defaults (1, 5 s, 1 m). -->
@@ -67,26 +49,16 @@ Logā redzamais palīdzības teksts to apkopojis: izvēlieties, kuras kameras un
 
 Ir seši eksporta veidi: **Raw, Debayered, Radiance, Reflectance, Preview, Index**. Katras kameras rindā tiek parādīti tikai piemērojamie veidi:
 
-| Eksporta veids | Saturs | RGB
-
-(FRGB) | Bayer multispektrālais (FRGN/FOCN/FNGB) | Mono (M3M) |
+| Eksporta veids | Saturs | RGB (FRGB) | Bayer multispektrālais (FRGN/FOCN/FNGB) | Mono (M3M) |
 | --- | --- | --- | --- | --- |
 | **Raw** | Bayer mozaīka (mono: viena josla) tieši no sensora | ✓ | ✓ | ✓ |
-| **Debayered** | Lineārā demosaika: no neapstrādātā attēla noņemts kalibrēšanas paketes tumšais nobīde (DSNU), pēc tam veikta malu ņemšana vērā demosaika — bez linearitātes korekcijas, līdzena lauka vai krāsu atdalīšanas. Saglabāts kā 3-kanālu RGB
-
-TIFF
-
-(mono: 1-kanālu pelēktoņu) | ✓ | ✓ | ✓ |
-| **Priekšskatījums** | Pilna attēla apstrādes ķēde (balansa un gamma korekcija saskaņā ar kameras profilu, kā arī RGB
-
-kameras iestatījums „Highlights“; multispektrālais: viltus krāsu izstiepšana) | ✓ | ✓ | ✓ |
+| **Debayered** | Lineārā demosaika: no neapstrādātā attēla noņemts kalibrēšanas paketes tumšais nobīde (DSNU), pēc tam veikta malu ņemšana vērā demosaika — bez linearitātes korekcijas, līdzena lauka vai krāsu atdalīšanas. Saglabāts kā 3-kanālu RGB TIFF (mono: 1-kanālu pelēktoņu) | ✓ | ✓ | ✓ |
+| **Priekšskatījums** | Pilna attēla apstrādes ķēde (balansa un gamma korekcija saskaņā ar kameras profilu, kā arī RGB kameras iestatījums „Highlights“; multispektrālais: viltus krāsu izstiepšana) | ✓ | ✓ | ✓ |
 | **Starojuma intensitāte** | float32 W/m²/sr/nm, izmantojot pilnu radiometrisko ķēdi | — (nav pieejams) | ✓ | ✓ |
 | **Atstarošanās** | uint16 ρ (32768 = 1,0) | — (nav pieejams) | ✓ — tiek parādīts tikai tad, ja kamerai ir DAQ gaismas sensors (pašas vai mantots no masīva) | tāpat kā multispektrālajam |
 | **Indekss** | Veģetācijas indeksa (LUT) attēlojums | — | ✓ — prasa, lai kamerā būtu ieslēgts, ne tukšs indeksa izteiksme, un netiek piedāvāts kombinēto matricas locekļiem (matricai pieder viens kopīgs indekss) | — (indeksam nepieciešamas ≥2 joslas; skatīt [Mono kameras un veģetācijas indeksi](mono-indices.md)) |
 
-RGB
-
-kamerām nekad netiek piedāvāts starojums un atstarošanās — starojums uz vienu Bayer elementu nav nozīmīgs platjoslas fotometriskajam sensoram.
+RGB kamerām nekad netiek piedāvāts starojums un atstarošanās — starojums uz vienu Bayer elementu nav nozīmīgs platjoslas fotometriskajam sensoram.
 
 ### Ātrākā uzņemšana
 
@@ -151,15 +123,11 @@ Ieraksti tiek saglabāti atvērtā projektā mapē `<project>/captures/`. Katrs 
 * **Viena asimetrija, par kuru jāzina:** attēlošanas līmenis tiek saglabāts mapē ar nosaukumu `preview/`, savukārt failu nosaukumos paliek `_display` — mape un piedēklis atšķiras tikai šim līmenim.
 * Nezināmi līmeņi tiek saglabāti mapē ar savu nosaukumu; ja apakšmapes nevar izveidot, fails tiek ierakstīts uzņemto attēlu saknes mapē, nevis pazūd.
 * Uzņemtie TIFF faili pēc noklusējuma tiek saspiesti bez zudumiem (DEFLATE) un satur pilnus kalibrēšanas un apstrādes metadatus **faila XMP iekšienē** — uzņēmumi ir pašaprakstoši, bez papildu failiem, izņemot `.daq` lasījumu (un tā `.daq.cameras.json`).
-* **Ierobežošanas maskas (jaunums versijā 1.3.0).**Gadījumos, kad 3×3 spektrālajai atdalīšanai bija jāierobežo josla līdz 0 vismaz vienā pikselī, starojuma, atstarošanas un indeksa produktiem tiek piešķirta maska katram pikselim atsevišķi, `clamp_masks/<product folder>/<product name>_clampmask.tif` (bits 0 = josla produkta R kanālā, bits 1 = G, bits 2 = B); uz to norāda produkta `Chloros:UnmixClampMask` XMP tag. Maski atrodas**blakus** produktu mapēm, nekad to iekšienē, tādēļ produktu mapi, piemēram, `reflectance/`, var nodot fotogrammetrijas programmatūrai tādu, kāda tā ir. „Chloros
-
-” paša importēšanas funkcija izlaiž maskas.
+* **Ierobežošanas maskas (jaunums versijā 1.3.0).**Gadījumos, kad 3×3 spektrālajai atdalīšanai bija jāierobežo josla līdz 0 vismaz vienā pikselī, starojuma, atstarošanas un indeksa produktiem tiek piešķirta maska katram pikselim atsevišķi, `clamp_masks/<product folder>/<product name>_clampmask.tif` (bits 0 = josla produkta R kanālā, bits 1 = G, bits 2 = B); uz to norāda produkta `Chloros:UnmixClampMask` XMP tag. Maski atrodas**blakus** produktu mapēm, nekad to iekšienē, tādēļ produktu mapi, piemēram, `reflectance/`, var nodot fotogrammetrijas programmatūrai tādu, kāda tā ir. „Chloros” paša importēšanas funkcija izlaiž maskas.
 * **Orientācija (1.3.0).** Atsevišķas kameras produkti „Preview”, „Radiance”, „Reflectance” un „Index” tiek pagriezti atbilstoši tās „Mirror/Rotation” iestatījumam; „Raw” un „Debayered” paliek tādā stāvoklī, kādā tos nolasīja sensors. Visi masīva faili paliek sākotnējā formātā. Katrs fails reģistrē šo iestatījumu savā XMP, tādējādi atkārtotā apstrāde to piemēro tādā pašā veidā.
 * **Kurai kamerai pieder `.daq` (1.3.0).** Aizturēšanas `.daq` apstrādes laikā tiek saskaņots tikai ar attēliem no tām kamerām, kuras norāda tā `.daq.cameras.json`. Tādējādi atsevišķa kamera bez sava gaismas sensora vairs neizmanto citas kameras rādījumus — tai ir jāpiesaista sensors vai jāreģistrē sensors cilnē „Gaismas sensori”. Gaismas sensora ieraksts (un jebkurš `.daq` bez šī faila, ieskaitot vecākus ierakstus) joprojām darbojas visām kamerām.
 
-Tas ir tas pats izkārtojums, kādu `chloros-cli lattice capture` / `array-capture` ieraksta savā `-o` direktorijā — dokumentēts [CLI
-
-atsauces sadaļā § Kā izskatās uzņemto attēlu mape](../reference/cli-reference.md#what-a-captures-folder-looks-like).
+Tas ir tas pats izkārtojums, kādu `chloros-cli lattice capture` / `array-capture` ieraksta savā `-o` direktorijā — dokumentēts [CLI atsauces sadaļā § Kā izskatās uzņemto attēlu mape](../reference/cli-reference.md#what-a-captures-folder-looks-like).
 
 <!-- SCREENSHOT-NEEDED: OS file explorer showing a real <project>/captures/ folder after a multi-level array capture — the raw/debayered/radiance/reflectance/preview subfolders, the daq/ and clamp_masks/ folders, and sync_<ts>_SN<serial>_<level>.tif filenames visible inside one subfolder. -->
 
@@ -179,11 +147,7 @@ chloros-cli process "C:/ChlorosProjects/MyField/captures"
 Līmeņa apakšmapes tieša nosaukšana (piem., `…/captures/raw/`) arī darbojas, taču atstāj mapi `daq/` neiekļautu — kopējiet to līdzās, kad-izveidojat radiometrisko produktu no `raw/`, citādi laika zīmju saskaņošanai nebūs ar ko salīdzināt.
 
 {% hint style="warning" %}
-**Apstrāde vienmēr sākas no `raw`.** Katrā uzņemšanā neapstrādātais kadrs ir apstrādes procesa avots; `debayered`, `radiance`, `reflectance`, un `preview` parādās kā skatāmie režīmi, bet nekad netiek atgriezti caur apstrādes cauruļvadu — atkārtota atvasinātā produkta apstrāde nozīmētu atkārtoti piemērot vinjetēšanu, krāsu un starojuma aprēķinus, kas jau ir iebūvēti tā pikseļos, tāpēc Chloros
-
-to noraida, nevis veic dubultu apstrādi. Renderējumi `index/` un `composite/` netiek apstrādāti vispār (tie ir izvades faili, nevis uzņemtie attēli). „Captures” mape, kas saglabāta **bez** neapstrādātu datu importēšanas, tiek parādīta normāli, taču `process` to izlaiž un par to paziņo; `--input-level {raw,debayered,processed}` ir apzināti izveidota „glābšanas lūka”, kas piespiež izmantot ieejas punktu. Skatīt [CLI
-
-atsauci](../reference/cli-reference.md#what-a-captures-folder-looks-like), lai uzzinātu precīzus izlaišanas ziņojumus.
+**Apstrāde vienmēr sākas no `raw`.** Katrā uzņemšanā neapstrādātais kadrs ir apstrādes procesa avots; `debayered`, `radiance`, `reflectance`, un `preview` parādās kā skatāmie režīmi, bet nekad netiek atgriezti caur apstrādes cauruļvadu — atkārtota atvasinātā produkta apstrāde nozīmētu atkārtoti piemērot vinjetēšanu, krāsu un starojuma aprēķinus, kas jau ir iebūvēti tā pikseļos, tāpēc Chloros to noraida, nevis veic dubultu apstrādi. Renderējumi `index/` un `composite/` netiek apstrādāti vispār (tie ir izvades faili, nevis uzņemtie attēli). „Captures” mape, kas saglabāta **bez** neapstrādātu datu importēšanas, tiek parādīta normāli, taču `process` to izlaiž un par to paziņo; `--input-level {raw,debayered,processed}` ir apzināti izveidota „glābšanas lūka”, kas piespiež izmantot ieejas punktu. Skatīt [CLI atsauci](../reference/cli-reference.md#what-a-captures-folder-looks-like), lai uzzinātu precīzus izlaišanas ziņojumus.
 {% endhint %}
 
 Vēl divas darbības, kas ir vērts zināt, veidojot skriptus atkārtotai apstrādei:
@@ -191,15 +155,11 @@ Vēl divas darbības, kas ir vērts zināt, veidojot skriptus atkārtotai apstr�
 * `chloros-cli process` izpilde, kas pieprasīja rezultātus, bet **nerakstīja nekādus attēlu rezultātus,**beidzas ar kļūdu un iziet ar rezultātu, kas nav nulle** — jūs nekad nesaņemsiet klusu, tukšu izpildi. Veiksmīgas izpildes ziņo par rezultātu skaitu. (Apzināta izpilde, kurā tiek apstrādāti tikai metadati, joprojām tiek uzskatīta par veiksmīgu.)
 * Atkārtoti importēti apstrādāti eksporti nekad neaizņem uzņemuma neapstrādāto datu vietu — sākotnējie neapstrādātie dati vienmēr paliek apstrādes procesa avots.
 
-## CLI
-
-ekvivalenti
+## CLI ekvivalenti
 
 Viss šajā lapā aprakstītais var tikt vadīts bez grafiskās saskarnes. GUI uzņemšanas režīmi tieši atbilst `chloros-cli lattice array-capture`:
 
-| GUI | CLI
-
-|
+| GUI | CLI |
 | --- | --- |
 | Vienreizējs | `chloros-cli lattice array-capture` |
 | Nepārtraukts | `array-capture --continuous [--count N] [--duration S]` |
@@ -210,6 +170,4 @@ Viss šajā lapā aprakstītais var tikt vadīts bez grafiskās saskarnes. GUI u
 | Video ieraksta indekss | `chloros-cli lattice array-record` |
 | Neapstrādātu attēlu sērijas ierakstīšana / Video veidošana | `chloros-cli lattice array-burst` / `array-build-video` |
 
-Pilnās karogu tabulas, viedās automātiskās ekspozīcijas (smart-AE) fiksētas uzņemšanas opcija (`--smart`) un pastāvīgas ātruma modelis ir aprakstīti sadaļā [CLI
-
-atsauces materiāls § Uzņemšanas režīmi, ierakstītāji un pārstrāde bezsaistē](../reference/cli-reference.md#capture-modes-recorders--offline-reprocess).
+Pilnās karogu tabulas, viedās automātiskās ekspozīcijas (smart-AE) fiksētas uzņemšanas opcija (`--smart`) un pastāvīgas ātruma modelis ir aprakstīti sadaļā [CLI atsauces materiāls § Uzņemšanas režīmi, ierakstītāji un pārstrāde bezsaistē](../reference/cli-reference.md#capture-modes-recorders--offline-reprocess).

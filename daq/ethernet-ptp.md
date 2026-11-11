@@ -1,8 +1,6 @@
 # DAQ-E tīkla konfigurācija un laika sinhronizācija
 
-> Sensora fiziskā tīkla konfigurācija — kabeļu pieslēgšana, PoE, IP adrešu piešķiršana un paša ierīces tīkla iestatījumi — ir aprakstīta **[DAQ lietotāja rokasgrāmatā](https://mapir.gitbook.io/daq/daq-e/network-setup)**. Šajā lapā ir aprakstīta Chloros
-
-puse: savienošana, laika sinhronizācija un rīcība, ja atklāšanas process nedod rezultātus.
+> Sensora fiziskā tīkla konfigurācija — kabeļu pieslēgšana, PoE, IP adrešu piešķiršana un paša ierīces tīkla iestatījumi — ir aprakstīta **[DAQ lietotāja rokasgrāmatā](https://mapir.gitbook.io/daq/daq-e/network-setup)**. Šajā lapā ir aprakstīta Chloros puse: savienošana, laika sinhronizācija un rīcība, ja atklāšanas process nedod rezultātus.
 
 DAQ-E ir DAQ ģimenes Ethernet ierīce: tā tiek barota ar PoE, tiek atklāta, izmantojot mDNS (pakalpojums `_daq-e._tcp`), un to var adresēt, izmantojot hostvārdu, kas atvasināts no sensora ID — `daq-e-<6 hex>.local`, piemēram, `daq-e-def330.local`. Šajā lapā ir aprakstīts, kā ierīce pārraida datus tīklā un kā tā piedalās PTP laika sinhronizācijā.
 
@@ -13,35 +11,17 @@ DAQ-E ir DAQ ģimenes Ethernet ierīce: tā tiek barota ar PoE, tiek atklāta, i
 | **Multicast** (noklusējums) | UDP `239.10.10.10:5002` | Jebkurš skaits tajā pašā LAN saņem to pašu datu plūsmu | Katra datagramma tiek validēta ar CRC-16/CCITT |
 | **Raw** | TCP ports `5000` | Tieši viens klients (ekskluzīvi) | Pilnībā baitu saderīgs ar DAQ-U |
 
-Chloros
-
-pēc noklusējuma izmanto multicast, kas ļauj GUI, CLI
-
-un SDK
-
-vienlaikus novērot vienu sensoru.
+Chloros pēc noklusējuma izmanto multicast, kas ļauj GUI, CLI un SDK vienlaikus novērot vienu sensoru.
 
 ## Tīkla prasības
 
-* **Viena un tā pati apraides domēna.** Datoram, kurā darbojas Chloros
-
-, jāatrodas tajā pašā L2 tīkla segmentā, kurā atrodas sensors — mDNS atklāšana nešķērso maršrutētājus.
-* **Ugunsmūris.** Windows
-
-vidē instalētājs katrā tīkla profilā pievieno **Chloros
-
-Backend (UDP-In)**ugunsmūra noteikumu backendam, kas aptver DAQ-E datus (UDP 5002), mDNS (UDP 5353) un PTP (UDP 319/320), kā arī**„Chloros
-
-Backend (TCP-In)“** noteikumu, kas ierobežots ar lokālo apakštīklu, lai nodrošinātu DAQ-E savienojumu ar datoru programmatūras atjaunināšanas laikā. Linux
-
-vidē `.deb` atver UDP portus `ufw` vai `firewalld`, ja šī ugunsmūra ir aktīva instalācijas brīdī. Trešās puses ugunsmūrim vai vēlāk aktivizētam ugunsmūrim ir jāatļauj tie paši porti.
+* **Viena un tā pati apraides domēna.** Datoram, kurā darbojas Chloros, jāatrodas tajā pašā L2 tīkla segmentā, kurā atrodas sensors — mDNS atklāšana nešķērso maršrutētājus.
+* **Ugunsmūris.** Windows vidē instalētājs katrā tīkla profilā pievieno **Chloros Backend (UDP-In)**ugunsmūra noteikumu backendam, kas aptver DAQ-E datus (UDP 5002), mDNS (UDP 5353) un PTP (UDP 319/320), kā arī**„Chloros Backend (TCP-In)“** noteikumu, kas ierobežots ar lokālo apakštīklu, lai nodrošinātu DAQ-E savienojumu ar datoru programmatūras atjaunināšanas laikā. Linux vidē `.deb` atver UDP portus `ufw` vai `firewalld`, ja šī ugunsmūra ir aktīva instalācijas brīdī. Trešās puses ugunsmūrim vai vēlāk aktivizētam ugunsmūrim ir jāatļauj tie paši porti.
 * **PoE barošana, nav statusa LED.** DAQ-E ierīcei nav savas LED — pārbaudiet barošanu, izmantojot savienojuma/PoE indikatoru uz komutatora vai injektora porta, un pēc ieslēgšanas pagaidiet dažas sekundes, lai ierīce uzsāktu darbu un pievienotos tīklam.
 
 ## Savienošana
 
-**GUI:** cilne „Gaismas sensori“ → „Savienot sensoru“ → ierīces tips „DAQ-E (Ethernet)“. Atklāšana notiek tikai tikmēr, kamēr ekrānā ir redzams savienošanas dialoglodziņš (mDNS pārlūkošana un ARP skenēšana Windows
-
-vidē), atkārtojoties ik pēc 15 sekundēm; pogas „Atjaunināt“ nospiešana veic tūlītēju atkārtotu skenēšanu. Atrastie sensori parādās nolaižamajā izvēlnē; pirmais atklātais sensors tiek automātiski atlasīts.
+**GUI:** cilne „Gaismas sensori“ → „Savienot sensoru“ → ierīces tips „DAQ-E (Ethernet)“. Atklāšana notiek tikai tikmēr, kamēr ekrānā ir redzams savienošanas dialoglodziņš (mDNS pārlūkošana un ARP skenēšana Windows vidē), atkārtojoties ik pēc 15 sekundēm; pogas „Atjaunināt“ nospiešana veic tūlītēju atkārtotu skenēšanu. Atrastie sensori parādās nolaižamajā izvēlnē; pirmais atklātais sensors tiek automātiski atlasīts.
 
 <!-- SCREENSHOT-NEEDED: DAQ connect dialog with Device Type set to "DAQ-E (Ethernet)" and at least one discovered sensor listed in the Hostname/IP dropdown (e.g. daq-e-xxxxxx.local), Connect button enabled. -->
 
@@ -67,23 +47,9 @@ chloros-cli daq pool-connect --eth-host daq-e-def330.local
 
 ## Ierīces iestatījumi un programmaparatūra
 
-Sensors pats saglabā savus tīkla iestatījumus: DHCP (rūpnīcas iestatījums, kas, ja neviens DHCP serveris neatbild, pārslēdzas uz 169.254.x.x lokālo adresi) vai statisku adresi. Tas arī saglabā informāciju par to, vai sensora ieslēgšanas brīdī tiek uzsākta datu pārraide. Tos var mainīt grafiskajā lietotāja saskarnē (sensora iestatījumu ratiņš, **Tīkls**:**Mainīt…**,**Sākt datu pārraidi pēc ieslēgšanas**,**Pārstartēt sensoru**; skatiet [cilni „DAQ”](gui.md)), vai arī izmantojot CLI
+Sensors pats saglabā savus tīkla iestatījumus: DHCP (rūpnīcas iestatījums, kas, ja neviens DHCP serveris neatbild, pārslēdzas uz 169.254.x.x lokālo adresi) vai statisku adresi. Tas arī saglabā informāciju par to, vai sensora ieslēgšanas brīdī tiek uzsākta datu pārraide. Tos var mainīt grafiskajā lietotāja saskarnē (sensora iestatījumu ratiņš, **Tīkls**:**Mainīt…**,**Sākt datu pārraidi pēc ieslēgšanas**,**Pārstartēt sensoru**; skatiet [cilni „DAQ”](gui.md)), vai arī izmantojot CLI un SDK ar komandām `pool-set-network`, `pool-set-auto-stream` un `pool-reboot` (`DAQSensorSession.set_network()`, `set_auto_stream()`, `reboot()`; skatiet [CLI atsauci](../reference/cli-reference.md#daq-e-device-settings)). Sensors tiek pārstartēts, lai piemērotu tīkla izmaiņas, un Chloros to atkārtoti pieslēdz. Tīklā, kurā darbojas Chloros, ir jābūt statiskai adresei: Chloros noraida adresi, kuru pēc pārstartēšanas nevar sasniegt. Sensora ID un tā `daq-e-<id>.local` uzņēmuma nosaukums nekad nemainās. Jaunums versijā 1.3.0.
 
-un SDK
-
-ar komandām `pool-set-network`, `pool-set-auto-stream` un `pool-reboot` (`DAQSensorSession.set_network()`, `set_auto_stream()`, `reboot()`; skatiet [CLI
-
-atsauci](../reference/cli-reference.md#daq-e-device-settings)). Sensors tiek pārstartēts, lai piemērotu tīkla izmaiņas, un Chloros
-
-to atkārtoti pieslēdz. Tīklā, kurā darbojas Chloros
-
-, ir jābūt statiskai adresei: Chloros
-
-noraida adresi, kuru pēc pārstartēšanas nevar sasniegt. Sensora ID un tā `daq-e-<id>.local` uzņēmuma nosaukums nekad nemainās. Jaunums versijā 1.3.0.
-
-**Programmatūras atjauninājumi ir integrēti lietotāja saskarnē.** Ja pieslēgtajam DAQ-E ir programmatūra, kas ir vecāka par attēlu, kas iekļauts jūsu Chloros
-
-versijā, sensora rindā parādās dzintara krāsas **Atjauninājums pieejams** ikona, un iestatījumu logā ir pieejama <version>poga</version>
+**Programmatūras atjauninājumi ir integrēti lietotāja saskarnē.** Ja pieslēgtajam DAQ-E ir programmatūra, kas ir vecāka par attēlu, kas iekļauts jūsu Chloros versijā, sensora rindā parādās dzintara krāsas **Atjauninājums pieejams** ikona, un iestatījumu logā ir pieejama <version>poga</version>
 
 „Atjaunināt uz <version>„”. Atjauninājums tiek nosūtīts pa tīklu aptuveni 30 sekundēs; sensors automātiski pārstartējas un atkārtoti izveido savienojumu, un pārtraukta datu pārsūtīšana atstāj pašreizējo programmatūru neskartu. No CLI vai SDK, kā arī Linux vidē, kurā nav grafiskās lietotāja saskarnes, palaidiet komandu `chloros-cli daq pool-update-firmware --sensor-id <id>` (`DAQSensorSession.update_firmware()`).
 

@@ -1,12 +1,8 @@
 # Kameru iestatījumi
 
-Cilne **Kameras** ir „Chloros
+Cilne **Kameras** ir „Chloros “ tiešraides vadības panelis LATTICE kamerām: galvenā attēla apskates zona, kurā katra pieslēgtā kamera tiek parādīta kā tiešraides logiņš, un sānu josla, kurā var pārslēgties starp trim lapām — **kameru sarakstu**,**iestatījumu logu**(katras kameras, masīva vai uzņemšanas iestatījumi — pa vienam), un**indeksa kalkulators**. Šajā lapā ir aprakstīti visi vadības elementi kameru sarakstā, katras kameras iestatījumu panelī un masīva iestatījumu panelī. Uzņemšanas režīmi, eksporta veida izvēle un „Capture All” darbplūsma ir aprakstīti papildu lapā [Uztveršanas iestatījumi un režīmi](capture.md).
 
-“ tiešraides vadības panelis LATTICE kamerām: galvenā attēla apskates zona, kurā katra pieslēgtā kamera tiek parādīta kā tiešraides logiņš, un sānu josla, kurā var pārslēgties starp trim lapām — **kameru sarakstu**,**iestatījumu logu**(katras kameras, masīva vai uzņemšanas iestatījumi — pa vienam), un**indeksa kalkulators**. Šajā lapā ir aprakstīti visi vadības elementi kameru sarakstā, katras kameras iestatījumu panelī un masīva iestatījumu panelī. Uzņemšanas režīmi, eksporta veida izvēle un „Capture All” darbplūsma ir aprakstīti papildu lapā [Uztveršanas iestatījumi un režīmi](capture.md).
-
-Lapa „Kameras” parādās sānjoslā, tiklīdz Chloros
-
-aizmugurējā sistēma ir gatava. Visi zemāk minētie vadības elementi sazinās ar vietējo aizmugurējo sistēmu, izmantojot `127.0.0.1:5000`; izmaiņas nekavējoties tiek piemērotas kameras tiešraidei, ja vien nav norādīts citādi.
+Lapa „Kameras” parādās sānjoslā, tiklīdz Chloros aizmugurējā sistēma ir gatava. Visi zemāk minētie vadības elementi sazinās ar vietējo aizmugurējo sistēmu, izmantojot `127.0.0.1:5000`; izmaiņas nekavējoties tiek piemērotas kameras tiešraidei, ja vien nav norādīts citādi.
 
 ## Šajā lapā izmantotie kameru tipi
 
@@ -14,40 +10,12 @@ Vadības elementi parādās vai paslēpjas atkarībā no izvēlētās kameras ve
 
 | Termins | Nozīme | Filtra kanāli |
 | --- | --- | --- |
-| **RGB
-
-kamera** | LATTICE M3C ar FRGB filtru (modelī ir `-FRGB`) | Red
-
-/ Green
-
-/ Blue
-
-|
-| **Bayer multispektrālā** | LATTICE M3C ar FRGN, FOCN vai FNGB | FRGN: Red
-
-/ Green
-
-/ NIR
-
-· FOCN: Orange
-
-/ Cyan
-
-/ NIR
-
-· FNGB: NIR
-
-/ Green
-
-/ Blue
-
-|
+| **RGB kamera** | LATTICE M3C ar FRGB filtru (modelī ir `-FRGB`) | Red / Green / Blue |
+| **Bayer multispektrālā** | LATTICE M3C ar FRGN, FOCN vai FNGB | FRGN: Red / Green / NIR · FOCN: Orange / Cyan / NIR · FNGB: NIR / Green / Blue |
 | **Mono (M3M)** | LATTICE M3M — viens šaurjoslas filtrs, viena kalibrēta josla | Viena josla |
 | **Masīva elements** | Kamera, kas pieslēgta kā daļa no sinhronizēta masīva (apvienots vai atsevišķs displejs) | Atbilstoši tās filtram |
 
- RGB
-
--kamerām tiek veikta fotometriskā apstrāde (balansa iestatīšana, krāsu profili, gamma); multispektrālajām un mono kamerām tiek veikta radiometriskā apstrāde, izlaižot fotometriskos iestatījumus. Masīva elementiem tiek nodoti straumes līmeņa iestatījumi (pikseļu formāts, izšķirtspēja, pikseļu apvienošana, izraisītājs, kadru ātrums) masīvam — šīs rindas kļūst tikai lasāmas atsevišķās kameras logā un tiek pārvietotas uz masīva iestatījumu logu.
+ RGB-kamerām tiek veikta fotometriskā apstrāde (balansa iestatīšana, krāsu profili, gamma); multispektrālajām un mono kamerām tiek veikta radiometriskā apstrāde, izlaižot fotometriskos iestatījumus. Masīva elementiem tiek nodoti straumes līmeņa iestatījumi (pikseļu formāts, izšķirtspēja, pikseļu apvienošana, izraisītājs, kadru ātrums) masīvam — šīs rindas kļūst tikai lasāmas atsevišķās kameras logā un tiek pārvietotas uz masīva iestatījumu logu.
 
 ## Galvenā plūsmas zona
 
@@ -55,9 +23,7 @@ kamera** | LATTICE M3C ar FRGB filtru (modelī ir `-FRGB`) | Red
 
 
 
-Ja nav pieslēgtas kameras, plūsmas zonā tiek parādīts sākuma ekrāns **„Pieslēdziet kameru, lai sāktu”**ar divām pogām:**Pieslēgt kameru**(zaļa, atver vienas kameras savienošanas dialoglodziņu) un**Savienot masīvu** (zila, atver masīva savienošanas dialoglodziņu). Paši savienošanas dialoglodziņi ir aprakstīti sadaļā [Kameru savienošana](connecting.md); masīva jēdzieni (sinhronizācija, līmeņi, joslas platums) — sadaļā [Daudzkameru masīvi](arrays.md). Kad atverat saglabātu projektu, kurā ir kameras, sākuma ekrānā tiek parādīts rotējošs indikators ar tekstu „Atverot N saglabātās kameras…”, kamēr Chloros
-
-atjauno straumes no pēdējās sesijas.
+Ja nav pieslēgtas kameras, plūsmas zonā tiek parādīts sākuma ekrāns **„Pieslēdziet kameru, lai sāktu”**ar divām pogām:**Pieslēgt kameru**(zaļa, atver vienas kameras savienošanas dialoglodziņu) un**Savienot masīvu** (zila, atver masīva savienošanas dialoglodziņu). Paši savienošanas dialoglodziņi ir aprakstīti sadaļā [Kameru savienošana](connecting.md); masīva jēdzieni (sinhronizācija, līmeņi, joslas platums) — sadaļā [Daudzkameru masīvi](arrays.md). Kad atverat saglabātu projektu, kurā ir kameras, sākuma ekrānā tiek parādīts rotējošs indikators ar tekstu „Atverot N saglabātās kameras…”, kamēr Chloros atjauno straumes no pēdējās sesijas.
 
 <!-- SCREENSHOT-NEEDED: Cameras tab empty state — the "Connect a camera to get started" splash with the green Connect Camera and blue Connect Array buttons. -->
 
@@ -122,21 +88,11 @@ Atveriet, nospiežot **zobratu** kameras rindā. Logs parādās virs kameru sara
 
 ### Reāllaika histogramma
 
-Logotipa augšdaļā atrodas reāllaika luma histogramma, kas aprēķināta no JPEG
+Logotipa augšdaļā atrodas reāllaika luma histogramma, kas aprēķināta no JPEG priekšskatījuma ar frekvenci ~8 Hz. Vidējā vērtība ir svērta pēc Beijera metodes — (R+2G+B)/4 — lai atbilstu kameras paša AE mērījumiem.
 
-priekšskatījuma ar frekvenci ~8 Hz. Vidējā vērtība ir svērta pēc Beijera metodes — (R+2G+B)/4 — lai atbilstu kameras paša AE mērījumiem.
-
-* **Oranža (Orange
-
-) pārtraukta līnija**= AE mērķis.**Velciet to horizontāli, lai mainītu mērķi** — atlaižot tiek nosūtīta viena komanda, un velkot AE mērķa režīms pārslēdzas uz Manual.
-* **Zaļa (Green
-
-) nepārtraukta līnija** = faktiskais vidējais luma (to, ko AE pašlaik nodrošina).
-* **RGB
-
-pogu** (labajā augšējā stūrī): ieslēdz vai izslēdz katras joslas pārklājuma histogrammas, kas iekrāsotas atbilstoši kameras filtram (piem., FRGN režīmā: pelēks NIR
-
-, zaļš, sarkans). Mono (M3M) kamerās pogai ir uzraksts „MONO” un tā ir atspējota — mono režīmā vienmēr tiek parādīta vienjoslas luma histogramma.
+* **Oranža (Orange) pārtraukta līnija**= AE mērķis.**Velciet to horizontāli, lai mainītu mērķi** — atlaižot tiek nosūtīta viena komanda, un velkot AE mērķa režīms pārslēdzas uz Manual.
+* **Zaļa (Green) nepārtraukta līnija** = faktiskais vidējais luma (to, ko AE pašlaik nodrošina).
+* **RGB pogu** (labajā augšējā stūrī): ieslēdz vai izslēdz katras joslas pārklājuma histogrammas, kas iekrāsotas atbilstoši kameras filtram (piem., FRGN režīmā: pelēks NIR, zaļš, sarkans). Mono (M3M) kamerās pogai ir uzraksts „MONO” un tā ir atspējota — mono režīmā vienmēr tiek parādīta vienjoslas luma histogramma.
 * X-ass apzīmējumi atbilst pašreizējā pikseļu formāta sensora bitu dziļumam: 0..255, 0..1023, 0..4095 vai 0..65535.
 
 ### Kameras informācijas rindas
@@ -148,56 +104,22 @@ pogu** (labajā augšējā stūrī): ieslēdz vai izslēdz katras joslas pārkl�
 | Rinda | Darbība |
 | --- | --- |
 | **Modelis** | Tikai lasāms (piem., `LATT-M3C-L87-FRGN`). |
-| **Radiometriskā kalibrēšana** | Zaļa (Green
-
-) **&quot;Active&quot;**zīme ar aprakstu, kurā norādīts kalibrēšanas līmenis, hash, kalibrēšanas datums un joslu saraksts, kas ielādēts no kameras kalibrēšanas paketes (sk. [Rūpnīcas radiometriskā kalibrēšana](https://mapir.gitbook.io/lattice-camera/calibration/factory-radiometric-calibration)).**RGB
-
--kamerām paslēpts** — tām ir fotometriskā balansa kalibrēšana, nevis starojuma intensitāte katrā joslā. |
-| **Kalibrēšanas ziņojums**|**Lejupielādēt** poga — atver kameras NIST kalibrēšanas sertifikātu PDF formātā, kas ir saistīts ar sērijas numuru, jūsu operētājsistēmas skatītājā. Ja sertifikāts vēl nav saglabāts kešatmiņā, Chloros
-
-tā vietā parāda norādi. |
+| **Radiometriskā kalibrēšana** | Zaļa (Green) **"Active"**zīme ar aprakstu, kurā norādīts kalibrēšanas līmenis, hash, kalibrēšanas datums un joslu saraksts, kas ielādēts no kameras kalibrēšanas paketes (sk. [Rūpnīcas radiometriskā kalibrēšana](https://mapir.gitbook.io/lattice-camera/calibration/factory-radiometric-calibration)).**RGB-kamerām paslēpts** — tām ir fotometriskā balansa kalibrēšana, nevis starojuma intensitāte katrā joslā. |
+| **Kalibrēšanas ziņojums**|**Lejupielādēt** poga — atver kameras NIST kalibrēšanas sertifikātu PDF formātā, kas ir saistīts ar sērijas numuru, jūsu operētājsistēmas skatītājā. Ja sertifikāts vēl nav saglabāts kešatmiņā, Chloros tā vietā parāda norādi. |
 | **Sērijas numurs** | Tikai lasīšanai. |
 | **Programmatūra**| Parāda pašreizējo versiju, pēc tam nosaka šim modelim pieejamo versiju (saglabāts cache atmiņā katram modelim — N kameru masīvs pārbauda serveri vienu reizi). Stāvokļi: „Pārbauda…“ →**„Atjaunināt uz X“**poga → „Atjaunina…“ → „Atjaunināts no A uz B“ / „Neizdevās: …“ / „Izlaists: …“ / zaļš**„Atjaunināts“**. Atjaunināšanas pogas rīkjosla: „Rūpnīcas iestatījumu atjaunošana + atjaunināšana + UserSet1 pārprogrammēšana. ~2–3 minūtes; neatvienojiet.“ |
 | **IP** | Tikai lasīšanai. |
 | **Temperatūra** | Tikai lasīšanai, atjaunojas ik pēc 3 s. Kļūst oranža, ja ≥65 °C, un sarkana ar ⚠, ja ≥75 °C. |
-| **Kalibrēšanas mērķis** izvēles rūtiņa | Iespējo ArUco atstarošanas mērķa noteikšanu, izmantojot NDVI
-
-validācijas tabulu katram paneļam zem tiešraides (saraksta skatā) — skatiet [Kalibrēšanas mērķa tabulu](#the-calibration-target-table). Tikai sesijas laikā — vienmēr atveras izslēgts. |
-| **Gaismas sensors** nolaižamais izvēlnes saraksts | Piesaista DAQ gaismas sensoru (DAQ-E/M/U, no cilnes „Gaismas sensori” saraksta) šai kamerai, lai veiktu lejupvērstās gaismas (DLS) apgaismojuma korekciju un prognozējošu automātisko ekspozīciju. „&quot;Nekāds&quot; atceļ saistīšanu. Ja nav pieslēgti sensori, izvēlnē parādās &quot;(sensori nav pieslēgti — atveriet cilni &quot;DAQ&quot;)&quot;. Piesaistīšana tiek saglabāta kopā ar projektu. |
+| **Kalibrēšanas mērķis** izvēles rūtiņa | Iespējo ArUco atstarošanas mērķa noteikšanu, izmantojot NDVI validācijas tabulu katram paneļam zem tiešraides (saraksta skatā) — skatiet [Kalibrēšanas mērķa tabulu](#the-calibration-target-table). Tikai sesijas laikā — vienmēr atveras izslēgts. |
+| **Gaismas sensors** nolaižamais izvēlnes saraksts | Piesaista DAQ gaismas sensoru (DAQ-E/M/U, no cilnes „Gaismas sensori” saraksta) šai kamerai, lai veiktu lejupvērstās gaismas (DLS) apgaismojuma korekciju un prognozējošu automātisko ekspozīciju. „"Nekāds" atceļ saistīšanu. Ja nav pieslēgti sensori, izvēlnē parādās "(sensori nav pieslēgti — atveriet cilni "DAQ")". Piesaistīšana tiek saglabāta kopā ar projektu. |
 
 #### Kalibrēšanas mērķa tabula
 
 Tabula ir **tikai validācijas nolasījums** („tikai validācija — nemaina kalibrēšanu”). Tās virsrakstā ir norādīts kameras sērijas numurs, filtrs, mērķa numurs un marķiera izmērs pikseļos, un tajā ir viena rinda katram panelim:
 
-* **Panelis**, pēc tam viena kolonna katrai joslai ar paneļa vērtību — Bayer kamera parāda savas trīs joslas pēc nosaukuma un viļņa garuma (piem., FRGN: Red
-
-660 nm / Green
-
-550 nm / NIR
-
-850 nm); **mono (M3M) kamera parāda savu vienīgo joslu** (piem., `F750`) un tai nav NDVI
-
-kolonnu.
+* **Panelis**, pēc tam viena kolonna katrai joslai ar paneļa vērtību — Bayer kamera parāda savas trīs joslas pēc nosaukuma un viļņa garuma (piem., FRGN: Red 660 nm / Green 550 nm / NIR 850 nm); **mono (M3M) kamera parāda savu vienīgo joslu** (piem., `F750`) un tai nav NDVI kolonnu.
 * **Sat** — paneļa pikseļu daļa, kas ir piesātināti (dzintara krāsā no 1 %, sarkanā krāsā no 5 %).
-* **NDVI
-
-Meas**,**NDVI
-
-Theo** (panela atsauces reflektances NDVI
-
-) un **Δ**— tikai Bayer multispektrālajām kamerām. Mazs simbols aiz „NDVI
-
-Meas” norāda, no kā tika aprēķināts izmērītais NDVI
-
-:**ρ**(reflektance — ir pieejams gaismas sensora rādījums),**L**(starojums — nav gaismas sensora rādījuma) vai**DN**(kameras neapstrādātie dati). Tikai**ρ** NDVI
-
-ir salīdzināms ar NDVI
-
-Theo: L un DN gadījumā Δ sleja ir izslēgta, un piezīme to norāda („Nav gaismas sensora rādījuma: NDVI
-
-ir aprēķināts no starojuma, tādēļ Δ nav kalibrācijas pārbaude” / „NDVI
-
-ir aprēķināts no neapstrādātiem kameras rādījumiem, tādēļ Δ nav kalibrācijas pārbaude”). Ja izmanto ρ, Δ ir zaļš, ja vērtība ir mazāka par 0,02, dzeltens — ja mazāka par 0,05, citos gadījumos — sarkans.
+* **NDVI Meas**,**NDVI Theo** (panela atsauces reflektances NDVI) un **Δ**— tikai Bayer multispektrālajām kamerām. Mazs simbols aiz „NDVI Meas” norāda, no kā tika aprēķināts izmērītais NDVI:**ρ**(reflektance — ir pieejams gaismas sensora rādījums),**L**(starojums — nav gaismas sensora rādījuma) vai**DN**(kameras neapstrādātie dati). Tikai**ρ** NDVI ir salīdzināms ar NDVI Theo: L un DN gadījumā Δ sleja ir izslēgta, un piezīme to norāda („Nav gaismas sensora rādījuma: NDVI ir aprēķināts no starojuma, tādēļ Δ nav kalibrācijas pārbaude” / „NDVI ir aprēķināts no neapstrādātiem kameras rādījumiem, tādēļ Δ nav kalibrācijas pārbaude”). Ja izmanto ρ, Δ ir zaļš, ja vērtība ir mazāka par 0,02, dzeltens — ja mazāka par 0,05, citos gadījumos — sarkans.
 
 <!-- SCREENSHOT-NEEDED: a 1.3.0 Calibration Target table under a live feed in list view — a Bayer camera's table showing the band columns, Sat, and "NDVI Meas ρ" / NDVI Theo / Δ; ideally next to a mono camera's single-band table with no NDVI columns. -->
 
@@ -205,34 +127,24 @@ ir aprēķināts no neapstrādātiem kameras rādījumiem, tādēļ Δ nav kalib
 
 <!-- SCREENSHOT-NEEDED: per-camera Exposure & Gain section — Exposure (us) and Gain (dB) rows with Auto/Manual toggles, AE Target Brightness, AE Smoothing slider, AE Region of Interest row with the Aim button, and (on an array camera) AE Tune Speed and Highlight Protection rows. -->
 
-Visas šeit ievadāmās skaitliskās vērtības izmanto „turiet, lai paātrinātu” rotējošos regulētājus: pieskāriens = ±1, turēšana &gt;1,5 s = ±10, turēšana &gt;3 s = ±100. Vērtība tiek nosūtīta kamerai, kad atlaidat pirkstu.
+Visas šeit ievadāmās skaitliskās vērtības izmanto „turiet, lai paātrinātu” rotējošos regulētājus: pieskāriens = ±1, turēšana >1,5 s = ±10, turēšana >3 s = ±100. Vērtība tiek nosūtīta kamerai, kad atlaidat pirkstu.
 
 | Vadības elements | Diapazons / izvēles | Noklusējums | Attiecas uz | Funkcija |
 | --- | --- | --- | --- | --- |
 | **Ekspozīcija (us)**| Kameras reāllaika minimālā/maksimālā vērtība | Automātiski | Viss | Ekspozīcijas laiks mikrosekundēs, ar**Automātisks/Manuāls**slēdzi. Automātisks = nepārtraukta kameras automātiskā ekspozīcija. Iestatot manuālo ekspozīciju,**pastiprinājums** paliek automātiskā režīmā, ja tas tāds bija, ļaujot izmantot visu kameras pastiprinājuma diapazonu, līdz brīdim, kad jūs rediģējat pastiprinājumu vai iestatāt to manuālajā režīmā. |
 | **Pastiprinājums (dB)**| Kameras reālais minimums/maksimums (piem., līdz 48 dB) | Manuāli (izslēgts) | Visi | Analogais/digitālais pastiprinājums ar savu**Auto/Manual** slēdzi. |
 | **AE mērķa spilgtums**| 0–255 | 80, režīms**Auto**| Visi (rediģējams, ja ir ieslēgts AE vai automātiskais pastiprinājums) | Spilgtums, uz kuru vērsts AE.**Auto**(noklusējuma iestatījums) uz histogrammu balstīts aizmugurējais kontrolieris pats izvēlas mērķi, uzturot ekspozīciju 60–75 % no sensora maksimālās vērtības. Ierakstot vērtību vai velkot histogrammas oranžo līniju, režīms pārslēdzas uz**Manuālo**. |
-| **AE izlīdzināšana** | 0,5–40, solis 0,1 | 8,0 | Viss | AE amortizācija. Rīka padoms: &quot;Zemāka vērtība = AE reaģē ātrāk (var pulsēt pie augsta kadru skaita sekundē). Augstāka vērtība = vienmērīgāka / lēnāka.” Vērtības, kas ir ievērojami zemākas par noklusējuma vērtību, var izraisīt AE pulsēšanu un destabilizēt straumēšanu pie augsta kadru skaita sekundē; 8,0 ir stabils noklusējums. |
+| **AE izlīdzināšana** | 0,5–40, solis 0,1 | 8,0 | Viss | AE amortizācija. Rīka padoms: "Zemāka vērtība = AE reaģē ātrāk (var pulsēt pie augsta kadru skaita sekundē). Augstāka vērtība = vienmērīgāka / lēnāka.” Vērtības, kas ir ievērojami zemākas par noklusējuma vērtību, var izraisīt AE pulsēšanu un destabilizēt straumēšanu pie augsta kadru skaita sekundē; 8,0 ir stabils noklusējums. |
 | **AE interešu zona**| Iespējošanas izvēles rūtiņa +**Mērķēšana**poga | Izslēgts | Visi | Ja ir ieslēgts, AE mēra tikai zaļo pārtraukto līniju apgabalu, nevis visu kadru.**Mērķēšana** aktivizē funkciju „noklikšķini, lai novietotu” tiešraidē: ar vienu klikšķi reģions tiek centrēts 30 % attāluma no kadra malas; klikšķis un velšana izveido pielāgotu taisnstūri (vismaz 5 % × 5 %). Funkcija „Aim” izslēdzas pati pēc vienas novietošanas. Zona tiek pārveidota atpakaļ uz kameras nativajām koordinātēm atbilstoši jebkurai jūsu iestatītajai rotācijai/spoguļošanai un tiek saglabāta kopā ar projektu. |
 | **AE Tune Speed** | 0,1–5, solis 0,1 | 1,0 | Tikai masīva locekļiem | Cik ātri automātiskā AE mērķa sistēma seko līdzi ainas spilgtuma izmaiņām; 1,0× pārbauda ik pēc 2,5 s. |
 | **Spilgtuma aizsardzība** | Stingra (1 %) / Normāla (5 %) / Atvieglota (15 %) | Stingra | Kameras, kas atklāj šo iestatījumu | Cik liela kadra daļa drīkst izbalēt līdz baltam, pirms AE padara attēlu tumšāku. |
 
 {% hint style="info" %}
-**Gaismas prasības Bayer multispektrālajām kamerām (RGN
-
-/ OCN
-
-/ NGB
-
-):** ainai jābūt pietiekami apgaismotai visos trīs kanālos, citādi kalibrēšana nedarbosies pareizi — viena sensora ekspozīcija aptver visus trīs spektrus. Lai izmērītu apgaismojumu, izmantojiet DAQ gaismas sensoru vai pārejiet uz pilnībā monohromu režīmu (M3M), lai katram diapazonam būtu sava ekspozīcija. Ja uzņemšana neatbilst šim nosacījumam, Chloros
-
-to atklāj un brīdina jūs (paziņojums par diapazona ierobežošanu). Reāllaikā kanāla sadalījuma logā tiek parādīts **„Zema uzticamība joslas datiem · N%”**, ja „unmix” ir ierobežojis šo joslu 25 % vai vairāk no tās pikseļiem.
+**Gaismas prasības Bayer multispektrālajām kamerām (RGN / OCN / NGB):** ainai jābūt pietiekami apgaismotai visos trīs kanālos, citādi kalibrēšana nedarbosies pareizi — viena sensora ekspozīcija aptver visus trīs spektrus. Lai izmērītu apgaismojumu, izmantojiet DAQ gaismas sensoru vai pārejiet uz pilnībā monohromu režīmu (M3M), lai katram diapazonam būtu sava ekspozīcija. Ja uzņemšana neatbilst šim nosacījumam, Chloros to atklāj un brīdina jūs (paziņojums par diapazona ierobežošanu). Reāllaikā kanāla sadalījuma logā tiek parādīts **„Zema uzticamība joslas datiem · N%”**, ja „unmix” ir ierobežojis šo joslu 25 % vai vairāk no tās pikseļiem.
 {% endhint %}
 
 {% hint style="info" %}
-**Kā automātiskā ekspozīcija izmanto ekspozīcijas laiku un pastiprinājumu (1.3.0).** Ja pastiprinājums ir iestatīts uz „Auto”, Chloros
-
-uztur pastiprinājumu 0 dB līmenī, līdz ekspozīcija sasniedz ilgāko atļauto vērtību (AE augšējo robežu, matricas trigera periodu vai DAQ ekspozīcijas maksimumu); tikai tad pastiprinājums palielinās. Matricas gadījumā prioritāte ir trigera frekvencei: automātiskā ekspozīcija aizpilda periodu, ko nosaka frekvence, pēc tam palielina pastiprinājumu, tādējādi ainas tumšāka kļūšana vairs nesamazina automātisko trigera frekvenci (versijā 1.2.0 tā notika). **Manuāla**ekspozīcija masīva elementā, kas ilgst ilgāk par trigera periodu, palēnina masīva trigeri, lai tas tam pielāgotos; automātiskā frekvence atjaunojas, tiklīdz visi elementi, kas to palēnināja, atgriežas automātiskajā ekspozīcijā. Ja gan**ekspozīcija**, gan**AE mērķa spilgtums** ir iestatīti uz „Automātiski” un DAQ gaismas sensors sniedz rādījumus, katras kameras ekspozīcija tiek saglabāta, tiklīdz automātiskā ekspozīcija ir stabilizējusies, kamēr izmērītā gaisma paliek aptuveni ±25 % robežās; lielāka, ilgstoša gaismas izmaiņa, iestatījumu atkārtota uzsākšana (piemēram, ROI maiņa) vai jūsu paša veiktā ekspozīcijas maiņa to atkārtoti aktivizē.
+**Kā automātiskā ekspozīcija izmanto ekspozīcijas laiku un pastiprinājumu (1.3.0).** Ja pastiprinājums ir iestatīts uz „Auto”, Chloros uztur pastiprinājumu 0 dB līmenī, līdz ekspozīcija sasniedz ilgāko atļauto vērtību (AE augšējo robežu, matricas trigera periodu vai DAQ ekspozīcijas maksimumu); tikai tad pastiprinājums palielinās. Matricas gadījumā prioritāte ir trigera frekvencei: automātiskā ekspozīcija aizpilda periodu, ko nosaka frekvence, pēc tam palielina pastiprinājumu, tādējādi ainas tumšāka kļūšana vairs nesamazina automātisko trigera frekvenci (versijā 1.2.0 tā notika). **Manuāla**ekspozīcija masīva elementā, kas ilgst ilgāk par trigera periodu, palēnina masīva trigeri, lai tas tam pielāgotos; automātiskā frekvence atjaunojas, tiklīdz visi elementi, kas to palēnināja, atgriežas automātiskajā ekspozīcijā. Ja gan**ekspozīcija**, gan**AE mērķa spilgtums** ir iestatīti uz „Automātiski” un DAQ gaismas sensors sniedz rādījumus, katras kameras ekspozīcija tiek saglabāta, tiklīdz automātiskā ekspozīcija ir stabilizējusies, kamēr izmērītā gaisma paliek aptuveni ±25 % robežās; lielāka, ilgstoša gaismas izmaiņa, iestatījumu atkārtota uzsākšana (piemēram, ROI maiņa) vai jūsu paša veiktā ekspozīcijas maiņa to atkārtoti aktivizē.
 {% endhint %}
 
 {% hint style="info" %}
@@ -273,34 +185,18 @@ Viss šajā sadaļā attiecas **tikai uz attēla parādīšanu**— tas maina to
 | --- | --- | --- | --- | --- |
 | **Renderēšanas izšķirtspēja** | 360p (ātrākā) / 480p / 720p / 1080p / Sensora oriģinālā izšķirtspēja (lēnākā) | 720p | Visi | Augstums, kurā aizmugurējā sistēma palaista radiometrisko priekšskatījuma ķēdi. Zemāka vērtība nodrošina lielāku kadru skaitu, nemainot redzes lauku. |
 | **Indekss**| Izvēles rūtiņa „Iespējot” + zobrats | Izslēgts | Tikai Bayer multispektrālie sensori,**nevis** kombinēto matricas sensori | Reāllaika veģetācijas indeksa priekšskatījums. Rīks atver kopīgo [Indeksa kalkulatoru](#index-calculator-pane), kurā jau ir iepriekš ielādēti kameras filtra dabiskie spektra joslas (piem., `Red_660_RGN`, `Green_550_RGN`, `NIR_850_RGN`). Katram priekšskatījuma kadram tiek aprēķināts pielāgots izteiksmes un LUT (ieslēgts/izslēgts, līmeņa noklusējums 7 pakāpes, minimālais noklusējums 0,2, maksimālais noklusējums 1) tiek aprēķināts katrā priekšskatījuma kadrā. Kombinētā masīva locekļi paslēpj šo rindu — masīvam pieder viens kopīgs indekss. |
-| **Baltā balanss** | Izslēgts / Vienreiz / Nepārtraukti + atkārtotas uzņemšanas poga | Nepārtraukti | Tikai RGB
-
-| Baltā balanss reāllaikā. Atjaunināšanas poga no jauna uzņem baltā līdzsvaru no pašreizējā DLS spektra (atspējota, ja režīms ir „Izslēgts”). |
-| **Gamma** | Ieslēgts / Izslēgts | Ieslēgts | Tikai RGB
-
-| Parāda gamma (γ = 2,2 LUT) reālajā priekšskatījumā. Saglabātie attēli paliek lineāri. |
+| **Baltā balanss** | Izslēgts / Vienreiz / Nepārtraukti + atkārtotas uzņemšanas poga | Nepārtraukti | Tikai RGB | Baltā balanss reāllaikā. Atjaunināšanas poga no jauna uzņem baltā līdzsvaru no pašreizējā DLS spektra (atspējota, ja režīms ir „Izslēgts”). |
+| **Gamma** | Ieslēgts / Izslēgts | Ieslēgts | Tikai RGB | Parāda gamma (γ = 2,2 LUT) reālajā priekšskatījumā. Saglabātie attēli paliek lineāri. |
 | **Trokšņu samazināšana** | Izvēles rūtiņa + intensitāte 0–100 | Izslēgts / 50 | Visi (katrai kamerai atsevišķi, pat masīvos) | Divpusējs filtrs reāllaika priekšskatījumā. Augstāka vērtība = gludāks, bet mazāk izteikts detaļu attēlojums. |
 | **Asums** | Izvēles rūtiņa + intensitāte 0–100 | Izslēgts / 30 | Visi | Neskaidrības maska reāllaika priekšskatījumā, tiek piemērota pēdējā. Var pastiprināt troksni. Tikai priekšskatījumā. |
 | **Vignette**| Izvēles rūtiņa + intensitāte 0–100 | Izslēgts / 0 | Visi | Manuāla atlikušās vignetēšanas novēršana (izgaismo stūrus), kas tiek uzklāta virs masīva „Smart Vignette” aprēķina.**Radiometriska — ietekmē reāllaika skatu UN eksportu**, atšķirībā no trokšņu samazināšanas un asuma. |
-| **Krāsu profils** | Raw / Lineārs / Dabisks / Uzlabots / Pielāgota temperatūra | Dabisks | Tikai RGB
-
-| Skatīt zemāk. |
-| **Krāsu temperatūra** | 2000–10000 K, solis 100 | 5500 K | Tikai RGB
-
-, pielāgots temperatūras profils | Fiksē balansa iestatījumus uz noteiktu korelēto krāsu temperatūru (DLS ievade netiek ņemta vērā). Pēdējā izvēlētā Kelvina vērtība tiek saglabāta, mainot profilus. |
-| **Spilgtās zonas** | no −100 līdz 0, solis 1 | 0 (izslēgts) | Tikai RGB
-
-| Jaunums versijā 1.3.0. Padara tumšākas attēla visgaišākās un baltākās zonas (0 = nemainīts, −100 = visstiprākais). Attiecas uz reāllaika priekšskatījumu **un uz ekrāna līmeņa (priekšskatījuma) uzņēmumiem**, kas reģistrē šo iestatījumu (`Chloros:DisplayHighlights`); tas nekad neietekmē starojuma un atstarošanas eksportu. Tas nevar atjaunot sensora datus, kas ir pārgriezti — šim nolūkam samaziniet ekspozīciju. Zebra pārklājums seko aptumšotajam attēlam. Atspējots ar Raw krāsu profilu („Netiek piemērots ar Raw krāsu profilu.”). |
-| **Saturācija** | 0–200 (100 = neitrāla) | 100 | Tikai RGB
-
-| HSV saturācija reāllaika priekšskatījumā. |
-| **Kontrasts** | 0–200 (100 = neitrāls) | 100 | Tikai RGB
-
-| Lineārs kontrasts ap vidēji pelēko toņu reālajā priekšskatījumā. |
+| **Krāsu profils** | Raw / Lineārs / Dabisks / Uzlabots / Pielāgota temperatūra | Dabisks | Tikai RGB | Skatīt zemāk. |
+| **Krāsu temperatūra** | 2000–10000 K, solis 100 | 5500 K | Tikai RGB, pielāgots temperatūras profils | Fiksē balansa iestatījumus uz noteiktu korelēto krāsu temperatūru (DLS ievade netiek ņemta vērā). Pēdējā izvēlētā Kelvina vērtība tiek saglabāta, mainot profilus. |
+| **Spilgtās zonas** | no −100 līdz 0, solis 1 | 0 (izslēgts) | Tikai RGB | Jaunums versijā 1.3.0. Padara tumšākas attēla visgaišākās un baltākās zonas (0 = nemainīts, −100 = visstiprākais). Attiecas uz reāllaika priekšskatījumu **un uz ekrāna līmeņa (priekšskatījuma) uzņēmumiem**, kas reģistrē šo iestatījumu (`Chloros:DisplayHighlights`); tas nekad neietekmē starojuma un atstarošanas eksportu. Tas nevar atjaunot sensora datus, kas ir pārgriezti — šim nolūkam samaziniet ekspozīciju. Zebra pārklājums seko aptumšotajam attēlam. Atspējots ar Raw krāsu profilu („Netiek piemērots ar Raw krāsu profilu.”). |
+| **Saturācija** | 0–200 (100 = neitrāla) | 100 | Tikai RGB | HSV saturācija reāllaika priekšskatījumā. |
+| **Kontrasts** | 0–200 (100 = neitrāls) | 100 | Tikai RGB | Lineārs kontrasts ap vidēji pelēko toņu reālajā priekšskatījumā. |
 | **Spoguļot pa horizontāli / Spoguļot pa vertikāli** | Izvēles rūtiņas | Izslēgts | Visi | Apgriež priekšskatījumu horizontāli / vertikāli. |
-| **Rotācija**| 0° / 90° / 180° / 270° | 0° | Visi | Pagriež priekšskatījumu. Orientācija tiek piemērota aizmugurējās priekšskatīšanas ķēdes beigās.**Saglabātie attēli (1.3.0):**atsevišķas kameras priekšskatīšanas, starojuma, atstarošanas un indeksa produkti tiek pagriezti, izmantojot Spoguļošanu/Rotāciju, savukārt**„Raw“ un „Debayered“ saglabā kamerai raksturīgo orientāciju**; katrs uzņēmuma fails reģistrē šo iestatījumu savā XMP, tādējādi vēlāk apstrādājot „raw“ failu, tas tiek piemērots tādā pašā veidā.**Masīva elementu faili saglabā sākotnējo orientāciju** (iestatījums tiek reģistrēts, nevis piemērots), un masīva saliktie skati to ignorē. |**Krāsu profilu semantika** (RGB
-
-kameras):
+| **Rotācija**| 0° / 90° / 180° / 270° | 0° | Visi | Pagriež priekšskatījumu. Orientācija tiek piemērota aizmugurējās priekšskatīšanas ķēdes beigās.**Saglabātie attēli (1.3.0):**atsevišķas kameras priekšskatīšanas, starojuma, atstarošanas un indeksa produkti tiek pagriezti, izmantojot Spoguļošanu/Rotāciju, savukārt**„Raw“ un „Debayered“ saglabā kamerai raksturīgo orientāciju**; katrs uzņēmuma fails reģistrē šo iestatījumu savā XMP, tādējādi vēlāk apstrādājot „raw“ failu, tas tiek piemērots tādā pašā veidā.**Masīva elementu faili saglabā sākotnējo orientāciju** (iestatījums tiek reģistrēts, nevis piemērots), un masīva saliktie skati to ignorē. |**Krāsu profilu semantika** (RGB kameras):
 
 * **Raw** — pilnībā apiet apstrādes ķēdi.
 * **Lineārs** — tumšais signāls + līdzenais lauks + baltā balanss; bez krāsu matricas, bez gammas.
@@ -325,20 +221,12 @@ Tie ir pieejami tikai lietotāja saskarnē — uzvilkti virs video, nekad neiete
 | **Tīkls** | Izslēgts / 3 × 3 / 9 × 9 | Izslēgts | Kompozīcijas tīkls. |
 | **Histogramma** | Izvēles rūtiņa + platums 0,10–0,90 no kadra | Izslēgts / 0,25 | Histogrammas josla tiešraidē. |
 | **Fokusa maksimums** | Izvēles rūtiņa + slieksnis 20–200 + krāsu paraugs | Izslēgts / 80 / `#ff5722` | Sobela malu izcelšana fokusa iestatīšanai. |
-| **Kanālu sadalījumi** | &quot;Rādīt sadalījumus (Red
-
-/ Green
-
-/ NIR
-
-)&quot; / Poga „Paslēpt sadalījumus” | Paslēgts | Pievieno trīs neatkarīgas pelēktoņu plāksnes katram kanālam blakus kompozīcijai (pogas nosaukums atbilst kameras filtra kanāliem). Katru sadalīto plāksni var pārvietot, un tai ir tā pati krāsa kā kameras apmalei. Nav pieejams mono kamerām. Tiek saglabāts kopā ar projektu. |
+| **Kanālu sadalījumi** | "Rādīt sadalījumus (Red / Green / NIR)" / Poga „Paslēpt sadalījumus” | Paslēgts | Pievieno trīs neatkarīgas pelēktoņu plāksnes katram kanālam blakus kompozīcijai (pogas nosaukums atbilst kameras filtra kanāliem). Katru sadalīto plāksni var pārvietot, un tai ir tā pati krāsa kā kameras apmalei. Nav pieejams mono kamerām. Tiek saglabāts kopā ar projektu. |
 
 ### Punktu eksponometrs
 
 * **Noklikšķiniet, lai ņemtu paraugu**izvēles rūtiņa: noklikšķiniet uz tiešraides attēla, lai ņemtu paraugu no viena pikseļa (to atzīmē krustveida tēmēklis), vai noklikšķiniet un velciet, lai izvēlētos apgabalu pikseļu vidējās vērtības aprēķināšanai.**Dzēst**noņem paraugu un tēmēkli. Savstarpēji izslēdzas ar AE-ROI**Mērķēšanas** režīmu.
-* **Rādīt**izvēlne:**Raw (bitu dziļums)**— sākotnējie digitālie skaitļi ar sensora bitu dziļumu (piem., 12 biti → 0..4095) — vai**Displejs (8 biti)** (noklusējums). Ja ir aktīvs reāllaika indekss, Display vietā parāda aprēķināto indeksa vērtību (piem., NDVI
-
-).
+* **Rādīt**izvēlne:**Raw (bitu dziļums)**— sākotnējie digitālie skaitļi ar sensora bitu dziļumu (piem., 12 biti → 0..4095) — vai**Displejs (8 biti)** (noklusējums). Ja ir aktīvs reāllaika indekss, Display vietā parāda aprēķināto indeksa vērtību (piem., NDVI).
 * Nolasīšanas panelī ir uzskaitītas pikseļu koordinātas, kadra izmērs, pikseļu formāts, bitu dziļums un kanālu tabula (Chan / Value / %) ar joslu apzīmējumiem un viļņu garumiem; Bayer zaļo pāru vidējie rādītāji tiek aprēķināti; reģiona paraugi rāda „N px avg”.
 
 Punktu eksponometra stāvoklis ir spēkā tikai sesijas laikā.
@@ -360,18 +248,10 @@ Punktu eksponometra stāvoklis ir spēkā tikai sesijas laikā.
 | **Ainas atstarošanas koeficients**|**Pārkalibrēt ρ** poga | — | No jauna aprēķina ainas atstarošanas koeficientu, ko izmanto risinātājs. |
 
 {% hint style="info" %}
-**Masīva savienojums pēc noklusējuma atslēdz prognozējošo AE** — masīviem ekspozīciju nodrošina „Chloros
-
-” viedā AE un kameras automātiskā ekspozīcija (ar piesātinājuma aizsardzību), un prognozējošās AE vienas ainasatstarošanas novērtējums nav drošs jauktās ainas gadījumā. Šeit to varat atkal ieslēgt katrai kamerai atsevišķi, ja konkrēti vēlaties DLS vadītu radiometrisko ekspozīciju.
+**Masīva savienojums pēc noklusējuma atslēdz prognozējošo AE** — masīviem ekspozīciju nodrošina „Chloros” viedā AE un kameras automātiskā ekspozīcija (ar piesātinājuma aizsardzību), un prognozējošās AE vienas ainasatstarošanas novērtējums nav drošs jauktās ainas gadījumā. Šeit to varat atkal ieslēgt katrai kamerai atsevišķi, ja konkrēti vēlaties DLS vadītu radiometrisko ekspozīciju.
 {% endhint %}
 
-**DAQ vadīts ekspozīcijas maksimums un uz incidentu fiksēta AE.** Neatkarīgi no iepriekš minētā izvēles rūtiņas, ja DAQ gaismas sensors ir piešķirts RGB
-
-kamerai, Chloros
-
-aprēķina — pamatojoties uz izmērīto absolūto lejupvērsto starojuma intensitāti — maksimālo ekspozīciju × pastiprinājumu, pie kura 100 % atstarošanas virsma paliek zem klipēšanas sliekšņa, un piemēro to kā **robežu**automātiskajai ekspozīcijai. Sākot ar versiju 1.3.0, šī robeža tiek piemērota tikai tad, ja kalibrēšanas mērķis atrodas šīs kameras redzes laukā (redzams tās kadrā pēdējo 10 sekunžu laikā); ja mērķis nav redzes laukā, tā vietā darbojas kameras parastā automātiskā ekspozīcija ar savu spilgtuma aizsardzību, tādējādi pārējā aina netiek uzturēta tumšāka, nekā nepieciešams. Kamēr maksimālā robeža ir aktīva, kamera darbojas**pēc krītošā gaismas mērījuma**: tā darbojas atvērtā ciklā ar ekspozīciju, kas noteikta pēc krītošās gaismas mērījuma, ar pastiprinājumu 0 dB — ekspozīcija seko mērītajai gaismai, nevis ainas saturam. Tā kā maksimālā vērtība var tikai saīsināt ekspozīciju, tā pati nevar izraisīt izgriešanu. Sākot ar versiju 1.3.0, maksimālā vērtība tiek aprēķināta, izmantojot kameras paša ekspozīcijas konstanti no tās kalibrēšanas paketes (flotes vidējā vērtība tiek izmantota tikai tad, ja paketē tā nav iekļauta). Maksimālā vērtība automātiski atslēdzas — un atsākas parastā ainas automātiskā ekspozīcija — ikreiz, kad redzes laukā nav kalibrēšanas mērķa, trūkst DAQ rādījuma, tas ir novecojis (&gt;30 s), tumšs vai ja ≥15 % kadra tiek nogriezts pie fiksētās ekspozīcijas (tas nozīmē, ka sensors un kamera uztver atšķirīgu apgaismojumu). Nav GUI slēdža; tā ir standarta darbība, ja RGB
-
--kamerai ir piesaistīts DAQ.
+**DAQ vadīts ekspozīcijas maksimums un uz incidentu fiksēta AE.** Neatkarīgi no iepriekš minētā izvēles rūtiņas, ja DAQ gaismas sensors ir piešķirts RGB kamerai, Chloros aprēķina — pamatojoties uz izmērīto absolūto lejupvērsto starojuma intensitāti — maksimālo ekspozīciju × pastiprinājumu, pie kura 100 % atstarošanas virsma paliek zem klipēšanas sliekšņa, un piemēro to kā **robežu**automātiskajai ekspozīcijai. Sākot ar versiju 1.3.0, šī robeža tiek piemērota tikai tad, ja kalibrēšanas mērķis atrodas šīs kameras redzes laukā (redzams tās kadrā pēdējo 10 sekunžu laikā); ja mērķis nav redzes laukā, tā vietā darbojas kameras parastā automātiskā ekspozīcija ar savu spilgtuma aizsardzību, tādējādi pārējā aina netiek uzturēta tumšāka, nekā nepieciešams. Kamēr maksimālā robeža ir aktīva, kamera darbojas**pēc krītošā gaismas mērījuma**: tā darbojas atvērtā ciklā ar ekspozīciju, kas noteikta pēc krītošās gaismas mērījuma, ar pastiprinājumu 0 dB — ekspozīcija seko mērītajai gaismai, nevis ainas saturam. Tā kā maksimālā vērtība var tikai saīsināt ekspozīciju, tā pati nevar izraisīt izgriešanu. Sākot ar versiju 1.3.0, maksimālā vērtība tiek aprēķināta, izmantojot kameras paša ekspozīcijas konstanti no tās kalibrēšanas paketes (flotes vidējā vērtība tiek izmantota tikai tad, ja paketē tā nav iekļauta). Maksimālā vērtība automātiski atslēdzas — un atsākas parastā ainas automātiskā ekspozīcija — ikreiz, kad redzes laukā nav kalibrēšanas mērķa, trūkst DAQ rādījuma, tas ir novecojis (>30 s), tumšs vai ja ≥15 % kadra tiek nogriezts pie fiksētās ekspozīcijas (tas nozīmē, ka sensors un kamera uztver atšķirīgu apgaismojumu). Nav GUI slēdža; tā ir standarta darbība, ja RGB-kamerai ir piesaistīts DAQ.
 
 ### Datu ieguve un izraisīšana
 
@@ -395,7 +275,7 @@ Masīva locekļiem papildus tiek parādītas tikai lasāmas **Loma**(galvenais �
 
 ### Ierakstīšana
 
-Logu noslēdz poga **„Atvērt ierakstīšanas iestatījumus…”**, kas pāradresē uz [ierakstīšanas iestatījumu logu](capture.md#the-capture-settings-pane) (atspējots, kamēr nav atvērts projekts — &quot;Izveidojiet vai atveriet projektu, lai saglabātu uzņemumus&quot;). Ja kamera ir paslēpta vai apturēta, parādās norāde, kas atgādina, ka pirms uzņemšanas tā jāatklāj vai jāatsāk.
+Logu noslēdz poga **„Atvērt ierakstīšanas iestatījumus…”**, kas pāradresē uz [ierakstīšanas iestatījumu logu](capture.md#the-capture-settings-pane) (atspējots, kamēr nav atvērts projekts — "Izveidojiet vai atveriet projektu, lai saglabātu uzņemumus"). Ja kamera ir paslēpta vai apturēta, parādās norāde, kas atgādina, ka pirms uzņemšanas tā jāatklāj vai jāatsāk.
 
 ## Masīva iestatījumu logs
 
@@ -415,17 +295,13 @@ Tiek parādīts gan kombinētiem, gan atsevišķiem masīviem:
 
 * **Gaismas sensors** nolaižamā izvēlne — piesaista vienu DAQ visam masīvam. Izvēle stājas spēkā nekavējoties, izplatās uz katras masīva kameras gaismas sensora nolaižamo izvēlni (jūs joprojām varat pārrakstīt iestatījumus katrai kamerai atsevišķi) un sāk nosūtīt spektrus uz masīvu.
 * Reāllaika **Stāvoklis** rinda: Izslēgts · „Gaida pirmo spektru…“ · „Aktīvs — visām masīva kamerām ir veikta apgaismojuma korekcija“ · „Pēdējās 3 sekundēs nav jauna spektra — joprojām tiek izmantots pēdējais rādījums (nav novecojušā laika limita)…“.
-* Piezīme paneļā: &quot;Radiometriskā korekcija visam masīvam. Katras kameras iestatījumi to pārraksta.&quot;
+* Piezīme paneļā: "Radiometriskā korekcija visam masīvam. Katras kameras iestatījumi to pārraksta."
 
 ### Kalibrēšanas mērķis
 
 Atsevišķa grupa tieši aiz vides gaismas sensora, gan apvienotiem, gan atsevišķiem masīviem:
 
-* **Ieslēgt** izvēles rūtiņa — &quot;Atklāt MAPIR
-
-ArUco mērķi un validēt NDVI
-
-pret paneļa atstarošanas LUT&quot;; nosaka apvienotā lauciņa mērķa pārklājumu un validācijas tabulas. **Atsevišķā** masīvā tas ieslēdz katra elementa paša [Kalibrēšanas mērķa tabulu](#the-calibration-target-table) (viena katrai kameras rindai saraksta skatā).
+* **Ieslēgt** izvēles rūtiņa — "Atklāt MAPIR ArUco mērķi un validēt NDVI pret paneļa atstarošanas LUT"; nosaka apvienotā lauciņa mērķa pārklājumu un validācijas tabulas. **Atsevišķā** masīvā tas ieslēdz katra elementa paša [Kalibrēšanas mērķa tabulu](#the-calibration-target-table) (viena katrai kameras rindai saraksta skatā).
 
 ### Uztveršana — vienoti sensora iestatījumi
 
@@ -467,7 +343,7 @@ Parādīts gan **apvienotiem, gan atsevišķiem masīviem** (versijā 1.2.0 tas 
 * Kopsavilkuma rinda: „✓ Visas kameras saskaņotas (N)” / „⚠ p/N kameras saskaņotas —  <serial (filter)="">kļūda” / „Apgriešana aktīva — Pārkalibrējiet, lai saskaņotu (izmanto visu sensoru)” / „Gaida, kamēr ekspozīcija nostabilizējas…” / „Piemēro iestatījumus…” (kameras tiek pārstartētas) / „Masīvs vairs nepiegādā kadrus — atkārtoti savienojiet masīvu”.
 * Tabula katrai kamerai: kamera (pēdējie 4 cipari no sērijas numura + filtrs), reprojekcijas kļūda pikseļos ar saskaņojumu skaitu („ref” galvenajai kamerai) un pārklāšanās normalizētā krustkorelācijas rādītājs salīdzinājumā ar minimālo slieksni 0,35.
 * **Pārkalibrēt saskaņošanu** Poga (pirms pirmā profila uzraksts „Kalibrēt izlīdzinājumu”) — atkārtoti veic kopreģistrāciju ar jauniem kadriem.
-* **&quot;Automātiski eksponēt kameras saskaņošanai&quot;** izvēles rūtiņa (pēc noklusējuma atzīmēta) — uz laiku padara gaišākas tumšas vai vienmuļas kameras (vispirms ekspozīcija, tad pastiprinājums), lai tām būtu tekstūra, ko saskaņot, pēc tam atjauno automātisko ekspozīciju.
+* **"Automātiski eksponēt kameras saskaņošanai"** izvēles rūtiņa (pēc noklusējuma atzīmēta) — uz laiku padara gaišākas tumšas vai vienmuļas kameras (vispirms ekspozīcija, tad pastiprinājums), lai tām būtu tekstūra, ko saskaņot, pēc tam atjauno automātisko ekspozīciju.
 
 Chloros automātiski saskaņo katru masīvu pēc savienošanās abos attēlošanas režīmos, tiklīdz elementu automātiskā ekspozīcija ir stabilizējusies (tas mēģina līdz pat 5 minūtēm); apvienotais priekšskatījums arī saskaņojas atvēršanas brīdī. Atsevišķam masīvam nav saliktas flīzes, tāpēc šī sadaļa pārbauda saskaņošanas stāvokli un pati veic pārkalibrēšanu. Veiciet pārkalibrēšanu, ja ir mainījies fokuss vai ainas dziļums. Saskaņošana **pēc dizaina ir paredzēta tikai sesijai** — tā nekad netiek saglabāta profilā, jo tā ir atkarīga no konkrētā brīža ainas attāluma. Uzņēmumus joprojām var eksportēt ar pikseļu reģistrāciju (sk. [Saskaņoti eksporti](capture.md#per-array-controls)).
 
@@ -495,8 +371,8 @@ Chloros automātiski saskaņo katru masīvu pēc savienošanās abos attēlošan
 
 Tikai lasāms panelis, kas atjaunojas ik pēc 5 s:
 
-* **Līmeņa apzīmējums**: „Vienlaicīga uzņemšana“ (zaļš) · „Vienlaicīga uzņemšana (FTD — pakāpeniska emisija)“ (zaļš) · „Pakāpeniska uzņemšana (100 ms novirze)“ (dzeltens) · &quot;Konfigurācija pārāk liela&quot; (sarkana).
-* **Kadra stāvoklis**: &quot;x,xx % nepabeigts&quot; — zaļa, ja mazāk par 1 %, dzeltens, ja mazāk par 5 %, sarkana, ja 5 % vai vairāk.
+* **Līmeņa apzīmējums**: „Vienlaicīga uzņemšana“ (zaļš) · „Vienlaicīga uzņemšana (FTD — pakāpeniska emisija)“ (zaļš) · „Pakāpeniska uzņemšana (100 ms novirze)“ (dzeltens) · "Konfigurācija pārāk liela" (sarkana).
+* **Kadra stāvoklis**: "x,xx % nepabeigts" — zaļa, ja mazāk par 1 %, dzeltens, ja mazāk par 5 %, sarkana, ja 5 % vai vairāk.
 * ****Savienojuma līnija**: „NIC {mbps} Mbps — ilgstošs {MB/s} MB/s”.
 
 Tas ir masīva reālais joslas platuma budžets. Par pamatā esošo kadru skaitu sekundē (fps) un tīkla modeli — kā arī par to, ko mainīt, ja līmenis kļūst dzeltens vai sarkans — skatiet [Daudzkameru masīvi](arrays.md) un [CLI atsauci](../reference/cli-reference.md).

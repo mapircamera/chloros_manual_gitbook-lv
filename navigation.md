@@ -22,19 +22,7 @@ No kreisās puses uz labo augšējā galvenajā joslā atrodas:
 * **Savienot ar gaismas sensoru** — pāriet uz [cilni „Gaismas sensori”](daq/), lai savienotu DAQ gaismas sensoru. Darbojas, ja projekts nav atvērts.
 
 {% hint style="info" %}
-**Tikai Windows**: Chloros
-
-darbvirsmas lietotāja saskarne ir pieejama Windows
-
-vidē. Linux
-
-lietotājiem bezgrafiskās apstrādes gadījumā jāiepazīstas ar [CLI
-
-](CLI.md) un [Python
-
-SDK
-
-](api-python-sdk.md) dokumentāciju.
+**Tikai Windows**: Chloros darbvirsmas lietotāja saskarne ir pieejama Windows vidē. Linux lietotājiem bezgrafiskās apstrādes gadījumā jāiepazīstas ar [CLI](CLI.md) un [Python SDK](api-python-sdk.md) dokumentāciju.
 {% endhint %}
 
 ### <img src=".gitbook/assets/image (2) (1) (1).png" alt="" data-size="line">
@@ -49,15 +37,9 @@ Progresa josla <img src=".gitbook/assets/image (5).png" alt="" data-size="line">
 
 
 
-Bezmaksas Chloros
+Bezmaksas Chloros režīmā, kurā visi faili tiek apstrādāti secīgi, progresa joslā tiek parādīti 2 posmi: mērķa atpazīšana un apstrāde.
 
-režīmā, kurā visi faili tiek apstrādāti secīgi, progresa joslā tiek parādīti 2 posmi: mērķa atpazīšana un apstrāde.
-
-Maksas „Chloros
-
-+” licencētajā režīmā, kurā visi faili tiek apstrādāti vienlaikus, progresa joslā tiek parādīti 4 posmi: atpazīšana, analīze, kalibrēšana, eksportēšana. Ja uzvedīsiet peles kursoru virs „Chloros
-
-+“ progresa joslas, atvērsies paplašinātais 4 posmu progresa joslas panelis, lai jūs varētu sekot līdzi procesam. Noklikšķinot uz augšējās progresa joslas, izvēlnes panelis tiks fiksēts, bet, noklikšķinot vēlreiz, tas tiks atbloķēts.
+Maksas „Chloros+” licencētajā režīmā, kurā visi faili tiek apstrādāti vienlaikus, progresa joslā tiek parādīti 4 posmi: atpazīšana, analīze, kalibrēšana, eksportēšana. Ja uzvedīsiet peles kursoru virs „Chloros+“ progresa joslas, atvērsies paplašinātais 4 posmu progresa joslas panelis, lai jūs varētu sekot līdzi procesam. Noklikšķinot uz augšējās progresa joslas, izvēlnes panelis tiks fiksēts, bet, noklikšķinot vēlreiz, tas tiks atbloķēts.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 

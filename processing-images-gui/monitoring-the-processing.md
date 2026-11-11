@@ -1,10 +1,6 @@
 # Apstrādes uzraudzība
 
-Kad apstrāde ir sākusies, Chloros
-
-piedāvā vairākus veidus, kā uzraudzīt progresu, pārbaudīt, vai nav radušās problēmas, un izprast, kas notiek ar jūsu datu kopu. Šajā lapā ir izskaidrots, kā sekot līdzi apstrādes gaitai un interpretēt informāciju, ko sniedz Chloros
-
-.
+Kad apstrāde ir sākusies, Chloros piedāvā vairākus veidus, kā uzraudzīt progresu, pārbaudīt, vai nav radušās problēmas, un izprast, kas notiek ar jūsu datu kopu. Šajā lapā ir izskaidrots, kā sekot līdzi apstrādes gaitai un interpretēt informāciju, ko sniedz Chloros.
 
 ## Progresa joslas pārskats
 
@@ -12,9 +8,7 @@ Progresa josla augšējā galvenajā joslā parāda apstrādes statusu reālajā
 
 ### Progresa josla bezmaksas režīmā
 
-Lietotājiem bez „Chloros
-
-+” licences:
+Lietotājiem bez „Chloros+” licences:
 
 **2 posmu progresa indikators:**
 
@@ -25,13 +19,9 @@ Lietotājiem bez „Chloros
 * Pašreizējā posma nosaukums
 * Vienkārša horizontāla joslas vizualizācija
 
-### „Chloros
+### „Chloros+“ progresa josla
 
-+“ progresa josla
-
-Lietotājiem ar „Chloros
-
-+“ licenci:
+Lietotājiem ar „Chloros+“ licenci:
 
 **4 posmu progresa attēlojums:**
 
@@ -44,11 +34,7 @@ Lietotājiem ar „Chloros
 * Katrs posms parāda individuālo progresu (0–100 %)
 
 {% hint style="info" %}
-**CLI
-
--paritāte**: `chloros-cli process` darbības laikā tie paši četri pavedieni ziņo par „Detecting”, „Analyzing”, „Processing” un „Exporting”, savukārt `chloros-cli export-status` rāda reāllaika 4. pavediena eksportēšanas progresu no cita termināļa. Skatīt [CLI
-
-atsauci](../reference/cli-reference.md).
+**CLI-paritāte**: `chloros-cli process` darbības laikā tie paši četri pavedieni ziņo par „Detecting”, „Analyzing”, „Processing” un „Exporting”, savukārt `chloros-cli export-status` rāda reāllaika 4. pavediena eksportēšanas progresu no cita termināļa. Skatīt [CLI atsauci](../reference/cli-reference.md).
 {% endhint %}
 
 ***
@@ -63,9 +49,7 @@ atsauci](../reference/cli-reference.md).
 
 **Kas notiek:**
 
-* Chloros
-
-skenē attēlus, kurus esat atzīmējuši ar izvēles rūtiņu „Mērķis” (visus attēlus, ja neviens nav atzīmēts)
+* Chloros skenē attēlus, kurus esat atzīmējuši ar izvēles rūtiņu „Mērķis” (visus attēlus, ja neviens nav atzīmēts)
 * Datorredzes algoritmi identificē kalibrēšanas paneļus
 * No katra paneļa tiek iegūtas atstarošanas vērtības
 * Tiek reģistrēti mērķu laika zīmogi, lai nodrošinātu pareizu kalibrēšanas plānošanu
@@ -94,9 +78,7 @@ skenē attēlus, kurus esat atzīmējuši ar izvēles rūtiņu „Mērķis” (v
 * Attēlu EXIF metadatu nolasīšana (laika zīmogi, ekspozīcijas iestatījumi)
 * Kalibrēšanas stratēģijas noteikšana, balstoties uz mērķu laika zīmogiem un pieejamajiem DAQ lejupvērstajiem datiem
 * Attēlu apstrādes rindas organizēšana
-* Paralēlās apstrādes darba procesu sagatavošana (Tikai Chloros
-
-+)
+* Paralēlās apstrādes darba procesu sagatavošana (Tikai Chloros+)
 
 **Ilgums:** 5–30 sekundes**Progresa indikators:**
 
@@ -123,9 +105,7 @@ skenē attēlus, kurus esat atzīmējuši ar izvēles rūtiņu „Mērķis” (v
 * Apstrādātie attēli / Kopējais attēlu skaits
 
 **Apstrādes darbības veids:*** **Brīvais režīms**: secīgi apstrādā vienu attēlu pēc otra
-* **„Chloros
-
-+“ režīms**: izmanto aparatūrai pielāgotu darba procesu kopu — 1–4 vienlaicīgi darbojošies darba procesi GPU sistēmās (atkarībā no VRAM), viens darba process uz katru fizisko kodolu (mīnus viens) sistēmās, kurās ir tikai CPU. Skatīt [Dinamiskā aprēķinu pielāgošana](../processing-architecture/dynamic-compute-adaptation.md)
+* **„Chloros+“ režīms**: izmanto aparatūrai pielāgotu darba procesu kopu — 1–4 vienlaicīgi darbojošies darba procesi GPU sistēmās (atkarībā no VRAM), viens darba process uz katru fizisko kodolu (mīnus viens) sistēmās, kurās ir tikai CPU. Skatīt [Dinamiskā aprēķinu pielāgošana](../processing-architecture/dynamic-compute-adaptation.md)
 * **GPU paātrinājums**: ievērojami paātrina šo posmu**Uz ko jāpievērš uzmanība:**
 
 * Vienmērīga attēlu skaita palielināšanās
@@ -171,17 +151,13 @@ kreisajā sānjoslā
 
 ### Žurnāla ziņojumu izpratne
 
-Chloros
-
-žurnāla rindām priekšā ir iekavās norādītas apzīmējumi, kas nosauc apakšsistēmu — piemēram, `[PROCESSING]`, `[RUN-SUMMARY]`, `[LATTICE-EXPORT]`, `[EXPORT-CHECK]`, `[IMPORT-LEVEL]`. Svarīgākais, kas jāzina, ir **izpildes kopsavilkums**, kas tiek izdrukāts katras izpildes beigās (ieskaitot apturētās izpildes):
+Chloros žurnāla rindām priekšā ir iekavās norādītas apzīmējumi, kas nosauc apakšsistēmu — piemēram, `[PROCESSING]`, `[RUN-SUMMARY]`, `[LATTICE-EXPORT]`, `[EXPORT-CHECK]`, `[IMPORT-LEVEL]`. Svarīgākais, kas jāzina, ir **izpildes kopsavilkums**, kas tiek izdrukāts katras izpildes beigās (ieskaitot apturētās izpildes):
 
 ```
 [RUN-SUMMARY] 49 image(s) in 2 camera group(s); 4 target(s) detected; 45 image(s) calibrated; 180 file(s) written.
 ```
 
-Papildu `[RUN-SUMMARY]` norāžu rindas seko ikreiz, kad kaut kas ir jāpaskaidro — piemēram, izpilde, kas nedeva nekādu rezultātu, vai kamera, kuras pieprasītais rezultāts tika izlaists kā nepiemērots. `[EXPORT-CHECK]` rindas izskaidro izlaišanas iemeslus katrai kamerai atsevišķi (piemēram, kāpēc RGB
-
--kamera nesaņēma starojuma rezultātu).
+Papildu `[RUN-SUMMARY]` norāžu rindas seko ikreiz, kad kaut kas ir jāpaskaidro — piemēram, izpilde, kas nedeva nekādu rezultātu, vai kamera, kuras pieprasītais rezultāts tika izlaists kā nepiemērots. `[EXPORT-CHECK]` rindas izskaidro izlaišanas iemeslus katrai kamerai atsevišķi (piemēram, kāpēc RGB-kamera nesaņēma starojuma rezultātu).
 
 Vispārējie ziņojumu nopietnības līmeņi (zemāk minētie piemēri ir ilustratīvi, nevis burtiski):
 
@@ -195,9 +171,7 @@ Nekritiskas problēmas, kas neaptur apstrādi — piemēram, trūkstoši GPS dat
 
 **Rīcība:** Pārskatiet brīdinājumus pēc apstrādes pabeigšanas, bet neapturiet apstrādi
 
-#### Kļūdu ziņojumi (sarkanā krāsā — Red
-
-)
+#### Kļūdu ziņojumi (sarkanā krāsā — Red)
 
 Kritiskas problēmas, kas var izraisīt apstrādes neveiksmi — piemēram, disks ir pilns, bojāts attēla fails vai nav atklāti mērķi, kamēr tika pieprasīta atstarojuma kalibrēšana.
 
@@ -212,17 +186,9 @@ Kritiskas problēmas, kas var izraisīt apstrādes neveiksmi — piemēram, disk
 | Mērķi nav atrasti                      | Nav atklāti kalibrēšanas mērķi               | Atzīmējiet mērķa attēlus vai atspējojiet atstarošanas kalibrēšanu |
 | Nepietiekama diska vieta               | Nav pietiekami daudz vietas izvades datiem                 | Atbrīvojiet diska vietu                                    |
 | Izlaiž bojātu failu               | Attēla fails ir bojāts                         | Atkārtoti nokopējiet failu no SD kartes                             |
-| `[IMPORT-LEVEL] Skipping ... no raw source` | Uztveršanu bez neapstrādāta kadra nevar apstrādāt | Veiciet atkārtotu uztveršanu ar neapstrādātu kadru, vai izmantojiet CLI
-
-`--input-level`  |
+| `[IMPORT-LEVEL] Skipping ... no raw source` | Uztveršanu bez neapstrādāta kadra nevar apstrādāt | Veiciet atkārtotu uztveršanu ar neapstrādātu kadru, vai izmantojiet CLI `--input-level`  |
 | `[RUN-SUMMARY] ... 0 file(s) written` | Apstrāde neradīja attēlu rezultātus — ziņots kā kļūda ar norādēm | Izlasiet norāžu rindas; pārbaudiet, kas tika izlaists un kāpēc |
-| `[PROCESS] refused: The project folder is too deep for this computer…` | Windows
-
-garie ceļi ir atspējoti, un projekta mape atrodas pārāk dziļi, lai ievērotu 260 rakstzīmju ceļa ierobežojumu; nekas netika apstrādāts | Izmantojiet īsāku projekta mapi (ziņojumā norādīts garākais pieļaujamais ceļš), vai ieslēdziet Windows
-
-garos ceļus un pārstartējiet Chloros
-
-— skatiet [Apstrādes uzsākšana](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer) |
+| `[PROCESS] refused: The project folder is too deep for this computer…` | Windows garie ceļi ir atspējoti, un projekta mape atrodas pārāk dziļi, lai ievērotu 260 rakstzīmju ceļa ierobežojumu; nekas netika apstrādāts | Izmantojiet īsāku projekta mapi (ziņojumā norādīts garākais pieļaujamais ceļš), vai ieslēdziet Windows garos ceļus un pārstartējiet Chloros — skatiet [Apstrādes uzsākšana](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer) |
 | `[unmix-clamp-mask] …` | Neizdevās ierakstīt LATTICE produkta fiksācijas masku; pats produkts darbojas pareizi un parāda kļūdu `Chloros:UnmixClampMask=unavailable` | Pārbaudiet diska vietu un mapes atļaujas, pēc tam atkārtojiet apstrādi, ja maska jums ir nepieciešama |
 
 ### Žurnāla datu kopēšana
@@ -232,32 +198,18 @@ Lai kopētu žurnālu problēmu novēršanai vai atbalsta nolūkos:
 1. Atveriet paneļa „Debug Log” (Debug žurnāls)
 2. Noklikšķiniet uz pogas **Copy**(kopē žurnālu uz starpliktuvi) vai**Download** (lejupielādēt), lai saglabātu to kā teksta failu
 3. Ielīmējiet teksta failā vai e-pastā
-4. Vajadzības gadījumā nosūtiet to MAPIR
-
-atbalsta dienestam
+4. Vajadzības gadījumā nosūtiet to MAPIR atbalsta dienestam
 
 ### Kļūdas ziņošana no cilnes „Debug Log”
 
-Jaunums versijā 1.3.0: kļūdas ikona (**Ziņot par kļūdu**) cilnes „Debug Log” augšdaļā nosūta ziņojumu tieši uz MAPIR
-
-.
+Jaunums versijā 1.3.0: kļūdas ikona (**Ziņot par kļūdu**) cilnes „Debug Log” augšdaļā nosūta ziņojumu tieši uz MAPIR.
 
 1. Noklikšķiniet uz kļūdas ikonas cilnes „Debug Log” augšdaļā
 2. Aprakstiet problēmu: ko jūs darījāt, ko gaidījāt un kas notika tā vietā (obligāti)
 3. Pēc izvēles atzīmējiet **Pievienot dažus attēlus (līdz 10)**un izvēlieties attēlus no atvērtā projekta vai izmantojiet**Pārlūkot...**, lai pievienotu jebkuru citu attēla failu
 4. Noklikšķiniet uz **Nosūtīt**
 
-Ziņojumā ir iekļauts jūsu apraksts, visi pievienotie attēli, Chloros
-
-žurnāli un sistēmas informācija (Chloros
-
-versija, operētājsistēma, GPU un projekta iestatījumi). Lai nosūtītu ziņojumu, jums ir jābūt pieteicies Chloros
-
-(cilne „Lietotājs“). Nosūtīšanas laikā logu var aizvērt; kad nosūtīšana būs pabeigta, žurnālā tiks ierakstīts atsauces numurs, piemēram, `Bug report sent. Reference: BR-…` — norādiet to, sazinoties ar MAPIR
-
-. Ja ziņojumu nevar augšupielādēt (piemēram, nav interneta savienojuma), Chloros
-
-to saglabā jūsu datorā un parāda ceļu, lai jūs to varētu nosūtīt pa e-pastu uz support@mapir.camera.
+Ziņojumā ir iekļauts jūsu apraksts, visi pievienotie attēli, Chloros žurnāli un sistēmas informācija (Chloros versija, operētājsistēma, GPU un projekta iestatījumi). Lai nosūtītu ziņojumu, jums ir jābūt pieteicies Chloros (cilne „Lietotājs“). Nosūtīšanas laikā logu var aizvērt; kad nosūtīšana būs pabeigta, žurnālā tiks ierakstīts atsauces numurs, piemēram, `Bug report sent. Reference: BR-…` — norādiet to, sazinoties ar MAPIR. Ja ziņojumu nevar augšupielādēt (piemēram, nav interneta savienojuma), Chloros to saglabā jūsu datorā un parāda ceļu, lai jūs to varētu nosūtīt pa e-pastu uz support@mapir.camera.
 
 ***
 
@@ -271,33 +223,25 @@ to saglabā jūsu datorā un parāda ceļu, lai jūs to varētu nosūtīt pa e-p
 * Pārējie kodoli atrodas dīkstāves režīmā vai ir pieejami
 * Sistēma joprojām reaģē
 
-**„Chloros
-
-+“ paralēlais režīms:**
+**„Chloros+“ paralēlais režīms:**
 
 * Vairāki kodoli darbojas ar augstu noslogojumu — to skaits ir atkarīgs no stratēģijas, kas izvēlēta ar [Dinamisko aprēķinu pielāgošanu](../processing-architecture/dynamic-compute-adaptation.md)
 * Sistēma var šķist mazāk reaģējoša
 
 **Lai uzraudzītu:**
 
-* Windows
-
-uzdevumu pārvaldnieks (Ctrl+Shift+Esc)
+* Windows uzdevumu pārvaldnieks (Ctrl+Shift+Esc)
 * Sadaļa „Veiktspēja” → Sadaļa „Procesors”
-* Meklējiet procesus „Chloros
-
-” vai „chloros-backend”
+* Meklējiet procesus „Chloros” vai „chloros-backend”
 
 ### Atmiņas (RAM) izmantošana
 
 **Tipiska izmantošana:**
 
-* Nelieli projekti (&lt; 100 attēli): 2–4 GB
+* Nelieli projekti (< 100 attēli): 2–4 GB
 * Vidēji projekti (100–500 attēli): 4–8 GB
 * Lieli projekti (500+ attēli): 8–16 GB
-* „Chloros
-
-+“ paralēlais režīms patērē vairāk RAM
+* „Chloros+“ paralēlais režīms patērē vairāk RAM
 
 **Ja atmiņas ir maz:**
 
@@ -305,9 +249,7 @@ uzdevumu pārvaldnieks (Ctrl+Shift+Esc)
 * Aizveriet citas programmas
 * Ja regulāri apstrādājat lielus datu kopumus, palieliniet RAM apjomu
 
-### GPU izmantošana („Chloros
-
-+” ar CUDA)
+### GPU izmantošana („Chloros+” ar CUDA)
 
 Ja ir ieslēgta GPU paātrināšana:
 
@@ -345,9 +287,7 @@ Ja ir ieslēgta GPU paātrināšana:
 
 * Pārbaudiet kļūdu žurnālu (Debug Log)
 * Pārbaudiet pieejamo diska vietu
-* Pārbaudiet uzdevumu pārvaldnieku (Task Manager), lai pārliecinātos, ka Chloros
-
-darbojas
+* Pārbaudiet uzdevumu pārvaldnieku (Task Manager), lai pārliecinātos, ka Chloros darbojas
 
 **Bieži parādās kļūdu ziņojumi:**
 
@@ -357,9 +297,7 @@ darbojas
 
 **Sistēma vairs nereaģē:**
 
-* Chloros
-
-paralēlais režīms patērē pārāk daudz resursu
+* Chloros paralēlais režīms patērē pārāk daudz resursu
 * Apsveriet vienlaicīgo uzdevumu skaita samazināšanu vai aparatūras modernizēšanu
 * Brīvais režīms patērē mazāk resursu
 
@@ -398,9 +336,7 @@ Pārtrauciet apstrādi, ja redzat:
 
 1. Ja apstrāde tikko sākta un atrodas atklāšanas posmā: apturiet, atzīmējiet mērķus, restartējiet
 2. Turpmāk: izmantojiet SSD, samaziniet indeksu skaitu, modernizējiet aparatūru
-3. Apsveriet iespēju izmantot CLI
-
-, lai masveidā apstrādātu lielus datu kopumus
+3. Apsveriet iespēju izmantot CLI, lai masveidā apstrādātu lielus datu kopumus
 
 ### Brīdinājumi par „diska vietu”
 
@@ -410,9 +346,7 @@ Pārtrauciet apstrādi, ja redzat:
 2. Pārvietojiet projektu uz disku ar lielāku vietu
 3. Samaziniet eksportējamo indeksu skaitu
 4. Atvienojiet nevajadzīgos LATTICE eksporta produktus (Projekta iestatījumi → Apstrāde)
-5. Izmantojiet JPG formātu, nevis TIFF
-
-u (mazāki faili)
+5. Izmantojiet JPG formātu, nevis TIFF u (mazāki faili)
 
 ### Bieži parādās ziņojumi par „bojātiem failiem”
 
@@ -429,9 +363,7 @@ u (mazāki faili)
 
 1. Nodrošiniet pietiekamu ventilāciju
 2. Notīriet putekļus no datora ventilācijas atverēm
-3. Samaziniet apstrādes slodzi (izmantojiet „Free” režīmu, nevis „Chloros
-
-+”)
+3. Samaziniet apstrādes slodzi (izmantojiet „Free” režīmu, nevis „Chloros+”)
 4. Veiciet apstrādi vēsākā dienas laikā
 
 ***

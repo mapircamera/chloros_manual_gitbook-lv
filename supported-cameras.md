@@ -6,23 +6,10 @@ metaLinks:
 
 # Atbalstītās kameras —
 
-Chloros
-apstrādā attēlus no divām MAPIR
-kameru sērijām **visās platformās** (Windows
-, Linux
-amd64 un Linux
-arm64/Jetson):
+Chloros apstrādā attēlus no divām MAPIR kameru sērijām **visās platformās** (Windows, Linux amd64 un Linux arm64/Jetson):
 
-* **Survey3** — Survey3W
-(plaša leņķa) un Survey3N
-(šauras leņķa) kameras. Ievade: `RAW+JPG`.
-* **LATTICE**— M3C un M3M multispektrālie kameru moduļi. Ievade: `.tif`/`.tiff` uzņēmumi. LATTICE kameras var arī**vadīt reāllaikā** no Chloros
-— izmantojot GUI cilni „Cameras” (Windows
-) vai `chloros-cli lattice` / Python
-SDK
-(Windows
-un Linux
-) — ieskaitot sinhronizētus daudzkameru masīvus. Skatiet [LATTICE rokasgrāmatu](lattice/).
+* **Survey3** — Survey3W (plaša leņķa) un Survey3N (šauras leņķa) kameras. Ievade: `RAW+JPG`.
+* **LATTICE**— M3C un M3M multispektrālie kameru moduļi. Ievade: `.tif`/`.tiff` uzņēmumi. LATTICE kameras var arī**vadīt reāllaikā** no Chloros — izmantojot GUI cilni „Cameras” (Windows) vai `chloros-cli lattice` / Python SDK (Windows un Linux) — ieskaitot sinhronizētus daudzkameru masīvus. Skatiet [LATTICE rokasgrāmatu](lattice/).
 
 Apstrādes procesā tiek atbalstīti arī `.dng` ievades faili.
 
@@ -36,9 +23,7 @@ LATTICE sērija ir modulāra multispektrālā kameru sistēma, kas balstās uz S
 <sensor>-<lens>-F<filter>        e.g.  M3C-L41-FRGN,  M3M-L87-F550
 ```
 
-Chloros
-
-to parāda ar prefiksu `LATT-` (piemēram, `LATT-M3M-L41-F550`), un šī modeļa virkne nosaka visu turpmāko — sensora profils, spektrālo joslu izkārtojums un kalibrēšana tiek noteikta automātiski; nav nekas jākonfigurē katrai kamerai atsevišķi. Objektīva numurs atbilst **horizontālajam redzes laukam grādos**: `L41` = šaurs 41°, `L87` = plats 87°.
+Chloros to parāda ar prefiksu `LATT-` (piemēram, `LATT-M3M-L41-F550`), un šī modeļa virkne nosaka visu turpmāko — sensora profils, spektrālo joslu izkārtojums un kalibrēšana tiek noteikta automātiski; nav nekas jākonfigurē katrai kamerai atsevišķi. Objektīva numurs atbilst **horizontālajam redzes laukam grādos**: `L41` = šaurs 41°, `L87` = plats 87°.
 
 Ir divas sensora konfigurācijas:
 
@@ -49,52 +34,20 @@ Ir divas sensora konfigurācijas:
 
 ### M3C (Bayer) filtra opcijas
 
-| Filtrs | Joslas (nosaukums @ centrs nm / FWHM
-
-nm)       |
+| Filtrs | Joslas (nosaukums @ centrs nm / FWHM nm)       |
 | ------ | ---------------------------------------- |
-| `FRGB` | Blue
+| `FRGB` | Blue 475/30 · Green 550/30 · Red 625/30  |
+| `FRGN` | Red 660/21 · Green 550/30 · NIR 850/30   |
+| `FOCN` | Orange 618,4/46 · Cyan 494,1/40 · NIR 821,6/54 (izmērīts — skatīt zemāk) |
+| `FNGB` | Blue 475/30 · Green 550/30 · NIR 850/30  |
 
-475/30 · Green
-
-550/30 · Red
-
-625/30  |
-| `FRGN` | Red
-
-660/21 · Green
-
-550/30 · NIR
-
-850/30   |
-| `FOCN` | Orange
-
-618,4/46 · Cyan
-
-494,1/40 · NIR
-
-821,6/54 (izmērīts — skatīt zemāk) |
-| `FNGB` | Blue
-
-475/30 · Green
-
-550/30 · NIR
-
-850/30  |
-
-`FOCN` gadījumā vērtības ir filtra **izmērītā** pusmaksimālā josla (programmatūrā Chloros
-
-1.3.0 un jaunākās versijās; agrākajās versijās tika izmantotas specifikācijās norādītās vērtības 615/21 · 490/38 · 808/14). Joslu nosaukumi paliek `Orange_615`, `Cyan_490` un `NIR_808`, un izmērītais centrs un platums ir tie, ko Chloros
-
-iezīmē katrā kalibrētajā eksportā.
+`FOCN` gadījumā vērtības ir filtra **izmērītā** pusmaksimālā josla (programmatūrā Chloros 1.3.0 un jaunākās versijās; agrākajās versijās tika izmantotas specifikācijās norādītās vērtības 615/21 · 490/38 · 808/14). Joslu nosaukumi paliek `Orange_615`, `Cyan_490` un `NIR_808`, un izmērītais centrs un platums ir tie, ko Chloros iezīmē katrā kalibrētajā eksportā.
 
 ### M3M (mono) filtru katalogs — 23 SKU
 
 F-skaitlis ir SKU marķējums; izmērītā josla (kas tiek uzspiesta uz katra kalibrētā eksporta) ir filtra skenējums katrai partijai:
 
-| SKU    | Centrs (nm, izmērīts) | FWHM
-
-malas (nm) | Platums (nm) |
+| SKU    | Centrs (nm, izmērīts) | FWHM malas (nm) | Platums (nm) |
 | ------ | --------------------- | --------------- | ---------- |
 | F385   | 379,4                 | 367–392         | 25         |
 | F405   | 403,9                 | 390–417         | 27         |
@@ -120,14 +73,8 @@ malas (nm) | Platums (nm) |
 | F950   | 945,1                 | 929–961         | 32         |
 | F988 † | 985,3                 | 968–1003        | 35         |
 
-_&quot;Lentes malas tiek mērītas kā pilnā platuma vērtības pie puses maksimuma no MAPIR
+_"Lentes malas tiek mērītas kā pilnā platuma vērtības pie puses maksimuma no MAPIR partiju filtru skenējumiem — tās pašas vērtības, ko Chloros iezīmē katrā kalibrētajā eksportā."_ "— (nomināls)" = partijas skenējums vēl nav veikts; šiem SKU norādītais centrs ir SKU numurs, bet platums — ražotāja norādītais lielums.
 
-partiju filtru skenējumiem — tās pašas vērtības, ko Chloros
-
-iezīmē katrā kalibrētajā eksportā.&quot;_ &quot;— (nomināls)&quot; = partijas skenējums vēl nav veikts; šiem SKU norādītais centrs ir SKU numurs, bet platums — ražotāja norādītais lielums.
-
-† „F988 atstarošanas koeficients tiek kalibrēts, izmantojot atstarošanas paneli uz vietas: josla atrodas ārpus DAQ gaismas sensora kalibrētā diapazona, tāpēc Chloros
-
-izmanto jūsu pēdējo paneļa uzņemumu un saglabā to starp paneļa novērojumiem.” Skatīt [Kalibrēšanas mērķus](calibration-targets.md).
+† „F988 atstarošanas koeficients tiek kalibrēts, izmantojot atstarošanas paneli uz vietas: josla atrodas ārpus DAQ gaismas sensora kalibrētā diapazona, tāpēc Chloros izmanto jūsu pēdējo paneļa uzņemumu un saglabā to starp paneļa novērojumiem.” Skatīt [Kalibrēšanas mērķus](calibration-targets.md).
 
 Informāciju par kameras vadību reāllaikā, matricas, tīkla konfigurāciju un radiometrisko apstrādes ķēdi skatiet [LATTICE rokasgrāmatā](lattice/).

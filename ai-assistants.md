@@ -43,7 +43,7 @@ Servera rīki aptver to, ko dara [Python SDK](api-python-sdk.md). Tie tiek insta
 claude mcp add chloros -- chloros-mcp
 ```
 
-**Claude Desktop:**pievienojiet to `claude_desktop_config.json` (to var atvērt, izvēloties**Iestatījumi &gt; Izstrādātājs &gt; Rediģēt konfigurāciju**), pēc tam pārstartējiet Claude Desktop.**Kursors** izmanto to pašu ierakstu `~/.cursor/mcp.json`.
+**Claude Desktop:**pievienojiet to `claude_desktop_config.json` (to var atvērt, izvēloties**Iestatījumi > Izstrādātājs > Rediģēt konfigurāciju**), pēc tam pārstartējiet Claude Desktop.**Kursors** izmanto to pašu ierakstu `~/.cursor/mcp.json`.
 
 ```json
 {
