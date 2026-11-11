@@ -4,14 +4,14 @@ Kad esat importējis attēlus, atzīmējis kalibrēšanas mērķus un konfigurē
 
 ## Pārbaudes saraksts pirms apstrādes
 
-Pirms noklikšķināt uz pogas „Sākt”, pārliecinieties, ka viss ir gatavs:
+Pirms noklikšķināt uz pogas „Sākt“, pārliecinieties, ka viss ir gatavs:
 
-* [ ] **Faili importēti** – visi attēli parādās failu pārlūkprogrammā
+* [ ] **Faili importēti** — visi attēli parādās failu pārlūkā
 * [ ] **Mērķa attēli atzīmēti** — kolonnā „Mērķis” ir atzīmēti kalibrēšanas attēli (vai importēts `.daq` ieraksts LATTICE lietošanai)
-* [ ] **Kameru modeļi atpazīti** — kolonnā „Kameras modelis” redzami pareizie kameru modeļi
+* [ ] **Atpazīti kameru modeļi** — kolonnā „Kameras modelis” redzamas pareizās kameras
 * [ ] **Iestatījumi konfigurēti** — projekta iestatījumi pārskatīti un pielāgoti
 * [ ] **Indeksi izvēlēti** — pievienoti vēlamie multispektrālie indeksi (ja nepieciešams)
-* [ ] **Eksporta formāts izvēlēts** — izejas formāts, kas atbilst jūsu darba plūsmai
+* [ ] **Izvēlēts eksporta formāts** — izvēlēts jūsu darba plūsmai atbilstošs izvades formāts
 
 {% hint style="info" %}
 **Padoms**: Pirms apstrādes noklikšķiniet uz dažiem attēliem failu pārlūkā, lai pārliecinātos, ka tie ir ielādēti pareizi.
@@ -23,11 +23,11 @@ Pirms noklikšķināt uz pogas „Sākt”, pārliecinieties, ka viss ir gatavs:
 
 ### Atrodiet pogu „Sākt”
 
-Sākšanas/atskaņošanas poga atrodas Chloros augšējā galvenes joslā:
+Poga „Sākt/Atskaņot” atrodas programmas Chloros augšējā galvenes joslā:
 
 * Atrašanās vieta: loga augšējā centrā
-* Ikona: **Atskaņošanas/sākšanas poga** <img src="../.gitbook/assets/image (2) (1) (1).png" alt="" data-size="line">
-* Stāvoklis: poga ir aktivizēta (spilgti izgaismota), kad ir gatava apstrādei
+* Ikona: **Poga „Atskaņot/Sākt”** <img src="../.gitbook/assets/image (2) (1) (1).png" alt="" data-size="line">
+* Stāvoklis: poga ir aktīva (spilgta), kad programma ir gatava apstrādei
 
 ### Noklikšķiniet, lai sāktu
 
@@ -37,14 +37,14 @@ Sākšanas/atskaņošanas poga atrodas Chloros augšējā galvenes joslā:
 4. Progresa josla atjaunojas, parādot apstrādes statusu
 
 {% hint style="success" %}
-**Apstrāde sākta**: Pēc noklikšķināšanas Chloros automātiski veic visus apstrādes posmus — mērķa noteikšanu, debayeringu, kalibrēšanu, indeksa aprēķināšanu un eksportēšanu. Tā automātiski noteic, vai jūsu projekts ir Survey3, LATTICE vai to kombinācija, un katrai kamerai piemēro atbilstošo apstrādes plūsmu.
+**Apstrāde uzsākta**: Pēc noklikšķināšanas Chloros automātiski veic visus apstrādes posmus — mērķa noteikšanu, debayeringu, kalibrēšanu, indeksa aprēķināšanu un eksportēšanu. Tas automātiski atpazīst, vai jūsu projekts ir Survey3, „LATTICE” vai to kombinācija, un katrai kamerai piemēro atbilstošo apstrādes procesu.
 {% endhint %}
 
 ***
 
-## Apstrādes režīmu izpratne
+## Apstrādes režīmu izpratne Atkarībā no jūsu licences,
 
-Chloros darbojas divos dažādos apstrādes režīmos atkarībā no jūsu licences:
+Chloros darbojas divos dažādos apstrādes režīmos:
 
 ### Bezmaksas režīms (secīga apstrāde)
 
@@ -56,44 +56,44 @@ Chloros darbojas divos dažādos apstrādes režīmos atkarībā no jūsu licenc
 * Vienpavediena darbība
 * Mazāks atmiņas patēriņš
 
-**Progresa josla parāda 2 posmus:**
+**Progresa josla rāda 2 posmus:**
 
 1.**Mērķa noteikšana** — kalibrēšanas mērķu skenēšana
 2. **Apstrāde** — kalibrēšanas piemērošana un attēlu eksportēšana**Apstrādes laiks:**
 
-* Daudz lēnāks nekā Chloros+ paralēlais režīms
+* Daudz lēnāks nekā „Chloros+“ paralēlais režīms
 * Piemērots maziem un vidējiem datu kopumiem (&lt; 200 attēli)
 
-### Chloros+ režīms (paralēlā apstrāde)
+### „Chloros+“ režīms (paralēla apstrāde)
 
-**Nepieciešama Chloros+ licence**
+**Nepieciešama „Chloros+“ licence**
 
 **Kā tas darbojas:**
 
 * Vienlaikus apstrādā vairākus attēlus, izmantojot [4-pavedienu apstrādes cauruļvadu](../processing-architecture/processing-pipeline.md)
-* [Dinamiskā aprēķinu pielāgošana](../processing-architecture/dynamic-compute-adaptation.md) programmas palaišanas brīdī automātiski izvēlas optimālo stratēģiju jūsu aparatūrai
-* GPU (CUDA) paātrinājums ar NVIDIA grafiskajām kartēm (galddatoriem un Jetson)
-* **Darbinieku skaits pielāgojas aparatūrai**: GPU stratēģijas palaista**1–4 vienlaicīgus darbiniekus** (mērogs atkarīgs no VRAM — Jetson ar nelielu atmiņu palaista 1, galddatoru GPU ar 12 GB un vairāk palaista līdz 4); sistēmās, kurās izmanto tikai CPU, tiek palaists viens darbinieks uz katru fizisko kodolu, atskaitot vienu**Progresa josla parāda 4 posmus** (atbilstoši 4 cauruļvada pavedieniem):
+* [Dinamiskā aprēķinu pielāgošana](../processing-architecture/dynamic-compute-adaptation.md) automātiski izvēlas optimālo stratēģiju jūsu aparatūrai, sākot darbību
+* GPU (CUDA) paātrinājums ar NVIDIA grafiskajām kartēm
+* **Darbinieku skaits pielāgojas aparatūrai**: GPU stratēģijas palaista**2–4 vienlaicīgus darbiniekus** (mērogs atkarīgs no VRAM — 3 uz 2–12 GB GPU, 2 līdz 4 uz 12 GB+ GPU); Sistēmās, kurās tiek izmantots tikai CPU, tiek palaists viens darba process uz katru fizisko kodolu, atņemot vienu**Progresa josla parāda 4 posmus** (kas atbilst 4 cauruļvada pavedieniem):
 
-1. **Atklāšana** (1. pavediens) — kalibrēšanas mērķu atrašana
-2. **Analīze** (2. pavediens) — attēla metadatu pārbaude un kalibrēšanas aprēķināšana
+1. **Atklāšana** (1. pavediens) — kalibrēšanas mērķu meklēšana
+2. **Analīze** (pavediens Nr. 2) — attēla metadatu pārbaude un kalibrēšanas aprēķināšana
 3. **Kalibrēšana** (pavediens Nr. 3) — debayering, vinjetes korekcija, kalibrēšana, indeksa aprēķināšana
-4. **Eksportēšana** (pavediens Nr. 4) — apstrādāto attēlu un indeksu saglabāšana**Progresa joslas lietošana:*** **Pavelciet peles kursoru** virs joslas, lai redzētu detalizētu 4 posmu nolaižamo paneli
+4. **Eksportēšana** (pavediens Nr. 4) — apstrādāto attēlu un indeksu saglabāšana**Progresa joslas lietošana:*** **Pavelciet peles kursoru** pāri joslai, lai redzētu detalizētu 4 posmu nolaižamo paneli
 * **Noklikšķiniet** uz progresa joslas, lai fiksētu nolaižamo paneli
 * **Noklikšķiniet atkārtoti**, lai atbloķētu un paslēptu paneli**Apstrādes laiks:**
 
-* Ievērojami ātrāks nekā bezmaksas režīmā
+* Ievērojami ātrāk nekā bezmaksas režīmā
 * GPU paātrinājums vēl vairāk palielina ātrumu
 
 {% hint style="info" %}
-**Chloros+ Ātrums**: Lieliem datu kopumiem paralēlā apstrāde var būt 5–10 reizes ātrāka nekā secīgā režīmā. Projekts ar 500 attēliem, kura apstrāde bezmaksas režīmā aizņem 2 stundas, ar Chloros+ var tikt pabeigts 15–20 minūtēs.
+**Chloros+ ātrums**: Lieliem datu kopumiem paralēlā apstrāde var būt 5–10 reizes ātrāka nekā secīgajā režīmā. Projekts ar 500 attēliem, kura apstrāde bezmaksas režīmā aizņem 2 stundas, ar Chloros+ var tikt pabeigts 15–20 minūtēs.
 {% endhint %}
 
 ***
 
 ## Kas notiek apstrādes laikā
 
-### 1. posms: Mērķa atpazīšana
+### 1. posms: Mērķu atpazīšana
 
 **Ko dara Chloros:**
 
@@ -106,9 +106,9 @@ Chloros darbojas divos dažādos apstrādes režīmos atkarībā no jūsu licenc
 
 ### 2. posms: Debayering (RAW konvertēšana)
 
-**Chloros darbības:**
+**Ko dara Chloros:**
 
-* Konvertē RAW Bayer modeļa datus pilnvērtīgos 3-kanālu attēlos (LATTICE mono moduļi paliek vienkanāla — tiem debayering tiek izlaists, par to atzīmējot žurnālā)
+* Konvertē RAW Bayer modeļa datus pilnos 3-kanālu attēlos (LATTICE mono moduļi paliek vienkanāla — tiem debayering tiek izlaists, par to atzīmējot žurnālā)
 * Piemēro izvēlēto demosaicing algoritmu
 * Saglabā maksimālu attēla kvalitāti un detaļas
 
@@ -116,12 +116,12 @@ Chloros darbojas divos dažādos apstrādes režīmos atkarībā no jūsu licenc
 
 ### 3. posms: Kalibrēšana
 
-**Chloros funkcijas:*** **Vignettinga korekcija**: novērš objektīva izraisīto attēla tumšošanos malās
+**Ko dara Chloros:*** **Vignettinga korekcija**: Noņem objektīva izraisīto tumšošanos malās
 * **Atstarošanas kalibrēšana**: normalizē, izmantojot mērķa atstarošanas vērtības un/vai DAQ lejupvērstos datus
 * Piemēro korekcijas visos diapazonos/kanālos
 * Katram attēlam izmanto atbilstošu kalibrēšanas atsauci, pamatojoties uz laika zīmogu
 
-**Ilgums:** Lielākā daļa apstrādes laika
+**Ilgums:** lielākā daļa apstrādes laika
 
 ### 4. posms: Indeksu aprēķināšana
 
@@ -129,7 +129,7 @@ Chloros darbojas divos dažādos apstrādes režīmos atkarībā no jūsu licenc
 
 * Aprēķina konfigurētos multispektrālos indeksus (NDVI, NDRE utt.)
 * Piemēro joslu matemātiskās operācijas kalibrētajiem attēliem
-* Ģenerē indeksa attēlus katram izvēlētajam indeksam
+* Ģenerē indeksu attēlus katram izvēlētajam indeksam
 
 **Ilgums:** Dažas sekundes uz vienu attēlu
 
@@ -138,26 +138,26 @@ Chloros darbojas divos dažādos apstrādes režīmos atkarībā no jūsu licenc
 **Ko dara Chloros:**
 
 * Saglabā apstrādātos attēlus izvēlētajā formātā
-* **LATTICE fan-out**: katrs neapstrādāts LATTICE kadrs tiek eksportēts kā visi aktivizētie produkti vienā darbības ciklā — bez bayera filtra, priekšskatījums, starojums (vienmēr float32), atstarošanās
-* Ieraksta failus projekta izvades struktūrā: `<project>/<camera>/<format>/<Product>_Images/`
-* **Saglabā avota faila nosaukumu** — mape identificē produktu, netiek pievienots nekāds paplašinājums**Ilgums:** Atšķiras atkarībā no eksporta formāta un faila lieluma***
+* **LATTICE fan-out**: katrs neapstrādāts LATTICE kadrs vienā darbības ciklā tiek eksportēts kā visi aktivizētie produkti — bez bayera filtra, priekšskatījums, starojums (vienmēr float32), atstarošanās
+* Ieraksta failus projekta izvades kokā: `<project>/<camera>/<format>/<Product>_Images/`
+* **Saglabā avota faila nosaukumu** — mape identificē produktu, netiek pievienots nekāds paplašinājums**Ilgums:** Atšķiras atkarībā no eksporta formāta un faila izmēra***
 
 ## Apstrādes darbība
 
-### Automātiskā apstrādes procesa plūsma
+### Automātiskā apstrādes procesa ķēde
 
-Pēc palaišanas visa procesa plūsma darbojas automātiski:
+Pēc palaišanas visa procesa ķēde darbojas automātiski:
 
 * Nav nepieciešama lietotāja iejaukšanās
 * Visi konfigurētie soļi tiek izpildīti secīgi
 * Progresa atjauninājumi tiek parādīti reāllaikā
 * Eksportētie faili tiek ierakstīti diskā, tiklīdz tie ir pabeigti — jūs varat atvērt gatavos rezultātus, kamēr apstrāde turpinās
 
-### Datorresursu izmantošana apstrādes laikā
+### Datora resursu izmantošana apstrādes laikā
 
-**Brīvais režīms:**
+**Bezmaksas režīms:**
 
-* Salīdzinoši zema procesora noslodze (vienpavediena)
+* Salīdzinoši zems procesora noslogojums (vienpavediena režīms)
 * Dators joprojām reaģē uz citām uzdevumiem
 * Var droši samazināt Chloros logu un strādāt citās lietojumprogrammās
 
@@ -166,29 +166,29 @@ Pēc palaišanas visa procesa plūsma darbojas automātiski:
 * Augsta procesora noslogotība visā stratēģijas darba grupā
 * Ar GPU paātrinājumu: augsta GPU noslogotība
 * Apstrādes laikā dators var reaģēt lēnāk
-* Izvairieties no citu procesoru resursus intensīvu uzdevumu palaišanas
+* Izvairieties no citu procesoru resursus intensīvu uzdevumu uzsākšanas
 
 {% hint style="warning" %}
-**Veiktspējas padoms**: Lai nodrošinātu labāko Chloros+ veiktspēju, aizveriet citas lietojumprogrammas un ļaujiet Chloros izmantot visus sistēmas resursus.
+**Padoms par veiktspēju**: Lai nodrošinātu vislabāko Chloros+ veiktspēju, aizveriet citas programmas un ļaujiet Chloros izmantot visus sistēmas resursus.
 {% endhint %}
 
-### Apstrādi nevar apturēt (bet to var pilnībā pārtraukt)
+### Apstrādi nevar apturēt (bet tās pārtraukšana notiek bez problēmām)
 
 * Pēc uzsākšanas apstrādi nevar apturēt un vēlāk atsākt
 * Noklikšķinot uz **Stop**, apstrāde tiek pilnībā pārtraukta jau ar pirmo klikšķi
 * Produkti, kas jau bija eksportēti pirms pārtraukšanas, paliek diskā
-* Pārtraukta apstrāde precīzi atspoguļo to, kas ir pabeigts (skatiet `[RUN-SUMMARY]` rindas žurnālā)
+* Pārtraukta apstrāde precīzi atspoguļo to, kas ir paveikts (skatiet `[RUN-SUMMARY]` rindas žurnālā)
 * Jauns apstrādes cikls sāk procesu no sākuma
 
-**Plānošanas padoms:** Ļoti lieliem projektiem apsveriet iespēju veikt apstrādi pa daļām vai izmantot CLI, lai nodrošinātu labāku kontroli.***
+**Plānošanas padoms:** Ļoti lieliem projektiem apsveriet iespēju veikt apstrādi partijās vai izmantot CLI, lai nodrošinātu labāku kontroli.***
 
 ## Apstrādes uzraudzība
 
-Kamēr apstrāde noris, jūs varat:
+Kamēr notiek apstrāde, jūs varat:
 
 * **Sekot līdzi progresa joslai** — redzēt kopējo pabeigšanas procentu
-* **Skatīt pašreizējo posmu** — atklāšana, analīze, kalibrēšana vai eksportēšana
-* **Pārbaudīt žurnāla cilni** — skatīt detalizētus apstrādes ziņojumus un brīdinājumus
+* **Apskatīt pašreizējo posmu** — atklāšana, analīze, kalibrēšana vai eksportēšana
+* **Pārbaudīt žurnāla cilni** — redzēt detalizētus apstrādes ziņojumus un brīdinājumus
 * **Priekšskatīt pabeigtos attēlus** — eksportētie faili parādās diskā apstrādes laikā
 
 Sīkāku informāciju par uzraudzību skatiet sadaļā [Apstrādes uzraudzība](monitoring-the-processing.md).
@@ -201,23 +201,23 @@ Ja jums ir nepieciešams apturēt apstrādi:
 
 ### Kā apturēt
 
-1. Atrodiet **Pārtraukšanas pogu** (apstrādes laikā tā aizstāj Sākšanas pogu)
-2. Noklikšķiniet uz tās vienu reizi — joslā parādīsies uzraksts **„Apturēšana...”**, kamēr tiek pabeigta pašreizējā attēla apstrāde
-3. Apstrāde beidzas galīgā apturētajā stāvoklī, un žurnālā tiek izdrukāts precīzs `[RUN-SUMMARY]` pārskats par to, kas tika pabeigts
+1. Atrodiet **poga „Stop”** (apstrādes laikā tā aizstāj pogu „Sākt”)
+2. Noklikšķiniet uz tās vienu reizi — joslā parādīsies uzraksts **„Pārtraukšana...”**, kamēr tiek pabeigts attēla apstrādes process
+3. Apstrāde beidzas galīgā pārtraukšanas stāvoklī, un žurnālā tiek izdrukāts precīzs `[RUN-SUMMARY]` par to, kas tika pabeigts
 
-### Kad apturēt
+### Kad pārtraukt
 
-**Pamatoti iemesli apturēšanai:**
+**Pamatoti iemesli pārtraukšanai:**
 
 * Tika konstatēts, ka izmantoti nepareizi iestatījumi
 * Aizmirsts atzīmēt mērķa attēlus
-* Ir importēti nepareizi attēli
+* Importēti nepareizi attēli
 * Sistēma darbojas pārāk lēni vai nereaģē
 
-**Pēc apstādināšanas:**
+**Pēc pārtraukšanas:**
 
-* Pirms apstādināšanas eksportētie rezultāti paliek diskā
-* Pārskatiet un novēršiet jebkādas problēmas, nepieciešamības gadījumā pielāgojiet iestatījumus
+* Pirms pārtraukšanas eksportētie rezultāti paliek diskā
+* Pārskatiet un novēršiet visas problēmas, nepieciešamības gadījumā pielāgojiet iestatījumus
 * Atkārtoti uzsāciet apstrādi — apstrāde sākas no sākuma
 
 ***
@@ -229,20 +229,20 @@ Faktiskais apstrādes laiks ievērojami atšķiras atkarībā no:
 * Attēlu skaita
 * Attēlu izšķirtspējas
 * Ievades formāta (RAW vai JPG)
-* Apstrādes režīma (Free vai Chloros+)
-* Procesora ātruma un kodolu skaita
+* Apstrādes režīma (Bezmaksas vai Chloros+)
+* Procesora ātrums un kodolu skaits
 * Grafiskā procesora pieejamība (tikai Chloros+)
 * Aprēķināmo indeksu skaits
 * Aktivizēto eksportējamo produktu skaits (LATTICE)
 
-### Aptuvenas aplēses (Chloros+, 12 MP attēli, moderns procesors)
+### Aptuvenas aplēses (Chloros+, 12 MP attēli, mūsdienīgs procesors)
 
 | Attēlu skaits | Bezmaksas režīms | Chloros+ (procesors) | Chloros+ (grafiskais procesors) |
 | ----------- | --------- | -------------- | -------------- |
 | 50 attēli   | 15–20 min | 5–8 min        | 3–5 min        |
 | 100 attēli  | 30–40 min | 10–15 min      | 5–8 min        |
-| 200 attēli  | 1–1,5 stundas | 20–30 minūtes      | 10–15 minūtes      |
-| 500 attēli  | 2–3 stundas   | 45–60 minūtes      | 20–30 minūtes      |
+| 200 attēli  | 1–1,5 stundas | 20–30 min      | 10–15 min      |
+| 500 attēli  | 2–3 stundas   | 45–60 min      | 20–30 min      |
 | 1000 attēli | 4–6 stundas   | 1,5–2 stundas      | 40–60 min      |
 
 {% hint style="info" %}
@@ -258,15 +258,15 @@ Faktiskais apstrādes laiks ievērojami atšķiras atkarībā no:
 **Iespējamie iemesli:**
 
 * Nav importēti attēli
-* Aizmugurējā sistēma nav pilnībā palaista
-* Joprojām noris iepriekšējā apstrāde
+* Aizmugurējā sistēma nav pilnībā uzsākta
+* Joprojām notiek iepriekšējā apstrāde
 * Projekts nav pilnībā ielādēts
 
 **Risinājumi:**
 
-1. Pagaidiet, līdz aizmugurējā sistēma pilnībā inicializējas (pārbaudiet galvenās izvēlnes ikonu)
+1. Pagaidiet, līdz backend ir pilnībā inicializējies (pārbaudiet galvenās izvēlnes ikonu)
 2. Pārbaudiet, vai attēli ir importēti failu pārlūkā
-3. Ja poga joprojām ir neaktīva, restartējiet Chloros
+3. Ja poga joprojām ir neaktīva, pārstartējiet Chloros
 4. Pārbaudiet kļūdu ziņojumus debug žurnālā
 
 ### Apstrāde sākas, bet tūlīt pat pārtraucas
@@ -280,34 +280,46 @@ Faktiskais apstrādes laiks ievērojami atšķiras atkarībā no:
 
 **Risinājumi:**
 
-1. Pārbaudiet kļūdu ziņojumus debug logā <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line">
-2. Pārbaudiet, vai ir pieejama diska vieta
-3. Mēģiniet apstrādāt mazāku attēlu kopu
+1. Pārbaudiet debug žurnālu <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line">, lai atrastu kļūdu ziņojumus
+2. Pārbaudiet pieejamo diska vietu
+3. Mēģiniet apstrādāt mazāku attēlu apakškopu
 4. Pārbaudiet, vai attēli nav bojāti
 
-### Apstrāde beidzas, bet attēli netiek ierakstīti
+### Apstrāde beidzas, bet attēli netiek saglabāti
 
-Apstrāde, kurā tika pieprasīti attēlu produkti, bet netika saglabāti, tiek uzskatīta par **neveiksmi, nevis veiksmīgu izpildi** — Chloros to skaidri norāda:
+Apstrāde, kurā tika pieprasīti attēlu rezultāti, bet neviens netika saglabāts, tiek uzskatīta par **neveiksmi, nevis panākumu** — Chloros to skaidri norāda:
 
-* GUI žurnālā tiek izvadīti `[RUN-SUMMARY]` norādes, kas nosauc iespējamo cēloni — nav importēti attēli, nav atklāts mērķis vai visi pieprasītie produkti ir izlaisti kā nepiemēroti (piemēram, pieprasot starojuma/atstarošanas datus no kamerām, kas atbalsta tikai RGB)
-* CLI ekvivalents (`chloros-cli process`) izvada `Processing finished but wrote no image products.` un **iziet ar rezultātu, kas nav nulle**, tādējādi skripti to var atpazīt
-* Apzināta darbība, kurā tiek apstrādāti tikai metadati (visi eksporta produkti atspējoti, nav indeksu), joprojām tiek uzskatīta par veiksmīgu
+* GUI žurnālā tiek izvadīti `[RUN-SUMMARY]` norādes, kas nosauc iespējamo cēloni — nav importēti attēli, nav atklāts mērķis vai visi pieprasītie produkti ir izlaisti kā nepiemēroti (piemēram, pieprasot starojuma/atstarošanas datus no kamerām, kas uzņem tikai RGB)
+* CLI-ekvivalents (`chloros-cli process`) izvada `Processing finished but wrote no image products.` un **iziet ar rezultātu, kas nav nulle**, tādējādi skripti to var atpazīt
+* Apzināts izpildes cikls, kurā tiek apstrādāti tikai metadati (visi eksporta produkti ir atspējoti, nav indeksu), joprojām tiek uzskatīts par veiksmīgu
 
-Pilnīgu semantiku skatiet [CLI atsauces dokumentā](../reference/cli-reference.md#a-run-that-writes-no-images-fails).
+Pilnu semantiku skatiet [CLI atsauces dokumentā](../reference/cli-reference.md#a-run-that-writes-no-images-fails).
 
-### Brīdinājums „Nav atklāti mērķi”
+### Projekta mape šim datoram ir pārāk dziļa
+
+**Tikai Windows, jauns 1.3.0 versijā.** Windows tiek piegādāts ar atspējotiem gariem ceļiem, un tādējādi neviens faila ceļš nedrīkst būt garāks par 260 rakstzīmēm. Chloros produkti atrodas aptuveni 130 rakstzīmes zem projekta mapes, tādēļ projekta mape, kas atrodas dziļāk par to, nevar saņemt savus produktus. Tā vietā, lai palaistu un neko neierakstītu, Chloros tagad pirms apstrādes sākšanas veic pārbaudi:
+
+* Noklikšķinot uz „Sākt”, izpilde netiek uzsākta: progresa josla parāda iemeslu, un Debug Log rāda `[PROCESS] refused: The project folder is too deep for this computer…`. Ziņojumā ir norādīts projekta mapes garums un garākā projekta mape, kas tajā ietilpst.
+* Tiek atteikta arī projekta izveide vai atvēršana mapē, kas ir pārāk dziļa pat paša projekta failiem. Ziņojuma logā tiek norādīts iemesls, garākā projekta mapes nosaukuma garums, kas ietilpst, un kā ieslēgt garos ceļus, un nekas netiek izveidots vai atvērts; debug logā tas tiek reģistrēts kā `[PROJECT] refused: …`. Projekta dublikāta izveide ar garāku nosaukumu arī var pārsniegt ierobežojumu: kopija tiek izveidota, bet netiek atvērta, un tajā pašā ziņojumā ir norādīts iemesls.
+
+**Risinājumi:**
+
+1. Glabājiet projektus īsākā mapē — mainiet**Darba direktoriju** sadaļā [Projekta iestatījumi](../project-settings/project-settings.md) un izveidojiet projektu no jauna, vai
+2. Ieslēdziet garos Windows ceļus un pārstartējiet Chloros: atkārtoti palaidiet Chloros instalētāju, atzīmējot opciju **Iespējot garos Windows ceļus** (tā ir atzīmēta pēc noklusējuma), vai izmantojiet grupas politiku: *Datoru konfigurācija &gt; Administratīvie šabloni &gt; Sistēma &gt; Failu sistēma &gt; Iespējot garos Win32 ceļus*.
+
+### Brīdinājums „Nav atrasti mērķi”
 
 **Iespējamie cēloņi:**
 
-* Aizmirsts atzīmēt mērķa attēlus
+* Aizmirsu atzīmēt mērķa attēlus
 * Mērķa attēlos nav redzamu mērķu
-* Mērķu atklāšanas iestatījumi ir pārāk stingri
+* Mērķu atpazīšanas iestatījumi ir pārāk stingri
 
 **Risinājumi:**
 
 1. Pārskatiet [Mērķa attēlu izvēle](choosing-target-images.md)
 2. Atzīmējiet atbilstošos attēlus kolonnā „Mērķis”
-3. Pārliecinieties, ka mērķi ir redzami atzīmētajos attēlos
+3. Pārbaudiet, vai mērķi ir redzami atzīmētajos attēlos
 4. Vajadzības gadījumā pielāgojiet mērķu atklāšanas iestatījumus
 
 ***
@@ -316,7 +328,7 @@ Pilnīgu semantiku skatiet [CLI atsauces dokumentā](../reference/cli-reference.
 
 ### Pirms sākšanas
 
-1. **Vispirms veiciet testu ar nelielu attēlu kopu** — apstrādājiet 10–20 attēlus, lai pārbaudītu iestatījumus
+1. **Vispirms veiciet testu ar nelielu apakškopu** — apstrādājiet 10–20 attēlus, lai pārbaudītu iestatījumus
 2. **Pārbaudiet pieejamo diska vietu** — nodrošiniet, lai brīvās vietas apjoms būtu 2–3 reizes lielāks par datu kopas izmēru (vairāk, ja ir ieslēgti visi LATTICE produkti)
 3. **Aizveriet nevajadzīgās programmas** — atbrīvojiet sistēmas resursus
 4. **Pārbaudiet mērķu attēlus** — apskatiet atzīmētos mērķus, lai pārliecinātos par kvalitāti
@@ -325,16 +337,16 @@ Pilnīgu semantiku skatiet [CLI atsauces dokumentā](../reference/cli-reference.
 ### Apstrādes laikā
 
 1. **Izvairieties no sistēmas miega režīma** — atspējojiet enerģijas taupīšanas režīmus
-2. **Saglabājiet Chloros priekšplānā** — vai vismaz redzamu uzdevumu joslā
+2. **Saglabājiet „Chloros” priekšplānā** — vai vismaz redzamu uzdevumjoslā
 3. **Laiku pa laikam pārbaudiet apstrādes gaitu** — pārbaudiet, vai nav brīdinājumu vai kļūdu
-4. **Nelādējiet citas resursietilpīgas programmas** — it īpaši, ja izmantojat Chloros+ paralēlo režīmu
+4. **Neatveriet citas resursietilpīgas programmas** — īpaši, ja izmantojat „Chloros+” paralēlo režīmu
 
-### Chloros+ GPU paātrinājums
+### „Chloros+“ GPU paātrinājums
 
 Ja izmantojat NVIDIA GPU paātrinājumu:
 
-1. Atjauniniet NVIDIA draiverus uz jaunāko versiju
-2. Pārliecinieties, ka GPU ir vismaz 4 GB VRAM (7 GB vai vairāk, ja vienlaikus tiek izmantota Texture Aware debayering funkcija)
+1. Atjauniniet NVIDIA draiverus līdz jaunākajai versijai
+2. Pārliecinieties, ka GPU ir vismaz 4 GB VRAM (vismaz 7 GB vienlaicīgai tekstūru apstrādei)
 3. Aizveriet programmas, kas intensīvi izmanto GPU (spēles, videomontāža)
 4. Uzraugiet GPU temperatūru (nodrošiniet pietiekamu dzesēšanu)
 
@@ -345,7 +357,7 @@ Ja izmantojat NVIDIA GPU paātrinājumu:
 Kad apstrāde ir sākusies:
 
 1. **Uzraugiet apstrādes gaitu** — skatiet [Apstrādes uzraudzība](monitoring-the-processing.md)
-2. **Pagaidiet, līdz apstrāde beigsies** — apstrāde notiek automātiski
+2. **Pagaidiet, līdz apstrāde ir pabeigta** — apstrāde noris automātiski
 3. **Pārskatiet rezultātus** — skatiet [Apstrādes pabeigšana](finishing-the-processing.md)
 
 Informāciju par to, ko darīt apstrādes laikā, skatiet [Apstrādes uzraudzība](monitoring-the-processing.md).

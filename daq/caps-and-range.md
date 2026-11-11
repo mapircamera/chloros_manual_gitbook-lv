@@ -1,8 +1,10 @@
-# Vāciņu profili un kalibrētais diapazons
+# Sensoru korpusu profili un kalibrētais diapazons
 
-> Informācija par pašiem vāciņiem — kurš vāciņš tiek piegādāts kopā ar kuru sensoru, kā tie tiek uzstādīti un kādas ir to optiskās īpašības — ir aprakstīta **[DAQ lietotāja rokasgrāmatā](https://mapir.gitbook.io/daq)**. Šajā lapā ir aprakstīts, kā *norādīt* uzstādīto vāciņu Chloros, kas nodrošina pareizu korekciju.
+> Paši vāciņi — kurš vāciņš tiek piegādāts kopā ar kuru sensoru, kā tie tiek uzstādīti un kāda ir to optiskā uzvedība — ir aprakstīti **[DAQ lietotāja rokasgrāmatā](https://mapir.gitbook.io/daq)**. Šajā lapā ir aprakstīts, kā *paziņot* Chloros
+par uzstādīto vāciņu, kas nodrošina korekcijas pareizību.
 
-Katram DAQ gaismas sensora rūpnīcas radiometriskajai kalibrācijai ir raksturīgs *tīrais* sensors. Fiziskais vāciņš, kas uzstādīts virs difuzora, maina to, kādu gaismu sensors uztver, tāpēc Chloros piemēro rūpnīcā izmērītu **vāciņa korekcijas profilu** virs kalibrācijas kopuma. Pareizā vāciņa ir būtiska daļa no kalibrēto datu iegūšanas — šajā lapā ir aprakstīts, kādi vāciņi ir pieejami katram modelim, kā tos deklarēt un kāds faktiski ir sensora kalibrētais spektrālais diapazons.
+Katram DAQ gaismas sensora rūpnīcas radiometriskajai kalibrācijai ir raksturīgs *tīrais* sensors. Fiziskais vāciņš, kas uzstādīts virs difuzora, maina to, kādu gaismu sensors uztver, tāpēc Chloros
+piemēro rūpnīcā izmērītu **vāciņa korekcijas profilu** virs kalibrācijas kopuma. Pareizā vāciņa deklarēšana ir daļa no kalibrēto datu iegūšanas — šajā lapā ir aprakstīts, kādi vāciņi ir pieejami katram modelim, kā tos deklarēt un kāds faktiski ir sensora kalibrētais spektrālais diapazons.
 
 ## Vāciņu pieejamība atkarībā no modeļa
 
@@ -11,12 +13,12 @@ Katram DAQ gaismas sensora rūpnīcas radiometriskajai kalibrācijai ir rakstur�
 | `sunshine_cosine` | Vāciņš ar saules gaismas kosinusa korektoru (**noklusējuma iestatījums visiem modeļiem**) | Jā | Jā | Jā |
 | `fov_15` / `fov_45` / `fov_90` | Redzes lauka ierobežojošie konusi (15° / 45° / 90°) | Jā | — | Jā |
 | `fov_30` / `fov_60` | Redzes lauka ierobežojošie konusi (30° / 60°) | Jā | — | — |
-| `none` | Bez uzstādīta vāka | — | — | Jā |
+| `none` | Bez uzstādīta vāciņa | — | — | Jā |
 
 Piezīmes par konkrētiem modeļiem:
 
-* **DAQ-M ir viens vāka profils: `sunshine_cosine`.** „Bare-plus-Sunshine-cap” ir tā produkta definīcija, un DAQ-M bez vāciņa nav nepieciešams ģeometrijas profils.
-* **DAQ-U bez vāciņa ir pilnīgi bez vāciņa** — tam vispār nav nepieciešams ģeometrijas profils, tāpēc tam nepastāv `none` profils.
+* **DAQ-M ir viens vāciņa profils: `sunshine_cosine`.** „Bare-plus-Sunshine-cap” ir tā produkta definīcija, un „bare” DAQ-M modelim nav nepieciešams ģeometrijas profils.
+* **„Bare” DAQ-U modelis ir patiesi „bare”** — tam vispār nav nepieciešams ģeometrijas profils, tāpēc tam nav pieejams `none` profils.
 * **`none` uz DAQ-E NAV bezdarbības profils.** DAQ-E iebūvētajam, ar stiklu pārklātajam difuzoram ir sava reālā ģeometrijas korekcija, tāpēc „bez vāciņa” šajā modelī pats par sevi ir izmērīts profils.
 * **Neapklāts DAQ-E nevar mērīt tiešos saules starus nevienā augstumā** — „Sunshine cap” ir konfigurācija darbam laukā. Neplānojiet darbu ārpus telpām, izmantojot neapklātu DAQ-E.
 
@@ -24,20 +26,21 @@ GUI iestatījumos katram sensoram atsevišķi (zobrata ikona cilnē „Light Sen
 
 ## Vāciņa deklarēšana — un kāpēc tas ir svarīgi
 
-**Deklarētais `cap_id` jāatbilst vāciņam, kas fiziski atrodas uz sensora.** Ne sensors, ne programmatūra nespēj noteikt, vai vāciņš ir uzlikts. Deklarēšana nosaka divas lietas:
+**Deklarētais `cap_id` jāatbilst vāciņam, kas fiziski atrodas uz sensora.** Ne sensors, ne programmatūra nespēj noteikt, vai vāciņš ir uzlikts. Deklarēšana ietekmē divas lietas:
 
 1. **Reāllaika korekciju**, kas tiek piemērota katram spektram.
-2. **Vāciņa zīmogu, kas tiek ierakstīts katrā `.daq` ierakstā**, uz kuru paļaujas turpmākā atstarojuma apstrāde.
+2. **Vāciņa, kas tiek ierakstīta katrā `.daq` ierakstā**, uz kuru paļaujas turpmākā atstarošanas apstrāde.
 
-„Sunshine” vāciņš pēc konstrukcijas vājinātu signālu aptuveni **12 reizes**, tādēļ ierakstīšana ar nepareizi deklarētu vāciņu izkropļo spektru mērogu aptuveni par šo koeficientu. Vāciņa jāmaina nekavējoties.
+„Sunshine” vāciņš **pēc konstrukcijas**vājināšanu aptuveni**12 reizes**, tādēļ ierakstīšana ar nepareizi deklarētu vāciņu spektrus mēro nepareizi aptuveni par šo koeficientu. Deklarējiet vāciņa izmaiņas nekavējoties.
 
 ### Vāciņa iestatīšana
 
-GUI: cilne „Light Sensors” (Gaismas sensori) → zobrata ikona sensora rindā → nolaižamais izvēlnes elements **Cap** (Vāciņš). Noklusējuma iestatījums visiem modeļiem ir `sunshine_cosine` (visiem DAQ sensoriem tiek piegādāti ar uzstādītu kosinusa korektoru), un šī izvēle saglabājas visā projekta laikā.
+GUI: cilne „Gaismas sensori” → rīkzīme sensora rindā → izvēlne **Vāciņš**. Noklusējuma vērtība visiem modeļiem ir `sunshine_cosine` — tas ir pieņēmums (DAQ-U, DAQ-M un DAQ-E tiek piegādāti bez vāciņa, un ieraksts norāda, ka vāciņš tika pieņemts, kamēr jūs neizvēlējāties konkrētu), un izvēle saglabājas visā projektā.
 
-<!-- SCREENSHOT-NEEDED: DAQ tab per-sensor settings modal (gear icon) scrolled to the Cap dropdown, open to show the per-model choices with "Sunshine (cosine corrector)" selected. Use a connected DAQ-E so the Hostname/Firmware/PTP rows are also visible above it. -->
 
-CLI (jābūt palaistam backendam):
+
+CLI<!-- SCREENSHOT-NEEDED: DAQ tab per-sensor settings modal (gear icon) scrolled to the Cap dropdown, open to show the per-model choices with "Sunshine (cosine corrector)" selected. Use a connected DAQ-E so the Hostname/Firmware/PTP rows are also visible above it. -->
+(backendam jābūt palaistam):
 
 ```bash
 # Declare at connect time
@@ -47,15 +50,32 @@ chloros-cli daq pool-connect --eth-host daq-e-def330.local --cap-id sunshine_cos
 chloros-cli daq pool-set-cap --sensor-id daq-e-def330 --cap-id fov_45
 ```
 
-CLI sintaktiski atbalsta pilno `cap_id` sarakstu (`{none, fov_15, fov_30, fov_45, fov_60, fov_90, sunshine_cosine}`); katrs profils tiek validēts pret sensora modeli savienošanās brīdī, tādēļ nepieejams vāka identifikators (piemēram, tikai E identifikators uz DAQ-U) izraisa skaidru kļūdu, nevis nepareizu korekciju. Aizmugurējās sistēmas noklusējums, ja nekas netiek nodots, ir `sunshine_cosine`.
+CLI
+sintaktiski pieņem pilno `cap_id` sarakstu (`{none, fov_15, fov_30, fov_45, fov_60, fov_90, sunshine_cosine}`); katrs profils tiek validēts pret sensora modeli savienošanās brīdī, tādēļ nepieejams vāciņa ID (piemēram, tikai E tipa ID uz DAQ-U) izraisa skaidru kļūdu, nevis nepareizu korekciju. Aizmugurējās sistēmas noklusējums, ja nekas netiek nodots, ir `sunshine_cosine`.
 
-Python SDK piezīme: `cap_id` **nav** SDK vadības poga — `connect_daq_sensor()` / `DAQSensorSession` neizpauž nekādus vāciņa parametrus. Izvēlieties ierobežojumu, izmantojot iepriekš minētās CLI komandas vai GUI nolaižamo izvēlni; skatiet [SDK atsauci](../reference/sdk-reference.md).
+Python
+SDK
+: savienošanās brīdī nosauciet kapu ar `connect_daq_sensor(cap_id="sunshine_cosine")` vai mainiet to darbības laikā ar `DAQSensorSession.set_cap("fov_45")`; skatiet [SDK
+atsauci](../reference/sdk-reference.md#daq-sensor-sessions).
 
-Papildu informācija: profili tiek piegādāti Chloros instalācijas ietvaros, kas atrodas `daq/cap_profiles/<u|m|e>/<cap_id>.json`, un tos var pārrakstīt katram lietotājam atsevišķi `~/.chloros/daq_cap_profiles/<u|m|e>/<cap_id>.json`.
+Papildu informācija: profili tiek piegādāti kopā ar Chloros
+instalāciju kā `daq/cap_profiles/<u|m|e>/<cap_id>.json`, un tos var pārrakstīt katram lietotājam atsevišķi, izmantojot `~/.chloros/daq_cap_profiles/<u|m|e>/<cap_id>.json`.
 
-Neatkarīgi no ierobežojumiem sensoriem, kas nekad nav bijuši pārkalibrēti, automātiski tiek piemērots neliels, no flotes datiem atvasināts tumšā nobīdes precizējums — bez lietotāja iejaukšanās.
+Neatkarīgi no ierobežojumiem sensori, kas nekad nav tikuši pārkalibrēti, automātiski saņem nelielu, no iekārtu parka iegūtu tumšā nobīdes precizējumu — bez lietotāja iejaukšanās.
 
-## Saules gaismas ierobežotāja darbība (konfigurācija ārpus telpām)
+## DAQ-E-S: fiksēts difuzors un slīpums
+
+**DAQ-E-S** ir DAQ-E ar divām atšķirībām, kas ir svarīgas Chloros
+. Pārējās funkcijas (atklāšana, savienošana, PTP, ierakstīšana, ierīces iestatījumi) darbojas tieši tāpat kā DAQ-E gadījumā.
+
+* **Tā difuzors ir pastāvīgs, tādēļ tam nav nepieciešama vāciņa korekcija.** Difuzors bija uz ierīces, kad tika veikta tās rūpnīcas kalibrēšana, tādējādi kalibrēšanas rezultāti jau atspoguļo patieso lejupvērsto starojuma intensitāti. Chloros
+tam nepiemēro nekādu maksimālā līmeņa profilu, neatkarīgi no pieprasījuma: maksimālā līmeņa profils, kas nosaukts šim difuzoram, tiek ignorēts, parādot ziņojumu, ierakstos norādīts, ka maksimālais līmenis ir iegūts no modeļa, un brīdinājums par pieņemto maksimālo līmeni šim difuzoram nekad neparādās. Sadaļā „Projekta iestatījumi” → „DAQ gaismas sensors” tā rindā nav redzams nekāds ierobežojums, un projekta līmeņa ierobežojuma pārrakstīšana to neietekmē. Neuzlieciet ierobežojumu tā datiem manuāli: „Sunshine” korekcija šajā gadījumā rādītu apmēram 11 reizes augstākus rādījumus.
+* **Tam ir iebūvēts 3-asu akselerometrs.** Difuzora kosinusa reakcija ir spēkā tikai tad, ja tas atrodas horizontālā stāvoklī, tādēļ sasvērtā sensora rādījumi par starojuma intensitāti ir nepareizi, neizraisot citus simptomus. Tādēļ katrs DAQ-E-S rādījums ietver sensora slīpuma, sānsveres un pacelšanās leņķus, un no viena sensora reģistrētais `.daq` tos saglabā blakus katram spektram (`imu_tilt_deg`, `imu_roll_deg`, `imu_pitch_deg`, …), tādējādi ļaujot atšķirt mākoņus no sagāztas montāžas.
+
+Informāciju par katru orientācijas lauku un to, kā tiek ziņots par kļūdu orientācijas datu plūsmā, skatiet [„DAQ-E-S CLI
+atsauces rokasgrāmatā”](../reference/cli-reference.md#daq-e-s--fixed-diffuser-and-tilt-sensor).
+
+## „Sunshine cap” veiktspēja (konfigurācija ārpus telpām)
 
 Skaitļi, uz kuriem var balstīt procedūras:
 
@@ -63,10 +83,10 @@ Skaitļi, uz kuriem var balstīt procedūras:
 | --- | --- |
 | Redzes lauks | 180° puslodes veida |
 | Kosinusa reakcijas kļūda | ≤ ±4 % līdz 60° krituma leņķim; ≤ ±4,5 % līdz 70° |
-| Zemās saules robeža | Nav ieteicams zem ~15° saules augstuma |
+| Zemas saules robeža | Nav ieteicams zem ~15° saules augstuma |
 | Vājināšanās | ~12× (pēc konstrukcijas) |
 | Vāciņa atkārtotas uzstādīšanas atkārtojamība | ≈ 1,5 % |
-| Kvantitatīvais starojuma intensitātes rādītājs | Vidējie **≥ 15 s** mērījumi (ierīces raksturlielums, nevis defekts) |
+| Kvantitatīvais starojuma intensitātes rādītājs | Vidējie **≥ 15 s** mērījumu rezultāti (ierīces raksturlielums, nevis defekts) |
 
 Jebkuram kvantitatīvam starojuma intensitātes rādītājam — ieskaitot atstarojuma atsauces — izmantojiet vismaz 15 sekunžu mērījumu vidējo vērtību, nevis atsevišķu kadru.
 
@@ -77,6 +97,7 @@ Jebkuram kvantitatīvam starojuma intensitātes rādītājam — ieskaitot atsta
 | Spektrālā paraugu ņemšana | 340–1010 nm ar 5 nm soli (135 punkti) |
 | Radiometriski kalibrētais diapazons | **~374–974 nm** (noteikts programmatūrā) |
 
-Sensors reģistrē pilnu 340–1010 nm režģi, taču NIST standartam atbilstošais radiometriskais pastiprinājums aptver ~374–974 nm. Chloros **noraida absolūtās atstarošanas sadalījumu** jebkuram kameras diapazonam, kura spektrālā svara mazāk nekā puse atrodas šajā diapazonā, ziņojot izlaišanas iemeslu `dls-uncalibrated-band-<nm>`, nevis ģenerējot nekalibrētu rezultātu. No piegādājamajiem kameru modeļiem tikai F988 filtrs atrodas ārpus šī diapazona; tā vietā tas izmanto atstarošanas paneļa darba plūsmu — skatiet [Atstarošanas darba plūsmas](reflectance.md).
+Sensors reģistrē pilnu 340–1010 nm tīklu, taču NIST standartam atbilstošais radiometriskais pastiprinājums aptver ~374–974 nm. Chloros
+**nepieņem absolūtās atstarošanas sadalījumu** nevienai kameras joslai, kuras spektrālā svara mazāk nekā puse atrodas šajā diapazonā, ziņojot izlaišanas iemeslu `dls-uncalibrated-band-<nm>`, nevis ģenerējot nekalibrētu rezultātu. No piegādātajām kameru SKU tikai F988 filtrs atrodas ārpus šī diapazona; tā vietā tiek izmantota atstarošanas paneļa darba plūsma — skatiet [Atstarošanas darba plūsmas](reflectance.md).
 
-Informāciju par sensoru modeļiem, transportiem un sensoru ID skatiet [DAQ pārskatā](README.md). Informāciju par to, kā apstrādes laikā tiek izmantots ierobežojuma zīmogs, skatiet sadaļā [Ierakstīšana un .daq formāts](recording.md).
+Informāciju par sensoru modeļiem, transportiem un sensoru ID skatiet [DAQ pārskatā](README.md). Informāciju par to, kā apstrādes laikā tiek izmantots ierobežojuma zīmogs, skatiet [Ierakstīšana un .daq formāts](recording.md).
