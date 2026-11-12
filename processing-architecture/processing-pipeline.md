@@ -45,7 +45,11 @@ Ar procesora jaudu saistīts aprēķinu pavediens. Veicot Survey3 vai jauktu aps
 
 ### 3. pavediens: Apstrāde (GPU)
 
-**Mērķis**: piemērot korekcijas un aprēķināt veģetācijas indeksus.**Šis ir aprēķinu ziņā visintensīvākais pavediens.*** **Debayering**: konvertē RAW Bayer datus daudzkanālu attēlos
+**Mērķis**: piemērot korekcijas un aprēķināt veģetācijas indeksus.
+
+**Šis ir aprēķinu ziņā visintensīvākais pavediens.**
+
+* **Debayering**: konvertē RAW Bayer datus daudzkanālu attēlos
   * Standarta (ātrs, vidēja kvalitāte) — noklusējums, `--debayer standard`
   * Tekstūras ņemšana vērā (lēns, augstākā kvalitāte) — tikai „Chloros+”, `--debayer texture-aware`, izmanto AI/ML trokšņu noņemšanas modeli
   * LATTICE mono (M3M) uzņēmumi ir vienkanāla: tiem tiek izlaisti demosaic un baltā balansā soļi (ar vienrindas žurnāla ziņojumu), savukārt jebkuriem M3C/Bayer attēliem tajā pašā apstrādes ciklā šie soļi joprojām tiek veikti

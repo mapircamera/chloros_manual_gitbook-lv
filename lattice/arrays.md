@@ -196,7 +196,7 @@ Masīva flīzes fps rādījums arī informē par straumes stāvokli:**„Piemēr
 Noderīga informācija par kombinēto režīmu:
 
 * Kompozīcija ir reģistrēta attiecībā pret **galvenās**kameras kadru. AE-ROI mērķēšana un punktu ekspozīcijas mērīšana uz kompozīcijas ir precīza galvenajai kamerai un aptuvena palīgkamerām; izmantojiet**Split View** (masīva iestatījumi → „Show member cameras”), lai iegūtu pikseļu precizitāti katrai kamerai atsevišķi, neizveidojot papildu kameru savienojumus.
-* ****Display Layers**(masīva iestatījumi; noklusējumā izslēgts) ļauj izvēlēties priekšplāna un fona slāni — jebkuru dalībkameru vai**Index**. Ja priekšplāns = Index, pikseļi ārpus LUT minimālā/maksimālā diapazona parāda fona slāni.
+* **Display Layers** (masīva iestatījumi; noklusējumā izslēgts) ļauj izvēlēties priekšplāna un fona slāni — jebkuru dalībkameru vai**Index**. Ja priekšplāns = Index, pikseļi ārpus LUT minimālā/maksimālā diapazona parāda fona slāni.
 * **Renderēšanas izšķirtspēja** (noklusējumā 720p) nosaka tiešraides augstumu *un* saglabātā kompozīcijas eksporta izmēru. Attēli no katras kameras vienmēr tiek eksportēti pilnā izšķirtspējā.
 * Izlīdzināšana tiek aprēķināta katrai sesijai atsevišķi un netiek saglabāta. Chloros **katru masīvu automātiski izlīdzina pēc savienošanās abos attēlošanas režīmos**, tiklīdz dalībnieku automātiskā ekspozīcija ir stabilizējusies (tas turpina mēģināt līdz pat 5 minūtēm). Masīva iestatījumu paneļa sadaļā**Saskaņošana**tiek parādīti RMS atlikumi un poga**Pārkalibrēt saskaņošanu** — arī atsevišķiem masīviem, kuriem nav kompozīta flīzes.
 

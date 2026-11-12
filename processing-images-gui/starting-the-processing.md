@@ -78,7 +78,11 @@ Chloros darbojas divos dažādos apstrādes režīmos:
 1. **Atklāšana** (1. pavediens) — kalibrēšanas mērķu meklēšana
 2. **Analīze** (pavediens Nr. 2) — attēla metadatu pārbaude un kalibrēšanas aprēķināšana
 3. **Kalibrēšana** (pavediens Nr. 3) — debayering, vinjetes korekcija, kalibrēšana, indeksa aprēķināšana
-4. **Eksportēšana** (pavediens Nr. 4) — apstrādāto attēlu un indeksu saglabāšana**Progresa joslas lietošana:*** **Pavelciet peles kursoru** pāri joslai, lai redzētu detalizētu 4 posmu nolaižamo paneli
+4. **Eksportēšana** (pavediens Nr. 4) — apstrādāto attēlu un indeksu saglabāšana
+
+**Progresa joslas lietošana:**
+
+* **Pavelciet peles kursoru** pāri joslai, lai redzētu detalizētu 4 posmu nolaižamo paneli
 * **Noklikšķiniet** uz progresa joslas, lai fiksētu nolaižamo paneli
 * **Noklikšķiniet atkārtoti**, lai atbloķētu un paslēptu paneli**Apstrādes laiks:**
 
@@ -116,7 +120,9 @@ Chloros darbojas divos dažādos apstrādes režīmos:
 
 ### 3. posms: Kalibrēšana
 
-**Ko dara Chloros:*** **Vignettinga korekcija**: Noņem objektīva izraisīto tumšošanos malās
+**Ko dara Chloros:**
+
+* **Vignettinga korekcija**: Noņem objektīva izraisīto tumšošanos malās
 * **Atstarošanas kalibrēšana**: normalizē, izmantojot mērķa atstarošanas vērtības un/vai DAQ lejupvērstos datus
 * Piemēro korekcijas visos diapazonos/kanālos
 * Katram attēlam izmanto atbilstošu kalibrēšanas atsauci, pamatojoties uz laika zīmogu

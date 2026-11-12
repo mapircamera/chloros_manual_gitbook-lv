@@ -28,7 +28,11 @@ Lietotājiem ar „Chloros+“ licenci:
 1.**Atklāšana** — kalibrēšanas mērķu meklēšana
 2. **Analīze** — attēlu pārbaude un apstrādes procesa sagatavošana
 3. **Kalibrēšana** – vinjetes un atstarošanas korekciju piemērošana
-4. **Eksportēšana** – apstrādāto failu saglabāšana**Interaktīvās funkcijas:*** **Pavelciet peles kursoru** pār progresa joslu, lai redzētu izvērsto 4 posmu paneli
+4. **Eksportēšana** – apstrādāto failu saglabāšana
+
+**Interaktīvās funkcijas:**
+
+* **Pavelciet peles kursoru** pār progresa joslu, lai redzētu izvērsto 4 posmu paneli
 * **Noklikšķiniet** uz progresa joslas, lai iesaldētu/fiksētu izvērsto paneli
 * **Noklikšķiniet vēlreiz**, lai atbloķētu, un panelis automātiski paslēpsies, kad peles kursors tiks novilkts prom
 * Katrs posms parāda individuālo progresu (0–100 %)
@@ -92,7 +96,9 @@ Lietotājiem ar „Chloros+“ licenci:
 
 ### 3. posms: Kalibrēšana
 
-**Kas notiek:*** **Debayering**: RAW Bayer modeļa konvertēšana uz 3 kanāliem (LATTICE mono moduļiem tiek izlaists, ar piezīmi)
+**Kas notiek:**
+
+* **Debayering**: RAW Bayer modeļa konvertēšana uz 3 kanāliem (LATTICE mono moduļiem tiek izlaists, ar piezīmi)
 * **Vignette korekcija**: objektīva malu tumšuma novēršana
 * **Atstarošanas kalibrēšana**: normalizēšana atbilstoši mērķa vērtībām un/vai DAQ lejupvērstajai starojuma intensitātei
 * **Indeksu aprēķināšana**: multispektrālo indeksu aprēķināšana
@@ -104,7 +110,9 @@ Lietotājiem ar „Chloros+“ licenci:
 * Pašreizējais attēls tiek apstrādāts
 * Apstrādātie attēli / Kopējais attēlu skaits
 
-**Apstrādes darbības veids:*** **Brīvais režīms**: secīgi apstrādā vienu attēlu pēc otra
+**Apstrādes darbības veids:**
+
+* **Brīvais režīms**: secīgi apstrādā vienu attēlu pēc otra
 * **„Chloros+“ režīms**: izmanto aparatūrai pielāgotu darba procesu kopu — 1–4 vienlaicīgi darbojošies darba procesi GPU sistēmās (atkarībā no VRAM), viens darba process uz katru fizisko kodolu (mīnus viens) sistēmās, kurās ir tikai CPU. Skatīt [Dinamiskā aprēķinu pielāgošana](../processing-architecture/dynamic-compute-adaptation.md)
 * **GPU paātrinājums**: ievērojami paātrina šo posmu**Uz ko jāpievērš uzmanība:**
 

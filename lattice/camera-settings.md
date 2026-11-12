@@ -375,7 +375,7 @@ Tikai lasāms panelis, kas atjaunojas ik pēc 5 s:
 
 * **Līmeņa apzīmējums**: „Vienlaicīga uzņemšana“ (zaļš) · „Vienlaicīga uzņemšana (FTD — pakāpeniska emisija)“ (zaļš) · „Pakāpeniska uzņemšana (100 ms novirze)“ (dzeltens) · "Konfigurācija pārāk liela" (sarkana).
 * **Kadra stāvoklis**: "x,xx % nepabeigts" — zaļa, ja mazāk par 1 %, dzeltens, ja mazāk par 5 %, sarkana, ja 5 % vai vairāk.
-* ****Savienojuma līnija**: „NIC {mbps} Mbps — ilgstošs {MB/s} MB/s”.
+* **Savienojuma līnija**: „NIC {mbps} Mbps — ilgstošs {MB/s} MB/s”.
 
 Tas ir masīva reālais joslas platuma budžets. Par pamatā esošo kadru skaitu sekundē (fps) un tīkla modeli — kā arī par to, ko mainīt, ja līmenis kļūst dzeltens vai sarkans — skatiet [Daudzkameru masīvi](arrays.md) un [CLI atsauci](../reference/cli-reference.md).
 
@@ -401,7 +401,7 @@ Trešā sānu joslas lapa, ko kopīgi izmanto gan atsevišķu kameru „Index“
 Citas vispārīgas funkcijas:
 
 * **Kombinēts vai atsevišķs attēlojums** tiek izvēlēts masīva savienošanas brīdī: kombinēts = viena saskaņota salikta flīze (elementi tiek pārraidīti tikai caur Split View); atsevišķs = katrs elements renderē savu sinhronizētu flīzi. Kamera nekad neparāda gan atsevišķu plūsmu, gan masīva flīzi vienlaikus.
-* ****Automātiska atkārtota savienošana**: atverot saglabātu projektu, tiek atjaunotas tā kameras un masīvi, un visi saglabātie iestatījumi tiek atkārtoti piemēroti aizmugurējam serverim, pirms straumes atsākas.
+* **Automātiska atkārtota savienošana**: atverot saglabātu projektu, tiek atjaunotas tā kameras un masīvi, un visi saglabātie iestatījumi tiek atkārtoti piemēroti aizmugurējam serverim, pirms straumes atsākas.
 * **Uzņemšanas filtrēšana**: slēptās vai apturētās kameras tiek izslēgtas no funkcijas „Capture All“; masīvs tiek pilnībā bloķēts tikai tad, ja VISI elementi ir slēpti/apturēti. Skatīt [Ierakstīšanas iestatījumi un režīmi](capture.md).
 
 ## Kā iestatījumi tiek saglabāti

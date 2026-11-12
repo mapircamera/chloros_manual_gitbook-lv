@@ -81,7 +81,9 @@ Neskaitiet pēc formulas — izvades failu skaits ir atkarīgs no tā, kuri prod
 
 ### Priekšskatījums ārējās attēlu skatītājprogrammās
 
-**Ieteicamās skatītājprogrammas:*** **QGIS** — bezmaksas ĢIS programmatūra (vislabāk piemērota ģeoreferencētai multispektrālajai analīzei)
+**Ieteicamās skatītājprogrammas:**
+
+* **QGIS** — bezmaksas ĢIS programmatūra (vislabāk piemērota ģeoreferencētai multispektrālajai analīzei)
 * **IrfanView** — ātra, viegla attēlu skatītāja programma (atbalsta TIFF formātu)
 * **Adobe Photoshop** — profesionāla rediģēšana (TIFF atbalsts)
 * **GIMP** — bezmaksas alternatīva programma Photoshop
@@ -222,7 +224,9 @@ Lai problēmu nosūtītu tieši MAPIR, izmantojiet kļūdas ikonu (**Ziņot par 
 
 ### Problēma: NDVI vērtības šķiet nepareizas
 
-**Paredzamie NDVI diapazoni:*** **Ūdens, akmeņi, augsne**: no -0,1 līdz 0,2
+**Paredzamie NDVI diapazoni:**
+
+* **Ūdens, akmeņi, augsne**: no -0,1 līdz 0,2
 * **Reta/neveselīga veģetācija**: no 0,2 līdz 0,4
 * **Vidēja veģetācija**: no 0,4 līdz 0,6
 * **Veselīga, blīva veģetācija**: no 0,6 līdz 0,9**Ja vērtības atrodas ārpus šiem diapazoniem:**
@@ -276,12 +280,18 @@ Lai problēmu nosūtītu tieši MAPIR, izmantojiet kļūdas ikonu (**Ziņot par 
 
 ### Ieteicamā dublējumu stratēģija
 
-**Ko saglabāt:*** ✅ **Oriģinālie RAW/JPG attēli vai LATTICE neapstrādātie attēli** — arhivējiet atsevišķā diskā/mākonī; neapstrādātie attēli ir apstrādes procesa avots, un no tiem var atjaunot visu pārējo
+**Ko saglabāt:**
+
+* ✅ **Oriģinālie RAW/JPG attēli vai LATTICE neapstrādātie attēli** — arhivējiet atsevišķā diskā/mākonī; neapstrādātie attēli ir apstrādes procesa avots, un no tiem var atjaunot visu pārējo
 * ✅ **`.daq` / `.csv` gaismas sensoru faili** — nepieciešami, lai vēlāk atkārtoti aprēķinātu atstarojumu
 * ✅ **Apstrādātie rezultāti** — saglabājiet kalibrētos attēlus un indeksus
 * ✅ **Projekta mape** (`project.json` un saistītie faili) — satur visus iestatījumus, kas nepieciešami atkārtotai apstrādei, ja nepieciešams
 * ✅ **Debug Log** — dokumentē apstrādes detaļas
-* ✅ **Kalibrēšanas mērķa attēli** — pārbaudei un atkārtotai apstrādei**Ieteikumi datu uzglabāšanai:*** **Tūlītēja dublējuma izveide**: Ārējais cietais disks
+* ✅ **Kalibrēšanas mērķa attēli** — pārbaudei un atkārtotai apstrādei
+
+**Ieteikumi datu uzglabāšanai:**
+
+* **Tūlītēja dublējuma izveide**: Ārējais cietais disks
 * **Ilgtermiņa arhīvs**: Mākoņuzglabāšana (Google Drive, Dropbox utt.)
 * **Kritiskie dati**: Saglabājiet 2–3 kopijas dažādās vietās***
 

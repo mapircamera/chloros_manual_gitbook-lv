@@ -256,10 +256,15 @@ Chloros pārbauda, vai ir pieejami atjauninājumi, paziņo, kad ir pieejama jaun
 
 **Izlaišanas datums: 2026. gada 10. februāris**
 
-**Jaunas funkcijas*** **Tekstūru ņemot vērā debayer metode \[Tikai Chloros+] —** Tekstūru ņemot vērā metode izmanto augstas kvalitātes, malu ņemot vērā debayer metodi, kas apvienota ar AI/ML trokšņu noņemšanas modeli, kas novērš gandrīz visus debayerēšanas radītos trokšņus.
-* **Atbalsts T4P kalibrēšanas mērķiem*** **Ātrāka „Chloros+“ apstrāde ar GPU, labāka atmiņas pārvaldība**
+**Jaunas funkcijas**
 
-**Kļūdu labojumi*** Pilnīgi jauna lietotāja saskarne (GUI), tagad būtu jādarbojas visos Windows datoros.
+* **Tekstūru ņemot vērā debayer metode \[Tikai Chloros+] —** Tekstūru ņemot vērā metode izmanto augstas kvalitātes, malu ņemot vērā debayer metodi, kas apvienota ar AI/ML trokšņu noņemšanas modeli, kas novērš gandrīz visus debayerēšanas radītos trokšņus.
+* **Atbalsts T4P kalibrēšanas mērķiem**
+* **Ātrāka „Chloros+“ apstrāde ar GPU, labāka atmiņas pārvaldība**
+
+**Kļūdu labojumi**
+
+* Pilnīgi jauna lietotāja saskarne (GUI), tagad būtu jādarbojas visos Windows datoros.
 
 </details>
 
@@ -269,14 +274,18 @@ Chloros pārbauda, vai ir pieejami atjauninājumi, paziņo, kad ir pieejama jaun
 
 **Izlaišanas datums: 2026. gada 5. janvāris**
 
-**Jaunas funkcijas*** **Attēla/metadatu pārslēgšana**: failu pārlūkā pievienota pārslēgšanas funkcija, lai izvēlētā attēla metadatus skatītu tabulā, nevis attēlu režģī
+**Jaunas funkcijas**
+
+* **Attēla/metadatu pārslēgšana**: failu pārlūkā pievienota pārslēgšanas funkcija, lai izvēlētā attēla metadatus skatītu tabulā, nevis attēlu režģī
 * **Attēlu režģa tālummaiņas sliders**: jauns lietotāja saskarnes sliders, lai pielāgotu sīktēlu izmēru (atbalsta arī CTRL + peles ratiņu)
 * **Attēlu režģa eksportēšanas pogas**: Pogas augšējā rindā, lai pārslēgtu sīktēlus no JPG uz apstrādātiem eksportiem (Mērķi, Reflektance, Indekss, LUT)
 * **Kartes cilne**: Jauna interaktīva 2D karte, kas parāda attēlu GPS atrašanās vietu marķierus
   * Atbalsta „Google Maps“ un ESRI kartes flīzes (automātiski izvēlas labāko flīžu pakalpojumu, pamatojoties uz pieejamo tālummaiņas līmeni)
   * Sīktēlu priekšskatījums, uzvedot peles kursoru uz kartes marķieriem
 
-**Kļūdu labojumi*** Uzlabota Chloros instalēšanas atbalsts datoros, kuros nav angļu valodas
+**Kļūdu labojumi**
+
+* Uzlabota Chloros instalēšanas atbalsts datoros, kuros nav angļu valodas
 
 </details>
 
@@ -286,13 +295,21 @@ Chloros pārbauda, vai ir pieejami atjauninājumi, paziņo, kad ir pieejama jaun
 
 **Izlaišanas datums: 2025. gada 20. decembris**
 
-**Jaunas funkcijas*** Sākotnējā versija
+**Jaunas funkcijas**
 
-**Uzlabojumi*** Sākotnējā versija
+* Sākotnējā versija
 
-**Kļūdu labojumi*** Sākotnējā versija
+**Uzlabojumi**
 
-**Zināmās problēmas*** Sākotnējā versija
+* Sākotnējā versija
+
+**Kļūdu labojumi**
+
+* Sākotnējā versija
+
+**Zināmās problēmas**
+
+* Sākotnējā versija
 
 </details>
 

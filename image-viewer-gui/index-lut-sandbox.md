@@ -26,7 +26,8 @@ Index/LUT Sandbox ir interaktīva darba vide Chloros attēlu skatītāja sānjos
 Sānu joslā no augšas uz leju tiek parādīts:
 
 * attēla nosaukums un kameras modelis
-* poga **Eksportēt/saglabāt attēlu(-us)**— parādās, kad ir atzīmēts**Indekss**vai**LUT*** izvēles rūtiņas **Indekss**un**LUT**
+* poga **Eksportēt/saglabāt attēlu(-us)**— parādās, kad ir atzīmēts**Indekss**vai**LUT**
+* izvēles rūtiņas **Indekss**un**LUT**
 * indeksa konfigurācijas panelis
 * panelis **Kursora vērtības** ar rādījumu, histogrammu un GSD kontroli
 

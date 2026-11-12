@@ -44,7 +44,9 @@ Projekta iestatījumu panelis ir sadalīts zemāk minētajās sadaļās. Divas p
 
 Nosaka, kā Chloros identificē kalibrēšanas mērķus jūsu attēlos.
 
-**Galvenie iestatījumi:*** **Minimālā kalibrēšanas parauga platība (px)**: Mērķa atpazīšanas izmēra slieksnis (noklusējums:**25**, diapazons 0–10000)
+**Galvenie iestatījumi:**
+
+* **Minimālā kalibrēšanas parauga platība (px)**: Mērķa atpazīšanas izmēra slieksnis (noklusējums:**25**, diapazons 0–10000)
 * **Minimālā mērķu grupēšana (0–100)**: Līdzības slieksnis mērķu reģionu grupēšanai (noklusējums:**60**)**Kad pielāgot:**
 
 * Palieliniet parauga laukumu, ja rodas kļūdainas atklāšanas
@@ -59,19 +61,26 @@ Nosaka, kā Chloros identificē kalibrēšanas mērķus jūsu attēlos.
 
 Galvenās attēlu apstrādes un kalibrēšanas opcijas.
 
-**Galvenie iestatījumi:*** **Vignēšanas korekcija**: kompensē objektīva tumšošanos malās ✅ Ieteicams
+**Galvenie iestatījumi:**
+
+* **Vignēšanas korekcija**: kompensē objektīva tumšošanos malās ✅ Ieteicams
 * **Atstarošanas kalibrēšana / baltā balanss**: kalibrē attēlus, izmantojot atklātos mērķus (Survey3) un/vai DAQ gaismas sensora datus (LATTICE) ✅ Ieteicams
 * **Debayer metode**: Algoritms RAW failu konvertēšanai 3-kanālu multispektrālos attēlos
 * **Minimālais atkārtotās kalibrēšanas intervāls**: Minimālais laiks sekundēs starp kalibrēšanas mērķa izmantošanu (noklusējums:**0** = izmantot visus, diapazons 0–3600)**Nekalibrēti rezerves produkti:**Ja attēla rāmi nav iespējams kalibrēt pēc atstarojuma (nav pieejams mērķis vai kalibrēšana ir atspējota), tas tiek eksportēts kā viens no diviem rezerves produktiem —**katrā darbības ciklā pastāv tieši viens no šiem diviem**, ko izvēlas ar Vignette korekcijas slēdzi:
 
-* **Eksportēt sensora reakciju**: ieraksta `Sensor_Response_Images` — izmanto, ja „Vignette” korekcija ir**izslēgta*** **Eksportēt ar vignetēšanas korekciju**: ieraksta `Vignette_Corrected_Images` — izmanto, ja vignetēšanas korekcija ir**ieslēgta**Izvēles rūtiņa, kas nav aktīva, ir izdzēsta. Atceļot atzīmi no aktīvās rūtiņas, šī faila ierakstīšana tiek pilnībā apturēta.**LATTICE eksporta produkti** (parādās katram projektam; tie attiecas uz LATTICE uzņēmumiem):
+* **Eksportēt sensora reakciju**: ieraksta `Sensor_Response_Images` — izmanto, ja „Vignette” korekcija ir**izslēgta**
+* **Eksportēt ar vignetēšanas korekciju**: ieraksta `Vignette_Corrected_Images` — izmanto, ja vignetēšanas korekcija ir**ieslēgta**Izvēles rūtiņa, kas nav aktīva, ir izdzēsta. Atceļot atzīmi no aktīvās rūtiņas, šī faila ierakstīšana tiek pilnībā apturēta.**LATTICE eksporta produkti** (parādās katram projektam; tie attiecas uz LATTICE uzņēmumiem):
 
 * **Eksportēt bez demosaicēšanas**: lineārs attēls bez mozaīkas (`Debayered_Images`): no kalibrēšanas paketes ir noņemts tumšais nobīdes kompensācijas slānis, pēc tam veikta demosaicēšana bez līdzena lauka vai krāsu atdalīšanas — tas pats fails, ko uzņemums saglabā bez mozaīkas līmenī — sensora oriģinālajā orientācijā. Attiecas uz RGB un multispektrālajiem moduļiem.
 * **Eksportēt priekšskatījumu**: ekrāna priekšskatījums (`Preview_Images`). RGB = baltā balanss (DAQ apgaismojums, ja pieejams, citādi pelēkā pasaule) + gamma; multispektrālais = viltus krāsu izstiepums.
 * **Eksportēt starojuma intensitāti**: float32 spektrālā starojuma intensitāte (`Radiance_Images`, W/m²/sr/nm). Tikai multispektrālie moduļi — neattiecas uz RGB oriģināliem.
 * **Eksportēt atstarošanu**: uint16 atstarošana (`Reflectance_Calibrated_Images`, DN 32768 = ρ 1,0), ja `.daq` lejupvērstais rādījums vai kadrā esošais mērķis aptver kadru. Tikai multispektrālie moduļi.
 
-Visi četri ir **pēc noklusējuma ieslēgti**— viens importēts LATTICE neapstrādāts kadrs tiek sadalīts pa visiem iespējotajiem un piemērojamajiem produktiem vienā apstrādes ciklā. Izvēles rūtiņa**Eksportēt atstarojumu** ir nedzēšama, ja atstarojuma kalibrēšana ir izslēgta. Iestatījumi, kurus neļauj izmantot augstāk esošais slēdzis, vienmēr ir izslēgti ar pelēku fonu, un parādās rīkjosla, kurā norādīts, kuru slēdzi jāmaina.**Papildu iestatījumi:*** **Gaismas sensora laika zonas nobīde**: Stundas no UTC gaismas sensora laika saskaņošanai (noklusējums: 0, diapazons no −12 līdz +12)
+Visi četri ir **pēc noklusējuma ieslēgti**— viens importēts LATTICE neapstrādāts kadrs tiek sadalīts pa visiem iespējotajiem un piemērojamajiem produktiem vienā apstrādes ciklā. Izvēles rūtiņa**Eksportēt atstarojumu** ir nedzēšama, ja atstarojuma kalibrēšana ir izslēgta. Iestatījumi, kurus neļauj izmantot augstāk esošais slēdzis, vienmēr ir izslēgti ar pelēku fonu, un parādās rīkjosla, kurā norādīts, kuru slēdzi jāmaina.
+
+**Papildu iestatījumi:**
+
+* **Gaismas sensora laika zonas nobīde**: Stundas no UTC gaismas sensora laika saskaņošanai (noklusējums: 0, diapazons no −12 līdz +12)
 * **Piemērot PPK korekcijas**: izmanto GPS/ekspozīcijas pinu datus no `.daq` failiem (noklusējums: izslēgts)
 * **Ekspozīcijas pini 1/2**: piešķir kameras ekspozīcijas piniem divkameru konfigurācijām
 
@@ -105,7 +114,9 @@ Konfigurējiet, kurus veģetācijas indeksus aprēķināt un eksportēt. Grafisk
 3. Konfigurējiet vizualizācijas iestatījumus (LUT krāsas, vērtību diapazoni)
 4. Pēc nepieciešamības pievienojiet vairākus indeksus
 
-**Populāri indeksi:*** **NDVI**: Vispārējais veģetācijas veselības stāvoklis (visbiežāk izmantotais)
+**Populāri indeksi:**
+
+* **NDVI**: Vispārējais veģetācijas veselības stāvoklis (visbiežāk izmantotais)
 * **NDRE**: RedEdge izmantošana agrīnai stresa noteikšanai* **GNDVI**: jutīgs pret hlorofila koncentrāciju
 * **OSAVI**: labi darbojas ar redzamu augsni
 * **EVI**: reģioni ar augstu lapu platības indeksu (LAI)
@@ -216,7 +227,11 @@ Ja izmantojat MAPIR DAQ reģistratorus ar GPS precīzai ģeolokācijai:
 3. Vajadzības gadījumā iestatiet**„Gaismas sensora laika zonas nobīdi”** (noklusējums: 0 UTC)
 4. Piešķiriet kameras ekspozīcijas kontaktiem:
    * **Viena kamera**: automātiski piešķirta 1. kontaktam
-   * **Divas kameras**: katru kameru manuāli piešķiriet pareizajam kontaktam**Ekspozīcijas pinu piešķiršana:*** **Ekspozīcijas pinu 1**: izvēlieties kameras modeli no nolaižamā izvēlnes
+   * **Divas kameras**: katru kameru manuāli piešķiriet pareizajam kontaktam
+
+**Ekspozīcijas pinu piešķiršana:**
+
+* **Ekspozīcijas pinu 1**: izvēlieties kameras modeli no nolaižamā izvēlnes
 * **Ekspozīcijas pinu 2**: izvēlieties otro kameru vai “Nelietot”
 * Vienu un to pašu kameru nevar piešķirt abiem piniem
 

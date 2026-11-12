@@ -57,7 +57,11 @@ output/
 └── *.daq          the downwelling reading matched to the capture
 ```
 
-**Norādiet mapi uz attēlu saknes direktoriju** (`output/` augstāk). Ja izvēlētajā mapē pašā nav attēlu, bet tajā ir apakšmapes, programma Chloros automātiski pārskata tās — visas līmeņa apakšmapes un saknes mape `.daq` tiek ievāktas vienā reizē.**Kā notiek attēlu importēšana:*** Katrs attēls tiek importēts kā **viens attēls**, grupēts pēc attēla (nevis viens ieraksts katram līmenim). Pārējie tā paša attēla līmeņi parādās kā šī viena attēla skatīšanas režīmi.
+**Norādiet mapi uz attēlu saknes direktoriju** (`output/` augstāk). Ja izvēlētajā mapē pašā nav attēlu, bet tajā ir apakšmapes, programma Chloros automātiski pārskata tās — visas līmeņa apakšmapes un saknes mape `.daq` tiek ievāktas vienā reizē.
+
+**Kā notiek attēlu importēšana:**
+
+* Katrs attēls tiek importēts kā **viens attēls**, grupēts pēc attēla (nevis viens ieraksts katram līmenim). Pārējie tā paša attēla līmeņi parādās kā šī viena attēla skatīšanas režīmi.
 * **Apstrāde vienmēr sākas no neapstrādātā kadra.** Pārējie līmeņi ir apskatāmi, taču caur apstrādes ķēdi tiek virzīts tikai `raw` — jau apstrādāta produkta atkārtota apstrāde divkārši piemērotu korekcijas, tāpēc Chloros to noraida. Atkārtoti importēts eksporta fails nekad nevar aizņemt uzņēmuma neapstrādātā attēla vietu.
 * Uzņēmumu mape, kas saglabāta **bez** neapstrādāto attēlu importēšanas, tiek parādīta kā parasti, taču apstrāde to izlaiž un par to ziņo žurnālā. (CLI karodziņš `--input-level` šādā gadījumā var piespiest ieejas punktu — skatiet [CLI atsauci](../reference/cli-reference.md#what-a-captures-folder-looks-like).)
 * Sākot ar versiju 1.3.0, uzņemumu mape var saturēt arī `clamp_masks/` mapi (maskas katram pikselim starojuma un atstarošanas līmeņiem — skatiet [Izvades attēlu formātus](../output-image-formats.md#clamp-masks)). Maski nav ainas attēli, un Chloros to importēšanas laikā tās ignorē neatkarīgi no to atrašanās vietas.
@@ -91,7 +95,8 @@ Kad attēli ir importēti, tie parādās tabulā ar šādām kolonnām:
 ### Mērķa kolonna (izvēles rūtiņa)
 
 * Atzīmējiet šo rūtiņu attēliem, kuros ir kalibrēšanas mērķi
-* Ja ir atzīmēts vismaz viens attēls, mērķi tiek meklēti **tikai atzīmētajos attēlos*** Sīkāku informāciju skatiet sadaļā [Mērķa attēlu izvēle](choosing-target-images.md)
+* Ja ir atzīmēts vismaz viens attēls, mērķi tiek meklēti **tikai atzīmētajos attēlos**
+* Sīkāku informāciju skatiet sadaļā [Mērķa attēlu izvēle](choosing-target-images.md)
 
 ### Attēla metadatu apskatīšana
 

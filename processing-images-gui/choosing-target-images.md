@@ -32,7 +32,9 @@ Ja **nav** atzīmēts neviens attēls, „Chloros” pārslēdzas uz visu projek
 
 Pārskatiet importētos attēlus failu pārlūkā un nosakiet, kuros attēlos ir kalibrēšanas mērķi.
 
-**Bieži sastopami scenāriji:*** **Pirms uzņemšanas mērķis**: Uzņemts pirms sesijas sākuma
+**Bieži sastopami scenāriji:**
+
+* **Pirms uzņemšanas mērķis**: Uzņemts pirms sesijas sākuma
 * **Mērķis pēc uzņemšanas**: uzņemts pēc sesijas pabeigšanas
 * **Mērķi uzņemšanas zonā**: mērķi, kas novietoti uzņemšanas zonā
 * **Vairāki mērķi**: 2–3 mērķa attēli katrā sesijā (ieteicams)
@@ -142,9 +144,17 @@ Izmantojiet šo sleju, lai pārliecinātos, ka esat atzīmējuši mērķus katra
 
 ### Atpazīšanas jutības pielāgošana
 
-Ja programma „Chloros” neatkopj jūsu mērķus pareizi, pielāgojiet šos iestatījumus sadaļā [Projekta iestatījumi](adjusting-project-settings.md):**Minimālā kalibrēšanas parauga platība (px):*** **Noklusējums**: 25 pikseļi
+Ja programma „Chloros” neatkopj jūsu mērķus pareizi, pielāgojiet šos iestatījumus sadaļā [Projekta iestatījumi](adjusting-project-settings.md):
+
+**Minimālā kalibrēšanas parauga platība (px):**
+
+* **Noklusējums**: 25 pikseļi
 * **Palieliniet**, ja rodas kļūdaina atpazīšana attiecībā uz maziem artefaktiem
-* **Samaziniet**, ja mērķi netiek atpazīti**Minimālā mērķu grupēšana (0–100):*** **Noklusējums**: 60
+* **Samaziniet**, ja mērķi netiek atpazīti
+
+**Minimālā mērķu grupēšana (0–100):**
+
+* **Noklusējums**: 60
 * **Palieliniet**, ja mērķi tiek sadalīti vairākās atklāšanās
 * **Samaziniet**, ja mērķi ar krāsu variācijām netiek pilnībā atklāti
 
