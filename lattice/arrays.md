@@ -206,7 +206,7 @@ Masīva uzņemšanas virsmas skaidri sadalās **uzraudzības līmenī**(ieraksta
 
 | Darba plūsma | Līmenis | Ko saglabā | GUI | CLI |
 | --- | --- | --- | --- | --- |
-| **Ierakstīšana**(nekustīgi attēli) | Analīze | Viena sinhronizēta kadru grupa katrā caurlaidē; faili katrai kamerai katrā izvēlētajā eksporta līmenī (neapstrādāti/bez debayeringa/starojums/atstarošanās/priekšskatījums/indekss) + `.daq` sidecar |****Capture All** poga + Capture Settings | `lattice array-capture` |
+| **Ierakstīšana**(nekustīgi attēli) | Analīze | Viena sinhronizēta kadru grupa katrā caurlaidē; faili katrai kamerai katrā izvēlētajā eksporta līmenī (neapstrādāti/bez debayeringa/starojums/atstarošanās/priekšskatījums/indekss) + `.daq` sidecar |**Capture All** poga + Capture Settings | `lattice array-capture` |
 | **Record index video** | Monitoring | Rādītais kombinētā indeksa kompozīts reāllaikā — 8 bitu, priekšskatījuma izšķirtspēja, iebūvēta LUT. No CLI, ja GUI skats nav atvērts, aizmugurējā sistēma renderē masīva NDVI (vai `--expr`), tiklīdz masīvs ir izlīdzināts; ierakstīšana, kas neieraksta nevienu kadru, neizdodas | ● Ierakstīt indeksa video (apvienoti masīvi) | `lattice array-record` |
 | **Neapstrādāta sērija → video veidošana**| Analīze | Neapstrādāti sensora kadri ar pilnu uzņemšanas ātrumu + manifests + `.daq`, pēc tam bezsaistē rekonstruēti kā kalibrēts starojuma / atstarošanas / indeksa video, laika ziņā saskaņots ar DAQ rādījumiem | ⦿ Ierakstīt neapstrādātu sēriju →**Veidot video** | `lattice array-burst` → `lattice array-build-video` |
 
