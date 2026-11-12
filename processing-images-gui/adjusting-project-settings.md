@@ -153,7 +153,9 @@ Izvades faili tiek saglabāti projekta mapē, grupēti pēc kameras un formāta:
 
 * **Piemērot masīva izlīdzināšanu** (noklusējums: ieslēgts): izlīdzina katru apstrādāto rezultātu (debayering / priekšskatījums / starojums / atstarošanās / indekss) atbilstoši masīva kopīgajai atsauces ģeometrijai. Izslēgts = eksportē sensora oriģinālajā ģeometrijā.
 * **Apgriezt līdz kopīgajai pārklāšanās zonai** (noklusējums: ieslēgts): apgriež izlīdzinātos eksportētos attēlus līdz reģionam, kas ir kopīgs visiem moduļiem, tādējādi katrai joslai ir vienāds attēla laukums. Izslēgts saglabā pilnu sensora laukumu (melna aizpildīšana ārpus avota).
-* **Pārparaugošana**:**Bilineāra (gluda, noklusējums)**,**Tuvākā (saglabā precīzas vērtības)**— bez pikseļu savstarpējas sajaukšanas, stingrai radiometriskai analīzei — vai**Kubiska (visaskarpākā)**.***
+* **Pārparaugošana**:**Bilineāra (gluda, noklusējums)**,**Tuvākā (saglabā precīzas vērtības)**— bez pikseļu savstarpējas sajaukšanas, stingrai radiometriskai analīzei — vai**Kubiska (visaskarpākā)**.
+
+***
 
 ## Iestatījumu saglabāšana un ielādēšana
 

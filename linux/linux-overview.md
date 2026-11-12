@@ -10,7 +10,8 @@ Chloros 1.3.0 nodrošina Linux sistēmai paredzētu atbalstu **CLI**un**Python S
 
 ## Platformu atbalsta tabula
 
-| Funkcija | Windows (GUI) | Windows (CLI/SDK) | Linux amd64 (CLI/ --- | --- | --- | --- |
+| Funkcija | Windows (GUI) | Windows (CLI/SDK) | Linux amd64 (CLI/SDK) | Linux arm64 / Jetson (CLI/SDK) |
+| --- | --- | --- | --- | --- |
 | **GUI darbvirsma** | Jā | Nav pieejams | Nē | Nē |
 | **CLI** (`chloros-cli`) | Jā | Jā | Jā | Jā |
 | **Python SDK** (`chloros-sdk`) | Jā | Jā | Jā | Jā |
@@ -22,7 +23,9 @@ Chloros 1.3.0 nodrošina Linux sistēmai paredzētu atbalstu **CLI**un**Python S
 | **Tekstūru ņemot vērā debayer** (nepieciešams CUDA GPU) | Jā (Chloros+) | Jā (Chloros+) | Jā (Chloros+) | Jā (Chloros+) |
 | **Dinamiskā aprēķinu pielāgošana** | Jā | Jā | Jā | Jā |
 | **Aizmugurējā sistēma kā sistēmas pakalpojums** (`chloros-backend@<user>.service`) | Nē | Nē | Jā (pēc izvēles) | Jā (pēc izvēles) |
-| **Atjauninātājs uz vietas** (`chloros-cli update`) | Nē (palaidiet instalētāju) | Nē (palaidiet instalētāju) | Jā | Jā |***
+| **Atjauninātājs uz vietas** (`chloros-cli update`) | Nē (palaidiet instalētāju) | Nē (palaidiet instalētāju) | Jā | Jā |
+
+***
 
 ## Atbalstītās arhitektūras
 
@@ -35,7 +38,9 @@ Chloros 1.3.0 nodrošina Linux sistēmai paredzētu atbalstu **CLI**un**Python S
 
 * **Ubuntu 22.04 LTS vai jaunāka** (amd64)
 * **Debian 12 vai jaunāka** (amd64)
-* **NVIDIA JetPack 6** (arm64 — Jetson Orin platformas)***
+* **NVIDIA JetPack 6** (arm64 — Jetson Orin platformas)
+
+***
 
 ## Kas pieejams Linux lietotājiem
 
@@ -54,7 +59,9 @@ Chloros 1.3.0 nodrošina Linux sistēmai paredzētu atbalstu **CLI**un**Python S
 
 * **Datorvides grafiskā saskarne** — nav grafiskās saskarnes; visa mijiedarbība notiek caur CLI vai Python SDK
 * **Attēlu skatītājs** — nav interaktīva attēlu skatītāja, režģa skata vai kartes marķieru
-* **Vizuālā projektu vadība** — projekti tiek izveidoti un vadīti, izmantojot CLI komandas un SDK izsaukumus (pašu aparatūru — kameras, sensori, attēlu uzņemšana — joprojām var pilnībā kontrolēt no termināļa)***
+* **Vizuālā projektu vadība** — projekti tiek izveidoti un vadīti, izmantojot CLI komandas un SDK izsaukumus (pašu aparatūru — kameras, sensori, attēlu uzņemšana — joprojām var pilnībā kontrolēt no termināļa)
+
+***
 
 ## Licences prasības
 

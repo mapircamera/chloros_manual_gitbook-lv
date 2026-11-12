@@ -57,7 +57,9 @@ Kad efektīvais palielinājums pārsniedz **60×**, Chloros ap atsevišķo attē
 | **←**                           | Pilnekrāna režīms | Iepriekšējais attēls                      |
 | **Ctrl + R**                    | Pilnekrāna režīms | Atjaunot indeksa/LUT izmēģinājumu vidi         |
 | **Ctrl + `+`**/**Ctrl + `=`** | Tīkls        | Lielākas sīktēmas (4 pikseļi katram nospiedienam)  |
-| **Ctrl + `−`**                  | Tīkls        | Mazākas sīktēmas (4 pikseļi katram nospiedienam) |***
+| **Ctrl + `−`**                  | Tīkls        | Mazākas sīktēmas (4 pikseļi katram nospiedienam) |
+
+***
 
 ## Kursora vērtības
 
@@ -100,7 +102,9 @@ Skatītājs, indeksa/LUT smilšu kaste un indeksa eksports visi aprēķina mēro
 Divas sekas, par kurām ir vērts zināt:
 
 * **32 bitu procentuālais**TIFF saglabā DN/65535 kā peldošā punkta skaitli, savukārt**8 bitu** PNG/JPG eksports saglabā DN × 255/65535 — skatītājs abus pārvērš atpakaļ, pirms izdrukā procentuālo vērtību.
-* Vienu gadījumu nevar atjaunot: **8-bitu TIFF eksports no 8-bitu avota uzņēmuma** tiek nogriezts diapazonā 0–255, nevis pārskalots, un tam apzināti nav pievienota mēroga atzīme. Šiem failiem panelis izdrukā tikai DN, bez procentu kolonnas. Šī ir godīga atbilde, nevis kļūda.***
+* Vienu gadījumu nevar atjaunot: **8-bitu TIFF eksports no 8-bitu avota uzņēmuma** tiek nogriezts diapazonā 0–255, nevis pārskalots, un tam apzināti nav pievienota mēroga atzīme. Šiem failiem panelis izdrukā tikai DN, bez procentu kolonnas. Šī ir godīga atbilde, nevis kļūda.
+
+***
 
 ## Slāņa histogramma
 
@@ -126,7 +130,9 @@ Virs histogrammas atrodas trīs pogas:
 | **INDEKSS**| Ieslēgts      | Parādās tikai tad, ja ir aktīvs indekss. Pārslēdz histogrammu no avota joslām uz**indeksa vērtību sadalījumu**, kur abas klipēšanas sliekšņa līnijas tiek attēlotas kā oranžas pārtrauktas līnijas, bet kursora indeksa vērtība — kā balta līnija                                                          |
 | **RGB**| Izslēgts     | Pārslēdz no apvienotās līknes uz atsevišķām kanālu līknēm. Mono sensora gadījumā šī poga rāda uzrakstu**MONO** un ir atspējota — ir tikai viens kanāls, ko parādīt                                                                                                                                  |
 
-Histogramma tiek aprēķināta pēc **redzamajiem blokiem**, nevis pēc avota pikseļiem, kas atrodas aiz tiem: mainot GSD bloka izmēru, sadalījums tiek pārrēķināts, tādējādi histogramma, kursora marķieris un attēlotais attēls vienmēr saskan.***
+Histogramma tiek aprēķināta pēc **redzamajiem blokiem**, nevis pēc avota pikseļiem, kas atrodas aiz tiem: mainot GSD bloka izmēru, sadalījums tiek pārrēķināts, tādējādi histogramma, kursora marķieris un attēlotais attēls vienmēr saskan.
+
+***
 
 ## GSD bloka izmērs
 
@@ -185,7 +191,9 @@ Piemērojiet multispektrālos indeksus un krāsu meklēšanas tabulas (LUT) no s
 
 3. Izvēlieties savas kameras filtru un indeksa formulu, pēc tam velciet kanālu apļus uz formulas lauciņiem
 4. Pievienojiet LUT un izvēlieties gradientu, sliekšņus un apgriešanas režīmu
-5. Nolasiet vērtības pie kursora un saglabājiet rezultātu, izmantojot **Eksportēt/Saglabāt attēlu(-us)**Pilnu pamācību skatiet [Indeksa/LUT izmēģinājumu vidē](index-lut-sandbox.md).***
+5. Nolasiet vērtības pie kursora un saglabājiet rezultātu, izmantojot **Eksportēt/Saglabāt attēlu(-us)**Pilnu pamācību skatiet [Indeksa/LUT izmēģinājumu vidē](index-lut-sandbox.md).
+
+***
 
 ## Problēmu novēršana
 

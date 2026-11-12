@@ -180,7 +180,9 @@ Pēc palaišanas visa procesa ķēde darbojas automātiski:
 * Pārtraukta apstrāde precīzi atspoguļo to, kas ir paveikts (skatiet `[RUN-SUMMARY]` rindas žurnālā)
 * Jauns apstrādes cikls sāk procesu no sākuma
 
-**Plānošanas padoms:** Ļoti lieliem projektiem apsveriet iespēju veikt apstrādi partijās vai izmantot CLI, lai nodrošinātu labāku kontroli.***
+**Plānošanas padoms:** Ļoti lieliem projektiem apsveriet iespēju veikt apstrādi partijās vai izmantot CLI, lai nodrošinātu labāku kontroli.
+
+***
 
 ## Apstrādes uzraudzība
 

@@ -17,7 +17,9 @@ MAPIR **DAQ** gaismas sensori mēra vides gaismu kā radiometriski kalibrētus s
 | --- | --- | --- |
 | **DAQ-U** | USB (sērijas) | skenēšana caur sērijas portu |
 | **DAQ-M** | Bluetooth Low Energy | BLE skenēšana pēc nosaukuma |
-| **DAQ-E** | Ethernet (IPv4, ar PoE barošanu) | mDNS `_daq-e._tcp` (vārds `daq-e-<id>.local`) |**DAQ-E-S (jauns 1.3.0 versijā).** DAQ-E ar pastāvīgu difuzoru un slīpuma sensoru. Chloros to uzrāda kā `DAQ-E-S` un darbojas tieši tāpat kā DAQ-E, izņemot to, ka tam nav nepieciešama kapes korekcija un katrs nolasījums ietver ierīces slīpumu, sānsvārstību un pacelšanos. Skatīt [DAQ-E-S: fiksēts difuzors un slīpums](caps-and-range.md#daq-e-s-fixed-diffuser-and-tilt).
+| **DAQ-E** | Ethernet (IPv4, ar PoE barošanu) | mDNS `_daq-e._tcp` (vārds `daq-e-<id>.local`) |
+
+**DAQ-E-S (jauns 1.3.0 versijā).** DAQ-E ar pastāvīgu difuzoru un slīpuma sensoru. Chloros to uzrāda kā `DAQ-E-S` un darbojas tieši tāpat kā DAQ-E, izņemot to, ka tam nav nepieciešama kapes korekcija un katrs nolasījums ietver ierīces slīpumu, sānsvārstību un pacelšanos. Skatīt [DAQ-E-S: fiksēts difuzors un slīpums](caps-and-range.md#daq-e-s-fixed-diffuser-and-tilt).
 
 Visi trīs izmanto vienu un to pašu vadu protokolu un sniedz identiskus datus:
 

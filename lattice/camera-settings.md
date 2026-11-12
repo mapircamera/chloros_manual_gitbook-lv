@@ -196,7 +196,9 @@ Viss šajā sadaļā attiecas **tikai uz attēla parādīšanu**— tas maina to
 | **Saturācija** | 0–200 (100 = neitrāla) | 100 | Tikai RGB | HSV saturācija reāllaika priekšskatījumā. |
 | **Kontrasts** | 0–200 (100 = neitrāls) | 100 | Tikai RGB | Lineārs kontrasts ap vidēji pelēko toņu reālajā priekšskatījumā. |
 | **Spoguļot pa horizontāli / Spoguļot pa vertikāli** | Izvēles rūtiņas | Izslēgts | Visi | Apgriež priekšskatījumu horizontāli / vertikāli. |
-| **Rotācija**| 0° / 90° / 180° / 270° | 0° | Visi | Pagriež priekšskatījumu. Orientācija tiek piemērota aizmugurējās priekšskatīšanas ķēdes beigās.**Saglabātie attēli (1.3.0):**atsevišķas kameras priekšskatīšanas, starojuma, atstarošanas un indeksa produkti tiek pagriezti, izmantojot Spoguļošanu/Rotāciju, savukārt**„Raw“ un „Debayered“ saglabā kamerai raksturīgo orientāciju**; katrs uzņēmuma fails reģistrē šo iestatījumu savā XMP, tādējādi vēlāk apstrādājot „raw“ failu, tas tiek piemērots tādā pašā veidā.**Masīva elementu faili saglabā sākotnējo orientāciju** (iestatījums tiek reģistrēts, nevis piemērots), un masīva saliktie skati to ignorē. |**Krāsu profilu semantika** (RGB kameras):
+| **Rotācija**| 0° / 90° / 180° / 270° | 0° | Visi | Pagriež priekšskatījumu. Orientācija tiek piemērota aizmugurējās priekšskatīšanas ķēdes beigās.**Saglabātie attēli (1.3.0):**atsevišķas kameras priekšskatīšanas, starojuma, atstarošanas un indeksa produkti tiek pagriezti, izmantojot Spoguļošanu/Rotāciju, savukārt**„Raw“ un „Debayered“ saglabā kamerai raksturīgo orientāciju**; katrs uzņēmuma fails reģistrē šo iestatījumu savā XMP, tādējādi vēlāk apstrādājot „raw“ failu, tas tiek piemērots tādā pašā veidā.**Masīva elementu faili saglabā sākotnējo orientāciju** (iestatījums tiek reģistrēts, nevis piemērots), un masīva saliktie skati to ignorē. |
+
+**Krāsu profilu semantika** (RGB kameras):
 
 * **Raw** — pilnībā apiet apstrādes ķēdi.
 * **Lineārs** — tumšais signāls + līdzenais lauks + baltā balanss; bez krāsu matricas, bez gammas.

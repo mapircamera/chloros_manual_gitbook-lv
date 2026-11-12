@@ -15,7 +15,9 @@ Images In → [Thread 1: Detection] → [Thread 2: Calibration] → [Thread 3: P
 
 Katrs attēls secīgi iziet cauri visiem četriem pavedieniem. Izmantojot „Chloros+“ daudzpavedienu apstrādi, vairāki attēli vienlaikus atrodas dažādos pavedienos — kamēr 3. pavediens apstrādā vienu attēlu, 1. pavediens var veikt nākamā attēla atpazīšanu, 2. pavediens — vēl viena attēla kalibrēšanu, bet 4. pavediens — gatavā attēla ierakstīšanu diskā.
 
-Progress tiek ziņots par katru pavedienu un tiek pārraidīts, izmantojot Server-Sent Events (backend tos publicē uz `/api/events`). Komandrindas interfeisā (CLI) reāllaika progresa rādījumā četri posmi ir apzīmēti kā **Atklāšana, Analīze, Apstrāde, Eksportēšana**.***
+Progress tiek ziņots par katru pavedienu un tiek pārraidīts, izmantojot Server-Sent Events (backend tos publicē uz `/api/events`). Komandrindas interfeisā (CLI) reāllaika progresa rādījumā četri posmi ir apzīmēti kā **Atklāšana, Analīze, Apstrāde, Eksportēšana**.
+
+***
 
 ## Pavedienu informācija
 

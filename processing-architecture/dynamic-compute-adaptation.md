@@ -144,7 +144,9 @@ Chloros izmanto [4 pavedienu apstrādes cauruļvadu](processing-pipeline.md):
 * Vītnei, kas ir **vienīgā** aktīvā, tiek piešķirts tās profila maksimālais piešķīrums.
 * Ja ir aktīvs vairāk nekā viens *resursietilpīgs* GPU uzdevums, katra resursietilpīgā uzdevuma bāzes piešķīrums tiek sadalīts starp tiem (nekad nepazeminot to zemāk par konfigurēto minimumu).
 
-Vērtība, kas faktiski tiek izmantota darbības laikā, ir **mazāka** no platformas profila piešķīruma un GPU atmiņas monitora reālā ieteikuma, tādējādi noslogota karte vienmēr uzvar pār optimistisku profilu.***
+Vērtība, kas faktiski tiek izmantota darbības laikā, ir **mazāka** no platformas profila piešķīruma un GPU atmiņas monitora reālā ieteikuma, tādējādi noslogota karte vienmēr uzvar pār optimistisku profilu.
+
+***
 
 ## Tekstūru apzināta apstrāde
 

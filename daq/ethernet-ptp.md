@@ -104,4 +104,4 @@ Sīkāka informācija lietotājiem, kam nepieciešama stingra saskaņošana:
 | Pārraides domēns | Hosts un sensors atrodas vienā L2 segmentā; mDNS neveic maršrutēšanu |
 | Ugunsmūris | Windows: instalētāja **Chloros Backend (UDP-In)** noteikums ļauj ienākt DAQ-E plūsmai (UDP 5002), mDNS (5353) un PTP (319/320); trešās puses ugunsmūrim ir nepieciešami tie paši iestatījumi. Linux: `.deb` atver šos portus `ufw` / `firewalld` tikai tad, ja ugunsmūris bija aktīvs instalēšanas brīdī — atļaujiet tos pašrocīgi, ja ugunsmūris tiek ieslēgts vēlāk |
 | Dators ar vairākiem tīkla interfeisiem | Atklāšana pārlūko mDNS, izmantojot ARP kā rezerves risinājumu; `--eth-host <ip-or-hostname>` izlaiž atklāšanu un izveido savienojumu tieši |
-| Atkārtota skenēšana ar GUI | Atklāšana darbojas tikai tad, kamēr ir atvērts savienojuma dialoglodziņš; izmantojiet pogu „Atjaunināt“ |</version>
+| Atkārtota skenēšana ar GUI | Atklāšana darbojas tikai tad, kamēr ir atvērts savienojuma dialoglodziņš; izmantojiet pogu „Atjaunināt“ |

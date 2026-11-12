@@ -64,7 +64,9 @@ Pilnīga rokasgrāmata: [Chloros izmantošana ar AI palīgiem](ai-assistants.md)
 * **Pārredzama kļūdu semantika.** `chloros-cli process` izpilde, kas pieprasīja produktus, bet neizveidoja nevienu, tagad skaidri ziņo par kļūdu un beidzas ar rezultātu, kas nav nulle; veiksmīgas izpildes ziņo, cik daudz attēlu produktu tās izveidoja.
 * **Jauns izvades izkārtojums.** Produkti tiek saglabāti `<project>/<camera>/<format>/<Product>_Images/` mapēs, saglabājot avota faila nosaukumu — produktu identificē mape, nevis faila nosaukuma paplašinājums. Skatīt [Izvades attēlu formāti](output-image-formats.md).
 * **Vairāk ievades avotu, plānu un valodu.** `.dng` ievades atbalsts; visas 38 saskarnes valodas ir pilnībā pieejamas; aparatūras ierobežojumi katram plānam, kas bezmaksas (bez pieteikšanās) ļauj izmantot līdz 4 kamerām un 2 gaismas sensoriem.
-* **Uzticamība.** Funkcija „Stop Processing” tiek pārtraukta pareizi, sniedzot precīzu izpildes kopsavilkumu; daudzkameru projektos tiek eksportēti visi kameru dati, un instalētāja atjauninājumi vairs neizraksta jūs no sistēmas.***
+* **Uzticamība.** Funkcija „Stop Processing” tiek pārtraukta pareizi, sniedzot precīzu izpildes kopsavilkumu; daudzkameru projektos tiek eksportēti visi kameru dati, un instalētāja atjauninājumi vairs neizraksta jūs no sistēmas.
+
+***
 
 Chloros ir pieejams 3 lietojumvides versijās:
 

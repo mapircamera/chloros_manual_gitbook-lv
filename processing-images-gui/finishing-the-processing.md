@@ -110,7 +110,9 @@ Atstarošanas koeficients tiek saglabāts kā vesels skaitlis DN, un **DN, kas a
 | LATTICE (M3C/M3M) | **32768** (rezerves diapazons līdz ρ 2,0) | Failā ir iezīmēta XMP birka `Chloros:PixelScale=32768` |
 | Survey3          | **65535** (nogriezts pie ρ 1,0)     | Nav `Chloros:PixelScale` tag — šī trūkums ir pazīme (Survey3 produktiem ir citi `Chloros:*` apstrādes tagi) |
 
-**Nolasiet `Chloros:PixelScale` marķējumu un daliet ar to**, nevis pieņemiet, ka visur ir 65535 — dalot LATTICE atstarojumu ar 65535, katra vērtība tiek nemanāmi samazināta uz pusi. Atstarošanas fails, kas izveidots pirms versijas 1.3.0 un ierakstīts kā 8 bitu, tika apgriezts, nevis pārskalots, un tam nav mēroga tagu: to vajadzētu eksportēt atkārtoti 16 bitu vai 32 bitu formātā, nevis dalīt. Pilnu informāciju skatiet sadaļā [Izvades attēlu formāti](../output-image-formats.md).***
+**Nolasiet `Chloros:PixelScale` marķējumu un daliet ar to**, nevis pieņemiet, ka visur ir 65535 — dalot LATTICE atstarojumu ar 65535, katra vērtība tiek nemanāmi samazināta uz pusi. Atstarošanas fails, kas izveidots pirms versijas 1.3.0 un ierakstīts kā 8 bitu, tika apgriezts, nevis pārskalots, un tam nav mēroga tagu: to vajadzētu eksportēt atkārtoti 16 bitu vai 32 bitu formātā, nevis dalīt. Pilnu informāciju skatiet sadaļā [Izvades attēlu formāti](../output-image-formats.md).
+
+***
 
 ## Metadati, kas tiek pārnesti uz eksportētajiem failiem
 
@@ -166,7 +168,9 @@ Lai saglabātu apstrādes ierakstu vai nosūtītu to MAPIR atbalsta dienestam:
 3. Pievienojiet projekta dokumentācijai
 4. Ja rodas problēmas, nosūtiet to MAPIR atbalsta dienestam
 
-Lai problēmu nosūtītu tieši MAPIR, izmantojiet kļūdas ikonu (**Ziņot par kļūdu**) cilnes „Debug Log” augšdaļā — skatiet [Kļūdas ziņošana no cilnes „Log”](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
+Lai problēmu nosūtītu tieši MAPIR, izmantojiet kļūdas ikonu (**Ziņot par kļūdu**) cilnes „Debug Log” augšdaļā — skatiet [Kļūdas ziņošana no cilnes „Log”](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).
+
+***
 
 ## Bieži sastopamas izvades problēmas un to risinājumi
 

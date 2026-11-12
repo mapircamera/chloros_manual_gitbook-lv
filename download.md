@@ -193,7 +193,9 @@ Atbloķējiet papildu funkcijas ar Chloros+ abonementu:
 * **🐻 Uzlabota tekstūru ņemšana vērā debayer metode** — augstas kvalitātes, malu ņemšana vērā debayer metode, kas apvienota ar AI/ML trokšņu noņemšanas modeli, kas novērš gandrīz visus debayerēšanas radītos trokšņus.
 * 🧮 **Pielāgotas formulas** — izveidojiet pielāgotus multispektrālos indeksus
 
-<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Apskatiet „Chloros+“ plānus un cenas</a></p>***
+<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Apskatiet „Chloros+“ plānus un cenas</a></p>
+
+***
 
 ## Palīdzība instalēšanā
 
@@ -234,7 +236,9 @@ Vajadzīga palīdzība ar instalēšanu vai konfigurēšanu?
 * 📧 **E-pasts**: info@mapir.camera
 * 🌐 **Tīmekļa vietne**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **Dokumentācija**: [Sākums](./)
-* ❓ **FAQ**: [Bieži uzdotie jautājumi](faq.md)***
+* ❓ **FAQ**: [Bieži uzdotie jautājumi](faq.md)
+
+***
 
 ## Programmatūras atjauninājumi
 

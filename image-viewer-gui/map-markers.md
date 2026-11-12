@@ -78,7 +78,9 @@ Katram attēlam ar GPS datiem tiek piešķirts marķieris tā koordinātās.
 | Piegādātājs        | Piezīmes                                                                                                                                                             |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Google Maps** | Plašs pārklājums visā pasaulē; atbalsta visus četrus flīžu veidus                                                                                                            |
-| **Esri ArcGIS**| Dažos reģionos bieži vien ir pieejami augstākas izšķirtspējas aerofotoattēli. Esri gadījumā flīžu veids**Terrain** netiek piedāvāts, un, kamēr ir izvēlēts Esri, tā poga ir atspējota |***
+| **Esri ArcGIS**| Dažos reģionos bieži vien ir pieejami augstākas izšķirtspējas aerofotoattēli. Esri gadījumā flīžu veids**Terrain** netiek piedāvāts, un, kamēr ir izvēlēts Esri, tā poga ir atspējota |
+
+***
 
 ## Kartes flīžu veidi
 
@@ -93,7 +95,9 @@ Izvēlieties kartes slāņa veidu, izmantojot pogas (no kreisās puses uz labo):
 | **Satelīts**        | Detalizēti satelīta attēli bez apzīmējumiem — variants ar vislielāko datu pārraides platjoslu |
 | **Hibrīds** (noklusējums) | Satelīta attēli ar uz tiem uzvilktiem ceļiem un apzīmējumiem                |
 
-Lapa „Karte” atveras režīmā **Hibrīds**. Jūsu izvēle tiek pārnesta uz pakalpojuma sniedzēja maiņu, ja pakalpojuma sniedzējs to atbalsta.***
+Lapa „Karte” atveras režīmā **Hibrīds**. Jūsu izvēle tiek pārnesta uz pakalpojuma sniedzēja maiņu, ja pakalpojuma sniedzējs to atbalsta.
+
+***
 
 ## Navigācija kartē
 
@@ -141,7 +145,9 @@ Lapa „Karte” atveras režīmā **Hibrīds**. Jūsu izvēle tiek pārnesta uz
 
 ### Karte ir tukša vai flīzes vairs neielādējas
 
-Flīžu piegādātāji ir tiešsaistes pakalpojumi. Ja flīzes vairs netiek saņemtas, pārbaudiet ierīces tīkla savienojumu, pēc tam mēģiniet mainīt piegādātāju. Ja bijāt ļoti tuvinājis attēlu, nospiediet **×** atjaunošanas pogu, lai atgrieztos pie normāla tuvinājuma līmeņa un ļautu kartē atkārtoti pieprasīt flīzes.***
+Flīžu piegādātāji ir tiešsaistes pakalpojumi. Ja flīzes vairs netiek saņemtas, pārbaudiet ierīces tīkla savienojumu, pēc tam mēģiniet mainīt piegādātāju. Ja bijāt ļoti tuvinājis attēlu, nospiediet **×** atjaunošanas pogu, lai atgrieztos pie normāla tuvinājuma līmeņa un ļautu kartē atkārtoti pieprasīt flīzes.
+
+***
 
 ## Saistītās lapas
 

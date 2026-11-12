@@ -170,7 +170,9 @@ chloros-cli daq pool-reboot --sensor-id daq-e-def330
 chloros-cli daq pool-update-firmware --sensor-id daq-e-def330
 ```
 
-`pool-info` parāda sensora programmaparatūru (un to, vai šajā Chloros versijā ir pieejama jaunāka versija), tā adresi un to, kā tā tika iegūta, saglabātos tīkla iestatījumus, ja tie atšķiras no pašreizējiem, ieslēgšanas datu plūsmu un PTP. `pool-set-network` pārstartē sensoru, lai piemērotu izmaiņas, un atkārtoti savieno to ar iepriekšējiem iestatījumiem; `--no-reboot` tos tikai saglabā. Šī datora tīklā ir jābūt statiskai adresei, citādi Chloros to noraida; `--force` to ignorē, taču tikai attiecībā uz datoru, kuram tiks piešķirta jauna adrese vai kurš tiks maršrutēts uz to. Pārstartēšana tiek noraidīta, kamēr sensors veic ierakstīšanu. `pool-update-firmware` ir GUI funkcijas **Update to \<version\>** ekvivalents komandrindai un veids, kā atjaunināt DAQ-E sistēmu Linux vidē, kurā nav GUI. Jaunums versijā 1.3.0.***
+`pool-info` parāda sensora programmaparatūru (un to, vai šajā Chloros versijā ir pieejama jaunāka versija), tā adresi un to, kā tā tika iegūta, saglabātos tīkla iestatījumus, ja tie atšķiras no pašreizējiem, ieslēgšanas datu plūsmu un PTP. `pool-set-network` pārstartē sensoru, lai piemērotu izmaiņas, un atkārtoti savieno to ar iepriekšējiem iestatījumiem; `--no-reboot` tos tikai saglabā. Šī datora tīklā ir jābūt statiskai adresei, citādi Chloros to noraida; `--force` to ignorē, taču tikai attiecībā uz datoru, kuram tiks piešķirta jauna adrese vai kurš tiks maršrutēts uz to. Pārstartēšana tiek noraidīta, kamēr sensors veic ierakstīšanu. `pool-update-firmware` ir GUI funkcijas **Update to \<version\>** ekvivalents komandrindai un veids, kā atjaunināt DAQ-E sistēmu Linux vidē, kurā nav GUI. Jaunums versijā 1.3.0.
+
+***
 
 ## Komandu kopsavilkums
 

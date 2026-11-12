@@ -62,7 +62,9 @@ output/
 * Uzņēmumu mape, kas saglabāta **bez** neapstrādāto attēlu importēšanas, tiek parādīta kā parasti, taču apstrāde to izlaiž un par to ziņo žurnālā. (CLI karodziņš `--input-level` šādā gadījumā var piespiest ieejas punktu — skatiet [CLI atsauci](../reference/cli-reference.md#what-a-captures-folder-looks-like).)
 * Sākot ar versiju 1.3.0, uzņemumu mape var saturēt arī `clamp_masks/` mapi (maskas katram pikselim starojuma un atstarošanas līmeņiem — skatiet [Izvades attēlu formātus](../output-image-formats.md#clamp-masks)). Maski nav ainas attēli, un Chloros to importēšanas laikā tās ignorē neatkarīgi no to atrašanās vietas.
 
-**„LATTICE hub” sesijas** importē tāpat: noklikšķiniet uz „Pievienot mapi” un norādiet no huba kopēto sesijas mapi (tajā ir `raw/` un `previews/`), kopā ar jebkuru DAQ-M `.csv` lejupvērsto datu žurnālu. Ja kameras vai DAQ kalibrācija vēl nav saglabāta jūsu datorā, Chloros to importēšanas laikā automātiski lejupielādē pēc sērijas numura (vienreiz nepieciešams interneta savienojums).***
+**„LATTICE hub” sesijas** importē tāpat: noklikšķiniet uz „Pievienot mapi” un norādiet no huba kopēto sesijas mapi (tajā ir `raw/` un `previews/`), kopā ar jebkuru DAQ-M `.csv` lejupvērsto datu žurnālu. Ja kameras vai DAQ kalibrācija vēl nav saglabāta jūsu datorā, Chloros to importēšanas laikā automātiski lejupielādē pēc sērijas numura (vienreiz nepieciešams interneta savienojums).
+
+***
 
 ## Failu pārlūka tabulas izpratne
 
@@ -103,7 +105,9 @@ Noklikšķinot uz pārslēgšanas pogas tabulas augšējā labajā stūrī, izv�
 
 * `.daq` un `.csv` faili parādās failu pārlūka sarakstā, bet tie nav attēli, uz kuriem var noklikšķināt — tie nodrošina lejupvērsto starojuma intensitāti atstarojuma kalibrēšanai.
 * Katrs importētais `.daq`/`.csv` failu tiek uzskaitīts sadaļā **Projekta iestatījumi → DAQ gaismas sensors**, kur varat pārskatīt katram failam piemēroto difuzora vāciņa korekciju. Skatīt [Projekta iestatījumu pielāgošana](adjusting-project-settings.md).
-* Ieraksti, kurus veicat cilnē **Gaismas sensori**, tiek automātiski pievienoti atvērtam projektam — manuāla importēšana nav nepieciešama.***
+* Ieraksti, kurus veicat cilnē **Gaismas sensori**, tiek automātiski pievienoti atvērtam projektam — manuāla importēšana nav nepieciešama.
+
+***
 
 ## Failu pārvaldība projektā
 
@@ -220,7 +224,9 @@ Ja jūsu projektā ir attēli no vairākām MAPIR kamerām:
 
 ### Atkārtoti atvērts projekts ziņo par trūkstošiem failiem
 
-Ja avota faili ir pārvietoti vai dzēsti kopš pēdējās reizes, kad projekts tika atvērts, Chloros norāda, **kuri**faili ir pazuduši, nevis atver tukšu rāsti. Ja ir pārvietota pati projekta mape, Chloros pārvirza avota ceļus uz mapi, kurā tagad atrodas „`project.json`”, un saglabā rezerves kopiju („`project.json.before-relink-<date>-<time>`”). Ja faili netiek atrasti, logā**Avota faili nav atrasti**tiek piedāvāta iespēja**Pārlūkot** jauno atrašanās vietu, pēc tam izvēlēties Jauns projekts vai Dzēst projektu. No CLI izmantojiet `chloros-cli project open PATH --relink FOLDER`; no SDK — `open_project(path, relink=...)`.***
+Ja avota faili ir pārvietoti vai dzēsti kopš pēdējās reizes, kad projekts tika atvērts, Chloros norāda, **kuri**faili ir pazuduši, nevis atver tukšu rāsti. Ja ir pārvietota pati projekta mape, Chloros pārvirza avota ceļus uz mapi, kurā tagad atrodas „`project.json`”, un saglabā rezerves kopiju („`project.json.before-relink-<date>-<time>`”). Ja faili netiek atrasti, logā**Avota faili nav atrasti**tiek piedāvāta iespēja**Pārlūkot** jauno atrašanās vietu, pēc tam izvēlēties Jauns projekts vai Dzēst projektu. No CLI izmantojiet `chloros-cli project open PATH --relink FOLDER`; no SDK — `open_project(path, relink=...)`.
+
+***
 
 ## Turpmākie soļi
 

@@ -34,7 +34,9 @@ kreisajā sānjoslā
 * **Opcijas**: `Default (512 px)`, `1024 px`, `2048 px`, `Full resolution`
 * **Noklusējums**: Noklusējums (512 pikseļi)
 * **Apraksts**: Izšķirtspēja (garākā mala, pikseļos), ar kādu tiek attēlotas attēlu režģa sīktēmas. Augstākas vērtības izskatās asākas, kad attēlu palielina, taču tās lādējas lēnāk un patērē vairāk atmiņas. Pilna izšķirtspēja atbilst sākotnējam attēla izmēram.
-* **Piezīme**: Tikai attēlošanai — tas nekad neietekmē apstrādi vai eksportētos failus.***
+* **Piezīme**: Tikai attēlošanai — tas nekad neietekmē apstrādi vai eksportētos failus.
+
+***
 
 ## Mērķa atpazīšana
 
@@ -184,7 +186,9 @@ Saglabātā vērtība tiek salīdzināta, neņemot vērā lielos un mazos burtus
   * Viena kamera + viens kontakts: 2. kontakts automātiski tiek iestatīts uz „Nelietot”
   * Viena kamera + divi kontakti: 2. kontakts automātiski tiek iestatīts uz „Nelietot”
   * Vairākas kameras: nepieciešama manuāla izvēle
-* **Piezīme**: Vienu un to pašu kameru nevar vienlaikus piešķirt gan 1. kontaktam, gan 2. kontaktam.***
+* **Piezīme**: Vienu un to pašu kameru nevar vienlaikus piešķirt gan 1. kontaktam, gan 2. kontaktam.
+
+***
 
 ## DAQ gaismas sensors
 
@@ -205,7 +209,9 @@ Katrā rindā ir norādīts fails, sensora modelis un difuzora vāciņa korekcij
 * **Apraksts**: `Auto` izmanto katra faila reģistrēto vāciņu (ja nekas nav reģistrēts, tiek pieņemts, ka izmantots „Sunshine” vāciņš, taču DAQ-U, DAQ-M un DAQ-E tiek piegādāti bez vāciņa, un Chloros nevar redzēt, kas ir uzstādīts, tāpēc apstrādes laikā tiek parādīts brīdinājums par pieņemto ierobežotāju: izvēlieties to ierobežotāju, kas bija uzstādīts). Konkrēta ierobežotāja izvēle pārraksta **visus** projekta lejupvērstos failus, izņemot DAQ-E-S failus, kuru difuzors ir daļa no kalibrācijas; projektā, kurā ir tikai DAQ-E-S, izvēlnes nav: neapstrādātie ieraksti tiek koriģēti ar to, un ierakstiem, kuriem jau ir piemērots vāciņš, tiek pārrēķināti atsauces punkti (ierakstītā korekcija tiek atcelta un tiek piemērota izvēlētā).
 * **Svarīgi**: Izvēlētajam vāciņam jāsakrīt ar to vāciņu, kas fiziski bija uzstādīts ierakstīšanas laikā. Ne sensors, ne programmatūra nevar noteikt fizisko vāciņu — neatbilstošs vāciņa ID spektrus koriģē nepareizi.
 
-Tīši ir paredzēts **viens** visam projektam kopīgs iestatījums, nevis izvēlnes katram failam atsevišķi: šis iestatījums attiecas uz visiem lejupvērstajiem avotiem projektā.***
+Tīši ir paredzēts **viens** visam projektam kopīgs iestatījums, nevis izvēlnes katram failam atsevišķi: šis iestatījums attiecas uz visiem lejupvērstajiem avotiem projektā.
+
+***
 
 ## Masīva saskaņošana
 

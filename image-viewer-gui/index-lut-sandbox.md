@@ -70,7 +70,9 @@ Pilnīgu formulu atsauci — visus trīs iepriekš iestatīto sarakstu un to, ku
 
 ### Ar atzīmētu indeksu, bet bez LUT
 
-Attēls tiek attēlots **pelēktoņu skalā**, izstiepts starp divām sliekšņa vērtībām. Tas ir apzināti: indeksa attēls ir skalāri dati, un pelēktoņu skala ir tā patiesā attēlošana. Pievienojiet LUT, ja vēlaties krāsu.***
+Attēls tiek attēlots **pelēktoņu skalā**, izstiepts starp divām sliekšņa vērtībām. Tas ir apzināti: indeksa attēls ir skalāri dati, un pelēktoņu skala ir tā patiesā attēlošana. Pievienojiet LUT, ja vēlaties krāsu.
+
+***
 
 ## Darbs ar LUT (meklēšanas tabulām)**Meklēšanas tabula** saista indeksa vērtības ar krāsām: ievadiet NDVI 0,65, rezultātā iegūsiet konkrētu zaļo krāsu. Tā nemaina datus — tā maina to, kā jūs tos interpretējat.
 
@@ -134,7 +136,9 @@ Piemērs NDVI logiem:
 | Tikai veselīga veģetācija                 | 0,5  | 0,9 |
 | Izcelt stresa pazīmes                        | 0,2  | 0,5 |
 
-Logu sašaurinot, palielinās kontrasts jūsu interesējošajā apgabalā, un viss pārējais tiek izstumts ārpus diapazona — tur **apgriešanas režīms** nosaka, kas ar to notiek.***
+Logu sašaurinot, palielinās kontrasts jūsu interesējošajā apgabalā, un viss pārējais tiek izstumts ārpus diapazona — tur **apgriešanas režīms** nosaka, kas ar to notiek.
+
+***
 
 ## Apgriešanas režīmi
 

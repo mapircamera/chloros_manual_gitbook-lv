@@ -196,7 +196,9 @@ Lai iegūtu kvantitatīvus starojuma intensitātes rādītājus, aprēķiniet vi
 
 * Apvienojiet vairākus sensorus vienā diagrammā (kopīgas ass), saglabājiet atsevišķas diagrammas (automātisks režģa izkārtojums), pārvietojiet sensorus starp diagrammām, pārvelciet un pārkārtojiet rindas/flīzes, kā arī paslēpiet atsevišķus sensorus, izmantojot acs ikonu.
 * Katram projektam Chloros saglabā: ierīču nosaukumus, diagrammu krāsas, diagrammas izmēru, skatīšanas režīmu un katra sensora iestatījumus (integrācijas laiku, kadru vidējošanu, AE stāvokli, vāciņa izvēli).
-* **Atverot projektu no jauna, tā sensori automātiski atkal savienojas** pēc adreses — COM ports DAQ-U gadījumā, BLE ierīce DAQ-M gadījumā, mDNS uzņēmuma nosaukums DAQ-E gadījumā (tiek atrisināts pat tad, ja ierīces IP adrese ir mainījusies) — un atkārtoti piemēro katra sensora saglabāto vāciņa profilu, kadru vidējošanu, AE stāvokli un manuālo integrācijas laiku.***
+* **Atverot projektu no jauna, tā sensori automātiski atkal savienojas** pēc adreses — COM ports DAQ-U gadījumā, BLE ierīce DAQ-M gadījumā, mDNS uzņēmuma nosaukums DAQ-E gadījumā (tiek atrisināts pat tad, ja ierīces IP adrese ir mainījusies) — un atkārtoti piemēro katra sensora saglabāto vāciņa profilu, kadru vidējošanu, AE stāvokli un manuālo integrācijas laiku.
+
+***
 
 ## Kameras pārošana (DLS)
 

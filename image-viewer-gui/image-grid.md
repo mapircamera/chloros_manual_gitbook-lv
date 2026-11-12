@@ -10,7 +10,9 @@ Lai pielāgotu attēlu sīktēlu izmēru, izmantojiet palielināšanas slideri l
 * **Ctrl + `+`**/**Ctrl + `=`**un**Ctrl + `−`** maina izmēru par 4 pikseļiem katrā nospiedienā. Tastatūras komandas diapazons sākas no 64 pikseļiem mazākajā galā un beidzas ar izmēru, kas precīzi ietilpst divām sīktēliem vienā rindā pašreizējā logā.
 * Izvēlētais izmērs tiek saglabāts kopā ar projektu (`UI → Grid thumbnail size` līdz `project.json`, noklusējums — `160`), tādējādi, atverot projektu no jauna, tas tiek atjaunots.
 
-<figure><img src="../.gitbook/assets/chloros_grid_zoom.gif" alt=""><figcaption></figcaption></figure>Sīktēla *izšķirtspēja* ir atsevišķs iestatījums no sīktēla *izmēra*: skatiet **Ekrāns → Attēla sīktēla izšķirtspēja** sadaļā [Projekta iestatījumi](../project-settings/project-settings.md) (noklusējuma vērtība — 512 pikseļi garajā malā). Izmērs nosaka, cik liela tiek attēlota flīze; izšķirtspēja nosaka, cik daudz detaļu tiek ielādētas, lai to aizpildītu.***
+<figure><img src="../.gitbook/assets/chloros_grid_zoom.gif" alt=""><figcaption></figcaption></figure>Sīktēla *izšķirtspēja* ir atsevišķs iestatījums no sīktēla *izmēra*: skatiet **Ekrāns → Attēla sīktēla izšķirtspēja** sadaļā [Projekta iestatījumi](../project-settings/project-settings.md) (noklusējuma vērtība — 512 pikseļi garajā malā). Izmērs nosaka, cik liela tiek attēlota flīze; izšķirtspēja nosaka, cik daudz detaļu tiek ielādētas, lai to aizpildītu.
+
+***
 
 ## Tīkla rīkjosla
 
